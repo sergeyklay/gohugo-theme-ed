@@ -8,5 +8,10 @@ features = ["posts"]
 min_version = "0.64.0"
 
 [author]
-  name = "Serghei Iakovlev"
-  homepage = "https://serghei.blog/"
+    name = "Serghei Iakovlev"
+    homepage = "https://serghei.blog"
+
+[original]
+    author = "Alex Gil"
+    homepage = "https://www.elotroalex.com"
+    repo = "https://github.com/minicomp/ed"
