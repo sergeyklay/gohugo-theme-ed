@@ -1,0 +1,12 @@
+name = "Ed"
+license = "MIT"
+licenselink = "https://github.com/sergeyklay/gohugo-theme-ed/blob/master/LICENSE"
+description = "Ported from Jekyll Ed theme for minimal editions"
+homepage = "https://github.com/sergeyklay/gohugo-theme-ed"
+tags = ["hugo", "theme", "minimal", "ed"]
+features = ["posts"]
+min_version = "0.64.0"
+
+[author]
+  name = "Serghei Iakovlev"
+  homepage = "https://serghei.blog/"
