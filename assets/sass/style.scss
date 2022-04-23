@@ -1,0 +1,24 @@
+/*
+  Common Variables
+
+  Feel free to change!
+*/
+
+/* Fonts */
+$main-font: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+$heading-font: sans-serif;
+$regular-font-size: 1.25em; /* 20px / 16px = 1.25em; support text resizing in all browsers */
+
+
+/*
+  Color
+
+  Make sure to leave color_scheme in `config.toml` file empty for granular control
+*/
+
+$text-color: #454545;
+$heading-color: #404040;
+$link-color: #841212;
+
+@import "ed";
+@import "syntax";

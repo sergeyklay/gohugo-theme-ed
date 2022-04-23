@@ -46,4 +46,9 @@
     <meta name="description" content="{{ $description }}">
     <meta property="og:description" content="{{ .Site.Params.Description }}">
     <meta property="og:type" content="website">
+
+    <!-- CSS link -->
+    {{ $sass := resources.Get "sass/style.scss" -}}
+    {{ $style := $sass | resources.ToCSS | resources.Minify | resources.Fingerprint -}}
+    <link rel="stylesheet" href="{{ $style.RelPermalink }}">
 </head>
