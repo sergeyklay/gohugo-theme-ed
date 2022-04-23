@@ -9,11 +9,11 @@ A theme for [Hugo](http://gohugo.io), a framework for building websites.
 baseURL = 'http://example.org/'
 languageCode = 'en-us'
 title = 'Ed.'
-theme = "ed"
+theme = 'ed'
 
 # Used in authorbox
 [Author]
-  name = "John Doe"
+  name = 'John Doe'
 
 [Params]
     # Site description. Used in meta description
