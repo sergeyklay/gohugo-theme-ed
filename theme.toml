@@ -1,7 +1,7 @@
 name = "Ed"
 license = "MIT"
 licenselink = "https://github.com/sergeyklay/gohugo-theme-ed/blob/master/LICENSE"
-description = "Ported from Jekyll Ed theme for minimal editions"
+description = "Ed theme for minimal editions"
 homepage = "https://github.com/sergeyklay/gohugo-theme-ed"
 tags = ["hugo", "theme", "minimal", "ed"]
 features = ["posts"]
