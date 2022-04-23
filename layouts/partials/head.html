@@ -1,0 +1,15 @@
+<head prefix="og: http://ogp.me/ns#; dc: http://purl.org/dc/terms/#">
+    {{ $resource_url := print .Site.BaseURL | safeURL }}
+    <!-- Basic meta elements -->
+    <meta charset="utf-8">
+
+    <!-- Enable responsiveness on mobile devices -->
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,shrink-to-fit=no" />
+
+    <!-- Canonical link to help search engines -->
+    <link rel="canonical" href="{{ $resource_url }}">
+
+    {{ $title := print .Site.Title " | " .Title }}
+    {{ if .IsHome }}{{ $title = .Site.Title }}{{ end }}
+    <title>{{ $title }}</title>
+</head>
