@@ -55,4 +55,9 @@
     <!-- Icons -->
     <link rel="apple-touch-icon-precomposed" sizes="180x180" href="{{ "apple-touch-icon-precomposed.png" | relURL }}">
     <link rel="shortcut icon" href="{{ "favicon.ico" | relURL }}">
+
+    <!-- RSS -->
+    {{- with .OutputFormats.Get "rss" }}
+    {{ printf `<link rel="%s" type="%s" href="%s" title="%s">` .Rel .MediaType.Type .RelPermalink $.Site.Title | safeHTML }}
+    {{- end }}
 </head>
