@@ -2,6 +2,12 @@
 <html lang="{{ .Site.Language.Lang }}">
     {{- partial "head.html" . -}}
     <body class="theme-base-{{ .Site.Params.color_scheme }}">
+        <!-- This if statement decides which sidebar to use -->
+        {{- if .Params.toc -}}
+            {{- partial "sidebar-toc.html" . -}}
+        {{- else -}}
+            {{- partial "sidebar.html" . -}}
+        {{- end -}}
 
     </body>
 </html>
