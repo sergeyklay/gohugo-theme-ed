@@ -34,4 +34,12 @@ theme = 'ed'
     name = "Tags"
     url = "/tags/"
     weight = 2
+  [[menu.nav]]
+    name = "Documentation"
+    url = "/documentation/"
+    weight = 3
+  [[menu.nav]]
+    name = "About"
+    url = "/about/"
+    weight = 4
 ```
