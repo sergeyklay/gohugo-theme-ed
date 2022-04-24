@@ -1,0 +1,33 @@
+{{- /* Target for toggling the sidebar `.sidebar-checkbox` is for regular styles, `#sidebar-checkbox` for behavior. */ -}}
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<aside class="sidebar" id="sidebar">
+    <div class="sidebar-item">
+        <p>{{- .Site.Params.Description -}}</p>
+    </div>
+
+    <nav class="sidebar-nav">
+        <a class="sidebar-nav-item{{- if .IsHome }} active{{ end -}}" href="{{ .Site.BaseURL }}">Home</a>
+
+        {{- $current := . }}
+        {{- /* TODO: Render items dynamically */}}
+        {{- range .Site.Menus.nav }}
+        {{- $active := or ($current.IsMenuCurrent "nav" .) ($current.HasMenuCurrent "nav" .) }}
+        {{- $active = or $active (eq .Name $current.Title) }}
+        <a class="sidebar-nav-item {{ if $active }}active{{ end }}" href="{{ .URL }}">
+            {{- $text := print .Name | safeHTML -}}
+            {{- $text -}}
+        </a>
+        {{- end -}}
+        {{/* TODO: Add hypothesis support */}}
+        <a class="sidebar-nav-item" href="{{ .Site.Params.github_url }}" target="_blank">GitHub project</a>
+    </nav>
+
+    <div class="sidebar-item">
+        <p>
+            Built with <a href="https://github.com/sergeyklay/gohugo-theme-ed" target="_blank">Ed.</a>
+            Distributed under an MIT license.
+        </p>
+    </div>
+</aside>
