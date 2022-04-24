@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ .Site.Language.Lang }}">
+<html lang="{{ site.LanguageCode | default site.Language.Lang }}" dir="{{ site.Language.LanguageDirection | default "ltr" }}">
     {{- partial "head.html" . -}}
     <body class="theme-base-{{ .Site.Params.color_scheme }}">
         <!-- This if statement decides which sidebar to use -->
