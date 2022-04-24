@@ -22,18 +22,16 @@ theme = 'ed'
     color_scheme = ''
     # Github project url. Used in sidebar
     github_url = 'https://github.com/user/project'
+    # Used in header
+    tagline = 'a Hugo theme for minimal editions'
 
 [menu]
   [[menu.nav]]
-    name = "Home"
-    url = "/"
-    weight = 1
-  [[menu.nav]]
     name = "Posts"
     url = "/posts/"
-    weight = 2
+    weight = 1
   [[menu.nav]]
     name = "Tags"
     url = "/tags/"
-    weight = 3
+    weight = 2
 ```
