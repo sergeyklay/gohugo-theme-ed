@@ -51,4 +51,8 @@
     {{ $sass := resources.Get "sass/style.scss" -}}
     {{ $style := $sass | resources.ToCSS | resources.Minify | resources.Fingerprint -}}
     <link rel="stylesheet" href="{{ $style.RelPermalink }}">
+
+    <!-- Icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="180x180" href="{{ "apple-touch-icon-precomposed.png" | relURL }}">
+    <link rel="shortcut icon" href="{{ "favicon.ico" | relURL }}">
 </head>
