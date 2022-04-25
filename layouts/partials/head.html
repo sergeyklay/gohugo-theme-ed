@@ -27,7 +27,7 @@
     <meta property="dc:creator" content="{{ $author }}">
     <meta property="dc:identifier" content="{{ .Permalink }}">
     {{- if .Params.editor }}<meta property="dc:contributor" content="{{ .Params.editor }}">{{ end }}
-    {{- if .Params.pub_date }}<meta property="dc:date" content="{{ .Params.pub_date }}">{{ end }}
+    {{- if .Params.date }}<meta property="dc:date" content="{{ .Params.date }}">{{ end }}
     {{- if .Params.rights }}<meta property="dc:rights" content="{{ .Params.rights }}">{{ end }}
     <meta property="dc:source" content="{{ if .Params.source }}{{ .Params.source }}{{ else }}{{ .Site.Title }}{{ end }}">
 
