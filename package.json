@@ -30,7 +30,8 @@
     "url": "git+https://github.com/sergeyklay/gohugo-theme-ed.git"
   },
   "scripts": {
-    "deploy": " cd exampleSite; hugo;",
+    "deploy": "cd exampleSite; hugo;",
+    "server": "cd exampleSite; hugo server -D --disableFastRender",
     "lint:editorconfig": "editorconfig-checker",
     "lint:js": "eslint static/js/*.js",
     "lint": "npm run lint:js && npm run lint:editorconfig"

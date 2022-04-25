@@ -7,4 +7,7 @@
 
 # Directories to ignore (do not add trailing '/'s, they skip symlinks).
 /node_modules/
-/exampleSite/resources/
+resources/
+public/
+
+.hugo_build.lock
