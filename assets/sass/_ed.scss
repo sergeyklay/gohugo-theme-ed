@@ -25,7 +25,7 @@
 
 * {
     -webkit-box-sizing: border-box;
-       -moz-box-sizing: border-box;
+       -moz-box-sizing: border-box; // editorconfig-checker-disable-line
             box-sizing: border-box;
   }
 
@@ -504,7 +504,7 @@
 
 
   /*
-   ED special layouts
+    ED special layouts
   */
 
   p.centered {

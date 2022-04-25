@@ -2,29 +2,33 @@
   "author": "Serghei Iakovlev",
   "bugs": {
     "url": "https://github.com/sergeyklay/gohugo-theme-ed/issues"
-   },
+  },
   "comments": {
     "dependencies": {},
     "devDependencies": {}
   },
   "dependencies": {},
   "description": "Ed theme for minimal editions",
-  "devDependencies": {},
+  "devDependencies": {
+    "editorconfig-checker": "^4.0.2"
+  },
   "homepage": "https://github.com/sergeyklay/gohugo-theme-ed#readme",
   "keywords": [
     "hugo",
     "theme",
     "minimal"
-   ],
+  ],
   "license": "MIT",
   "main": "index.js",
   "name": "gohugo-theme-ed",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/sergeyklay/gohugo-theme-ed.git"
-   },
-   "scripts": {
-    "deploy": " cd exampleSite; hugo;"
-   },
+  },
+  "scripts": {
+    "deploy": " cd exampleSite; hugo;",
+    "lint:editorconfig": "editorconfig-checker",
+    "lint": "npm run lint:editorconfig"
+  },
   "version": "0.1.0"
 }
