@@ -10,7 +10,11 @@
   "dependencies": {},
   "description": "Ed theme for minimal editions",
   "devDependencies": {
-    "editorconfig-checker": "^4.0.2"
+    "editorconfig-checker": "^4.0.2",
+    "eslint": "^8.6.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.25.4",
+    "eslint-plugin-node": "^11.1.0"
   },
   "homepage": "https://github.com/sergeyklay/gohugo-theme-ed#readme",
   "keywords": [
@@ -28,7 +32,8 @@
   "scripts": {
     "deploy": " cd exampleSite; hugo;",
     "lint:editorconfig": "editorconfig-checker",
-    "lint": "npm run lint:editorconfig"
+    "lint:js": "eslint static/js/*.js",
+    "lint": "npm run lint:js && npm run lint:editorconfig"
   },
   "version": "0.1.0"
 }
