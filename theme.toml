@@ -1,7 +1,7 @@
 name = "Ed"
 license = "MIT"
 licenselink = "https://github.com/sergeyklay/gohugo-theme-ed/blob/master/LICENSE"
-description = "Ed theme for minimal editions"
+description = "Ed theme for minimal editions, based on Alex Gil theme"
 homepage = "https://github.com/sergeyklay/gohugo-theme-ed"
 tags = ["blog", "responsive", "light", "customizable", "minimal", "ed"]
 features = ["posts"]
