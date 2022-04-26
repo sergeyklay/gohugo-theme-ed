@@ -1,11 +1,11 @@
 # Ed
 
-Ed is a [Hugo](http://gohugo.io) theme designed for textual editors based on
-[minimal computing](http://go-dh.github.io/mincomp/) principles, and focused on legibility,
+Ed is a [Hugo][hugo] theme designed for textual editors based on
+[minimal computing][mincomp] principles, and focused on legibility,
 durability, ease and flexibility.
 
-This theme is adopted from [Jekyll](https://jekyllrb.com/) [Ed](https://github.com/minicomp/ed) theme
-by [Alex Gil](https://twitter.com/elotroalex).
+This theme is adopted from [Jekyll](https://jekyllrb.com/) [Ed][ed-original] theme
+by [Alex Gil][gil-twitter].
 
 ## Introduction
 
@@ -27,47 +27,35 @@ useful type of editions for editors and readers. An edition produced with Ed con
 pages whose rate of decay is substantially lower than database-driven systems. As an added bonus,
 these static pages require less bandwidth. Our hope is that our approach can help beginners and
 veterans deploy beautiful editions with less effort, and that it can help us teach a 'full stack'
-[in one academic semester](https://github.com/susannalles/MinimalEditions/blob/master/README.md),
-while allowing us to care for our projects at less cost, and perhaps, just perhaps, to generate
-high-quality editions on github.io in large quantities based on the
-[git-lit](http://jonreeve.com/2015/09/introducing-git-lit/) model by Jonathan Reeve. We're coming
-for you, Kindle!
+[in one academic semester][minimal-editions], while allowing us to care for our projects at less
+cost, and perhaps, just perhaps, to generate high-quality editions on github.io in large quantities
+based on the [git-lit][git-lit] model by Jonathan Reeve. We're coming for you, Kindle!
 
-## Configuration
+## Features
 
-### `config.toml` example
+- Responsive
+- Accessible
 
-```toml
-baseURL = 'http://example.org/'
-languageCode = 'en-us'
-title = 'Ed.'
-theme = 'ed'
+## Getting started
 
-# Used in authorbox
-[Author]
-  name = 'John Doe'
+### The config file
 
-[Params]
-    # Site description. Used in meta description
-    description = 'Ed is a Hugo theme designed for textual editors based on minimal computing principles, and focused on legibility and flexibility.'
-    # Color scheme. Options: red, orange, magenta, cyan, blue, brown
-    color_scheme = ''
-    # Github project url. Used in sidebar
-    github_url = 'https://github.com/user/project'
-    # Used in header
-    tagline = 'a Hugo theme for minimal editions'
+Take a look inside the [`exampleSite`][example-site] folder of this theme.
+You'll find a file called [`config.toml`][config-sample]. To use it, copy the
+[`config.toml`][config-sample] in the root folder of your Hugo site. Feel
+free to change the strings in this theme.
 
-[menu]
-  [[menu.nav]]
-    name = "About"
-    url = "/about/"
-    weight = 1
-  [[menu.nav]]
-    name = "Credits"
-    url = "/credits/"
-    weight = 2
-  [[menu.nav]]
-    name = "Documentation"
-    url = "/documentation/"
-    weight = 3
-```
+You may need to delete the line: `resourceDir = "../resources"`.
+
+## License
+
+Ed licensed under the MIT License. See the [LICENSE](./LICENSE) file for more information.
+
+[hugo]: http://gohugo.io
+[mincomp]: http://go-dh.github.io/mincomp/
+[ed-original]: https://github.com/minicomp/ed
+[gil-twitter]: https://twitter.com/elotroalex
+[minimal-editions]: https://github.com/susannalles/MinimalEditions/blob/master/README.md
+[git-lit]: http://jonreeve.com/2015/09/introducing-git-lit/
+[example-site]: https://github.com/sergeyklay/gohugo-theme-ed/tree/master/exampleSite
+[config-sample]: https://github.com/sergeyklay/gohugo-theme-ed/blob/master/exampleSite/config.toml
