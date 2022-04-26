@@ -1,7 +1,4 @@
 <head prefix="og: http://ogp.me/ns#; dc: http://purl.org/dc/terms/#">
-    {{- $title := print .Title -}}
-    {{- if .IsHome }}{{ $title = .Site.Title }}{{ end -}}
-
     {{- $description := print .Params.Description -}}
     {{- if or .IsHome (eq .Params.Description "") (not .Params.Description) -}}
         {{ $description = .Site.Params.Description }}
@@ -18,12 +15,12 @@
     <!-- Canonical link to help search engines -->
     <link rel="canonical" href="{{ .Permalink }}">
 
-    <title>{{ $title }}</title>
+    <title>{{ block "title" . }}{{ with .Params.Title }}{{ . }} - {{ end }}{{ .Site.Title }}{{ end }}</title>
     <meta name="description" content="{{ $description }}">
     {{ hugo.Generator }}
 
     <!-- Dublin Core metadata for Zotero -->
-    <meta property="dc:title" content="{{ $title }}">
+    <meta property="dc:title" content="{{ .Title }}">
     <meta property="dc:creator" content="{{ $author }}">
     <meta property="dc:identifier" content="{{ .Permalink }}">
     {{- if .Params.editor }}<meta property="dc:contributor" content="{{ .Params.editor }}">{{ end }}
@@ -32,7 +29,7 @@
     <meta property="dc:source" content="{{ if .Params.source }}{{ .Params.source }}{{ else }}{{ .Site.Title }}{{ end }}">
 
     <!-- Open Graph metadata -->
-    <meta property="og:title" content="{{ $title }}">
+    <meta property="og:title" content="{{ .Title }}">
     <meta property="og:url" content="{{ .Permalink }}">
     <meta property="og:image" content="{{ .Site.BaseURL | safeURL }}{{ "img/open-graph-logo.png" }}">
     <meta property="og:image:width" content="200">
