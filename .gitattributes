@@ -1,0 +1,15 @@
+# Auto-detect text files, ensure they use LF.
+* text=auto eol=lf
+
+.ecrc             export-ignore diff=json linguist-language=JSON
+.editorconfig     export-ignore linguist-language=INI
+.eslintrc         export-ignore diff=json linguist-language=JSON
+.gitattributes    export-ignore
+.github           export-ignore
+
+go.mod            export-ignore
+go.sum            export-ignore
+
+*.md              linguist-detectable=true linguist-documentation=false
+
+resources/_gen/** linguist-vendored
