@@ -15,9 +15,8 @@
 go.mod            export-ignore
 go.sum            export-ignore
 
-*.md              linguist-detectable=true linguist-documentation=false
-
+exampleSite/**    linguist-vendored
 resources/_gen/** linguist-vendored
 
 LICENSE           text eol=lf
-README.md         linguist-detectable=false linguist-documentation=true
+README.md         text eol=lf
