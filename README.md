@@ -59,19 +59,15 @@ theme = 'ed'
 
 [menu]
   [[menu.nav]]
-    name = "Posts"
-    url = "/posts/"
+    name = "About"
+    url = "/about/"
     weight = 1
   [[menu.nav]]
-    name = "Tags"
-    url = "/tags/"
+    name = "Credits"
+    url = "/credits/"
     weight = 2
   [[menu.nav]]
     name = "Documentation"
     url = "/documentation/"
     weight = 3
-  [[menu.nav]]
-    name = "About"
-    url = "/about/"
-    weight = 4
 ```
