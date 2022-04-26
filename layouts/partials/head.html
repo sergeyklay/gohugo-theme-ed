@@ -6,15 +6,10 @@
 
     {{- $author := print .Site.Author.name -}}
     {{- if .Params.author -}}{{ $author = .Params.author }}{{- end -}}
-    <!-- Basic meta elements -->
     <meta charset="utf-8">
-
-    <!-- Enable responsiveness on mobile devices -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width,initial-scale=1.0,shrink-to-fit=no">
-
-    <!-- Canonical link to help search engines -->
     <link rel="canonical" href="{{ .Permalink }}">
-
     <title>{{ block "title" . }}{{ with .Params.Title }}{{ . }} - {{ end }}{{ .Site.Title }}{{ end }}</title>
     <meta name="description" content="{{ $description }}">
     {{ hugo.Generator }}
