@@ -1,0 +1,3 @@
+{{- $sass := resources.Get "sass/style.scss" -}}
+{{- $style := $sass | resources.ToCSS | resources.Minify | resources.Fingerprint -}}
+<link rel="stylesheet" href="{{ $style.RelPermalink }}">
