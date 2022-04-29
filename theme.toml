@@ -6,8 +6,8 @@ description = "Ed theme for minimal editions, based on Alex Gil theme"
 # The home page of the theme, where the source can be found.
 homepage = "https://github.com/sergeyklay/gohugo-theme-ed"
 
-# TODO: If you have a running demo of the theme.
-# demosite = "https://gohugo.io"
+# If you have a running demo of the theme.
+demosite = "https://sergeyklay.github.io/gohugo-theme-ed/"
 
 tags = [
   "blog",
@@ -30,7 +30,13 @@ features = [
   # "opengraph",
   # "favicon",
   # "archive",
-  # "search"
+  # "search",
+  # "clean",
+  # "simple",
+  # "feed",
+  # "minimal",
+  # "minimalist",
+  # "mobile"
 ]
 
 min_version = "0.84.0"
