@@ -61,14 +61,13 @@ Copy the url from your terminal log and paste it into your browser of choice. Th
 
 ---
 
+## Hugo
 
-## Jekyll
+Ed is a Hugo theme. That means you will need some familiarity with Hugo to take advantage of its full potential. While running a Hugo site is a bit more involved than Wordpress and other similar tools, the payoff in the long term is worth the effort to learn it. If you are new to Hugo, I recommend you take a look at [A Guide to Using Hugo](https://strapi.io/blog/guide-to-using-hugo-site-generator) at *Strapi*, [Host on GitHub](https://gohugo.io/hosting-and-deployment/hosting-on-github/) on *Hugo Documentation Site* and [Hugo's own documentation](https://gohugo.io/documentation/) to start getting a sense of how it works.
 
-Ed is a Jekyll theme. That means you will need some familiarity with Jekyll to take advantage of its full potential. While running a Jekyll site is a bit more involved than Wordpress and other similar tools, the payoff in the long term is worth the effort to learn it. If you are new to Jekyll, I recommend you take a look at ["How (and Why) to Generate a Static Website Using Jekyll"](http://chronicle.com/blogs/profhacker/jekyll1/60913) at ProfHacker, Amanda Visconti's excellent [Building a static website with Jekyll and GitHub Pages](http://programminghistorian.org/lessons/building-static-sites-with-jekyll-github-pages) on *The Programming Historian* and [Jekyll's own documentation](http://jekyllrb.com/) to start getting a sense of how it works.
+Once you have gone through these tutorials, you can get started using Ed. Remember to always and only edit content files for your site using [a plain text editor](https://en.wikipedia.org/wiki/Text_editor), and *not* a word processor. I'm composing this file using a plain text editor called [Visual Studio Code](https://code.visualstudio.com/).
 
-Once you have gone through these tutorials, you can get started using Ed by replacing the sample texts included in in the `_texts` folder in Ed with your own edited texts. Remember to always and only edit files in Ed using [a plain text editor](https://en.wikipedia.org/wiki/Text_editor), and *not* a word processor. I'm composing this file using a plain text editor called [Sublime Text](http://www.sublimetext.com/).
-
-An easy way to make new texts is to copy an existing text, replace the content and rename the file. Remember to always use the jekyll convention for naming files: `your-title.md`. You should also make sure that all your texts have the YAML front matter (the information at the top of the file). YAML stands for "YAML Ain't Markup Language"---no disrespect to XML---and it's the main way that Jekyll handles named data. Here's an example of YAML front matter:
+Remember to always use the Hugo convention for naming files: `your-title.md`. You should also make sure that all your texts have the YAML front matter (the information at the top of the file). YAML stands for "YAML Ain't Markup Language"---no disrespect to XML---and it's the main way that Hugo handles named data. Here's an example of YAML front matter:
 
 ~~~ yaml
 ---
@@ -77,8 +76,6 @@ title: "Cahier d'un retour au pays natal"
 author: Aimé Césaire
 ---
 ~~~
-
-Besides replacing content and creating new texts, you will probably  want to edit the `_config.yml` file to replace the boilerplate information we provided with your own personalized information in the relevant categories. Avoid replacing the information in categories that are not clear to you. Make sure to use proper YAML formatting when writing in the `_config.yml` file. Here's [a good reference source](http://docs.ansible.com/ansible/YAMLSyntax.html) in case you have doubts.
 
 ---
 
@@ -321,7 +318,7 @@ $ rake ed:publish
 - Make sure to add horizontal rules, `---`, to separate sections in your texts. This creates a more pleasant layout.
 - You can clean unnecessary folders and files from the original Ed package before publishing your site. This will help you reduce overhead. For example, you can erase this page, the sample texts and the `syntax.css` file (used for styling code).
 - Consider providing tips for your readers on how to make their font bigger or smaller by taking advantage of <kbd>Command</kbd> + <kbd>+</kbd> and <kbd>Command</kbd> + <kbd>-</kbd>. Or returning to the top of the page using <kbd>Command</kbd> + <kbd>Up Arrow</kbd>. Part of the philosophy behind Ed is to avoid duplicating features that are already easily available in most web ecosystems.
-- If you want to allow annotations on your site, consider providing a `via.hypothes.is` link. Our sample site can be annotated, for example, using the following link: `https://via.hypothes.is/http://minicomp.github.io/ed/`, which readers can access on the sidebar. Once you've indicated your own URL in the config file, the link will update automatically. Make sure to visit [hypothes.is](https://hypothes.is/) to learn more.
+- If you want to allow annotations on your site, consider providing a `via.hypothes.is` link. Our sample site can be annotated, for example, using the following link: `https://via.hypothes.is/https://sergeyklay.github.io/gohugo-theme-ed/`, which readers can access on the sidebar. Once you've indicated your own URL in the config file, the link will update automatically. Make sure to visit [hypothes.is](https://hypothes.is/) to learn more.
 - Ed includes metadata in the headers that makes it easier for users of Zotero, and other systems to grab bibliographic information for the site and individual texts. Our metadata functionality may not be enough to generate a full proper citation. Consider providing visible citation information in your about page or homepage.
 - Make sure to deepen your knowledge of the building blocks of Ed: Jekyll, YAML and Liquid. A great list of resources can be found in the blog "[Jekyll for Web Designers](http://jameswillweb.github.io/jekyll-for-designers/resources.html)".
 - Our base themes Poole/Lanyon allow for easily customization of the interface. You can, for example, switch the position of the sidebar, change the theme colors and overlay options. To learn more check out the [Lanyon documentation](https://github.com/poole/lanyon#themes), and make sure to try the green, `.theme-base-0b`, it's really nice.
@@ -373,7 +370,7 @@ Once you are using that branch, you are ready to publish your site. To do so use
 $ git push origin gh-pages
 ~~~
 
-You can now access your site using an address that looks like `http://your-username.github.io/your-project-name`. The sample page for Ed, for example, is hosted at [minicomp.github.io/ed](http://minicomp.github.io/ed).
+You can now access your site using an address that looks like `http://your-username.github.io/your-project-name`. The sample page for Ed, for example, is hosted at [sergeyklay.github.io/gohugo-theme-ed](https://sergeyklay.github.io/gohugo-theme-ed/).
 
 **<span id="a-note-on-your-base-url">A note on your base url</span>**
 
@@ -391,8 +388,8 @@ That should do it. If you have suggestions on how to improve Ed, make sure to le
 
 Happy editing!
 
-Alex Gil
-April 2016
-
 Serghei Iakovlev
 April 2022
+
+Alex Gil
+April 2016
