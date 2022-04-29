@@ -33,7 +33,7 @@ jobs:
           extended: true
 
       - name: Build local ./exampleSite
-        run: hugo --minify --gc --buildDrafts --verbose --destination ../public --source ./exampleSite --baseURL https://sergeyklay.github.io/gohugo-theme-ed/
+        run: hugo --minify --gc --destination ../public --source ./exampleSite --baseURL https://sergeyklay.github.io/gohugo-theme-ed/
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
