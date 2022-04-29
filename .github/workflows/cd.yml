@@ -32,14 +32,12 @@ jobs:
           hugo-version: "${{ github.event.inputs.hugoVersion }}"
 
       - name: Build
-        run: hugo --source=exampleSite --buildDrafts --gc --verbose --minify
-
-      - name: Verify build
         run: |
-          ls -al ./exampleSite/public
+          hugo --source=exampleSite --buildDrafts --gc --verbose --minify
+          cp ./exampleSite/public ./docs
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./exampleSite/public
+          publish_dir: ./docs
