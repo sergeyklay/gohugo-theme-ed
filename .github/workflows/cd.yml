@@ -34,7 +34,7 @@ jobs:
       - name: Build
         run: |
           hugo --source=exampleSite --buildDrafts --gc --verbose --minify
-          cp ./exampleSite/public ./docs
+          cp -R ./exampleSite/public ./docs
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
