@@ -23,25 +23,25 @@ tags = [
 
 # The theme's features:
 features = [
-    # "blog",
-    # The theme should work smoothly on desktop as well as mobile browsers.
-    "responsive",
-    "posts"
-    # "opengraph",
-    # "favicon",
-    # "archive",
-    # "search"
+  # "blog",
+  # The theme should work smoothly on desktop as well as mobile browsers.
+  "responsive",
+  "posts"
+  # "opengraph",
+  # "favicon",
+  # "archive",
+  # "search"
 ]
 
 min_version = "0.84.0"
 
 # If the theme has a single author.
 [author]
-    name = "Serghei Iakovlev"
-    homepage = "https://serghei.blog"
+  name = "Serghei Iakovlev"
+  homepage = "https://serghei.blog"
 
 # If porting an existing theme.
 [original]
-    author = "Alex Gil"
-    homepage = "https://www.elotroalex.com"
-    repo = "https://github.com/minicomp/ed"
+  author = "Alex Gil"
+  homepage = "https://www.elotroalex.com"
+  repo = "https://github.com/minicomp/ed"
