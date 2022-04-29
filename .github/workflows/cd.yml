@@ -30,6 +30,7 @@ jobs:
         uses: peaceiris/actions-hugo@v2
         with:
           hugo-version: "${{ github.event.inputs.hugoVersion }}"
+          extended: true
 
       - name: Build local ./exampleSite
         run: hugo --minify --gc --buildDrafts --verbose --destination ../public --source ./exampleSite --baseURL https://sergeyklay.github.io/gohugo-theme-ed/
