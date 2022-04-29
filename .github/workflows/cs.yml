@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - master
+      - exampleSite
       - 'feature/**'
       - 'release/**'
       - 'fix/**'
