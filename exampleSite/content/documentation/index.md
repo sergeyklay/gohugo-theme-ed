@@ -81,7 +81,7 @@ author: Aimé Césaire
 
 ## Markdown and kramdown
 
-Ed is designed for scholars and amateur editors who want to produce either a clean reading edition or a scholarly annotated edition of a text. The main language we use to write in the Jekyll environment is called Markdown. To learn more about the Markdown family, see Dennis Tenen and Grant Wythoff's "[Sustainable Authorship in Plain Text using Pandoc and Markdown](http://programminghistorian.org/lessons/sustainable-authorship-in-plain-text-using-pandoc-and-markdown)."
+Ed is designed for scholars and amateur editors who want to produce either a clean reading edition or a scholarly annotated edition of a text. The main language we use to write in the Hugo environment is called Markdown. To learn more about the Markdown family, see Dennis Tenen and Grant Wythoff's "[Sustainable Authorship in Plain Text using Pandoc and Markdown](http://programminghistorian.org/lessons/sustainable-authorship-in-plain-text-using-pandoc-and-markdown)."
 
 Our version of Jekyll uses a special Markdown processor called kramdown. The processor can be said to use it's own 'flavor' of Markdown, and sometimes the Markdown syntax will be different than other flavors of Markdown. Kramdown is convenient for scholars because of the way it handles footnotes. You can become familiar with the kramdown syntax in the [kramdown documentation](http://kramdown.gettalong.org/syntax.html). Another way to become familiar is to examine the sample text source files we provided.
 
@@ -124,7 +124,6 @@ The example from Raisin in the Sun shows us that we don't need much special mark
 ## Footnotes
 
 Footnotes are the bread and butter of scholarship. Kramdown makes footnotes a fairly simple affair:
-
 
 ~~~
 - O Captain! my Captain! rise up and hear the bells;
