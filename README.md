@@ -62,7 +62,7 @@ information.
 
 [hugo]: http://gohugo.io
 [mincomp]: http://go-dh.github.io/mincomp/
-[screenshot]: https://github.com/sergeyklay/gohugo-theme-ed/blob/master/exampleSite/static/img/screenshot-home.png
+[screenshot]: https://raw.githubusercontent.com/sergeyklay/gohugo-theme-ed/master/exampleSite/content/documentation/screenshot-home.png
 [jekyll]: https://jekyllrb.com
 [ed-original]: https://github.com/minicomp/ed
 [gil-twitter]: https://twitter.com/elotroalex
