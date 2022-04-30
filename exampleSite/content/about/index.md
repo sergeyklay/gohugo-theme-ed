@@ -55,4 +55,4 @@ for you, Kindle!
 ## Installing and using Ed
 
 To learn how to install and begin using Ed, please visit our
-[documentation page](https://sergeyklay.github.io/gohugo-theme-ed/documentation/).
+[documentation page](documentation).

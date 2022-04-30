@@ -4,7 +4,7 @@ title: Credits
 
 ### [Serghei Iakovlev](https://www.linkedin.com/in/egrep/) | Software Engineer
 
-Serghei Iakovlev is a software engineer with 20 years of experience in IT who enjoys finding elegant solutions to non‐trivial problems. Serghei focused on the goal and driven by visual sophistication and laser‐sharp precision, he take pride in every finished project, and never stop learning along the way. Seghei work as the Head Of Development with 20 teams of 90+ engineers to develop [airSlate](https://airslate.com) ‐ better nocode workflow automation platform.
+Serghei Iakovlev is a software engineer with 20 years of experience in IT who enjoys finding elegant solutions to non‐trivial problems. Serghei focused on the goal and driven by visual sophistication and laser‐sharp precision, he take pride in every finished project, and never stop learning along the way. Seghei work as the Head Of Development with 20 teams of 90+ engineers to develop [airSlate](https://airslate.com) --- better nocode workflow automation platform.
 
 ### [Susanna Allés Torrent](http://susannalles.github.io/) | Hyper philologist
 

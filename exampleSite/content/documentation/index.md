@@ -67,7 +67,7 @@ Ed is a Hugo theme. That means you will need some familiarity with Hugo to take 
 
 Once you have gone through these tutorials, you can get started using Ed. Remember to always and only edit content files for your site using [a plain text editor](https://en.wikipedia.org/wiki/Text_editor), and *not* a word processor. I'm composing this file using a plain text editor called [Visual Studio Code](https://code.visualstudio.com/).
 
-Remember to always use the Hugo convention for naming files: `your-title.md`. You should also make sure that all your texts have the YAML front matter (the information at the top of the file). YAML stands for "YAML Ain't Markup Language"---no disrespect to XML---and it's the main way that Hugo handles named data. Here's an example of YAML front matter:
+Remember to always use the Hugo convention for naming files: `your-title.md`. You should also make sure that all your texts have the YAML front matter (the information at the top of the file). YAML stands for "YAML Ain't Markup Language" --- no disrespect to XML --- and it's the main way that Hugo handles named data. Here's an example of YAML front matter:
 
 ~~~ yaml
 ---
