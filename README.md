@@ -6,8 +6,8 @@ ease and flexibility.
 
 ![screenshot][]
 
-This theme is adopted from [Jekyll][jekyll] [Ed][ed-original] theme by
-[Alex Gil][gil-twitter].
+This theme is adopted and finalized with new functionality from
+[Jekyll][jekyll] [Ed][ed-original] theme by [Alex Gil][gil-twitter].
 
 ## Introduction
 
