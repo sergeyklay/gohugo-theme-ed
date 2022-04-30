@@ -5,21 +5,20 @@
         {{ $description = .Site.Params.Description }}
     {{- end -}}
 
-    {{- $author := print .Site.Author.name -}}
-    {{- if .Params.author -}}{{ $author = .Params.author }}{{- end }}
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width,initial-scale=1.0,shrink-to-fit=no">
 
     <link rel="canonical" href="{{ .Permalink }}">
 
-    <title>{{ block "title" . }}{{ with .Params.Title }}{{ . }} - {{ end }}{{ .Site.Title }}{{ end }}</title>
+    <title>{{ block "title" . }}{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ with .Params.Title }}{{ . }} - {{ end }}{{ .Site.Title }}{{ end }}{{ end }}</title>
     <meta name="description" content="{{ $description }}">
+    <meta name="author" content="{{ (partial "author.html" . ) }}">
     {{ hugo.Generator }}
 
     <!-- Dublin Core metadata for Zotero -->
     <meta property="dc:title" content="{{ .Title }}">
-    <meta property="dc:creator" content="{{ $author }}">
+    <meta property="dc:creator" content="{{ (partial "author.html" . ) }}">
     <meta property="dc:identifier" content="{{ .Permalink }}">
     {{- if .Params.editor }}<meta property="dc:contributor" content="{{ .Params.editor }}">{{ end }}
     {{- if .Params.date }}<meta property="dc:date" content="{{ .Params.date }}">{{ end }}

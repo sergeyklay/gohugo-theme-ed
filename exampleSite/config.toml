@@ -6,9 +6,6 @@ resourceDir = "../resources"
 
 defaultContentLanguage = "en"
 
-[Author]
-  name = "John Doe"
-
 [languages]
   [languages.en]
     weight = 1
@@ -16,6 +13,9 @@ defaultContentLanguage = "en"
     languageDirection = "ltr"
 
 [params]
+  # Site author name
+  author = "John Doe"
+  # author: ["Me", "You"] # multiple authors
   # Site description. Used in meta description
   description = "Ed is a Hugo theme designed for textual editors based on minimal computing principles, and focused on legibility and flexibility."
   # Color scheme. Options: red, orange, magenta, cyan, blue, brown
