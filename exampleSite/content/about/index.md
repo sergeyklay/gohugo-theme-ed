@@ -12,9 +12,6 @@ contrast, most textual scholars who have made the leap to a rigorous digital pra
 on markup, relying on technical teams to deploy and maintain their work. This makes your average
 scholarly digital edition a very costly and therefore limited affair.
 
-That's some text with a footnote.[^1]
-
-[^1]: And that's the footnote.
 
 As we see it, a minimal edition is one that aims to reduce the size and complexity of the back and
 front end while flattening the learning curves for the user and the producer. Out of the box, the Ed

@@ -123,21 +123,21 @@ The example from Raisin in the Sun shows us that we don't need much special mark
 
 ## Footnotes
 
-Footnotes are the bread and butter of scholarship. Kramdown makes footnotes a fairly simple affair:
+Footnotes are the bread and butter of scholarship. Hugo makes footnotes a fairly simple affair:
 
-~~~
+~~~ markdown
 - O Captain! my Captain! rise up and hear the bells;
-- Rise up—for you the flag is flung—for you the bugle[^fn2] trills,
+- Rise up—for you the flag is flung—for you the bugle[^1] trills,
 
 ...
 
-[^fn2]: The bugle is a small trumpet implicated in the military industrial complex.
+[^1]: The bugle is a small trumpet implicated in the military industrial complex.
 ~~~
 
 These footnotes can be placed anywhere, but they will always be generated at the bottom of the document. To have a multi-paragraph footnote you need to start the footnote text on the next line after the footnote anchor and indent it:
 
 ~~~
-[^fn3]:
+[^1]:
   Ugh pinterest fixie cronut pitchfork beard. Literally deep
   cold-pressed distillery pabst austin.
 
@@ -145,7 +145,7 @@ These footnotes can be placed anywhere, but they will always be generated at the
   denim pabst readymade biodiesel umami chicharrones XOXO.
 ~~~
 
-The footnotes system provided by kramdown does have one limitation: It generates the numeration for you automatically, and it only allows you to have one set of footnotes for a text. In some cases we have to separate the author's footnotes from our own, in others we want to represent the author's own footnote style. In these cases we have to use HTML. Here's the example from *Narrative of the Life*:
+The footnotes system provided by Hugo does have one limitation: It generates the numeration for you automatically, and it only allows you to have one set of footnotes for a text. In some cases we have to separate the author's footnotes from our own, in others we want to represent the author's own footnote style. In these cases we have to use HTML. Here's the example from *Narrative of the Life*:
 
 ~~~ html
 ... At this time, Anna,<sup><a href="#fn2" id="ref2">\*</a></sup> my intended wife, came on;
