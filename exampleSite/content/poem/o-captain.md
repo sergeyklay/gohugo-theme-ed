@@ -41,7 +41,7 @@ source: Poetry Foundation
 ---
 
 ## Footnotes
-
+<!-- editorconfig-checker-disable -->
 [^1]:
 
 	The author had just landed in La Guardia Airport after the flight captain died. All the passengers stood up to applaud the co-pilot. We have it in good authority that the event in question led Yoko Ono to write her "Letter to John":
@@ -52,7 +52,7 @@ source: Poetry Foundation
 	> - But we'll have our wings and the wind will be with us
 	> - That's enough for me, that's enough for me.
 	{:.poetry}
-
+<!-- editorconfig-checker-enable -->
 [^2]: The bugle is a small trumpet implicated in the military industrial complex.
 
 [^3]: Another footnote. Why not?

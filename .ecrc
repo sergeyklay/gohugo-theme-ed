@@ -1,3 +1,6 @@
 {
-  "Exclude": ["\\.scss_.*\\.json$", "\\.scss_.*\\.content$"]
+  "Exclude": [
+    "\\.scss_.*\\.json$",
+    "\\.scss_.*\\.content$"
+  ]
 }
