@@ -21,7 +21,9 @@
         </a>
         {{- end -}}
         {{/* TODO: Add hypothesis support */}}
-        <a class="sidebar-nav-item" href="{{ site.Params.github_url }}" target="_blank">GitHub project</a>
+        {{- with site.Params.github_url }}
+        <a class="sidebar-nav-item" href="{{ . }}" target="_blank">GitHub project</a>
+        {{- end }}
     </nav>
 
     <div class="sidebar-item">
