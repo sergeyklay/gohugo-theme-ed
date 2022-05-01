@@ -16,18 +16,20 @@
     <meta name="author" content="{{ (partial "author.html" . ) }}">
     {{ hugo.Generator }}
 
-    {{- /* Misc */}}
-    {{ template "partials/templates/doublinecore.html" . }}
-    {{ template "partials/templates/opengraph.html" . }}
-
     {{ partial "styles.html" . -}}
     {{ partial "scripts.html" . -}}
 
     <link rel="apple-touch-icon-precomposed" sizes="180x180" href="{{ "apple-touch-icon-precomposed.png" | relURL }}">
     <link rel="shortcut icon" href="{{ "favicon.ico" | relURL }}">
 
-    <!-- RSS -->
-    {{- with .OutputFormats.Get "rss" }}
-    {{ printf `<link rel="%s" type="%s" href="%s" title="%s">` .Rel .MediaType.Type .RelPermalink $.Site.Title | safeHTML }}
-    {{- end }}
+    {{- /* RSS */}}
+    {{ range .AlternativeOutputFormats -}}
+    <link rel="{{ .Rel }}" type="{{ .MediaType.Type | html }}" title="{{ $.Site.Title }}" href="{{ .Permalink | safeURL }}">
+    {{ end -}}
+
+    {{- partial "custom-head.html" . -}}
+
+    {{- /* Misc */}}
+    {{ template "partials/templates/doublinecore.html" . }}
+    {{ template "partials/templates/opengraph.html" . }}
 </head>
