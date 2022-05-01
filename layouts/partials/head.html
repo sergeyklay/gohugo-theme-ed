@@ -26,6 +26,9 @@
     {{ range .AlternativeOutputFormats -}}
     <link rel="{{ .Rel }}" type="{{ .MediaType.Type | html }}" title="{{ $.Site.Title }}" href="{{ .Permalink | safeURL }}">
     {{ end -}}
+    {{- range .AllTranslations -}}
+    <link rel="alternate" hreflang="{{ .Lang }}" href="{{ .Permalink }}">
+    {{ end -}}
 
     {{- partial "custom-head.html" . -}}
 
