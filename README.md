@@ -39,10 +39,26 @@ allowing us to care for our projects at less cost, and perhaps, just perhaps,
 to generate high-quality editions on github.io in large quantities based on the
 [git-lit][git-lit] model by Jonathan Reeve. We're coming for you, Kindle!
 
+## Sample Ed editions
+
+- [Our sample site][sample-site] is the first edition built with Ed.
+- [Fugitive Verses][fig-vt]: Popular Reprinted Poetry from Nineteenth Century Newspapers
+- [mini lazarillo][lazarillo]: A minimal edition of the *Lazarillo de Tormes*
+- [Making and Knowing][GR8975]: The BnF Ms Fr 640 in Translation
+- [Daisy Miller][dmiller-play]: A Comedy in Three Acts
+
 ## Features
 
-- Responsive
-- Accessible
+- Templates for narrative, drama and poetry
+- Responsive design for mobile phones, tablets and PCs
+- Relatively easy to learn and teach
+- Works well in high- or low- bandwidth scenarios
+- Easier for digital archives and libraries to preserve
+- Open source, open access
+- Unobtrusive footnotes
+- Metadata in Dublin Core and OpenGraph to play nice with Zotero, libraries
+  and social media
+- Automatic table of content generation
 
 ## Getting started
 
@@ -68,5 +84,10 @@ information.
 [gil-twitter]: https://twitter.com/elotroalex
 [minimal-editions]: https://github.com/susannalles/MinimalEditions/blob/master/README.md
 [git-lit]: http://jonreeve.com/2015/09/introducing-git-lit/
+[sample-site]: https://sergeyklay.github.io/gohugo-theme-ed/
+[fig-vt]: http://fugitiverses.viraltexts.org/
+[lazarillo]: http://minilazarillo.github.io/
+[GR8975]: https://cu-mkp.github.io/GR8975-edition/
+[dmiller-play]: https://britaneeelizabeth.github.io/ed/texts/DaisyMillerPlay/
 [example-site]: https://github.com/sergeyklay/gohugo-theme-ed/tree/master/exampleSite
 [config-sample]: https://github.com/sergeyklay/gohugo-theme-ed/blob/master/exampleSite/config.toml
