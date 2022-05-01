@@ -25,6 +25,11 @@ defaultContentLanguage = "en"
   # Used in site header
   tagline = "a Hugo theme for minimal editions"
 
+[social]
+  # Facebook Page Admin ID for Domain Insights
+  facebook_admin = ""
+  facebook_id = ""
+
 [menu]
   [[menu.nav]]
     name = "About"

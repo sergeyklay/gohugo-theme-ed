@@ -5,9 +5,9 @@
     <meta property="og:url" content="{{ .Permalink }}">
 {{- if .Params.cover.image -}}
     {{- if (ne .Params.cover.relative true) }}
-    <meta property="og:image" content="{{ .Params.cover.image | absURL }}" />
+    <meta property="og:image" content="{{ .Params.cover.image | absURL }}">
     {{- else }}
-    <meta property="og:image" content="{{ (path.Join .RelPermalink .Params.cover.image ) | absURL }}" />
+    <meta property="og:image" content="{{ (path.Join .RelPermalink .Params.cover.image ) | absURL }}">
     {{- end }}
 
     {{- if .Params.cover.width -}}
@@ -23,6 +23,10 @@
     <meta property="og:image:height" content="200">
 {{- end }}
 
-{{- /* TODO: add fb:admins and fb:app_id */ -}}
-<!-- meta property="fb:admins" content="" -->
-<!-- meta property="fb:app_id" content="" -->
+{{- /* Facebook Page Admin ID for Domain Insights */}}
+{{- with site.Social.facebook_admin }}
+    <meta property="fb:admins" content="{{ . }}">
+{{- end }}
+{{- with site.Social.facebook_id }}
+    <meta property="fb:app_id" content="{{ . }}">
+{{- end }}
