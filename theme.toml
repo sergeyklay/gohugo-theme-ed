@@ -23,20 +23,19 @@ tags = [
 
 # The theme's features:
 features = [
-  # "blog",
-  # The theme should work smoothly on desktop as well as mobile browsers.
+  "blog",
   "responsive",
-  "posts"
-  # "opengraph",
-  # "favicon",
+  "posts",
+  "opengraph",
+  "favicon",
   # "archive",
   # "search",
-  # "clean",
-  # "simple",
-  # "feed",
-  # "minimal",
-  # "minimalist",
-  # "mobile"
+  "clean",
+  "simple",
+  "feed",
+  "minimal",
+  "minimalist",
+  "mobile"
 ]
 
 min_version = "0.84.0"
