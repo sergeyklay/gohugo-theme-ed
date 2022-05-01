@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="{{ site.LanguageCode | default site.Language.Lang }}" {{- with partialCached "func/GetLanguageDirection" "GetLanguageDirection" }} dir="{{ . }}" {{- end }}>
     {{- partial "head.html" . -}}
-    <body class="theme-base-{{ .Site.Params.color_scheme }}">
+    <body class="theme-base-{{ site.Params.color_scheme }}">
         {{ if .Params.toc }}{{ partial "sidebar-toc.html" . }}{{ else }}{{ partial "sidebar.html" . }}{{ end }}
         <div class="wrap">
             <header class="masthead">
                 <div class="container">
                     <h3 class="masthead-title">
-                        <a href="{{ .Site.Home.RelPermalink }}" title="Home">{{ .Site.Title }}</a>
-                        <br><small>{{ .Site.Params.tagline }}</small>
+                        <a href="{{ site.Home.RelPermalink }}" title="Home">{{ site.Title }}</a>
+                        <br><small>{{ site.Params.tagline }}</small>
                     </h3>
                 </div>
             </header>

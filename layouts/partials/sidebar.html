@@ -4,15 +4,15 @@
 <!-- Toggleable sidebar -->
 <aside class="sidebar" id="sidebar">
     <div class="sidebar-item">
-        <p>{{- .Site.Params.Description -}}</p>
+        <p>{{- site.Params.Description -}}</p>
     </div>
 
     <nav class="sidebar-nav">
-        <a class="sidebar-nav-item{{- if .IsHome }} active{{ end -}}" href="{{ .Site.Home.RelPermalink }}">Home</a>
+        <a class="sidebar-nav-item{{- if .IsHome }} active{{ end -}}" href="{{ site.Home.RelPermalink }}">Home</a>
 
         {{- $current := . }}
         {{- /* TODO: Render items dynamically */}}
-        {{- range .Site.Menus.nav }}
+        {{- range site.Menus.nav }}
         {{- $active := or ($current.IsMenuCurrent "nav" .) ($current.HasMenuCurrent "nav" .) }}
         {{- $active = or $active (eq .Name $current.Title) }}
         <a class="sidebar-nav-item {{ if $active }}active{{ end }}" href="{{ .URL }}">
@@ -21,7 +21,7 @@
         </a>
         {{- end -}}
         {{/* TODO: Add hypothesis support */}}
-        <a class="sidebar-nav-item" href="{{ .Site.Params.github_url }}" target="_blank">GitHub project</a>
+        <a class="sidebar-nav-item" href="{{ site.Params.github_url }}" target="_blank">GitHub project</a>
     </nav>
 
     <div class="sidebar-item">

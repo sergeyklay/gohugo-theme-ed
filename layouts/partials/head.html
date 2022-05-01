@@ -2,7 +2,7 @@
 <head prefix="og: http://ogp.me/ns#; dc: http://purl.org/dc/terms/#">
     {{- $description := print .Params.Description -}}
     {{- if or .IsHome (eq .Params.Description "") (not .Params.Description) -}}
-        {{ $description = .Site.Params.Description }}
+        {{ $description = site.Params.Description }}
     {{- end -}}
 
     <meta charset="utf-8">
@@ -11,7 +11,7 @@
 
     <link rel="canonical" href="{{ .Permalink }}">
 
-    <title>{{ block "title" . }}{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ with .Params.Title }}{{ . }} - {{ end }}{{ .Site.Title }}{{ end }}{{ end }}</title>
+    <title>{{ block "title" . }}{{ if .IsHome }}{{ site.Title }}{{ else }}{{ with .Params.Title }}{{ . }} - {{ end }}{{ site.Title }}{{ end }}{{ end }}</title>
     <meta name="description" content="{{ $description }}">
     <meta name="author" content="{{ (partial "author.html" . ) }}">
     {{ hugo.Generator }}
@@ -23,7 +23,7 @@
     {{- if .Params.editor }}<meta property="dc:contributor" content="{{ .Params.editor }}">{{ end }}
     {{- if .Params.date }}<meta property="dc:date" content="{{ .Params.date }}">{{ end }}
     {{- if .Params.rights }}<meta property="dc:rights" content="{{ .Params.rights }}">{{ end }}
-    <meta property="dc:source" content="{{ if .Params.source }}{{ .Params.source }}{{ else }}{{ .Site.Title }}{{ end }}">
+    <meta property="dc:source" content="{{ if .Params.source }}{{ .Params.source }}{{ else }}{{ site.Title }}{{ end }}">
 
     {{- /* Misc */}}
     {{template "partials/templates/opengraph.html" . }}

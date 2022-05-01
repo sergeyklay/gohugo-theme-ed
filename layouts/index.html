@@ -9,7 +9,7 @@
 <div class="toc">
     <h2>Latest Publications</h2>
     <ul class="texts">
-        {{ range first 10 (where .Site.RegularPages "Section" "!=" "" ) }}
+        {{ range first 10 (where site.RegularPages "Section" "!=" "" ) }}
             <li class="text-title">
                 <a href="{{ .Permalink }}">{{ .Title }}</a>
             </li>
