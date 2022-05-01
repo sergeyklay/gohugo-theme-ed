@@ -1,0 +1,28 @@
+<!-- Open Graph metadata -->
+    <meta property="og:title" content="{{ .Title }}">
+    <meta property="og:description" content="{{ with .Description }}{{ . }}{{ else }}{{if .IsPage}}{{ .Summary }}{{ else }}{{ with site.Params.description }}{{ . }}{{ end }}{{ end }}{{ end }}">
+    <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
+    <meta property="og:url" content="{{ .Permalink }}">
+{{- if .Params.cover.image -}}
+    {{- if (ne .Params.cover.relative true) }}
+    <meta property="og:image" content="{{ .Params.cover.image | absURL }}" />
+    {{- else }}
+    <meta property="og:image" content="{{ (path.Join .RelPermalink .Params.cover.image ) | absURL }}" />
+    {{- end }}
+
+    {{- if .Params.cover.width -}}
+    <meta property="og:image:width" content="{{ .Params.cover.width }}">
+    {{- end }}
+
+    {{- if .Params.cover.height -}}
+    <meta property="og:image:height" content="{{ .Params.cover.height }}">
+    {{- end }}
+{{- else }}
+    <meta property="og:image" content="{{ "img/open-graph-logo.png" | absURL }}">
+    <meta property="og:image:width" content="200">
+    <meta property="og:image:height" content="200">
+{{- end }}
+
+{{- /* TODO: add fb:admins and fb:app_id */ -}}
+<!-- meta property="fb:admins" content="" -->
+<!-- meta property="fb:app_id" content="" -->

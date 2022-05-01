@@ -25,20 +25,8 @@
     {{- if .Params.rights }}<meta property="dc:rights" content="{{ .Params.rights }}">{{ end }}
     <meta property="dc:source" content="{{ if .Params.source }}{{ .Params.source }}{{ else }}{{ .Site.Title }}{{ end }}">
 
-    <!-- Open Graph metadata -->
-    <meta property="og:title" content="{{ .Title }}">
-    <meta property="og:url" content="{{ .Permalink }}">
-    {{/* TODO: Check for reatured image */ -}}
-    <meta property="og:image" content="{{ "img/open-graph-logo.png" | absURL }}">
-    <meta property="og:image:width" content="200">
-    <meta property="og:image:height" content="200">
-    {{- /* TODO: add fb:admins and fb:app_id */ -}}
-    <!-- meta property="fb:admins" content="" -->
-    <!-- meta property="fb:app_id" content="" -->
-
-    {{- /* TODO: add ability to render 'article' type */ -}}
-    <meta property="og:description" content="{{ .Site.Params.Description }}">
-    <meta property="og:type" content="website">
+    {{- /* Misc */}}
+    {{template "partials/templates/opengraph.html" . }}
 
     {{ partial "styles.html" . -}}
     {{ partial "scripts.html" . -}}
