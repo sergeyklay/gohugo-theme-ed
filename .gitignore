@@ -7,9 +7,9 @@
 
 # Directories to ignore (do not add trailing '/'s, they skip symlinks).
 # Generated files from NPM.
-/node_modules/
+/node_modules
 # Generated files by hugo.
-public/
+public
 
 # Temporary lock file while building.
 .hugo_build.lock
