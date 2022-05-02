@@ -24,7 +24,7 @@
   ],
   "license": "MIT",
   "main": "index.js",
-  "name": "gohugo-theme-ed",
+  "name": "ed",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/sergeyklay/gohugo-theme-ed.git"
