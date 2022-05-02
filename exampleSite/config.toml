@@ -32,6 +32,8 @@ defaultContentLanguage = "en"
     apple_touch_icon = "" # 180×180 PNG image for Apple devices
     webmanifest = "" # Web app manifest with 192×192 and 512×512 PNG icons for modern browsers
 
+    disable_fingerprinting = false
+
 [social]
   # Facebook Page Admin ID for Domain Insights
   facebook_admin = ""

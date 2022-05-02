@@ -1,3 +1,8 @@
 {{- $sass := resources.Get "sass/style.scss" -}}
-{{- $style := $sass | resources.ToCSS | resources.Minify | resources.Fingerprint -}}
+{{- if not site.Params.assets.disable_fingerprinting -}}
+{{- $style := $sass | resources.ToCSS | minify | fingerprint -}}
 <link rel="stylesheet" href="{{ $style.RelPermalink }}">
+{{- else -}}
+{{- $style := $sass | resources.ToCSS | minify -}}
+<link rel="stylesheet" href="{{ $style.RelPermalink }}">
+{{- end -}}
