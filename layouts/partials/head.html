@@ -19,13 +19,16 @@
     {{ partial "styles.html" . -}}
     {{ partial "scripts.html" . -}}
 
-    <link rel="apple-touch-icon-precomposed" sizes="180x180" href="{{ "apple-touch-icon-precomposed.png" | relURL }}">
-    <link rel="shortcut icon" href="{{ "favicon.ico" | relURL }}">
+    {{- /* Favicons */}}
+    <link rel="icon" href="{{ site.Params.assets.favicon | default "favicon.ico" | relURL }}" sizes="any"><!-- 32×32 -->
+    <link rel="icon" href="{{ site.Params.assets.svgicon | default "icon.svg" | relURL }}" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="{{ site.Params.assets.apple_touch_icon | default "apple-touch-icon.png" | relURL }}"><!-- 180×180 -->
+    <link rel="manifest" href="{{ site.Params.assets.webmanifest | default "manifest.webmanifest" | relURL }}">
 
     {{- /* RSS */}}
-    {{ range .AlternativeOutputFormats -}}
+    {{ range .AlternativeOutputFormats }}
     <link rel="{{ .Rel }}" type="{{ .MediaType.Type | html }}" title="{{ $.Site.Title }}" href="{{ .Permalink | safeURL }}">
-    {{ end -}}
+    {{- end -}}
     {{- range .AllTranslations -}}
     <link rel="alternate" hreflang="{{ .Lang }}" href="{{ .Permalink }}">
     {{ end -}}

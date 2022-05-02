@@ -25,6 +25,13 @@ defaultContentLanguage = "en"
   # Used in site header
   tagline = "a Hugo theme for minimal editions"
 
+  [params.assets]
+    # Relative paths to icons
+    favicon = "" # favicon.ico for legacy browsers
+    svgicon = "" # A single SVG icon with a light/dark version for modern browsers
+    apple_touch_icon = "" # 180×180 PNG image for Apple devices
+    webmanifest = "" # Web app manifest with 192×192 and 512×512 PNG icons for modern browsers
+
 [social]
   # Facebook Page Admin ID for Domain Insights
   facebook_admin = ""

@@ -18,5 +18,7 @@ go.sum            export-ignore
 exampleSite/**    linguist-vendored
 resources/_gen/** linguist-vendored
 
+*.webmanifest     diff=json linguist-language=JSON
+
 LICENSE           text eol=lf
 README.md         text eol=lf
