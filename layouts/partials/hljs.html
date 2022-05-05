@@ -1,0 +1,15 @@
+{{- /* Highlight.js */}}
+{{- $isHLJSdisabled := (site.Params.assets.disable_highlight_js | default .Params.disable_highlight_js ) }}
+{{- if (and (eq .Kind "page") (ne .Layout "archives") (ne .Layout "search") (not $isHLJSdisabled)) }}
+    {{- if not site.Params.assets.disable_fingerprinting }}
+    {{- $highlight := slice (resources.Get "js/highlight.min.js") | resources.Concat "assets/js/highlight.js" | minify | fingerprint }}
+    <script crossorigin="anonymous" src="{{ $highlight.RelPermalink }}" integrity="{{ $highlight.Data.Integrity }}"></script>
+    {{- else }}
+    {{- $highlight := slice (resources.Get "js/highlight.min.js") | resources.Concat "assets/js/highlight.js" | minify }}
+    <script crossorigin="anonymous" src="{{ $highlight.RelPermalink }}"></script>
+    {{- end }}
+{{- end }}
+    <script>
+        hljs.highlightAll();
+        hljs.configure({ ignoreUnescapedHTML: true });
+    </script>

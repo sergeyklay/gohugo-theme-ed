@@ -1,8 +1,21 @@
-{{- $sass := resources.Get "sass/style.scss" -}}
+{{- /* Styles */}}
+{{- $theme := resources.Get "sass/style.scss" | resources.ToCSS }}
+
+{{- /* include hljs' css if hljs is on */}}
+{{- $isHLJSdisabled := (site.Params.assets.disable_highlight_js | default false) }}
+{{- $hljs := (cond ($isHLJSdisabled) (" " | resources.FromString "assets/css/hljs-blank.css") (resources.Get "css/hljs/hljs-default.min.css")) }}
+
+{{- /* order is important */}}
+{{- $core := (slice $theme $hljs) | resources.Concat "assets/css/core.css" }}
+{{- $extended := (resources.Match "css/extended/*.css") | resources.Concat "assets/css/extended.css" }}
+
+{{- /* bundle all required css */}}
+{{- /* Add extended css after theme style */ -}}
+{{- $stylesheet := (slice $core $extended) | resources.Concat "assets/css/stylesheet.css" | minify }}
+
 {{- if not site.Params.assets.disable_fingerprinting -}}
-{{- $style := $sass | resources.ToCSS | minify | fingerprint -}}
-<link rel="stylesheet" href="{{ $style.RelPermalink }}">
-{{- else -}}
-{{- $style := $sass | resources.ToCSS | minify -}}
-<link rel="stylesheet" href="{{ $style.RelPermalink }}">
-{{- end -}}
+    {{- $stylesheet := $stylesheet | fingerprint }}
+    {{ printf `<link crossorigin="anonymous" href="%s" integrity="%s" rel="preload stylesheet" as="style">` $stylesheet.RelPermalink $stylesheet.Data.Integrity | safeHTML }}
+{{- else }}
+    <link crossorigin="anonymous" href="{{ $stylesheet.RelPermalink }}" rel="preload stylesheet" as="style">
+{{- end }}

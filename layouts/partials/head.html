@@ -16,8 +16,9 @@
     <meta name="author" content="{{ (partial "author.html" . ) }}">
     {{ hugo.Generator }}
 
-    {{ partial "styles.html" . -}}
-    {{ partial "scripts.html" . -}}
+    {{- partial "styles.html" . }}
+    {{- partial "hljs.html" . }}
+    {{- partial "custom-scripts.html" . }}
 
     {{- /* Favicons */}}
     <link rel="icon" href="{{ site.Params.assets.favicon | default "favicon.ico" | relURL }}" sizes="any"><!-- 32×32 -->
