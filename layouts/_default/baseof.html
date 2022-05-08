@@ -13,7 +13,7 @@
                 </div>
             </header>
 
-            <main class="container content" role="main" id="main">
+            <main class="container content" role="main" id="main" data-type="{{ .Type }}">
                 {{- block "main" . }}{{- end }}
             </main>
         </div>
