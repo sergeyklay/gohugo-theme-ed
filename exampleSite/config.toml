@@ -33,7 +33,6 @@ defaultContentLanguage = "en"
     webmanifest = "" # Web app manifest with 192×192 and 512×512 PNG icons for modern browsers
 
     disable_fingerprinting = false
-    disable_highlight_js = false
 
 [social]
   # Facebook Page Admin ID for Domain Insights
@@ -54,3 +53,7 @@ defaultContentLanguage = "en"
     url = "/documentation/"
     weight = 3
 
+[markup]
+  [markup.highlight]
+    # Syntax highlighting theme
+    style = "monokailight"
