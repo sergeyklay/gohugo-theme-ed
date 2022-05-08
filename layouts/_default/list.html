@@ -1,0 +1,15 @@
+{{ define "main" }}
+<div class="articles">
+    {{- with .Title }}
+    <h1 class="page-title">{{ . }}</h1>
+    {{- end }}
+    {{- with .Content }}
+    <div class="category-content">
+        {{ .Content }}
+    </div>
+    {{- end }}
+    {{ range .Paginator.Pages }}
+    {{- .Render "teaser" }}
+    {{ end }}
+</div>
+{{ end }}
