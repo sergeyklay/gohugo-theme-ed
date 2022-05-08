@@ -41,13 +41,15 @@ Or, if you don't plan to make any significant changes but want to track and upda
 $ git submodule add https://github.com/sergeyklay/gohugo-theme-ed.git themes/ed
 ~~~
 
-At this point you should navigate inside your Ed project folder and stay there until further notice:
+At this point you should navigate inside your site project folder and stay there until further notice:
 
 Next, open `config.toml` in the base of the Hugo site and ensure the theme option is set to `ed`:
 
 ~~~ toml
 theme = "ed"
 ~~~
+
+Take a look inside the `themes/ed/exampleSite` folder. You'll find a file called `config.toml`. Feel free to use it as a reference for your site's configuration.
 
 If you don't get any errors, Ed should work at this point. To see if Ed is working properly we will take advantage of Hugo's built in server. You can build the first version of your site and run the Hugo server at the same time by entering:
 
@@ -89,7 +91,7 @@ By default Hugo uses a special Markdown processor called Goldmark. The processor
 
 ## Genres
 
-Ed offers three different layouts: poem, narrative and drama. The genre is indicated in the YAML front matter on your texts. The templates that govern how these genres are displayed can be found in the `_layouts` folder. Using these layouts will allow you to tweak the stylesheets according to your different needs. Out of the box, Ed contains some special instructions for poetry in its stylesheets that allow you to deal with some of the peculiarities of poetry layouts.
+Ed offers three different layouts: poem, narrative and drama. The genre is indicated in the YAML front matter on your texts. The templates that govern how these genres are displayed can be found in the `layouts` folder. Redefining these layouts will allow you to tweak the stylesheets according to your different needs. Out of the box, Ed contains some special instructions for poetry in its stylesheets that allow you to deal with some of the peculiarities of poetry layouts.
 
 To indicate lines in poetry we use the line syntax from Markdown:
 
@@ -107,13 +109,13 @@ To indicate lines in poetry we use the line syntax from Markdown:
 To indent specific lines we take advantage of a feature in kramdown that allows us to indicate classes for a line. This approach still allows the line to be readable while editing.
 
 ~~~ markdown
-- {:.indent-3} But O heart! heart! heart!
-- {:.indent-4} O the bleeding drops of red,
-- {:.indent-5} Where on the deck my Captain lies,
-- {:.indent-6} Fallen cold and dead.
+- {{</* indent 3 */>}} But O heart! heart! heart!
+- {{</* indent 4 */>}} O the bleeding drops of red,
+- {{</* indent 5 */>}} Where on the deck my Captain lies,
+- {{</* indent 6 */>}} Fallen cold and dead.
 ~~~
 
-The `-` at the beginning of each line indicates that these are lines. The `{:.indent-3}` is what we need to in order to indicate the indent value for that line. Values can range from 1-10. You can expand the range or adjust the values in the Ed stylesheet (`_ed.scss`) in the `_sass` folder.
+The `-` at the beginning of each line indicates that these are lines. The `{{</* indent 3 */>}}` is what we need to in order to indicate the indent value for that line. Values can range from 1-10. You can expand the range or adjust the values in the custom stylesheet file (`assets/css/extended/*.css`).
 
 The example from Raisin in the Sun shows us that we don't need much special markup for theater as long as we use CAPITAL LETTERS for speakers. Italics for directions are easy enough. Just use `*` around the words you want to italicize.
 
@@ -161,7 +163,7 @@ Notice the double HTML Entity (hex), `&#x21a9;&#xfe0e;`, used at the end of the 
 
 ## Blockquotes
 
-*Narrative of the Life* also includes several blockquotes. You can also find another example of blockquote use in the footnote of "O Captain! My Captain!" Simple blockquotes are simple enough in kramdown:
+*Narrative of the Life* also includes several blockquotes. You can also find another example of blockquote use in the footnote of "O Captain! My Captain!" Simple blockquotes are simple enough in Markdown:
 
 ~~~
 > This is to certify that I, the undersigned, have given the bearer, my servant, full liberty to go to Baltimore, and spend the Easter holidays.
