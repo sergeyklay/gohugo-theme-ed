@@ -1,10 +1,10 @@
-title = "Ed."
-baseURL = "https://example.com"
-languageCode = "en-us"
-theme = ["github.com/sergeyklay/gohugo-theme-ed"]
-resourceDir = "../resources"
+baseURL = 'https://example.com/'
 
-defaultContentLanguage = "en"
+languageCode = 'en-us'
+defaultContentLanguage = 'en'
+title = 'Ed.'
+theme = ['github.com/sergeyklay/gohugo-theme-ed']
+resourceDir = '../resources'
 
 [languages]
   [languages.en]
@@ -14,46 +14,46 @@ defaultContentLanguage = "en"
 
 [params]
   # Site author name
-  author = "John Doe"
-  # author: ["Me", "You"] # multiple authors
+  author = 'John Doe'
+  # author: ['Me', 'You'] # multiple authors
   # Site description. Used in meta description
-  description = "Ed is a Hugo theme designed for textual editors based on minimal computing principles, and focused on legibility and flexibility."
+  description = 'Ed is a Hugo theme designed for textual editors based on minimal computing principles, and focused on legibility and flexibility.'
   # Color scheme. Options: red, orange, magenta, cyan, blue, brown
-  color_scheme = ""
+  color_scheme = ''
   # Github project url. Used in sidebar
-  github_url = "https://github.com/sergeyklay/gohugo-theme-ed"
+  github_url = 'https://github.com/sergeyklay/gohugo-theme-ed'
   # Used in site header
-  tagline = "a Hugo theme for minimal editions"
+  tagline = 'a Hugo theme for minimal editions'
 
   [params.assets]
     # Relative paths to icons
-    favicon = "" # favicon.ico for legacy browsers
-    svgicon = "" # A single SVG icon with a light/dark version for modern browsers
-    apple_touch_icon = "" # 180×180 PNG image for Apple devices
-    webmanifest = "" # Web app manifest with 192×192 and 512×512 PNG icons for modern browsers
+    favicon = '' # favicon.ico for legacy browsers
+    svgicon = '' # A single SVG icon with a light/dark version for modern browsers
+    apple_touch_icon = '' # 180×180 PNG image for Apple devices
+    webmanifest = '' # Web app manifest with 192×192 and 512×512 PNG icons for modern browsers
 
     disable_fingerprinting = false
 
 [social]
   # Facebook Page Admin ID for Domain Insights
-  facebook_admin = ""
-  facebook_id = ""
+  facebook_admin = ''
+  facebook_id = ''
 
 [menu]
   [[menu.nav]]
-    name = "About"
-    url = "/about/"
+    name = 'About'
+    url = '/about/'
     weight = 1
   [[menu.nav]]
-    name = "Credits"
-    url = "/credits/"
+    name = 'Credits'
+    url = '/credits/'
     weight = 2
   [[menu.nav]]
-    name = "Documentation"
-    url = "/documentation/"
+    name = 'Documentation'
+    url = '/documentation/'
     weight = 3
 
 [markup]
   [markup.highlight]
     # Syntax highlighting theme
-    style = "monokailight"
+    style = 'monokailight'
