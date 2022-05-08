@@ -20,8 +20,6 @@ resourceDir = '../resources'
   description = 'Ed is a Hugo theme designed for textual editors based on minimal computing principles, and focused on legibility and flexibility.'
   # Color scheme. Options: red, orange, magenta, cyan, blue, brown
   color_scheme = ''
-  # Github project url. Used in sidebar
-  github_url = 'https://github.com/sergeyklay/gohugo-theme-ed'
   # Used in site header
   tagline = 'a Hugo theme for minimal editions'
 
@@ -40,18 +38,33 @@ resourceDir = '../resources'
   facebook_id = ''
 
 [menu]
-  [[menu.nav]]
+  [[menu.main]]
+    identifier = 'home'
+    name = 'Home'
+    url = '/'
+    weight = 1
+  [[menu.main]]
+    identifier = 'about'
     name = 'About'
     url = '/about/'
-    weight = 1
-  [[menu.nav]]
+    weight = 2
+  [[menu.main]]
+    identifier = 'credits'
     name = 'Credits'
     url = '/credits/'
-    weight = 2
-  [[menu.nav]]
+    weight = 3
+  [[menu.main]]
+    identifier = 'documentation'
     name = 'Documentation'
     url = '/documentation/'
-    weight = 3
+    weight = 4
+  [[menu.main]]
+    identifier = 'github'
+    name = 'GitHub Project'
+    url = 'https://github.com/sergeyklay/gohugo-theme-ed/'
+    weight = 20
+    [menu.main.params]
+      external = true
 
 [markup]
   [markup.highlight]

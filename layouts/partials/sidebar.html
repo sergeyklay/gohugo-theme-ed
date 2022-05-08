@@ -8,22 +8,17 @@
     </div>
 
     <nav class="sidebar-nav">
-        <a class="sidebar-nav-item{{- if .IsHome }} active{{ end -}}" href="{{ site.Home.RelPermalink }}">Home</a>
-
         {{- $current := . }}
-        {{- /* TODO: Render items dynamically */}}
-        {{- range site.Menus.nav }}
-        {{- $active := or ($current.IsMenuCurrent "nav" .) ($current.HasMenuCurrent "nav" .) }}
+        {{- range site.Menus.main }}
+        {{- $active := or ($current.IsMenuCurrent "main" .) ($current.HasMenuCurrent "main" .) }}
+        {{- $active = or $active (eq .URL $current.RelPermalink) }}
         {{- $active = or $active (eq .Name $current.Title) }}
-        <a class="sidebar-nav-item{{ if $active }} active{{ end }}" href="{{ .URL }}">
+        <a class="sidebar-nav-item{{ if $active }} active{{ end }}" href="{{ .URL }}" {{- if eq .Params.external true }} target="_blank" rel="noopener noreferrer"{{ end }}>
             {{- $text := print .Name | safeHTML -}}
             {{- $text -}}
         </a>
         {{- end -}}
         {{/* TODO: Add hypothesis support */}}
-        {{- with site.Params.github_url }}
-        <a class="sidebar-nav-item" href="{{ . }}" target="_blank">GitHub project</a>
-        {{- end }}
     </nav>
 
     <div class="sidebar-item">
