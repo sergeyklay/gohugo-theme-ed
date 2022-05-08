@@ -5,7 +5,7 @@
 {{- if ne .Date .Lastmod }}
 <time datetime="{{ .Lastmod.Format "2006-01-02T15:04:05Z07:00" }}">
     {{- /* TODO: Translate me */}}
-    Updated: {{- .Lastmod.Format (site.Params.dateformat | default "January 02, 2006") -}}
+    (Updated: {{ .Lastmod.Format (site.Params.dateformat | default "January 02, 2006") -}})
 </time>
 {{- end -}}
 {{- end }}
