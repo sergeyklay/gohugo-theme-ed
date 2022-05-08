@@ -669,11 +669,6 @@ li.prose-indent {
 .theme-base-brown .related-posts li a:hover {
   color: #8f5536; }
 
-.css .o,
-.css .o + .nt,
-.css .nt + .nt {
-  color: #999; }
-
 /* Transferred from poole.css */
 /* Code */
 code,
@@ -706,25 +701,10 @@ pre code {
   color: inherit;
   background-color: transparent; }
 
-/* Gist via GitHub Pages */
-.gist .gist-file {
-  font-family: Menlo, Monaco, "Courier New", monospace !important; }
+/* Pygments via Hugo */
+.highlight {
+  margin-bottom: 1rem;
+  border-radius: 4px; }
 
-.gist .markdown-body {
-  padding: 15px; }
-
-.gist pre {
-  padding: 0;
-  background-color: transparent; }
-
-.gist .gist-file .gist-data {
-  font-size: .8rem !important;
-  line-height: 1.4; }
-
-.gist code {
-  padding: 0;
-  color: inherit;
-  background-color: transparent;
-  border-radius: 0; }
-
-/* Pygments via Jekyll */
+.highlight pre {
+  margin-bottom: 0; }
