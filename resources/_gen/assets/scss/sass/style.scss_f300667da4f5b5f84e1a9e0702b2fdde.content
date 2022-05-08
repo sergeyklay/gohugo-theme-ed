@@ -746,6 +746,9 @@ pre code {
   .blog-post:first-child {
     margin-top: 0; }
 
+#main article {
+  min-height: 100px; }
+
 .post-meta {
   margin-top: 5px;
   font-size: .85rem;
@@ -756,3 +759,7 @@ pre code {
   font-weight: normal;
   letter-spacing: 0;
   margin-top: -.5rem; }
+
+.footnotes hr {
+  margin: 0;
+  border: 0; }
