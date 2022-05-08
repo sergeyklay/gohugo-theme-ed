@@ -743,7 +743,7 @@ pre code {
   @media only screen and (min-width: 1220px) {
     .blog-post {
       margin-top: 100px; } }
-  .blog-post:first-child {
+  .blog-post:first-of-type {
     margin-top: 0; }
 
 #main article {
