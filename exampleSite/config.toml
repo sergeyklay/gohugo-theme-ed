@@ -22,6 +22,8 @@ resourceDir = '../resources'
   color_scheme = ''
   # Used in site header
   tagline = 'a Hugo theme for minimal editions'
+  # Custom footer text
+  footer = ''
 
   [params.assets]
     # Relative paths to icons
