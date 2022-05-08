@@ -13,9 +13,8 @@ resourceDir = '../resources'
     languageDirection = "ltr"
 
 [params]
-  # Site author name
+  # Site author name. For multiple authors use: ['Me', 'You']
   author = 'John Doe'
-  # author: ['Me', 'You'] # multiple authors
   # Site description. Used in meta description
   description = 'Ed is a Hugo theme designed for textual editors based on minimal computing principles, and focused on legibility and flexibility.'
   # Color scheme. Options: red, orange, magenta, cyan, blue, brown
@@ -24,6 +23,14 @@ resourceDir = '../resources'
   tagline = 'a Hugo theme for minimal editions'
   # Custom footer text
   footer = ''
+  # Sections to be displayed in the main page
+  main_sections = ['post', 'drama', 'narrative', 'poem']
+  # Order of post meta information
+  post_meta = ['date']
+  # Posts date format, for example: 2006-01-02
+  dateformat = 'January 02, 2006'
+  # Show "Read more" button in list if true
+  readmore = false
 
   [params.assets]
     # Relative paths to icons

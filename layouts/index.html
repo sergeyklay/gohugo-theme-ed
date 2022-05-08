@@ -1,20 +1,26 @@
-{{ define "main" -}}
-
-<div class="introduction">
-    {{ .Content }}
-</div>
-
-<hr>
-
-<div class="toc">
-    <h2>Latest Publications</h2>
-    <ul class="texts">
-        {{ range first 10 (where site.RegularPages "Section" "!=" "" ) }}
-            <li class="text-title">
-                <a href="{{ .Permalink }}">{{ .Title }}</a>
-            </li>
-        {{ end }}
-    </ul>
-</div>
-
+{{ define "main" }}
+{{- with .Content }}
+    <div class="introduction">
+        {{ . }}
+    </div>
+    <hr>
+    <div class="toc">
+        {{/* TODO: Translate me */}}
+        <h2>Latest Publications</h2>
+        <ul class="texts">
+            {{ range first 10 (where site.RegularPages "Section" "!=" "") }}
+                <li class="text-title">
+                    <a href="{{ .Permalink }}">{{ .Title }}</a>
+                </li>
+            {{ end }}
+        </ul>
+    </div>
+{{- else }}
+    {{ $paginator := .Paginate (where site.RegularPages "Type" "in" site.Params.main_sections) }}
+    <div class="articles">
+    {{- range $paginator.Pages }}
+	    {{- .Render "teaser" }}
+    {{- end }}
+    </div>
+{{- end }}
 {{- end }}
