@@ -1,12 +1,9 @@
 {{- /* Styles */}}
 {{- $theme := resources.Get "sass/style.scss" | resources.ToCSS }}
 
-{{- /* include hljs' css if hljs is on */}}
-{{- $isHLJSdisabled := (site.Params.assets.disable_highlight_js | default false) }}
-{{- $hljs := (cond ($isHLJSdisabled) (" " | resources.FromString "assets/css/hljs-blank.css") (resources.Get "css/hljs/hljs-default.min.css")) }}
-
 {{- /* order is important */}}
-{{- $core := (slice $theme $hljs) | resources.Concat "assets/css/core.css" }}
+{{- /* to ass more styles use the following format: slice $theme $style1 $style2 $style3 ... */}}
+{{- $core := (slice $theme) | resources.Concat "assets/css/core.css" }}
 {{- $extended := (resources.Match "css/extended/*.css") | resources.Concat "assets/css/extended.css" }}
 
 {{- /* bundle all required css */}}
