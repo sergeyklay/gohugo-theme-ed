@@ -1,0 +1,64 @@
+@import "_mixins";
+
+.masthead-title small {
+  font-size: .78rem;
+}
+
+.introduction {
+  min-height: 40px;
+  margin-bottom: 40px;
+
+  @include mq(tabletp) {
+    min-height: 60px;
+    margin-bottom: 60px;
+  }
+
+  @include mq(tabletl) {
+    min-height: 80px;
+    margin-bottom: 80px;
+  }
+
+  @include mq(laptop) {
+    min-height: 100px;
+    margin-bottom: 100px;
+  }
+}
+
+.introduction .container {
+  margin: 10px auto;
+  max-width: 600px;
+  text-align: center;
+}
+
+.blog-post {
+  margin-top: 40px;
+
+  @include mq(tabletp) {
+    margin-top: 60px;
+  }
+
+  @include mq(tabletl) {
+    margin-top: 80px;
+  }
+
+  @include mq(laptop) {
+    margin-top: 100px;
+  }
+
+  &:first-child {
+    margin-top: 0;
+  }
+}
+
+.post-meta {
+  margin-top: 5px;
+  font-size: .85rem;
+  color: $text-light-color;
+}
+
+.post .byline {
+  font-style: italic;
+  font-weight: normal;
+  letter-spacing: 0;
+  margin-top: -.5rem;
+}

@@ -708,3 +708,51 @@ pre code {
 
 .highlight pre {
   margin-bottom: 0; }
+
+.masthead-title small {
+  font-size: .78rem; }
+
+.introduction {
+  min-height: 40px;
+  margin-bottom: 40px; }
+  @media only screen and (min-width: 768px) {
+    .introduction {
+      min-height: 60px;
+      margin-bottom: 60px; } }
+  @media only screen and (min-width: 1024px) {
+    .introduction {
+      min-height: 80px;
+      margin-bottom: 80px; } }
+  @media only screen and (min-width: 1220px) {
+    .introduction {
+      min-height: 100px;
+      margin-bottom: 100px; } }
+.introduction .container {
+  margin: 10px auto;
+  max-width: 600px;
+  text-align: center; }
+
+.blog-post {
+  margin-top: 40px; }
+  @media only screen and (min-width: 768px) {
+    .blog-post {
+      margin-top: 60px; } }
+  @media only screen and (min-width: 1024px) {
+    .blog-post {
+      margin-top: 80px; } }
+  @media only screen and (min-width: 1220px) {
+    .blog-post {
+      margin-top: 100px; } }
+  .blog-post:first-child {
+    margin-top: 0; }
+
+.post-meta {
+  margin-top: 5px;
+  font-size: .85rem;
+  color: #676767; }
+
+.post .byline {
+  font-style: italic;
+  font-weight: normal;
+  letter-spacing: 0;
+  margin-top: -.5rem; }
