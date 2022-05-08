@@ -2,7 +2,6 @@
 title: "Narrative of the Life of Frederick Douglass"
 date: 2016
 draft: false
-type: poem
 author: Frederick Douglass
 editor: Alex Gil
 source: Project Guttenberg

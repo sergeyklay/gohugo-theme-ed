@@ -24,7 +24,7 @@ resourceDir = '../resources'
   # Custom footer text
   footer = ''
   # Sections to be displayed in the main page
-  main_sections = ['post', 'drama', 'narrative', 'poem']
+  main_sections = ['posts', 'dramas', 'narratives', 'poems']
   # Order of post meta information
   post_meta = ['date']
   # Posts date format, for example: 2006-01-02

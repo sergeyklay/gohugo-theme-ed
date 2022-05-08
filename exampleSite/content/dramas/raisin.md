@@ -2,7 +2,6 @@
 title: A Raisin in the Sun
 date: 2022-02-03T14:56:58+02:00
 draft: false
-type: poem
 author: Lorraine Hansberry
 editor: Alex Gil
 source: "Hansberry, Lorraine, and Robert Nemiroff. A Raisin in the Sun. Rep Rei edition. New York: Vintage, 2004. Print."

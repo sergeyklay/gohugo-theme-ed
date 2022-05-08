@@ -2,7 +2,6 @@
 title: Dreams
 date: 2022-02-01T14:56:58+02:00
 draft: false
-type: poem
 author: Langston Hughes
 editor: Alex Gil
 source: Project Guttenberg

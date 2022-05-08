@@ -2,7 +2,6 @@
 title: Delayed till she had ceased to know
 date: 2022-01-30T14:56:58+02:00
 draft: false
-type: poem
 author: Emily Dickinson
 editor: Alex Gil
 source: "Bartleby.com"
