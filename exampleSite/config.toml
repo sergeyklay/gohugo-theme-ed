@@ -30,7 +30,7 @@ resourceDir = '../resources'
   # Posts date format, for example: 2006-01-02
   dateformat = 'January 02, 2006'
   # Show "Read more" button in list if true
-  readmore = false
+  readmore = true
 
   [params.assets]
     # Relative paths to icons
