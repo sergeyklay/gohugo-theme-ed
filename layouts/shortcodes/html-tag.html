@@ -1,0 +1,4 @@
+{{ $optBlock := dict "display" "block" }}
+{{ print "<" | safeHTML }}{{ .Get "tag" | default "div" }}{{ with .Get "id" }} id="{{ . }}"{{ end }}{{ with .Get "class" }} class="{{ . }}"{{ end }}{{ with .Get "style" }} style="{{ . | safeCSS }}"{{ end }}{{ print ">" | safeHTML }}
+{{ with .Inner }}{{ . | $.Page.RenderString $optBlock }}{{ end }}
+{{ print "</" | safeHTML }}{{ .Get "tag" | default "div" }}{{ print ">" | safeHTML }}
