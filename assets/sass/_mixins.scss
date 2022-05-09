@@ -5,6 +5,14 @@
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - Responsive
 // Usage: @include mq(tabletp) {}
 
+// iPhone min device width cheat sheet:
+//
+// iPhone 4 and 4S: 320px
+// iPhone 5, 5S, 5C and 5SE: 320px
+// iPhone 6, 6S, 7 and 8: 375px
+// iPhone 6+, 7+ and 8+: 414px
+// iPhone X: 375px
+$break-phonem: 320px;
 $break-phonel: 480px;
 $break-tabletp: 768px;
 $break-tabletl: 1024px;
@@ -12,7 +20,10 @@ $break-laptop: 1220px;
 $break-desktop: 1600px;
 
 @mixin mq($media) {
-  @if $media == phonel {
+  @if $media == phonem {
+    @media only screen and (min-width: $break-phonem) { @content; }
+  }
+  @else if $media == phonel {
     @media only screen and (min-width: $break-phonel) { @content; }
   }
   @else if $media == tabletp {
@@ -27,4 +38,107 @@ $break-desktop: 1600px;
   @else if $media == desktop {
     @media only screen and (min-width: $break-desktop) { @content; }
   }
+}
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  Transitions
+// Usage: @include transition(color .3s ease);
+
+@mixin transition($args...) {
+  -webkit-transition: $args;
+     -moz-transition: $args;
+      -ms-transition: $args;
+       -o-transition: $args;
+          transition: $args;
+}
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - Appearance
+// Used to display an element using platform-native styling based
+// on the operating system's theme.
+//
+// Usage: @include appearance(button);
+
+@mixin appearance($value) {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+}
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  Placeholder
+// Style the placeholder text of a form element.
+//
+// Usage: @include input-placeholder(#ABB7B7, 15%);
+
+@mixin input-placeholder($color, $alpha) {
+  ::-webkit-input-placeholder {
+    color: lighten($color, $alpha);
+  }
+
+  ::-moz-placeholder {
+    color: lighten($color, $alpha);
+  }
+
+  :-ms-input-placeholder {
+    color: lighten($color, $alpha);
+  }
+
+  :-moz-placeholder {
+    color: lighten($color, $alpha);
+  }
+}
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - Box Sizing
+// Sets how the total width and height of an element is calculated.
+//
+// Usage: @include box-sizing (border-box);
+
+@mixin box-sizing ($value) {
+  -webkit-box-sizing: $value;
+     -moz-box-sizing: $value;
+          box-sizing: $value;
+}
+
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - Box Shadow
+//
+// Usage: @include box-shadow (0 0 2px 1px #e21a23!important);
+
+@mixin box-shadow ($args...) {
+  -webkit-box-shadow: $args;
+     -moz-box-shadow: $args;
+          box-shadow: $args;
+}
+
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - Border Radius
+//
+// Usage: @include border-radius (10% 30% 50% 70%);
+
+@mixin border-radius ($args...) {
+  -webkit-border-radius: $args;
+     -moz-border-radius: $args;
+          border-radius: $args;
+}
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - Flex Wrap
+// Sets whether flex items are forced onto one line or can wrap onto
+// multiple lines.
+//
+// Usage: @include flex-wrap (wrap);
+
+@mixin flex-wrap ($value) {
+  -webkit-flex-wrap: $value;
+      -ms-flex-wrap: $value;
+          flex-wrap: $value;
+}
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - Box Decoration Break
+// Specifies how an element's fragments should be rendered when broken across
+// multiple lines, columns, or pages.
+//
+// Usage: @include box-decoration-break (clone);
+
+@mixin box-decoration-break ($value) {
+  -webkit-box-decoration-break: $value;
+      -ms-box-decoration-break: $value;
+          box-decoration-break: $value;
 }

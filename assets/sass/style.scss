@@ -20,6 +20,11 @@ $text-color: #454545;
 $heading-color: #404040;
 $link-color: #841212;
 
+// - - - - - - - - - - Foundations
+
+@import "_reset";
+
+// - - - - - - - - - - Global styles
 @import "ed";
 @import "syntax";
 @import "customize";
