@@ -25,26 +25,28 @@ toc:
   - A Parody
 ---
 
+---
+
 ## Editor's note
 
-This version of *Narrative of the Life of Frederick Douglass* was adapted from *The Project Gutenberg EBook of The Narrative of the Life of Frederick Douglass, by Frederick Douglass*. The [Guttenberg file](http://www.gutenberg.org/) does not tell us which witness was used in making their digital edition. The edition below is only a slightly modified version of the Guttenberg text, and therefore should not be taken too seriously as an edition. I use the text mostly to show a few affordances of using Ed for long form narrative. This page, for example, showcases a different sidebar than the rest of our sample site, with a table of content of the novel generated out of metadata in the source file. In addition, reading morsels of the novel on your different devices can give you a sense of the experience of reading prose using Ed, and shows you an example of the optional sidebar with a table of contents. A few other features of this page are described in more detail in the [Documentation]({{ site.baseurl }}/documentation/).
+This version of *Narrative of the Life of Frederick Douglass* was adapted from *The Project Gutenberg EBook of The Narrative of the Life of Frederick Douglass, by Frederick Douglass*. The [Guttenberg file](http://www.gutenberg.org/) does not tell us which witness was used in making their digital edition. The edition below is only a slightly modified version of the Guttenberg text, and therefore should not be taken too seriously as an edition. I use the text mostly to show a few affordances of using Ed for long form narrative. This page, for example, showcases a different sidebar than the rest of our sample site, with a table of content of the novel generated out of metadata in the source file. In addition, reading morsels of the novel on your different devices can give you a sense of the experience of reading prose using Ed, and shows you an example of the optional sidebar with a table of contents. A few other features of this page are described in more detail in the [Documentation](/documentation/).
 
 ---
 
-<a id="title-page" />
+{{< raw-html >}}<a id="title-page"></a>
 
 <p class="centered large">NARRATIVE<br>OF THE<br>LIFE<br>OF</p>
-<br>
+<p><br></p>
 <p class="centered larger">FREDERICK DOUGLASS</p>
 
 <p class="centered large">AN<br>AMERICAN SLAVE.<br>WRITTEN BY HIMSELF.</p>
-<br>
+<p><br></p>
 
 <p class="centered">BOSTON</p>
 
 <p class="centered">PUBLISHED AT THE ANTI-SLAVERY OFFICE,<br>NO. 25 CORNHILL<br>1845</p>
 
-<p class="centered small">ENTERED, ACCORDING TO ACT OF CONGRESS,<br>IN THE YEAR 1845<br>BY FREDERICK DOUGLASS,<br>IN THE CLERK'S OFFICE OF THE DISTRICT COURT<br>OF MASSACHUSETTS.</p>
+<p class="centered small">ENTERED, ACCORDING TO ACT OF CONGRESS,<br>IN THE YEAR 1845<br>BY FREDERICK DOUGLASS,<br>IN THE CLERK'S OFFICE OF THE DISTRICT COURT<br>OF MASSACHUSETTS.</p>{{< /raw-html >}}
 
 ---
 
@@ -166,9 +168,10 @@ The home plantation of Colonel Lloyd wore the appearance of a country village. A
 
 The slaves selected to go to the Great House Farm, for the monthly allowance for themselves and their fellow-slaves, were peculiarly enthusiastic. While on their way, they would make the dense old woods, for miles around, reverberate with their wild songs, revealing at once the highest joy and the deepest sadness. They would compose and sing as they went along, consulting neither time nor tune. The thought that came up, came out—if not in the word, in the sound;—and as frequently in the one as in the other. They would sometimes sing the most pathetic sentiment in the most rapturous tone, and the most rapturous sentiment in the most pathetic tone. Into all of their songs they would manage to weave something of the Great House Farm. Especially would they do this, when leaving home. They would then sing most exultingly the following words:
 
-> - I am going away to the Great House Farm!
-> - O, yea! O, yea!
-{:.poetry}
+{{< html-tag tag="blockquote" class="poetry" >}}
+- I am going away to the Great House Farm!
+- O, yea! O, yea!
+{{< /html-tag >}}
 
 This they would sing, as a chorus, to words which to many would seem unmeaning jargon, but which, nevertheless, were full of meaning to themselves. I have sometimes thought that the mere hearing of those songs would do more to impress some minds with the horrible character of slavery, than the reading of whole volumes of philosophy on the subject could do.
 
@@ -293,19 +296,20 @@ Thanks to a kind Providence, I fell to the portion of Mrs. Lucretia, and was sen
 Very soon after my return to Baltimore, my mistress, Lucretia, died, leaving her husband and one child, Amanda; and in a very short time after her death, Master Andrew died. Now all the property of my old master, slaves included, was in the hands of strangers,—strangers who had had nothing to do with accumulating it. Not a slave was left free. All remained slaves, from the youngest to the oldest. If any one thing in my experience, more than another, served to deepen my conviction of the infernal character of slavery, and to fill me with unutterable loathing of slaveholders, it was their base ingratitude to my poor old grandmother. She had served my old master faithfully from youth to old age. She had been the source of all his wealth; she had peopled his plantation with slaves; she had become a great grandmother in his service. She had rocked him in infancy, attended him in childhood, served him through life, and at his death wiped from his icy brow the cold death-sweat, and closed his eyes forever. She was nevertheless left a slave—a slave for life—a slave in the hands of strangers; and in their hands she saw her children, her grandchildren, and her great-grandchildren, divided, like so many sheep, without being gratified with the small privilege of a single word, as to their or her own destiny. And, to cap the climax of their base ingratitude and fiendish barbarity, my grandmother, who was now very old, having outlived my old master and all his children, having seen the beginning and end of all of them, and her present owners finding she was of but little value, her frame already racked with the pains of old age, and complete helplessness fast stealing over her once active limbs, they took her to the woods, built her a little hut, put up a little mud-chimney, and then made her welcome to the privilege of supporting herself there in perfect loneliness; thus virtually turning her out to die! If my poor old grandmother now lives, she lives to suffer in utter loneliness; she lives to remember and mourn over the loss of children, the loss of grandchildren, and the loss of great-grandchildren. They are, in the language of the slave's poet, Whittier,
 
 
-> - Gone, gone, sold and gone
-> - To the rice swamp dank and lone,
-> - Where the slave-whip ceaseless swings,
-> - Where the noisome insect stings,
-> - Where the fever-demon strews
-> - Poison with the falling dews,
-> - Where the sickly sunbeams glare
-> - Through the hot and misty air:
-> - Gone, gone, sold and gone
-> - To the rice swamp dank and lone,
-> - From Virginia hills and waters—
-> - Woe is me, my stolen daughters!
-{:.poetry}
+{{< html-tag tag="blockquote" class="poetry" >}}
+- Gone, gone, sold and gone
+- To the rice swamp dank and lone,
+- Where the slave-whip ceaseless swings,
+- Where the noisome insect stings,
+- Where the fever-demon strews
+- Poison with the falling dews,
+- Where the sickly sunbeams glare
+- Through the hot and misty air:
+- Gone, gone, sold and gone
+- To the rice swamp dank and lone,
+- From Virginia hills and waters—
+- Woe is me, my stolen daughters!
+{{< /html-tag >}}
 
 
 The hearth is desolate. The children, the unconscious children, who once sang and danced in her presence, are gone. She gropes her way, in the darkness of age, for a drink of water. Instead of the voices of her children, she hears by day the moans of the dove, and by night the screams of the hideous owl. All is gloom. The grave is at the door. And now, when weighed down by the pains and aches of old age, when the head inclines to the feet, when the beginning and ending of human existence meet, and helpless infancy and painful old age combine together—at this time, this most needful time, the time for the exercise of that tenderness and affection which children only can exercise towards a declining parent—my poor old grandmother, the devoted mother of twelve children, is left all alone, in yonder little hut, before a few dim embers. She stands—she sits—she staggers—she falls—she groans—she dies—and there are none of her children or grandchildren present, to wipe from her wrinkled brow the cold sweat of death, or to place beneath the sod her fallen remains. Will not a righteous God visit for these things?
@@ -388,9 +392,10 @@ The year passed off smoothly. It seemed only about half as long as the year whic
 
 At the close of the year 1834, Mr. Freeland again hired me of my master, for the year 1835. But, by this time, I began to want to live *upon free land* as well as *with Freeland;* and I was no longer content, therefore, to live with him or any other slaveholder. I began, with the commencement of the year, to prepare myself for a final struggle, which should decide my fate one way or the other. My tendency was upward. I was fast approaching manhood, and year after year had passed, and I was still a slave. These thoughts roused me—I must do something. I therefore resolved that 1835 should not pass without witnessing an attempt, on my part, to secure my liberty. But I was not willing to cherish this determination alone. My fellow-slaves were dear to me. I was anxious to have them participate with me in this, my life-giving determination. I therefore, though with great prudence, commenced early to ascertain their views and feelings in regard to their condition, and to imbue their minds with thoughts of freedom. I bent myself to devising ways and means for our escape, and meanwhile strove, on all fitting occasions, to impress them with the gross fraud and inhumanity of slavery. I went first to Henry, next to John, then to the others. I found, in them all, warm hearts and noble spirits. They were ready to hear, and ready to act when a feasible plan should be proposed. This was what I wanted. I talked to them of our want of manhood, if we submitted to our enslavement without at least one noble effort to be free. We met often, and consulted frequently, and told our hopes and fears, recounted the difficulties, real and imagined, which we should be called on to meet. At times we were almost disposed to give up, and try to content ourselves with our wretched lot; at others, we were firm and unbending in our determination to go. Whenever we suggested any plan, there was shrinking—the odds were fearful. Our path was beset with the greatest obstacles; and if we succeeded in gaining the end of it, our right to be free was yet questionable—we were yet liable to be returned to bondage. We could see no spot, this side of the ocean, where we could be free. We knew nothing about Canada. Our knowledge of the north did not extend farther than New York; and to go there, and be forever harassed with the frightful liability of being returned to slavery—with the certainty of being treated tenfold worse than before—the thought was truly a horrible one, and one which it was not easy to overcome. The case sometimes stood thus: At every gate through which we were to pass, we saw a watchman—at every ferry a guard—on every bridge a sentinel—and in every wood a patrol. We were hemmed in upon every side. Here were the difficulties, real or imagined—the good to be sought, and the evil to be shunned. On the one hand, there stood slavery, a stern reality, glaring frightfully upon us,—its robes already crimsoned with the blood of millions, and even now feasting itself greedily upon our own flesh. On the other hand, away back in the dim distance, under the flickering light of the north star, behind some craggy hill or snow-covered mountain, stood a doubtful freedom—half frozen—beckoning us to come and share its hospitality. This in itself was sometimes enough to stagger us; but when we permitted ourselves to survey the road, we were frequently appalled. Upon either side we saw grim death, assuming the most horrid shapes. Now it was starvation, causing us to eat our own flesh;—now we were contending with the waves, and were drowned;—now we were overtaken, and torn to pieces by the fangs of the terrible bloodhound. We were stung by scorpions, chased by wild beasts, bitten by snakes, and finally, after having nearly reached the desired spot,—after swimming rivers, encountering wild beasts, sleeping in the woods, suffering hunger and nakedness,—we were overtaken by our pursuers, and, in our resistance, we were shot dead upon the spot! I say, this picture sometimes appalled us, and made us
 
-> - rather bear those ills we had,
-> - Than fly to others, that we knew not of.
-{:.poetry}
+{{< html-tag tag="blockquote" class="poetry" >}}
+- rather bear those ills we had,
+- Than fly to others, that we knew not of.
+{{< /html-tag >}}
 
 In coming to a fixed determination to run away, we did more than Patrick Henry, when he resolved upon liberty or death. With us it was a doubtful liberty at most, and almost certain death if we failed. For my part, I should prefer death to hopeless bondage.
 
@@ -403,7 +408,7 @@ The week before our intended start, I wrote several protections, one for each of
 
 > This is to certify that I, the undersigned, have given the bearer, my servant, full liberty to go to Baltimore, and spend the Easter holidays.
 >
-> Written with mine own hand, &c., 1835.<br>
+> Written with mine own hand, &c., 1835.  
 > WILLIAM HAMILTON,
 
 
