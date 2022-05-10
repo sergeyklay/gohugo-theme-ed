@@ -638,7 +638,7 @@ sup {
   margin-bottom: .8rem;
   font-style: italic; }
 
-a.footnote {
+a.footnote-ref {
   padding-left: .1rem;
   font-size: .66rem; }
 
