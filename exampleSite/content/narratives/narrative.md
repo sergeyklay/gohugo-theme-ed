@@ -168,10 +168,9 @@ The home plantation of Colonel Lloyd wore the appearance of a country village. A
 
 The slaves selected to go to the Great House Farm, for the monthly allowance for themselves and their fellow-slaves, were peculiarly enthusiastic. While on their way, they would make the dense old woods, for miles around, reverberate with their wild songs, revealing at once the highest joy and the deepest sadness. They would compose and sing as they went along, consulting neither time nor tune. The thought that came up, came out—if not in the word, in the sound;—and as frequently in the one as in the other. They would sometimes sing the most pathetic sentiment in the most rapturous tone, and the most rapturous sentiment in the most pathetic tone. Into all of their songs they would manage to weave something of the Great House Farm. Especially would they do this, when leaving home. They would then sing most exultingly the following words:
 
-{{< html-tag tag="blockquote" class="poetry" >}}
-- I am going away to the Great House Farm!
-- O, yea! O, yea!
-{{< /html-tag >}}
+> - I am going away to the Great House Farm!
+> - O, yea! O, yea!
+{.poetry}
 
 This they would sing, as a chorus, to words which to many would seem unmeaning jargon, but which, nevertheless, were full of meaning to themselves. I have sometimes thought that the mere hearing of those songs would do more to impress some minds with the horrible character of slavery, than the reading of whole volumes of philosophy on the subject could do.
 
@@ -296,20 +295,19 @@ Thanks to a kind Providence, I fell to the portion of Mrs. Lucretia, and was sen
 Very soon after my return to Baltimore, my mistress, Lucretia, died, leaving her husband and one child, Amanda; and in a very short time after her death, Master Andrew died. Now all the property of my old master, slaves included, was in the hands of strangers,—strangers who had had nothing to do with accumulating it. Not a slave was left free. All remained slaves, from the youngest to the oldest. If any one thing in my experience, more than another, served to deepen my conviction of the infernal character of slavery, and to fill me with unutterable loathing of slaveholders, it was their base ingratitude to my poor old grandmother. She had served my old master faithfully from youth to old age. She had been the source of all his wealth; she had peopled his plantation with slaves; she had become a great grandmother in his service. She had rocked him in infancy, attended him in childhood, served him through life, and at his death wiped from his icy brow the cold death-sweat, and closed his eyes forever. She was nevertheless left a slave—a slave for life—a slave in the hands of strangers; and in their hands she saw her children, her grandchildren, and her great-grandchildren, divided, like so many sheep, without being gratified with the small privilege of a single word, as to their or her own destiny. And, to cap the climax of their base ingratitude and fiendish barbarity, my grandmother, who was now very old, having outlived my old master and all his children, having seen the beginning and end of all of them, and her present owners finding she was of but little value, her frame already racked with the pains of old age, and complete helplessness fast stealing over her once active limbs, they took her to the woods, built her a little hut, put up a little mud-chimney, and then made her welcome to the privilege of supporting herself there in perfect loneliness; thus virtually turning her out to die! If my poor old grandmother now lives, she lives to suffer in utter loneliness; she lives to remember and mourn over the loss of children, the loss of grandchildren, and the loss of great-grandchildren. They are, in the language of the slave's poet, Whittier,
 
 
-{{< html-tag tag="blockquote" class="poetry" >}}
-- Gone, gone, sold and gone
-- To the rice swamp dank and lone,
-- Where the slave-whip ceaseless swings,
-- Where the noisome insect stings,
-- Where the fever-demon strews
-- Poison with the falling dews,
-- Where the sickly sunbeams glare
-- Through the hot and misty air:
-- Gone, gone, sold and gone
-- To the rice swamp dank and lone,
-- From Virginia hills and waters—
-- Woe is me, my stolen daughters!
-{{< /html-tag >}}
+> - Gone, gone, sold and gone
+> - To the rice swamp dank and lone,
+> - Where the slave-whip ceaseless swings,
+> - Where the noisome insect stings,
+> - Where the fever-demon strews
+> - Poison with the falling dews,
+> - Where the sickly sunbeams glare
+> - Through the hot and misty air:
+> - Gone, gone, sold and gone
+> - To the rice swamp dank and lone,
+> - From Virginia hills and waters—
+> - Woe is me, my stolen daughters!
+{.poetry}
 
 
 The hearth is desolate. The children, the unconscious children, who once sang and danced in her presence, are gone. She gropes her way, in the darkness of age, for a drink of water. Instead of the voices of her children, she hears by day the moans of the dove, and by night the screams of the hideous owl. All is gloom. The grave is at the door. And now, when weighed down by the pains and aches of old age, when the head inclines to the feet, when the beginning and ending of human existence meet, and helpless infancy and painful old age combine together—at this time, this most needful time, the time for the exercise of that tenderness and affection which children only can exercise towards a declining parent—my poor old grandmother, the devoted mother of twelve children, is left all alone, in yonder little hut, before a few dim embers. She stands—she sits—she staggers—she falls—she groans—she dies—and there are none of her children or grandchildren present, to wipe from her wrinkled brow the cold sweat of death, or to place beneath the sod her fallen remains. Will not a righteous God visit for these things?
@@ -382,7 +380,7 @@ Mr. Hopkins was even worse than Mr. Weeden. His chief boast was his ability to m
 
 But to return to Mr. Freeland, and to my experience while in his employment. He, like Mr. Covey, gave us enough to eat; but, unlike Mr. Covey, he also gave us sufficient time to take our meals. He worked us hard, but always between sunrise and sunset. He required a good deal of work to be done, but gave us good tools with which to work. His farm was large, but he employed hands enough to work it, and with ease, compared with many of his neighbors. My treatment, while in his employment, was heavenly, compared with what I experienced at the hands of Mr. Edward Covey.
 
-Mr. Freeland was himself the owner of but two slaves. Their names were Henry Harris and John Harris. The rest of his hands he hired. These consisted of myself, Sandy Jenkins,<sup><a href="#fn1" id="ref1">\*</a></sup> and Handy Caldwell.
+Mr. Freeland was himself the owner of but two slaves. Their names were Henry Harris and John Harris. The rest of his hands he hired. These consisted of myself, Sandy Jenkins,{{< footnote "fn1" >}} and Handy Caldwell.
 
 Henry and John were quite intelligent, and in a very little while after I went there, I succeeded in creating in them a strong desire to learn how to read. This desire soon sprang up in the others also. They very soon mustered up some old spelling-books, and nothing would do but that I must keep a Sabbath school. I agreed to do so, and accordingly devoted my Sundays to teaching these my loved fellow-slaves how to read. Neither of them knew his letters when I went there. Some of the slaves of the neighboring farms found what was going on, and also availed themselves of this little opportunity to learn to read. It was understood, among all who came, that there must be as little display about it as possible. It was necessary to keep our religious masters at St. Michael's unacquainted with the fact, that, instead of spending the Sabbath in wrestling, boxing, and drinking whisky, we were trying to learn how to read the will of God; for they had much rather see us engaged in those degrading sports, than to see us behaving like intellectual, moral, and accountable beings. My blood boils as I think of the bloody manner in which Messrs. Wright Fairbanks and Garrison West, both class-leaders, in connection with many others, rushed in upon us with sticks and stones, and broke up our virtuous little Sabbath school, at St. Michael's—all calling themselves Christians! humble followers of the Lord Jesus Christ! But I am again digressing.
 
@@ -392,10 +390,9 @@ The year passed off smoothly. It seemed only about half as long as the year whic
 
 At the close of the year 1834, Mr. Freeland again hired me of my master, for the year 1835. But, by this time, I began to want to live *upon free land* as well as *with Freeland;* and I was no longer content, therefore, to live with him or any other slaveholder. I began, with the commencement of the year, to prepare myself for a final struggle, which should decide my fate one way or the other. My tendency was upward. I was fast approaching manhood, and year after year had passed, and I was still a slave. These thoughts roused me—I must do something. I therefore resolved that 1835 should not pass without witnessing an attempt, on my part, to secure my liberty. But I was not willing to cherish this determination alone. My fellow-slaves were dear to me. I was anxious to have them participate with me in this, my life-giving determination. I therefore, though with great prudence, commenced early to ascertain their views and feelings in regard to their condition, and to imbue their minds with thoughts of freedom. I bent myself to devising ways and means for our escape, and meanwhile strove, on all fitting occasions, to impress them with the gross fraud and inhumanity of slavery. I went first to Henry, next to John, then to the others. I found, in them all, warm hearts and noble spirits. They were ready to hear, and ready to act when a feasible plan should be proposed. This was what I wanted. I talked to them of our want of manhood, if we submitted to our enslavement without at least one noble effort to be free. We met often, and consulted frequently, and told our hopes and fears, recounted the difficulties, real and imagined, which we should be called on to meet. At times we were almost disposed to give up, and try to content ourselves with our wretched lot; at others, we were firm and unbending in our determination to go. Whenever we suggested any plan, there was shrinking—the odds were fearful. Our path was beset with the greatest obstacles; and if we succeeded in gaining the end of it, our right to be free was yet questionable—we were yet liable to be returned to bondage. We could see no spot, this side of the ocean, where we could be free. We knew nothing about Canada. Our knowledge of the north did not extend farther than New York; and to go there, and be forever harassed with the frightful liability of being returned to slavery—with the certainty of being treated tenfold worse than before—the thought was truly a horrible one, and one which it was not easy to overcome. The case sometimes stood thus: At every gate through which we were to pass, we saw a watchman—at every ferry a guard—on every bridge a sentinel—and in every wood a patrol. We were hemmed in upon every side. Here were the difficulties, real or imagined—the good to be sought, and the evil to be shunned. On the one hand, there stood slavery, a stern reality, glaring frightfully upon us,—its robes already crimsoned with the blood of millions, and even now feasting itself greedily upon our own flesh. On the other hand, away back in the dim distance, under the flickering light of the north star, behind some craggy hill or snow-covered mountain, stood a doubtful freedom—half frozen—beckoning us to come and share its hospitality. This in itself was sometimes enough to stagger us; but when we permitted ourselves to survey the road, we were frequently appalled. Upon either side we saw grim death, assuming the most horrid shapes. Now it was starvation, causing us to eat our own flesh;—now we were contending with the waves, and were drowned;—now we were overtaken, and torn to pieces by the fangs of the terrible bloodhound. We were stung by scorpions, chased by wild beasts, bitten by snakes, and finally, after having nearly reached the desired spot,—after swimming rivers, encountering wild beasts, sleeping in the woods, suffering hunger and nakedness,—we were overtaken by our pursuers, and, in our resistance, we were shot dead upon the spot! I say, this picture sometimes appalled us, and made us
 
-{{< html-tag tag="blockquote" class="poetry" >}}
-- rather bear those ills we had,
-- Than fly to others, that we knew not of.
-{{< /html-tag >}}
+> - rather bear those ills we had,
+> - Than fly to others, that we knew not of.
+{.poetry}
 
 In coming to a fixed determination to run away, we did more than Patrick Henry, when he resolved upon liberty or death. With us it was a doubtful liberty at most, and almost certain death if we failed. For my part, I should prefer death to hopeless bondage.
 
@@ -464,9 +461,9 @@ I have been frequently asked how I felt when I found myself in a free State. I h
 
 Thank Heaven, I remained but a short time in this distressed situation. I was relieved from it by the humane hand of *Mr. David Ruggles*, whose vigilance, kindness, and perseverance, I shall never forget. I am glad of an opportunity to express, as far as words can, the love and gratitude I bear him. Mr. Ruggles is now afflicted with blindness, and is himself in need of the same kind offices which he was once so forward in the performance of toward others. I had been in New York but a few days, when Mr. Ruggles sought me out, and very kindly took me to his boarding-house at the corner of Church and Lespenard Streets. Mr. Ruggles was then very deeply engaged in the memorable *Darg* case, as well as attending to a number of other fugitive slaves, devising ways and means for their successful escape; and, though watched and hemmed in on almost every side, he seemed to be more than a match for his enemies.
 
-Very soon after I went to Mr. Ruggles, he wished to know of me where I wanted to go; as he deemed it unsafe for me to remain in New York. I told him I was a calker, and should like to go where I could get work. I thought of going to Canada; but he decided against it, and in favor of my going to New Bedford, thinking I should be able to get work there at my trade. At this time, Anna,<sup><a href="#fn2" id="ref2">\*</a></sup> my intended wife, came on; for I wrote to her immediately after my arrival at New York, (notwithstanding my homeless, houseless, and helpless condition,) informing her of my successful flight, and wishing her to come on forthwith. In a few days after her arrival, Mr. Ruggles called in the Rev. J. W. C. Pennington, who, in the presence of Mr. Ruggles, Mrs. Michaels, and two or three others, performed the marriage ceremony, and gave us a certificate, of which the following is an exact copy:
+Very soon after I went to Mr. Ruggles, he wished to know of me where I wanted to go; as he deemed it unsafe for me to remain in New York. I told him I was a calker, and should like to go where I could get work. I thought of going to Canada; but he decided against it, and in favor of my going to New Bedford, thinking I should be able to get work there at my trade. At this time, Anna,{{< footnote "fn2" >}} my intended wife, came on; for I wrote to her immediately after my arrival at New York, (notwithstanding my homeless, houseless, and helpless condition,) informing her of my successful flight, and wishing her to come on forthwith. In a few days after her arrival, Mr. Ruggles called in the Rev. J. W. C. Pennington, who, in the presence of Mr. Ruggles, Mrs. Michaels, and two or three others, performed the marriage ceremony, and gave us a certificate, of which the following is an exact copy:
 
-> This may certify, that I joined together in holy matrimony Frederick Johnson<sup><a href="#fn3" id="ref3">\*</a></sup> and Anna Murray, as man and wife, in the presence of Mr. David Ruggles and Mrs. Michaels.
+> This may certify, that I joined together in holy matrimony Frederick Johnson{{< footnote "fn3" >}} and Anna Murray, as man and wife, in the presence of Mr. David Ruggles and Mrs. Michaels.
 >
 > JAMES W. C. PENNINGTON
 > New York, Sept. 15, 1838
@@ -484,7 +481,7 @@ In the afternoon of the day when I reached New Bedford, I visited the wharves, t
 
 Every thing looked clean, new, and beautiful. I saw few or no dilapidated houses, with poverty-stricken inmates; no half-naked children and barefooted women, such as I had been accustomed to see in Hillsborough, Easton, St. Michael's, and Baltimore. The people looked more able, stronger, healthier, and happier, than those of Maryland. I was for once made glad by a view of extreme wealth, without being saddened by seeing extreme poverty. But the most astonishing as well as the most interesting thing to me was the condition of the colored people, a great many of whom, like myself, had escaped thither as a refuge from the hunters of men. I found many, who had not been seven years out of their chains, living in finer houses, and evidently enjoying more of the comforts of life, than the average of slaveholders in Maryland. I will venture to assert, that my friend Mr. Nathan Johnson (of whom I can say with a grateful heart, "I was hungry, and he gave me meat; I was thirsty, and he gave me drink; I was a stranger, and he took me in") lived in a neater house; dined at a better table; took, paid for, and read, more newspapers; better understood the moral, religious, and political character of the nation,—than nine tenths of the slaveholders in Talbot county Maryland. Yet Mr. Johnson was a working man. His hands were hardened by toil, and not his alone, but those also of Mrs. Johnson. I found the colored people much more spirited than I had supposed they would be. I found among them a determination to protect each other from the blood-thirsty kidnapper, at all hazards. Soon after my arrival, I was told of a circumstance which illustrated their spirit. A colored man and a fugitive slave were on unfriendly terms. The former was heard to threaten the latter with informing his master of his whereabouts. Straightway a meeting was called among the colored people, under the stereotyped notice, "Business of importance!" The betrayer was invited to attend. The people came at the appointed hour, and organized the meeting by appointing a very religious old gentleman as president, who, I believe, made a prayer, after which he addressed the meeting as follows: "*Friends, we have got him here, and I would recommend that you young men just take him outside the door, and kill him!*" With this, a number of them bolted at him; but they were intercepted by some more timid than themselves, and the betrayer escaped their vengeance, and has not been seen in New Bedford since. I believe there have been no more such threats, and should there be hereafter, I doubt not that death would be the consequence.
 
-I found employment, the third day after my arrival, in stowing a sloop with a load of oil. It was new, dirty, and hard work for me; but I went at it with a glad heart and a willing hand. I was now my own master. It was a happy moment, the rapture of which can be understood only by those who have been slaves. It was the first work, the reward of which was to be entirely my own. There was no Master Hugh standing ready, the moment I earned the money, to rob me of it. I worked that day with a pleasure I had never before experienced. I was at work for myself and newly-married wife. It was to me the starting-point of a new existence. When I got through with that job, I went in pursuit of a job of calking; but such was the strength of prejudice against color, among the white calkers, that they refused to work with me, and of course I could get no employment.<sup><a href="#fn4" id="ref4">\*</a></sup>
+I found employment, the third day after my arrival, in stowing a sloop with a load of oil. It was new, dirty, and hard work for me; but I went at it with a glad heart and a willing hand. I was now my own master. It was a happy moment, the rapture of which can be understood only by those who have been slaves. It was the first work, the reward of which was to be entirely my own. There was no Master Hugh standing ready, the moment I earned the money, to rob me of it. I worked that day with a pleasure I had never before experienced. I was at work for myself and newly-married wife. It was to me the starting-point of a new existence. When I got through with that job, I went in pursuit of a job of calking; but such was the strength of prejudice against color, among the white calkers, that they refused to work with me, and of course I could get no employment.{{< footnote "fn4" >}}
 
 Finding my trade of no immediate benefit, I threw off my calking habiliments, and prepared myself to do any kind of work I could get to do. Mr. Johnson kindly let me have his wood-horse and saw, and I very soon found myself a plenty of work. There was no work too hard—none too dirty. I was ready to saw wood, shovel coal, carry wood, sweep the chimney, or roll oil casks,—all of which I did for nearly three years in New Bedford, before I became known to the anti-slavery world.
 
@@ -503,22 +500,22 @@ I find, since reading over the foregoing Narrative, that I have, in several inst
 > - Who minister at thine altar, God of right!
 > - Men who their hands, with prayer and blessing, lay
 > - On Israel's ark of light.
-{:.poetry}
+{.poetry}
 > - What! preach, and kidnap men?
 > - Give thanks, and rob thy own afflicted poor?
 > - Talk of thy glorious liberty, and then
 > - Bolt hard the captive's door?
-{:.poetry}
+{.poetry}
 > - What! servants of thy own
 > - Merciful Son, who came to seek and save
 > - The homeless and the outcast, fettering down
 > - The tasked and plundered slave!
-{:.poetry}
+{.poetry}
 > - Pilate and Herod friends!
 > - Chief priests and rulers, as of old, combine!
 > - Just God and holy! is that church which lends
 > - Strength to the spoiler thine?"
-{:.poetry}
+{.poetry}
 
 The Christianity of America is a Christianity, of whose votaries it may be as truly said, as it was of the ancient scribes and Pharisees, "They bind heavy burdens, and grievous to be borne, and lay them on men's shoulders, but they themselves will not move them with one of their fingers. All their works they do for to be seen of men.—They love the uppermost rooms at feasts, and the chief seats in the synagogues, . . . . . . and to be called of men, Rabbi, Rabbi.—But woe unto you, scribes and Pharisees, hypocrites! for ye shut up the kingdom of heaven against men; for ye neither go in yourselves, neither suffer ye them that are entering to go in. Ye devour widows' houses, and for a pretence make long prayers; therefore ye shall receive the greater damnation. Ye compass sea and land to make one proselyte, and when he is made, ye make him twofold more the child of hell than yourselves.—Woe unto you, scribes and Pharisees, hypocrites! for ye pay tithe of mint, and anise, and cumin, and have omitted the weightier matters of the law, judgment, mercy, and faith; these ought ye to have done, and not to leave the other undone. Ye blind guides! which strain at a gnat, and swallow a camel. Woe unto you, scribes and Pharisees, hypocrites! for ye make clean the outside of the cup and of the platter; but within, they are full of extortion and excess.—Woe unto you, scribes and Pharisees, hypocrites! for ye are like unto whited sepulchres, which indeed appear beautiful outward, but are within full of dead men's bones, and of all uncleanness. Even so ye also outwardly appear righteous unto men, but within ye are full of hypocrisy and iniquity."
 
@@ -537,79 +534,79 @@ I conclude these remarks by copying the following portrait of the religion of th
 > - And women buy and children sell,
 > - And preach all sinners down to hell,
 > - And sing of heavenly union.
-> ^
+{.poetry}
 > - They'll bleat and baa, dona like goats,
 > - Gorge down black sheep, and strain at motes,
 > - Array their backs in fine black coats,
 > - Then seize their negroes by their throats,
 > - And choke, for heavenly union.
-> ^
+{.poetry}
 > - They'll church you if you sip a dram,
 > - And damn you if you steal a lamb;
 > - Yet rob old Tony, Doll, and Sam,
 > - Of human rights, and bread and ham;
 > - Kidnapper's heavenly union.
-> ^
+{.poetry}
 > - They'll loudly talk of Christ's reward,
 > - And bind his image with a cord,
 > - And scold, and swing the lash abhorred,
 > - And sell their brother in the Lord
 > - To handcuffed heavenly union.
-> ^
+{.poetry}
 > - They'll read and sing a sacred song,
 > - And make a prayer both loud and long,
 > - And teach the right and do the wrong,
 > - Hailing the brother, sister throng,
 > - With words of heavenly union.
-> ^
+{.poetry}
 > - We wonder how such saints can sing,
 > - Or praise the Lord upon the wing,
 > - Who roar, and scold, and whip, and sting,
 > - And to their slaves and mammon cling,
 > - In guilty conscience union.
-> ^
+{.poetry}
 > - They'll raise tobacco, corn, and rye,
 > - And drive, and thieve, and cheat, and lie,
 > - And lay up treasures in the sky,
 > - By making switch and cowskin fly,
 > - In hope of heavenly union.
-> ^
+{.poetry}
 > - They'll crack old Tony on the skull,
 > - And preach and roar like Bashan bull,
 > - Or braying ass, of mischief full,
 > - Then seize old Jacob by the wool,
 > - And pull for heavenly union.
-> ^
+{.poetry}
 > - A roaring, ranting, sleek man-thief,
 > - Who lived on mutton, veal, and beef,
 > - Yet never would afford relief
 > - To needy, sable sons of grief,
 > - Was big with heavenly union.
-> ^
+{.poetry}
 > - 'Love not the world,' the preacher said,
 > - And winked his eye, and shook his head;
 > - He seized on Tom, and Dick, and Ned,
 > - Cut short their meat, and clothes, and bread,
 > - Yet still loved heavenly union.
-> ^
+{.poetry}
 > - Another preacher whining spoke
 > - Of One whose heart for sinners broke:
 > - He tied old Nanny to an oak,
 > - And drew the blood at every stroke,
 > - And prayed for heavenly union.
-> ^
+{.poetry}
 > - Two others oped their iron jaws,
 > - And waved their children-stealing paws;
 > - There sat their children in gewgaws;
 > - By stinting negroes' backs and maws,
 > - They kept up heavenly union.
-> ^
+{.poetry}
 > - All good from Jack another takes,
 > - And entertains their flirts and rakes,
 > - Who dress as sleek as glossy snakes,
 > - And cram their mouths with sweetened cakes;
 > - And this goes down for union.
-{:.poetry}
+{.poetry}
 
 
 Sincerely and earnestly hoping that this little book may do something toward throwing light on the American slave system, and hastening the glad day of deliverance to the millions of my brethren in bonds—faithfully relying upon the power of truth, love, and justice, for success in my humble efforts—and solemnly pledging my self anew to the sacred cause,—I subscribe myself,
@@ -624,12 +621,9 @@ THE END
 [Footnotes by Frederick Douglass]
 
 
-<!-- Make sure to use &#x21a9;&#xfe0e; to generate ↩︎ manually -->
-
-<sup id="fn1">*</sup> This is the same man who gave me the roots to prevent my being whipped by Mr. Covey. He was "a clever soul." We used frequently to talk about the fight with Covey, and as often as we did so, he would claim my success as the result of the roots which he gave me. This superstition is very common among the more ignorant slaves. A slave seldom dies but that his death is attributed to trickery. [&#x21a9;&#xfe0e;](#ref1)
-
-<sup id="fn2">*</sup> She was free. [&#x21a9;&#xfe0e;](#ref2)
-
-<sup id="fn3">*</sup> I had changed my name from Frederick Bailey to that of Johnson. [&#x21a9;&#xfe0e;](#ref3)
-
-<sup id="fn4">*</sup> I am told that colored persons can now get employment at calking in New Bedford—a result of anti-slavery effort. [&#x21a9;&#xfe0e;](#ref4)
+{{< footnotesList >}}
+{{< citation "fn1" "This is the same man who gave me the roots to prevent my being whipped by Mr. Covey. He was \"a clever soul.\" We used frequently to talk about the fight with Covey, and as often as we did so, he would claim my success as the result of the roots which he gave me. This superstition is very common among the more ignorant slaves. A slave seldom dies but that his death is attributed to trickery." >}}
+{{< citation "fn2" "She was free." >}}
+{{< citation "fn3" "I had changed my name from Frederick Bailey to that of Johnson." >}}
+{{< citation "fn4" "I am told that colored persons can now get employment at calking in New Bedford—a result of anti-slavery effort." >}}
+{{< /footnotesList >}}
