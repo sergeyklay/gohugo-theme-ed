@@ -763,3 +763,7 @@ pre code {
 .footnotes hr {
   margin: 0;
   border: 0; }
+
+.footnotes blockquote + a.footnote-backref {
+  margin-bottom: 1rem;
+  display: inline-block; }
