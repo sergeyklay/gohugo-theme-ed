@@ -79,3 +79,8 @@ resourceDir = '../resources'
   [markup.highlight]
     # Syntax highlighting theme
     style = 'monokailight'
+  [markup.goldmark]
+    [markup.goldmark.parser]
+      [markup.goldmark.parser.attribute]
+        # Enable custom attribute support for blocks
+        block = true
