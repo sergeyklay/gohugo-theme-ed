@@ -19,7 +19,7 @@
     {{ $paginator := .Paginate (where site.RegularPages "Type" "in" site.Params.main_sections) }}
     <div class="articles">
     {{- range $paginator.Pages }}
-	    {{- .Render "teaser" }}
+        {{- .Render "teaser" }}
     {{- end }}
     </div>
 {{- end }}
