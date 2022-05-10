@@ -60,17 +60,6 @@ to generate high-quality editions on github.io in large quantities based on the
   and social media
 - Automatic table of content generation
 
-## Getting started
-
-### The config file
-
-Take a look inside the [`exampleSite`][example-site] folder of this theme.
-You'll find a file called [`config.toml`][config-sample]. To use it, copy the
-[`config.toml`][config-sample] in the root folder of your Hugo site. Feel
-free to change the strings in this theme.
-
-You may need to delete the line: `resourceDir = "../resources"`.
-
 ## License
 
 Ed licensed under the MIT License. See the [LICENSE](./LICENSE) file for more

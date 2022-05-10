@@ -41,7 +41,7 @@ Or, if you don't plan to make any significant changes but want to track and upda
 $ git submodule add https://github.com/sergeyklay/gohugo-theme-ed.git themes/ed
 ~~~
 
-At this point you should navigate inside your site project folder and stay there until further notice:
+At this point you should navigate inside your site project folder and stay there until further notice.
 
 Next, open `config.toml` in the base of the Hugo site and ensure the theme option is set to `ed`:
 
@@ -51,7 +51,7 @@ theme = "ed"
 
 Take a look inside the `themes/ed/exampleSite` folder. You'll find a file called `config.toml`. Feel free to use it as a reference for your site's configuration.
 
-If you don't get any errors, Ed should work at this point. To see if Ed is working properly we will take advantage of Hugo's built in server. You can build the first version of your site and run the Hugo server at the same time by entering:
+To see if Ed is working properly we will take advantage of Hugo's built in server. You can build the first version of your site and run the Hugo server at the same time by entering:
 
 ~~~ bash
 $ hugo server
@@ -69,13 +69,13 @@ Ed is a Hugo theme. That means you will need some familiarity with Hugo to take 
 
 Once you have gone through these tutorials, you can get started using Ed. Remember to always and only edit content files for your site using [a plain text editor](https://en.wikipedia.org/wiki/Text_editor), and *not* a word processor. I'm composing this file using a plain text editor called [Visual Studio Code](https://code.visualstudio.com/).
 
-Remember to always use the Hugo convention for naming files: `your-title.md`. You should also make sure that all your texts have the YAML front matter (the information at the top of the file). YAML stands for "YAML Ain't Markup Language" --- no disrespect to XML --- and it's the main way that Hugo handles named data. Here's an example of YAML front matter:
+You should make sure that all your texts have the YAML front matter (the information at the top of the file). YAML stands for "YAML Ain't Markup Language" --- no disrespect to XML --- and it's the main way that Hugo handles named data. Here's an example of YAML front matter:
 
 ~~~ yaml
 ---
-layout: poem
 title: "Cahier d'un retour au pays natal"
 author: Aimé Césaire
+draft: true
 ---
 ~~~
 
@@ -91,7 +91,7 @@ By default Hugo uses a special Markdown processor called Goldmark. The processor
 
 ## Genres
 
-Ed offers three different layouts: poem, narrative and drama. The genre is indicated in the YAML front matter on your texts. The templates that govern how these genres are displayed can be found in the `layouts` folder. Redefining these layouts will allow you to tweak the stylesheets according to your different needs. Out of the box, Ed contains some special instructions for poetry in its stylesheets that allow you to deal with some of the peculiarities of poetry layouts.
+Ed offers three different layouts: poem, narrative and drama. To create content of a certain genre, create a file in the appropriate folder. For example, if you want to create a poem, create a file in the `content/poem` folder. Another way is to indicated genre in the YAML front matter on your texts. The templates that govern how these genres are displayed can be found in the Ed's `layouts` folder. Redefining these layouts in project wide level will allow you to tweak the stylesheets according to your different needs. Out of the box, Ed contains some special instructions for poetry in its stylesheets that allow you to deal with some of the peculiarities of poetry layouts.
 
 To indicate lines in poetry we use the line syntax from Markdown:
 
@@ -106,7 +106,20 @@ To indicate lines in poetry we use the line syntax from Markdown:
 - Frozen with snow.
 ~~~
 
-To indent specific lines we take advantage of a feature in kramdown that allows us to indicate classes for a line. This approach still allows the line to be readable while editing.
+The `-` at the beginning of each line indicates that these are lines. Another way to achieve the same effect is to use the following syntax:
+
+~~~ markdown
+Hold fast to dreams\
+For if dreams die\
+Life is a broken-winged bird\
+That cannot fly.\
+Hold fast to dreams\
+For when dreams go\
+Life is a barren field\
+Frozen with snow.
+~~~
+
+To indent specific lines we take advantage of Hugo shortcuts that allows us to create empty indentation for a line. This approach still allows the line to be readable while editing.
 
 ~~~ markdown
 - {{</* indent 3 */>}} But O heart! heart! heart!
@@ -115,7 +128,16 @@ To indent specific lines we take advantage of a feature in kramdown that allows 
 - {{</* indent 6 */>}} Fallen cold and dead.
 ~~~
 
-The `-` at the beginning of each line indicates that these are lines. The `{{</* indent 3 */>}}` is what we need to in order to indicate the indent value for that line. Values can range from 1-10. You can expand the range or adjust the values in the custom stylesheet file (`assets/css/extended/*.css`).
+or:
+
+~~~ markdown
+{{</* indent 3 */>}} But O heart! heart! heart!\
+{{</* indent 4 */>}} O the bleeding drops of red,\
+{{</* indent 5 */>}} Where on the deck my Captain lies,\
+{{</* indent 6 */>}} Fallen cold and dead.
+~~~
+
+The `{{</* indent 3 */>}}` is what we need to in order to indicate the indent value for that line. Values can range from 1-10. You can expand the range or adjust the values in the custom stylesheet file. Ed is customized by creating stylesheet files in `assets/css/extended/*.css` at project wide level.
 
 The example from Raisin in the Sun shows us that we don't need much special markup for theater as long as we use CAPITAL LETTERS for speakers. Italics for directions are easy enough. Just use `*` around the words you want to italicize.
 
@@ -138,26 +160,29 @@ Footnotes are the bread and butter of scholarship. Hugo makes footnotes a fairly
 
 These footnotes can be placed anywhere, but they will always be generated at the bottom of the document. To have a multi-paragraph footnote you need to start the footnote text on the next line after the footnote anchor and indent it:
 
+~~~ markdown
+[^1]: Ugh pinterest fixie cronut pitchfork beard. Literally deep
+      cold-pressed distillery pabst austin.
+
+      Typewriter 90's roof party poutine, kickstarter raw
+      denim pabst readymade biodiesel umami chicharrones XOXO.
 ~~~
-[^1]:
-  Ugh pinterest fixie cronut pitchfork beard. Literally deep
-  cold-pressed distillery pabst austin.
 
-  Typewriter 90's roof party poutine, kickstarter raw
-  denim pabst readymade biodiesel umami chicharrones XOXO.
-~~~
+Please note, you need to indent all lines at the same level to make them stay inside the footnote.
 
-The footnotes system provided by Hugo does have one limitation: It generates the numeration for you automatically, and it only allows you to have one set of footnotes for a text. In some cases we have to separate the author's footnotes from our own, in others we want to represent the author's own footnote style. In these cases we have to use HTML. Here's the example from *Narrative of the Life*:
+At the moment (May 2022) time the footnotes system provided by Hugo does have one limitation: It does not support non-numbered footnotes, and it only allows you to have one set of footnotes for a text. In some cases we have to separate the author's footnotes from our own, in others we want to represent the author's own footnote style. In these cases we have to use custom Ed's shortcode for footnotes. Here's the example from *Narrative of the Life*:
 
-~~~ html
-... At this time, Anna,<sup><a href="#fn2" id="ref2">\*</a></sup> my intended wife, came on;
+~~~ markdown
+... At this time, Anna,{{</* footnote "fn2" */>}} my intended wife, came on;
 
 ...
 
-<sup id="fn2">*</sup> She was free. [&#x21a9;&#xfe0e;](#ref2)
+{{</* footnotesList */>}}
+...
+{{</* citation "fn2" "She was free." */>}}
+...
+{{</* /footnotesList */>}}
 ~~~
-
-Notice the double HTML Entity (hex), `&#x21a9;&#xfe0e;`, used at the end of the footnote to return us to the top. The first hex is the &#x21a9;&#xfe0e; symbol proper. The second assigns the proper variant glyph. This is a necessary hack while we wait for Apple devices to stop turning everything into unseemly emojis.
 
 ---
 
@@ -183,16 +208,16 @@ Things get a bit complicated when we want to use poetry inside the block or when
 > - There sat their children in gewgaws;
 > - By stinting negroes' backs and maws,
 > - They kept up heavenly union.
-> ^
+{.poetry}
 > - All good from Jack another takes,
 > - And entertains their flirts and rakes,
 > - Who dress as sleek as glossy snakes,
 > - And cram their mouths with sweetened cakes;
 > - And this goes down for union.
-{:.poetry}
+{.poetry}
 ~~~
 
-The `{:.poetry}` tag at the end tells the processor to think of the lines above it as poetry. The `{:.poetry}` tag is an example of kramdown class assignments for block-elements. Because this segment of poetry exists in the 'narrative' layout, and because it is part of a blockquote, we need to signal to the processor to process poetry this way, so that the right class is invoked in the stylesheet. Notice also the `^` separating the stanzas. This bit of kramdown syntax helps us separate the stanzas while staying within the blockquote. The good news is this is the most complex kramdown syntax layout you will encounter in Ed.
+The `{.poetry}` tag at the end tells the processor to think of the lines above it as poetry. The `{.poetry}` tag is an example of Goldmark class assignments for block-elements. Because this segment of poetry exists in the 'narrative' layout, and because it is part of a blockquote, we need to signal to the processor to process poetry this way, so that the right class is invoked in the stylesheet. The good news is this is the most complex Goldmark syntax layout you will encounter in Ed.
 
 
 ## Pages
