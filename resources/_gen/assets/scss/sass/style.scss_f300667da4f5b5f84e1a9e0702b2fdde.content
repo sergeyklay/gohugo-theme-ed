@@ -23,7 +23,7 @@
  * https://github.com/minicomp/ed.
 */
 /*
-  To apply a different color scheme to the whole scroll down to the themes section instructions at
+  To apply a different color scheme to the whole scroll down to the themes section for instructions at
   the very bottom of this file
 */
 /*
@@ -56,7 +56,9 @@ body {
   color: #454545;
   background-color: #fff;
   -webkit-text-size-adjust: 100%;
-  -ms-text-size-adjust: 100%; }
+  -moz-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  text-size-adjust: 100%; }
 
 .content {
   margin-bottom: 4rem; }
@@ -204,10 +206,7 @@ tbody tr:nth-child(odd) th {
   font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
   font-size: 1.8rem;
   line-height: .777em;
-  margin-top: 2em;
-  margin-bottom: 0;
-  margin-right: 0;
-  margin-left: 0;
+  margin: 2em 0 0;
   text-align: center; }
 
 .masthead-title small {
@@ -256,8 +255,11 @@ tbody tr:nth-child(odd) th {
   /* 15px*/
   color: rgba(255, 255, 255, 0.6);
   background-color: #202020;
-  -webkit-transition: all .3s ease-in-out;
-  transition: all .3s ease-in-out; }
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out; }
 
 @media (min-width: 30em) {
   .sidebar {
@@ -384,7 +386,9 @@ a.sidebar-nav-item:focus {
 #sidebar-checkbox:checked ~ .wrap,
 #sidebar-checkbox:checked ~ .sidebar-toggle {
   -webkit-transform: translateX(14rem);
+  -moz-transform: translateX(14rem);
   -ms-transform: translateX(14rem);
+  -o-transform: translateX(14rem);
   transform: translateX(14rem); }
 
 /*
@@ -404,7 +408,9 @@ a.sidebar-nav-item:focus {
 .layout-reverse #sidebar-checkbox:checked ~ .wrap,
 .layout-reverse #sidebar-checkbox:checked ~ .sidebar-toggle {
   -webkit-transform: translateX(-14rem);
+  -moz-transform: translateX(-14rem);
   -ms-transform: translateX(-14rem);
+  -o-transform: translateX(-14rem);
   transform: translateX(-14rem); }
 
 /*
@@ -414,7 +420,9 @@ a.sidebar-nav-item:focus {
 */
 .sidebar-overlay #sidebar-checkbox:checked ~ .wrap {
   -webkit-transform: translateX(0);
+  -moz-transform: translateX(0);
   -ms-transform: translateX(0);
+  -o-transform: translateX(0);
   transform: translateX(0); }
 
 .sidebar-overlay #sidebar-checkbox:checked ~ .sidebar-toggle {
@@ -538,7 +546,7 @@ a.footnote-ref {
   padding-left: .1rem;
   font-size: .66rem; }
 
-/*Bibliography styles */
+/* Bibliography styles */
 ol.bibliography {
   list-style-type: none;
   padding-left: 1rem;

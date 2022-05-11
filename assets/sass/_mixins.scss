@@ -40,6 +40,39 @@ $break-desktop: 1600px;
   }
 }
 
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  text-size-adjust
+// Controls the text inflation algorithm used on some smartphones and tablets.
+// Other browsers will ignore this property.
+//
+// Usage: @include text-size-adjust(none);
+
+@mixin text-size-adjust($value) {
+  -webkit-text-size-adjust: $value;
+     -moz-text-size-adjust: $value;
+      -ms-text-size-adjust: $value;
+          text-size-adjust: $value;
+}
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  Transform
+// Usage: @include transform(
+//             rotate(90deg),
+//             scale(0.5),
+//             // ... add more transforms if you need
+//        );
+//
+
+@mixin transform($transforms...) {
+  // combine the passed transforms into a space separated list
+  $transform-list: join($transforms, null, space);
+
+  // print out the transforms
+  -webkit-transform: $transform-list;
+     -moz-transform: $transform-list;
+      -ms-transform: $transform-list;
+       -o-transform: $transform-list;
+          transform: $transform-list;
+}
+
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  Transitions
 // Usage: @include transition(color .3s ease);
 
