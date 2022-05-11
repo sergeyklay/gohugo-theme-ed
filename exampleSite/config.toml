@@ -3,8 +3,7 @@ baseURL = 'https://example.com/'
 languageCode = 'en-us'
 defaultContentLanguage = 'en'
 title = 'Ed.'
-theme = ['github.com/sergeyklay/gohugo-theme-ed']
-resourceDir = '../resources'
+theme = 'ed'
 
 [languages]
   [languages.en]
@@ -33,7 +32,7 @@ resourceDir = '../resources'
   readmore = true
 
   [params.assets]
-    # Relative paths to icons
+    # Site icons, relative to ./static
     favicon = '' # favicon.ico for legacy browsers
     svgicon = '' # A single SVG icon with a light/dark version for modern browsers
     apple_touch_icon = '' # 180×180 PNG image for Apple devices
@@ -46,12 +45,13 @@ resourceDir = '../resources'
   facebook_admin = ''
   facebook_id = ''
 
+# https://gohugo.io/content-management/menus/
 [menu]
-  [[menu.main]]
-    identifier = 'home'
-    name = 'Home'
-    url = '/'
-    weight = 1
+  [[menu.main]]         # sections in the website sidebar
+    identifier = 'home' # section id
+    name = 'Home'       # section display title
+    url = '/'           # path to the section
+    weight = 1          # order of sections
   [[menu.main]]
     identifier = 'about'
     name = 'About'
@@ -75,10 +75,14 @@ resourceDir = '../resources'
     [menu.main.params]
       external = true
 
+# https://gohugo.io/getting-started/configuration-markup/
 [markup]
+  defaultMarkdownHandler = 'goldmark'
+
   [markup.highlight]
-    # Syntax highlighting theme
-    style = 'monokailight'
+    # Syntax highlight style, see https://xyproto.github.io/splash/docs/
+    style = 'emacs'
+
   [markup.goldmark]
     [markup.goldmark.parser]
       [markup.goldmark.parser.attribute]
