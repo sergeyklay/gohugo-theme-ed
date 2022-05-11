@@ -48,7 +48,7 @@ $break-desktop: 1600px;
 
 @mixin text-size-adjust($value) {
   -webkit-text-size-adjust: $value;
-     -moz-text-size-adjust: $value;
+     -moz-text-size-adjust: $value; // editorconfig-checker-disable-line
       -ms-text-size-adjust: $value;
           text-size-adjust: $value;
 }
@@ -67,9 +67,9 @@ $break-desktop: 1600px;
 
   // print out the transforms
   -webkit-transform: $transform-list;
-     -moz-transform: $transform-list;
+     -moz-transform: $transform-list; // editorconfig-checker-disable-line
       -ms-transform: $transform-list;
-       -o-transform: $transform-list;
+       -o-transform: $transform-list; // editorconfig-checker-disable-line
           transform: $transform-list;
 }
 
