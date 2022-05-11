@@ -45,9 +45,9 @@ $break-desktop: 1600px;
 
 @mixin transition($args...) {
   -webkit-transition: $args;
-     -moz-transition: $args;
+      -moz-transition: $args;
       -ms-transition: $args;
-       -o-transition: $args;
+        -o-transition: $args;
           transition: $args;
 }
 
@@ -59,7 +59,7 @@ $break-desktop: 1600px;
 
 @mixin appearance($value) {
   -webkit-appearance: none;
-     -moz-appearance: none;
+      -moz-appearance: none;
           appearance: none;
 }
 
@@ -93,7 +93,7 @@ $break-desktop: 1600px;
 
 @mixin box-sizing ($value) {
   -webkit-box-sizing: $value;
-     -moz-box-sizing: $value;
+      -moz-box-sizing: $value;
           box-sizing: $value;
 }
 
@@ -104,7 +104,7 @@ $break-desktop: 1600px;
 
 @mixin box-shadow ($args...) {
   -webkit-box-shadow: $args;
-     -moz-box-shadow: $args;
+      -moz-box-shadow: $args;
           box-shadow: $args;
 }
 
@@ -115,7 +115,7 @@ $break-desktop: 1600px;
 
 @mixin border-radius ($args...) {
   -webkit-border-radius: $args;
-     -moz-border-radius: $args;
+      -moz-border-radius: $args;
           border-radius: $args;
 }
 
