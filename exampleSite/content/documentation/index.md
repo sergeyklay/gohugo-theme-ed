@@ -41,15 +41,23 @@ Or, if you don't plan to make any significant changes but want to track and upda
 $ git submodule add https://github.com/sergeyklay/gohugo-theme-ed.git themes/ed
 ~~~
 
-At this point you should navigate inside your site project folder and stay there until further notice.
+---
 
-Next, open `config.toml` in the base of the Hugo site and ensure the theme option is set to `ed`:
+## Getting started
+
+After installing the theme successfully it requires a just a few more steps to get your site running.
+
+---
+
+### The config file
+
+Take a look inside the [`exampleSite`](https://github.com/sergeyklay/gohugo-theme-ed/tree/master/exampleSite) folder of this theme. You'll find a file called [`config.toml`](https://github.com/sergeyklay/gohugo-theme-ed/blob/master/exampleSite/config.toml). To use it, copy the [`config.toml`](https://github.com/sergeyklay/gohugo-theme-ed/blob/master/exampleSite/config.toml) in the root folder of your Hugo site. Feel free to change the strings in this theme.
+
+You may need to delete the line: `themesDir = "../.."`, because it's necessary only for theme developers. Also, make sure  the theme option is set to `ed`:
 
 ~~~ toml
 theme = "ed"
 ~~~
-
-Take a look inside the `themes/ed/exampleSite` folder. You'll find a file called `config.toml`. Feel free to use it as a reference for your site's configuration.
 
 To see if Ed is working properly we will take advantage of Hugo's built in server. You can build the first version of your site and run the Hugo server at the same time by entering:
 
