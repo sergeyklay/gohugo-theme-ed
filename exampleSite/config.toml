@@ -3,7 +3,8 @@ baseURL = 'https://example.com/'
 languageCode = 'en-us'
 defaultContentLanguage = 'en'
 title = 'Ed.'
-theme = 'ed'
+theme = ['github.com/sergeyklay/gohugo-theme-ed']
+resourceDir = '../resources'
 
 [languages]
   [languages.en]

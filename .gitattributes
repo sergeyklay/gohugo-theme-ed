@@ -12,6 +12,9 @@
 .gitignore        export-ignore
 .github           export-ignore
 
+go.mod            export-ignore
+go.sum            export-ignore
+
 exampleSite/**    linguist-vendored
 resources/_gen/** linguist-vendored
 
