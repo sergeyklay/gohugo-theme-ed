@@ -1,0 +1,27 @@
+{{/* Target for toggling the sidebar `.sidebar-checkbox` is for regular styles, `#sidebar-checkbox` for behavior. */}}
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<aside class="sidebar" id="sidebar">
+    <div class="sidebar-item">
+        <p>{{ .Title }}</p>
+    </div>
+
+    <nav class="sidebar-nav">
+        {{/* TODO: Translate links */}}
+        <a class="sidebar-nav-item" href="{{ site.Home.RelPermalink }}">Home</a>
+        <a class="sidebar-nav-item" href="#" data-proofer-ignore>Return to Top</a>
+
+        {{ range $item := .Params.toc }}
+            <!-- {% if page.url == node.url %} active{% endif %} -->
+            <a class="sidebar-nav-item sidebar-nav-item-toc" href="#{{ . | anchorize }}">{{ . }}</a>
+        {{ end }}
+    </nav>
+
+    <div class="sidebar-item">
+        <p>Edited by {{ .Params.editor }}, {{ now.Format "2006" }}.</p>
+        <p>
+        Built with <a href="https://minicomp.github.io/ed/" target="_blank" rel="noopener noreferrer">Ed.</a> Distributed under an MIT license.
+        </p>
+    </div>
+</aside>
