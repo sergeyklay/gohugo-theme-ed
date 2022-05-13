@@ -5,6 +5,7 @@ defaultContentLanguage = 'en'
 title = 'Ed.'
 theme = ['github.com/sergeyklay/gohugo-theme-ed']
 resourceDir = '../resources'
+enableRobotsTXT = true
 
 [languages]
   [languages.en]
@@ -68,6 +69,11 @@ resourceDir = '../resources'
     name = 'Documentation'
     url = '/documentation/'
     weight = 4
+  [[menu.main]]
+    identifier = 'search'
+    name = 'Search'
+    url = '/search/' # TODO: Implement search
+    weight = 5
   [[menu.main]]
     identifier = 'github'
     name = 'GitHub Project'
