@@ -13,7 +13,7 @@
         <a class="sidebar-nav-item" href="#" data-proofer-ignore>Return to Top</a>
 
         {{ range $item := .Params.toc }}
-            <!-- {% if page.url == node.url %} active{% endif %} -->
+            {{/* TODO: Add 'active' class for curent section */}}
             <a class="sidebar-nav-item sidebar-nav-item-toc" href="#{{ . | anchorize }}">{{ . }}</a>
         {{ end }}
     </nav>
