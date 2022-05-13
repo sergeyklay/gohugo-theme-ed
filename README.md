@@ -56,8 +56,7 @@ to generate high-quality editions on github.io in large quantities based on the
 - Easier for digital archives and libraries to preserve
 - Open source, open access
 - Unobtrusive footnotes
-- Metadata in Dublin Core and OpenGraph to play nice with Zotero, libraries
-  and social media
+- Metadata in OpenGraph to play nice with social media and search engines
 - Automatic table of content generation
 
 ## License

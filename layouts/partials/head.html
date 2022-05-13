@@ -1,5 +1,5 @@
 {{/* */}}
-<head prefix="og: http://ogp.me/ns#; dc: http://purl.org/dc/terms/#">
+<head>
     {{- $description := print .Params.Description -}}
     {{- if or .IsHome (eq .Params.Description "") (not .Params.Description) -}}
         {{ $description = site.Params.Description }}
@@ -36,6 +36,5 @@
     {{- partial "custom-head.html" . -}}
 
     {{- /* Misc */}}
-    {{ template "partials/templates/doublinecore.html" . }}
     {{ template "partials/templates/opengraph.html" . }}
 </head>
