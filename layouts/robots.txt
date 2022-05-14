@@ -1,12 +1,11 @@
-{{- $url := urls.Parse site.BaseURL -}}
-# robots.txt file for "{{ site.Title }}", {{ $url.Host }}
+# TODO: Does not work
+{{- $url := urls.Parse ("/" | absURL) -}}
+# robots.txt file for "{{ site.Title }}" website, {{ $url.Host }}
 User-agent: *
 {{- if eq (getenv "HUGO_ENV") "production" | or (eq site.Params.env "production")  }}
 Allow: /
-Sitemap: {{ site.BaseURL }}/sitemap.xml
+# TODO: implement sitemap.xml
+# Sitemap: {{ "stemap.xml" | absURL }}
 {{- else }}
 Disallow: /
 {{- end }}
-
-# TODO: implement sitemap.xml
-# Sitemap: {{ site.BaseURL }}/sitemap.xml
