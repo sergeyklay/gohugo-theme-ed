@@ -1,9 +1,27 @@
-{{- if or .Params.author site.Params.author }}
-{{- $author := (.Params.author | default site.Params.author) }}
-{{- $author_type := (printf "%T" $author) }}
-{{- if (or (eq $author_type "[]string") (eq $author_type "[]interface {}")) }}
-{{- (delimit $author ", " ) }}
+{{- /* First, check for current page author(s) */}}
+{{- if .Params.author }}
+    {{- $author_type := (printf "%T" .Params.author) }}
+    {{- if (or (eq $author_type "[]string") (eq $author_type "[]interface {}")) }}
+        {{- (delimit .Params.author ", " ) }}
+    {{- else }}
+        {{- .Params.author }}
+    {{- end }}
+
+{{- /* Otherwise, get site authors */}}
 {{- else }}
-{{- $author }}
-{{- end }}
+    {{- if site.Author }}
+        {{- $author_type := (printf "%T" site.Author) }}
+        {{- if (or (eq $author_type "map[string]string") (eq $author_type "map[string]interface {}")) }}
+            {{- range $i, $author := site.Author }}
+                {{- $name_type := (printf "%T" $author) }}
+                {{- if (eq $name_type "maps.Params") }}
+                    {{- with $author.name }}{{ $.Scratch.SetInMap "names" . . }}{{ end }}
+                {{- else }}
+                    {{- $.Scratch.SetInMap "names" site.Author.name site.Author.name }}
+                    {{- break -}}
+                {{- end }}
+            {{- end }}
+            {{- delimit ($.Scratch.GetSortedMapValues "names") ", " }}
+        {{- end }}
+    {{- end -}}
 {{- end -}}
