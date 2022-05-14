@@ -10,6 +10,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0,shrink-to-fit=no">
 
     <link rel="canonical" href="{{ .Permalink }}">
+    <link type="text/plain" rel="author" href="{{ "humans.txt" | absURL }}">
 
     <title>{{ block "title" . }}{{ if .IsHome }}{{ site.Title }}{{ else }}{{ with .Params.Title }}{{ . }} - {{ end }}{{ site.Title }}{{ end }}{{ end }}</title>
     <meta name="description" content="{{ $description }}">

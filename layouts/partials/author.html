@@ -22,6 +22,7 @@
                 {{- end }}
             {{- end }}
             {{- delimit ($.Scratch.GetSortedMapValues "names") ", " }}
+            {{- $.Scratch.Delete "names" -}}
         {{- end }}
     {{- end -}}
 {{- end -}}

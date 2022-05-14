@@ -1,9 +1,9 @@
-# TODO: Does not work
 {{- $url := urls.Parse ("/" | absURL) -}}
 # robots.txt file for "{{ site.Title }}" website, {{ $url.Host }}
 User-agent: *
 {{- if eq (getenv "HUGO_ENV") "production" | or (eq site.Params.env "production")  }}
 Allow: /
+
 # TODO: implement sitemap.xml
 # Sitemap: {{ "stemap.xml" | absURL }}
 {{- else }}
