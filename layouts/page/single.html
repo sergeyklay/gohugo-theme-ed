@@ -1,6 +1,7 @@
 {{ define "main" }}
 <article class="page">
-    <h1 class="page-title">{{ .Title }}</h1>
+    <h1 class="page-title">{{ .Params.caption | default .Title }}</h1>
     {{ .Content }}
 </article>
 {{ end }}
+
