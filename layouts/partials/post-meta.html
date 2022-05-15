@@ -1,6 +1,6 @@
 <div class="post-meta">
     {{- $root := . -}}
-    {{- with .Param "post_meta" -}}
+    {{- with .Param "postMeta" -}}
         {{- range $field := . -}}
             {{- $p := printf "post-meta/%s.html" $field -}}
             {{- partial $p $root -}}

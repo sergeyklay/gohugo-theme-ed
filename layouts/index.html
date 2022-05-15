@@ -16,7 +16,7 @@
         </ul>
     </div>
 {{- else }}
-    {{ $paginator := .Paginate (where site.RegularPages "Type" "in" site.Params.main_sections) }}
+    {{ $paginator := .Paginate (where site.RegularPages "Type" "in" site.Params.mainSections) }}
     <div class="articles">
     {{- range $paginator.Pages }}
         {{- .Render "teaser" }}

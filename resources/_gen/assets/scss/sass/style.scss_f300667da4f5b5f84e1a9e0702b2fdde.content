@@ -8,7 +8,7 @@
 /*
   Color
 
-  Make sure to leave color_scheme in `config.toml` file empty for granular control
+  Make sure to leave colorScheme in `config.toml` file empty for granular control
 */
 /* Ed: the minimal edition theme.
  * ___________________
