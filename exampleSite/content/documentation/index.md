@@ -67,7 +67,7 @@ $ hugo server
 
 Copy the url from your terminal log and paste it into your browser of choice. This url usually looks something like this `http://localhost:1313`. At this point you should be looking at your very own working version of Ed:
 
-![Your very own Ed](screenshot-home.png)
+{{< img src="screenshot-home.png" alt="Your very own Ed" >}}
 
 ---
 
