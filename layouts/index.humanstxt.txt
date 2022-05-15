@@ -1,27 +1,14 @@
-{{/* TODO: Translate me */}}
 CONGRATULATIONS, you found my humans.txt file!
 
 ───────────────────────────────────────────────────────────────────────────────
 
-    /* TEAM */
-{{ if site.Author }}
+{{ with site.Author }}
     {{- $author_type := (printf "%T" site.Author) }}
     {{- if (or (eq $author_type "map[string]string") (eq $author_type "map[string]interface {}")) }}
-        {{- range $i, $author := site.Author }}
-            {{- $name_type := (printf "%T" $author) }}
-            {{- if (eq $name_type "maps.Params") }}
-                {{- $.Scratch.Set "name" ($author.Get "name") }}
-                {{- $.Scratch.Set "email" ($author.Get "email") }}
-                {{- $.Scratch.Set "github" ($author.Get "github") }}
-                {{- $.Scratch.Set "location" ($author.Get "location") }}
-                {{- partial "team-member.html" . -}}
-            {{ else }}
-                {{- $.Scratch.Set "name" site.Author.name }}
-                {{- $.Scratch.Set "email" site.Author.email }}
-                {{- $.Scratch.Set "github" site.Author.github }}
-                {{- $.Scratch.Set "location" site.Author.location }}
-                {{- partial "team-member.html" . }}
-                {{- break -}}
+    /* TEAM */
+        {{ range $i, $member := site.Author }}
+            {{- if (eq (printf "%T" $member) "maps.Params") }}
+                {{- partial "team-member.html" (dict "context" . "member" $member) -}}
             {{- end }}
         {{- end }}
     {{- end }}
@@ -29,8 +16,8 @@ CONGRATULATIONS, you found my humans.txt file!
 
     /* SITE */
 
-    Last update: ???
-    Language: Russian, English
+    Last update: {{ now.Format "2006-01-02" }}
+    Language: {{ range $i, $l := site.Languages }}{{ if $i }}, {{ end }}{{ .LanguageName }}{{ end }}
     Doctype: HTML5
     Standards: HTML5, CSS3, Open Graph protocol, Schema.org
     Components: Hugo, jQuery, Ed Theme

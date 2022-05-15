@@ -1,5 +1,5 @@
 
-    Author: {{ .Name }}
-    Contact: {{ .Email }}
-    GitHub: {{ .Github }}
-    From: {{ .Location }}
+    Author: {{ .context.Name | default "-" }}
+    Contact: {{ .context.Email | default "-" }}
+    GitHub: {{ .context.GitHub | default "-" }}
+    From: {{ .context.Location | default "-" }}

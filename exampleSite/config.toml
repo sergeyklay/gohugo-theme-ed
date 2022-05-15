@@ -24,14 +24,7 @@ enableRobotsTXT = true
 # baseName = "feed"
 # isPlainText = false
 
-# Possible 'Author' formats are:
-#
-# [author]
-#     name = 'Foo Bar'
-#     email = 'john@example.com'
-#     github = '@john_doe'
-#     location = 'Kyiv, Ukraine'
-# ========= OR ===========
+# Possible 'Author' format is:
 #
 # [author]
 #   [author.john_doe]
@@ -44,23 +37,20 @@ enableRobotsTXT = true
 #     email = 'jane@example.com'
 #     github = '@jane_doe'
 #     location = 'Lviv, Ukraine'
+#
+# TODO: Mention format in docs
 [author]
   [author.john_doe]
     name = 'John Doe'
     email = 'john@example.com'
     github = '@john_doe'
     location = 'Kyiv, Ukraine'
-  [author.jane_doe]
-    name = 'Jane Doe'
-    email = 'jane@example.com'
-    github = '@jane_doe'
-    location = 'Lviv, Ukraine'
 
 [languages]
   [languages.en]
     weight = 1
-    # "rtl" for Right-To-Left languages
-    languageDirection = "ltr"
+    languageDirection = 'ltr'
+    languageName = 'English'
 
 [params]
   # Site author name. For multiple authors use: ['Me', 'You']
