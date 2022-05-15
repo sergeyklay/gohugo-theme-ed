@@ -1,0 +1,3 @@
+<a href="{{ .Get 0 | absURL }}" {{- with .Get "title" }} title="{{.}}"{{ end }} {{- with .Get "class" }} class="{{.}}"{{ end }} {{- with .Get "target" }} target="{{.}}"{{ end }} {{- with .Get "rel" }} rel="{{.}}"{{ end }}>
+    {{ .Inner }}
+</a>
