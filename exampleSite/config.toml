@@ -24,7 +24,15 @@ enableRobotsTXT = true
 # baseName = "feed"
 # isPlainText = false
 
-# Possible 'Author' format is:
+# Possible 'Author' formats are:
+#
+# [author]
+#   name = 'John Doe'
+#   email = 'john@example.com'
+#   github = '@john_doe'
+#   location = 'Kyiv, Ukraine'
+#
+# OR
 #
 # [author]
 #   [author.john_doe]

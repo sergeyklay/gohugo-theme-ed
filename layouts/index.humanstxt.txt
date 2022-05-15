@@ -9,6 +9,9 @@ CONGRATULATIONS, you found my humans.txt file!
         {{ range $i, $member := site.Author }}
             {{- if (eq (printf "%T" $member) "maps.Params") }}
                 {{- partial "team-member.html" (dict "context" . "member" $member) -}}
+            {{- else if (eq (printf "%T" $member) "string") }}
+                {{- partial "team-member.html" (dict "context" . "member" site.Author) -}}
+                {{- break -}}
             {{- end }}
         {{- end }}
     {{- end }}
@@ -16,7 +19,7 @@ CONGRATULATIONS, you found my humans.txt file!
 
     /* SITE */
 
-    Last update: {{ now.Format "2006-01-02" }}
+    Last update: {{ now.Format "2006/01/02" }}
     Language: {{ range $i, $l := site.Languages }}{{ if $i }}, {{ end }}{{ .LanguageName }}{{ end }}
     Doctype: HTML5
     Standards: HTML5, CSS3, Open Graph protocol, Schema.org
