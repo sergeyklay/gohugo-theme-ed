@@ -1,6 +1,6 @@
 {{ define "main" }}
 <article class="poem poetry">
-    <h1 class="text-title">{{ .Title }}</h1>
+    <h1 class="text-title">{{ .Params.caption | default .Title }}</h1>
     <p class="byline">by {{ .Params.author }}</p>
     {{ .Content }}
 </article>
