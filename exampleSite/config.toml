@@ -48,11 +48,10 @@ enableRobotsTXT = true
 #
 # TODO: Mention format in docs
 [author]
-  [author.john_doe]
-    name = 'John Doe'
-    email = 'john@example.com'
-    github = '@john_doe'
-    location = 'Kyiv, Ukraine'
+  name = 'John Doe'
+  email = 'john@example.com'
+  github = '@john_doe'
+  location = 'Kyiv, Ukraine'
 
 [languages]
   [languages.en]

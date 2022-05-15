@@ -39,7 +39,7 @@ features = [
   "mobile"
 ]
 
-min_version = "0.84.0"
+min_version = "0.95.0"
 
 # If the theme has a single author.
 [author]
