@@ -1,0 +1,15 @@
+{{- $description := "" -}}
+
+{{- if .IsHome -}}
+    {{- $description = site.Params.Description -}}
+{{- else -}}
+    {{- if and (.Params.Description) (ne .Params.Description "") -}}
+        {{- $description = print .Params.Description -}}
+    {{- else if and (.Params.Summary ) (ne .Params.Summary "") -}}
+        {{- $description = print .Params.Summary -}}
+    {{- else -}}
+        {{- $description = print .Summary -}}
+    {{- end -}}
+{{- end -}}
+
+{{- $description | plainify | safeHTML | chomp | truncate 180 -}}
