@@ -18,10 +18,5 @@
         {{ end }}
     </nav>
 
-    <div class="sidebar-item">
-        <p>Edited by {{ .Params.editor }}, {{ now.Format "2006" }}.</p>
-        <p>
-        Built with <a href="https://minicomp.github.io/ed/" target="_blank" rel="noopener noreferrer">Ed.</a> Distributed under an MIT license.
-        </p>
-    </div>
+    {{ partial "footer" . }}
 </aside>

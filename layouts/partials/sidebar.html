@@ -21,14 +21,5 @@
         {{/* TODO: Add hypothesis support */}}
     </nav>
 
-    <div class="sidebar-item">
-        <p>
-            {{- with site.Params.footer }}
-            {{ . | safeHTML }}
-            {{- else }}
-            Built with <a href="https://github.com/sergeyklay/gohugo-theme-ed" target="_blank" rel="noopener noreferrer">Ed.</a>
-            Distributed under an MIT license.
-            {{- end }}
-        </p>
-    </div>
+    {{ partial "footer" . }}
 </aside>
