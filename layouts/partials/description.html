@@ -12,4 +12,4 @@
     {{- end -}}
 {{- end -}}
 
-{{- $description | plainify | safeHTML | chomp | truncate 180 -}}
+{{- replaceRE "\n" " " ($description | plainify | safeHTML | chomp | truncate 180) -}}

@@ -7,46 +7,37 @@ theme = ['github.com/sergeyklay/gohugo-theme-ed']
 resourceDir = '../resources'
 enableRobotsTXT = true
 
+# kick out RSS, we'll use Atom
+disableKinds = ['RSS']
+
 [outputs]
   # TODO:
-  # home = [ "HTML", "RSS", "Atom", "JSON", "humanstxt" ]
-  # section = [ "HTML", "RSS", "Atom" ]
-  home = [ 'HTML', 'humanstxt' ]
+  # home = [ "HTML", "Atom", "JSON", "humanstxt" ]
+  # section = [ "HTML", "Atom" ]
+  home = [ 'HTML', 'Atom', 'humanstxt' ]
 
 [outputFormats.humanstxt]
+  mediaType = 'text/plain'
   baseName = 'humans'
   isPlainText = true
-  mediaType = 'text/plain'
 
-# TODO:
-# [outputFormats.Atom]
-# mediaType = "application/atom"
-# baseName = "feed"
-# isPlainText = false
+# Atom feed.
+# For more see: https://validator.w3.org/feed/docs/atom.html#whatIsAtom
+[outputFormats.Atom]
+  name = 'Atom'
+  mediaType = 'application/atom+xml'
+  # generated file = <baseName>.<mediaType.'application/atom+xml'.suffixes[0]> = feeds/feed.atom.xml
+  baseName = 'feeds/feed.atom'
+  rel = 'alternate'
+  isPlainText = false
+  isHTML = false
+  noUgly = true
+  permalinkable = false
 
-# Possible 'Author' formats are:
-#
-# [author]
-#   name = 'John Doe'
-#   email = 'john@example.com'
-#   github = '@john_doe'
-#   location = 'Kyiv, Ukraine'
-#
-# OR
-#
-# [author]
-#   [author.john_doe]
-#     name = 'John Doe'
-#     email = 'john@example.com'
-#     github = '@john_doe'
-#     location = 'Kyiv, Ukraine'
-#   [author.jane_doe]
-#     name = 'Jane Doe'
-#     email = 'jane@example.com'
-#     github = '@jane_doe'
-#     location = 'Lviv, Ukraine'
-#
-# TODO: Mention format in docs
+[mediaTypes]
+  [mediaTypes.'application/atom+xml']
+    suffixes = ['xml']
+
 [author]
   name = 'John Doe'
   email = 'john@example.com'
@@ -60,24 +51,27 @@ enableRobotsTXT = true
     languageName = 'English'
 
 [params]
-  # Site author name. For multiple authors use: ['Me', 'You']
-  author = 'John Doe'
   # Site description. Used in meta description
   description = 'Ed is a Hugo theme designed for textual editors based on minimal computing principles, and focused on legibility and flexibility.'
+  # Copyright string
+  copyright = 'Copyright (c) 2019 John Doe'
   # Color scheme. Options: red, orange, magenta, cyan, blue, brown
   colorScheme = ''
   # Used in site header
   tagline = 'a Hugo theme for minimal editions'
   # Custom footer text
   footer = ''
-  # Sections to be displayed in the main page
+  # Sections to be displayed in the main page, as well as RSS/Atom feeds
   mainSections = ['posts', 'dramas', 'narratives', 'poems']
   # Order of post meta information
   postMeta = ['date']
   # Posts date format, for example: 2006-01-02
   dateformat = 'January 02, 2006'
+  dateFormatFeed = '2006-01-02T15:04:05Z07:00'
   # Show "Read more" button in list if true
   readmore = true
+  # RSS/Atom feed size
+  feedSize = 25
 
   [params.assets]
     # Site icons, relative to ./static

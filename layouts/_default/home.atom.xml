@@ -1,0 +1,51 @@
+{{ print "<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"yes\" ?>"| safeHTML }}
+<feed xmlns="http://www.w3.org/2005/Atom"
+      xmlns:media="http://search.yahoo.com/mrss/"
+      xml:lang="{{ site.LanguageCode }}"
+      xml:base="{{site.BaseURL }}">
+    <title>{{ site.Title }}</title>
+    {{ with site.Params.description }}<subtitle>{{ . }}</subtitle>{{ end }}
+    {{ with site.Home.OutputFormats.Get "Atom" }}<link href="{{ .RelPermalink }}" rel="self" type="{{ .MediaType.Type | html }}" />{{ end }}
+    {{ with site.Author.name }}<author>
+        <name>{{.}}</name>
+        {{ with site.Author.email }}<email>{{.}}</email>{{end}}
+    </author>{{end}}
+    {{ with site.Params.Copyright }}<rights type="text">{{ .}}</rights>{{end}}
+    <generator uri="https://gohugo.io" version="{{ hugo.Version }}">Hugo</generator>
+    {{ if not site.LastChange.IsZero }}<updated>{{ site.LastChange.UTC.Format site.Params.dateFormatFeed }}</updated>{{ end }}
+    {{ $uuid := sha1 (site.BaseURL | absURL)}}<id>urn:uuid:{{ substr $uuid 0 8 }}-{{ substr $uuid 8 4 }}-5{{ substr $uuid 13 3 }}-{{ substr $uuid 16 1 }}9{{ substr $uuid 17 2 }}-{{ substr $uuid 21 12 }}</id>
+    {{ $feedsize := site.Params.feedSize | default 25 }}
+    {{- range first $feedsize (where site.RegularPages.ByDate.Reverse "Type" "in" site.Params.mainSections) }}
+    <entry>
+        {{- $url := .RelPermalink }}{{ $uuid := sha1 (.Permalink | absURL)}}{{ $page := .}}
+        <category term="{{ .Section}}" />
+        {{ range (.GetTerms "tags") }}
+        <category term="{{ .LinkTitle }}" />
+        {{ end }}
+        <link rel="alternate" type="type/html" href="{{ $url }}" />
+        <title type="text">{{  .Title | plainify}}</title>
+        <published>{{ (.PublishDate.Format site.Params.dateFormatFeed) | html }}</published>
+        {{ if ne .Date .Lastmod }}<updated>{{ .Lastmod.UTC.Format site.Params.dateFormatFeed  }}</updated>{{ end }}
+        <id>urn:uuid:{{ substr $uuid 0 8 }}-{{ substr $uuid 8 4 }}-5{{ substr $uuid 13 3 }}-{{ substr $uuid 16 1 }}9{{ substr $uuid 17 2 }}-{{ substr $uuid 21 12 }}</id>
+        {{ if .Params.author }}
+            {{- $author_type := (printf "%T" .Params.author) }}
+            {{- if eq $author_type "string" }}
+                <author>
+                    <name>{{ .Params.author }}</name>
+                </author>
+            {{- else if eq $author_type "[]string" }}
+                {{ range .Params.author }}
+                    <author>
+                        <name>{{ .Name }}</name>
+                    </author>
+                {{ end }}
+            {{- end }}
+        {{ end }}
+        <summary type="xhtml">
+            <div xmlns="http://www.w3.org/1999/xhtml">
+                <p>{{ replaceRE "\n" " " (.Summary | plainify | safeHTML | chomp) }}</p>
+            </div>
+        </summary>
+    </entry>
+    {{- end }}
+</feed>
