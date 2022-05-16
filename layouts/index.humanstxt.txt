@@ -1,20 +1,10 @@
-CONGRATULATIONS, you found my humans.txt file!
-
-───────────────────────────────────────────────────────────────────────────────
-
-{{ with site.Author }}
-    {{- $author_type := (printf "%T" site.Author) }}
-    {{- if (or (eq $author_type "map[string]string") (eq $author_type "map[string]interface {}")) }}
+{{- with site.Author.name }}
     /* TEAM */
-        {{ range $i, $member := site.Author }}
-            {{- if (eq (printf "%T" $member) "maps.Params") }}
-                {{- partial "team-member.html" (dict "context" . "member" $member) -}}
-            {{- else if (eq (printf "%T" $member) "string") }}
-                {{- partial "team-member.html" (dict "context" . "member" site.Author) -}}
-                {{- break -}}
-            {{- end }}
-        {{- end }}
-    {{- end }}
+
+    Author: {{ . }}
+{{ with site.Author.email }}    Contact: {{ . }}{{ end }}
+{{ with site.Author.github }}    GitHub: {{ . }}{{ end }}
+{{ with site.Author.location }}    From: {{ . }}{{ end }}
 {{- end }}
 
     /* SITE */

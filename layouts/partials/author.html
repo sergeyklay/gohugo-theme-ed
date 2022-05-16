@@ -7,18 +7,6 @@
         {{- .Params.author }}
     {{- end }}
 {{- /* Otherwise, get site authors */}}
-{{- else if site.Author }}
-    {{- $author_type := (printf "%T" site.Author) }}
-    {{- if (or (eq $author_type "map[string]string") (eq $author_type "map[string]interface {}")) }}
-        {{- range $i, $author := site.Author }}
-            {{- if (eq (printf "%T" $author) "maps.Params") }}
-                {{- with $author.name }}{{ $.Scratch.SetInMap "names" . . }}{{ end }}
-            {{- else }}
-                {{- $.Scratch.SetInMap "names" site.Author.name site.Author.name }}
-                {{- break -}}
-            {{- end }}
-        {{- end }}
-        {{- delimit ($.Scratch.GetSortedMapValues "names") ", " }}
-        {{- $.Scratch.Delete "names" -}}
-    {{- end }}
+{{- else if site.Author.name }}
+    {{- site.Author.name }}
 {{- end -}}
