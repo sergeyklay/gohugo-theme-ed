@@ -6,6 +6,8 @@
     <title>{{ site.Title }}</title>
     {{ with site.Params.description }}<subtitle>{{ . }}</subtitle>{{ end }}
     {{ with site.Home.OutputFormats.Get "Atom" }}<link href="{{ .RelPermalink }}" rel="self" type="{{ .MediaType.Type | html }}" />{{ end }}
+    {{ $logo := resources.Get (site.Params.assets.logo | default "/img/open-graph-logo.png" ) }}{{ $logo = $logo.Resize "96x96" }}<icon>{{$logo.RelPermalink}}</icon>
+    <logo>{{$logo.RelPermalink}}</logo>
     {{ with site.Author.name }}<author>
         <name>{{.}}</name>
         {{ with site.Author.email }}<email>{{.}}</email>{{end}}
