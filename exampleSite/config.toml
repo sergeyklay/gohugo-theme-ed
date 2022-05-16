@@ -19,7 +19,11 @@ disableKinds = ['RSS']
 [outputFormats.humanstxt]
   mediaType = 'text/plain'
   baseName = 'humans'
+  rel = 'author'
   isPlainText = true
+  isHTML = false
+  noUgly = true
+  permalinkable = false
 
 # Atom feed.
 # For more see: https://validator.w3.org/feed/docs/atom.html#whatIsAtom
