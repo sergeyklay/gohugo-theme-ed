@@ -18,17 +18,7 @@ disableKinds = ['RSS']
   # TODO:
   # home = [ "HTML", "Atom", "JSON", "humanstxt" ]
   # section = [ "HTML", "Atom" ]
-  home = [ 'HTML', 'Atom', 'humanstxt' ]
-
-# For more see: https://gohugo.io/templates/output-formats/
-[outputFormats.humanstxt]
-  mediaType = 'text/plain'
-  baseName = 'humans'
-  rel = 'author'
-  isPlainText = true
-  isHTML = false
-  noUgly = true
-  permalinkable = false
+  home = [ 'HTML', 'Atom', 'FEED', 'humanstxt' ]
 
 # Atom feed.
 # For more see: https://validator.w3.org/feed/docs/atom.html#whatIsAtom
@@ -46,6 +36,27 @@ disableKinds = ['RSS']
   baseName = 'feeds/feed.atom'
   rel = 'alternate'
   isPlainText = false
+  isHTML = false
+  noUgly = true
+  permalinkable = false
+
+# no collision with buildin RSS
+[outputFormats.FEED]
+  name = 'Feed'
+  mediaType = 'text/xml'
+  baseName = 'feeds/feed.rss'
+  rel = 'alternate'
+  isPlainText = false
+  isHTML = false
+  noUgly = true
+  permalinkable = false
+
+# For more see: https://gohugo.io/templates/output-formats/
+[outputFormats.humanstxt]
+  mediaType = 'text/plain'
+  baseName = 'humans'
+  rel = 'author'
+  isPlainText = true
   isHTML = false
   noUgly = true
   permalinkable = false
@@ -84,6 +95,7 @@ disableKinds = ['RSS']
   # Posts date format, for example: 2006-01-02
   dateformat = 'January 02, 2006'
   dateFormatFeed = '2006-01-02T15:04:05Z07:00'
+  dateFormatRFC822Z = '02 Jan 2006 15:04:05 UT'
   # Show "Read more" button in list if true
   readmore = true
   # RSS/Atom feed size

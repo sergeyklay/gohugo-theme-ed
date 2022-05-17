@@ -1,29 +1,27 @@
-{{ `<?` | safeHTML }}xml version="1.0" encoding="utf-8" standalone="yes"{{ `?>` | safeHTML }}
+{{ safeHTML "<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"yes\" ?>" }}
 <feed xmlns="http://www.w3.org/2005/Atom"
       xmlns:media="http://search.yahoo.com/mrss/"
       xml:lang="{{ site.LanguageCode }}">
     {{ printf `<title type="html"><![CDATA[%s]]></title>` site.Title | safeHTML }}
-    {{ with site.Params.description -}}
-        {{- printf `<subtitle type="html"><![CDATA[%s]]></subtitle>` . | safeHTML }}
-    {{- end }}
-    {{ with site.Home.OutputFormats.Get "Atom" }}<link href="{{ .Permalink | absURL }}" rel="self" type="{{ .MediaType.Type | html }}" />{{ end }}
+    {{ with site.Params.description }}{{ printf `<subtitle type="html"><![CDATA[%s]]></subtitle>` . | safeHTML }}{{ end }}
+    <link href="{{ "/" | absURL }}" type="text/html" />
+    {{ with site.Home.OutputFormats.Get "ATOM" }}<link href="{{ .Permalink | absURL }}" rel="self" type="{{ .MediaType.Type | html }}" />{{ end }}
+    {{ with site.Home.OutputFormats.Get "FEED"}}<link href="{{ .Permalink | absURL }}" rel="alternate" type="{{ .MediaType.Type | html }}" />{{end}}
     {{ $logo := resources.Get (site.Params.assets.logo | default "/img/open-graph-logo.png" ) }}{{ $logo = $logo.Resize "96x96" }}<icon>{{ $logo.Permalink | absURL }}</icon>
     <logo>{{ $logo.Permalink | absURL }}</logo>
     {{ with site.Author.name }}<author>
         {{ printf `<name type="html"><![CDATA[%s]]></name>` . | safeHTML }}
-        {{ with site.Author.email }}<email>{{ . | html }}</email>{{end}}
+        {{ with site.Author.email }}<email>{{ . | html }}</email>{{ end }}
     </author>{{ end }}
-    {{ with site.Params.Copyright -}}
-        {{- printf `<rights type="html"><![CDATA[%s]]></rights>` . | safeHTML -}}
-    {{- end }}
+    {{ with site.Params.Copyright }}{{ printf `<rights type="html"><![CDATA[%s]]></rights>` . | safeHTML }}{{ end }}
     <generator uri="https://gohugo.io" version="{{ hugo.Version }}">Hugo</generator>
     {{ if not site.LastChange.IsZero }}<updated>{{ site.LastChange.UTC.Format site.Params.dateFormatFeed }}</updated>{{ end }}
-    {{ $uuid := sha1 (site.BaseURL | absURL)}}<id>urn:uuid:{{ substr $uuid 0 8 }}-{{ substr $uuid 8 4 }}-5{{ substr $uuid 13 3 }}-{{ substr $uuid 16 1 }}9{{ substr $uuid 17 2 }}-{{ substr $uuid 21 12 }}</id>
+    {{ $uuid := sha1 (site.BaseURL | absURL) }}<id>urn:uuid:{{ substr $uuid 0 8 }}-{{ substr $uuid 8 4 }}-5{{ substr $uuid 13 3 }}-{{ substr $uuid 16 1 }}9{{ substr $uuid 17 2 }}-{{ substr $uuid 21 12 }}</id>
     {{ $feedsize := site.Params.feedSize | default 25 }}
     {{- range first $feedsize (where site.RegularPages.ByDate.Reverse "Type" "in" site.Params.mainSections) }}
     <entry>
-        {{- $url := .Permalink | absURL }}{{ $uuid := sha1 (.Permalink | absURL)}}{{ $page := .}}
-        <category term="{{ .Section}}" />
+        {{- $url := .Permalink | absURL }}{{ $uuid := sha1 (.Permalink | absURL) }}{{ $page := . }}
+        <category term="{{ .Section }}" />
         {{ range (.GetTerms "tags") }}<category term="{{ .LinkTitle }}" />{{ end }}
         <link rel="alternate" type="type/html" href="{{ $url }}" />
         {{ printf `<title type="html"><![CDATA[%s]]></title>` .Title | safeHTML }}

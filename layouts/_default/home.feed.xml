@@ -1,0 +1,44 @@
+{{ safeHTML "<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"yes\" ?>" }}
+<rss version="2.0"
+    xmlns:content="http://purl.org/rss/1.0/modules/content/"
+    xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+    xmlns:dc="http://purl.org/dc/elements/1.1/"
+    xmlns:atom="http://www.w3.org/2005/Atom"
+    xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+    xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+    xmlns:media="http://search.yahoo.com/mrss/"
+    xml:lang="{{ site.LanguageCode }}">
+    <channel>
+        {{ printf `<title type="html"><![CDATA[%s RSS]]></title>` site.Title | safeHTML }}
+    </channel>
+    <link type="text/html">{{ "/" | absURL }}</link>
+    {{ $logo := resources.Get (site.Params.assets.logo | default "/img/open-graph-logo.png" ) }}{{ $logo = $logo.Resize "96x96" }}
+    <image>
+        <url>{{ $logo.Permalink | absURL }}</url>
+        {{ printf `<title type="html"><![CDATA[%s RSS]]></title>` site.Title | safeHTML }}
+        <link>{{ "/" | absURL }}</link>
+        <width>{{ $logo.Width }}</width>
+        <height>{{ $logo.Height }}</height>
+    </image>
+    <link href="{{ "/" | absURL }}" type="text/html" />
+    {{ with site.Home.OutputFormats.Get "FEED"}}<atom:link href="{{ .Permalink | absURL }}" rel="self" type="{{ .MediaType.Type | html }}" />{{end}}
+    {{ with site.Home.OutputFormats.Get "ATOM"}}<atom:link href="{{ .Permalink | absURL }}" rel="alternate" type="{{ .MediaType.Type | html }}" />{{end}}
+    {{ with site.Params.description }}{{ printf `<description type="html"><![CDATA[%s]]></description>` . | safeHTML }}{{ end }}
+    <generator uri="https://gohugo.io" version="{{ hugo.Version }}">Hugo</generator>
+    {{ with site.Author.name }}{{ printf `<dc:creator type="html"><![CDATA[%s]]></dc:creator>` . | safeHTML }}{{ end }}
+    {{ with site.LanguageCode }}<language>{{ . }}</language>{{ end }}
+    {{ with site.Params.Copyright }}{{ printf `<copyright type="html"><![CDATA[%s]]></copyright>` . | safeHTML }}{{ end }}
+    {{ if not site.LastChange.IsZero }}<lastBuildDate>{{ site.LastChange.UTC.Format site.Params.dateFormatRFC822Z | html }}</lastBuildDate>{{ end }}
+    {{ $feedsize := site.Params.feedSize | default 25 }}
+    {{- range first $feedsize (where site.RegularPages.ByDate.Reverse "Type" "in" site.Params.mainSections) }}
+    <item>
+        {{ printf `<title type="html"><![CDATA[%s]]></title>` .Title | safeHTML }}
+        <link>{{ .Permalink | absURL }}</link>{{ $date := .PublishDate.UTC }}
+        <pubDate>{{ $date.Format site.Params.dateFormatRFC822Z | html }}</pubDate>
+        <category>{{ .Section }}</category>
+        {{ range (.GetTerms "tags") }}<category>{{ .LinkTitle }}</category>{{end}}
+        <guid isPermaLink="false">{{ md5 .Permalink }}</guid>
+        {{ printf `<description type="html"><![CDATA[%s]]></description>` .Summary | safeHTML }}
+    </item>
+    {{ end }}
+</rss>
