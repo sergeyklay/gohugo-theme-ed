@@ -24,7 +24,7 @@
     {{ with site.Home.OutputFormats.Get "FEED"}}<atom:link href="{{ .Permalink | absURL }}" rel="self" type="{{ .MediaType.Type | html }}" />{{end}}
     {{ with site.Home.OutputFormats.Get "ATOM"}}<atom:link href="{{ .Permalink | absURL }}" rel="alternate" type="{{ .MediaType.Type | html }}" />{{end}}
     {{ with site.Params.description }}{{ printf `<description type="html"><![CDATA[%s]]></description>` . | safeHTML }}{{ end }}
-    <generator uri="https://gohugo.io" version="{{ hugo.Version }}">Hugo</generator>
+    <generator>Hugo {{ hugo.Version }}</generator>
     {{ with site.Author.name }}{{ printf `<dc:creator type="html"><![CDATA[%s]]></dc:creator>` . | safeHTML }}{{ end }}
     {{ with site.LanguageCode }}<language>{{ . }}</language>{{ end }}
     {{ with site.Params.Copyright }}{{ printf `<copyright type="html"><![CDATA[%s]]></copyright>` . | safeHTML }}{{ end }}
