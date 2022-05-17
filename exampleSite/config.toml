@@ -10,6 +10,10 @@ enableRobotsTXT = true
 # kick out RSS, we'll use Atom
 disableKinds = ['RSS']
 
+[minify]
+  # Do not minify XML files to avoid CDATA escape issues
+  disableXML = true
+
 [outputs]
   # TODO:
   # home = [ "HTML", "Atom", "JSON", "humanstxt" ]
