@@ -53,7 +53,7 @@ disableKinds = ['RSS']
 # For more see: https://www.jsonfeed.org/
 [outputFormats.JSON]
   name = 'Json'
-  mediaType = 'application/json'
+  mediaType = 'application/feed+json'
   baseName = 'feeds/feed'
   rel = 'alternate'
   isPlainText = true
@@ -73,11 +73,14 @@ disableKinds = ['RSS']
 [mediaTypes]
   [mediaTypes.'text/xml']
     suffixes = ['xml']
+  [mediaTypes.'application/feed+json']
+    suffixes = ['json']
 
 [author]
   name = 'John Doe'
   email = 'john@example.com'
-  github = '@john_doe'
+  github = 'john_doe'
+  twitter = 'john_doe'
   location = 'Kyiv, Ukraine'
 
 [languages]

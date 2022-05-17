@@ -4,13 +4,15 @@
   "home_page_url": {{ site.BaseURL  | absURL | jsonify }},
   {{ with .OutputFormats.Get "JSON" }}"feed_url": {{.Permalink | absURL | jsonify }},{{ end }}
   {{ with site.Params.description}}"description": {{site.Params.description | jsonify}},{{end}}
-  {{ $logo := resources.Get (site.Params.assets.logo | default "/img/open-graph-logo.png" ) }}{{ $logo = $logo.Resize "96x96" }}
+  {{- $logo := resources.Get (site.Params.assets.logo | default "/img/open-graph-logo.png" ) }}{{ $logo = $logo.Resize "96x96" }}
   "icon": {{ $logo.Permalink | jsonify }},
   "favicon": {{ $logo.Permalink | jsonify }},
-  {{ with site.Author.name }}"author":
-  {
-    "name": {{ . | jsonify }}
-  },{{ end }}
+  {{ with site.Author.name }}"authors": [
+    {
+      "name": {{ . | jsonify }}{{ with site.Author.twitter }},
+      "url": {{ (printf "https://twitter.com/%s" . ) | jsonify }}{{ end }}
+    }
+  ],{{ end }}
   {{ with site.LanguageCode }}"language" : "{{ . }}",{{ end }}{{ $feedsize := site.Params.feedSize | default 25 }}
   "items": [{{ $r := first $feedsize (where site.RegularPages.ByDate.Reverse "Type" "in" site.Params.mainSections) }} {{ range $i, $ := $r }}{{ if $i }},{{ end }}
     {
