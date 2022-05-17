@@ -3,14 +3,14 @@
       xmlns:media="http://search.yahoo.com/mrss/"
       xml:lang="{{ site.LanguageCode }}"
       xml:base="{{site.BaseURL }}">
-    <title>{{ site.Title }}</title>
-    {{ with site.Params.description }}<subtitle>{{ . }}</subtitle>{{ end }}
+    <title>{{ printf "<![CDATA[%s]]>" site.Title | safeHTML }}</title>
+    {{ with site.Params.description }}<subtitle type="html">{{ printf "<![CDATA[%s]]>" . | safeHTML }}</subtitle>{{ end }}
     {{ with site.Home.OutputFormats.Get "Atom" }}<link href="{{ .RelPermalink }}" rel="self" type="{{ .MediaType.Type | html }}" />{{ end }}
     {{ $logo := resources.Get (site.Params.assets.logo | default "/img/open-graph-logo.png" ) }}{{ $logo = $logo.Resize "96x96" }}<icon>{{$logo.RelPermalink}}</icon>
     <logo>{{$logo.RelPermalink}}</logo>
     {{ with site.Author.name }}<author>
-        <name>{{.}}</name>
-        {{ with site.Author.email }}<email>{{.}}</email>{{end}}
+        <name>{{ printf "<![CDATA[%s]]>" . | safeHTML }}</name>
+        {{ with site.Author.email }}<email>{{ . }}</email>{{end}}
     </author>{{end}}
     {{ with site.Params.Copyright }}<rights type="text">{{ .}}</rights>{{end}}
     <generator uri="https://gohugo.io" version="{{ hugo.Version }}">Hugo</generator>
@@ -21,9 +21,7 @@
     <entry>
         {{- $url := .RelPermalink }}{{ $uuid := sha1 (.Permalink | absURL)}}{{ $page := .}}
         <category term="{{ .Section}}" />
-        {{ range (.GetTerms "tags") }}
-        <category term="{{ .LinkTitle }}" />
-        {{ end }}
+        {{ range (.GetTerms "tags") }}<category term="{{ .LinkTitle }}" />{{ end }}
         <link rel="alternate" type="type/html" href="{{ $url }}" />
         <title type="text">{{  .Title | plainify}}</title>
         <published>{{ (.PublishDate.Format site.Params.dateFormatFeed) | html }}</published>
@@ -43,10 +41,8 @@
                 {{ end }}
             {{- end }}
         {{ end }}
-        <summary type="xhtml">
-            <div xmlns="http://www.w3.org/1999/xhtml">
-                <p>{{ replaceRE "\n" " " (.Summary | plainify | safeHTML | chomp) }}</p>
-            </div>
+        <summary type="html">
+            {{ printf "<![CDATA[%s]]>" .Summary | safeHTML }}
         </summary>
     </entry>
     {{- end }}
