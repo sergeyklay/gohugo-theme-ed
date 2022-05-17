@@ -16,9 +16,8 @@ disableKinds = ['RSS']
 
 [outputs]
   # TODO:
-  # home = [ "HTML", "Atom", "JSON", "humanstxt" ]
   # section = [ "HTML", "Atom" ]
-  home = [ 'HTML', 'Atom', 'FEED', 'humanstxt' ]
+  home = [ 'HTML', 'Atom', 'FEED', 'JSON', 'humanstxt' ]
 
 # Atom feed.
 # For more see: https://validator.w3.org/feed/docs/atom.html#whatIsAtom
@@ -50,6 +49,16 @@ disableKinds = ['RSS']
   isHTML = false
   noUgly = true
   permalinkable = false
+
+# For more see: https://www.jsonfeed.org/
+[outputFormats.JSON]
+  name = 'Json'
+  mediaType = 'application/json'
+  baseName = 'feeds/feed'
+  rel = 'alternate'
+  isPlainText = true
+  isHTML = false
+  noUgly = false
 
 # For more see: https://gohugo.io/templates/output-formats/
 [outputFormats.humanstxt]

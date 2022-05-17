@@ -9,20 +9,21 @@
     xmlns:media="http://search.yahoo.com/mrss/"
     xml:lang="{{ site.LanguageCode }}">
     <channel>
-        {{ printf `<title type="html"><![CDATA[%s RSS]]></title>` site.Title | safeHTML }}
+        {{ printf `<title type="html"><![CDATA[%s RSS 2.0]]></title>` site.Title | safeHTML }}
     </channel>
-    <link type="text/html">{{ "/" | absURL }}</link>
+    <link type="text/html">{{ site.BaseURL | absURL }}</link>
     {{ $logo := resources.Get (site.Params.assets.logo | default "/img/open-graph-logo.png" ) }}{{ $logo = $logo.Resize "96x96" }}
     <image>
         <url>{{ $logo.Permalink | absURL }}</url>
-        {{ printf `<title type="html"><![CDATA[%s RSS]]></title>` site.Title | safeHTML }}
-        <link>{{ "/" | absURL }}</link>
+        {{ printf `<title type="html"><![CDATA[%s RSS 2.0]]></title>` site.Title | safeHTML }}
+        <link>{{ site.BaseURL | absURL }}</link>
         <width>{{ $logo.Width }}</width>
         <height>{{ $logo.Height }}</height>
     </image>
-    <link href="{{ "/" | absURL }}" type="text/html" />
+    <link href="{{ site.BaseURL | absURL }}" type="text/html" />
     {{ with site.Home.OutputFormats.Get "FEED"}}<atom:link href="{{ .Permalink | absURL }}" rel="self" type="{{ .MediaType.Type | html }}" />{{end}}
     {{ with site.Home.OutputFormats.Get "ATOM"}}<atom:link href="{{ .Permalink | absURL }}" rel="alternate" type="{{ .MediaType.Type | html }}" />{{end}}
+    {{ with site.Home.OutputFormats.Get "JSON"}}<link href="{{ .Permalink | absURL }}" rel="alternate" type="{{ .MediaType.Type | html }}" />{{end}}
     {{ with site.Params.description }}{{ printf `<description type="html"><![CDATA[%s]]></description>` . | safeHTML }}{{ end }}
     <generator>Hugo {{ hugo.Version }}</generator>
     {{ with site.Author.name }}{{ printf `<dc:creator type="html"><![CDATA[%s]]></dc:creator>` . | safeHTML }}{{ end }}

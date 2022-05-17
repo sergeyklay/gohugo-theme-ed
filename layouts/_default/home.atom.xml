@@ -4,9 +4,10 @@
       xml:lang="{{ site.LanguageCode }}">
     {{ printf `<title type="html"><![CDATA[%s]]></title>` site.Title | safeHTML }}
     {{ with site.Params.description }}{{ printf `<subtitle type="html"><![CDATA[%s]]></subtitle>` . | safeHTML }}{{ end }}
-    <link href="{{ "/" | absURL }}" type="text/html" />
+    <link href="{{ site.BaseURL | absURL }}" type="text/html" />
     {{ with site.Home.OutputFormats.Get "ATOM" }}<link href="{{ .Permalink | absURL }}" rel="self" type="{{ .MediaType.Type | html }}" />{{ end }}
     {{ with site.Home.OutputFormats.Get "FEED"}}<link href="{{ .Permalink | absURL }}" rel="alternate" type="{{ .MediaType.Type | html }}" />{{end}}
+    {{ with site.Home.OutputFormats.Get "JSON"}}<link href="{{ .Permalink | absURL }}" rel="alternate" type="{{ .MediaType.Type | html }}" />{{end}}
     {{ $logo := resources.Get (site.Params.assets.logo | default "/img/open-graph-logo.png" ) }}{{ $logo = $logo.Resize "96x96" }}<icon>{{ $logo.Permalink | absURL }}</icon>
     <logo>{{ $logo.Permalink | absURL }}</logo>
     {{ with site.Author.name }}<author>

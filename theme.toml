@@ -11,32 +11,31 @@ demosite = "https://sergeyklay.github.io/gohugo-theme-ed/"
 
 tags = [
   "blog",
-  "responsive",
-  "simple",
   "clean",
+  "customizable",
+  "ed",
   "light",
   "minimal",
   "minimalist",
-  "customizable",
-  "ed"
+  "responsive",
+  "simple"
 ]
 
 # The theme's features:
 features = [
   "blog",
-  "shortcodes",
-  "responsive",
-  "posts",
-  "opengraph",
-  "favicon",
-  # "archive",
-  # "search",
   "clean",
-  "simple",
+  "favicon",
   "feed",
   "minimal",
   "minimalist",
-  "mobile"
+  "mobile",
+  "opengraph",
+  "posts",
+  "responsive",
+  "rss",
+  "shortcodes",
+  "simple"
 ]
 
 min_version = "0.95.0"
