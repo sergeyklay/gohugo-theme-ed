@@ -2,14 +2,14 @@
 <feed xmlns="http://www.w3.org/2005/Atom"
       xmlns:media="http://search.yahoo.com/mrss/"
       xml:lang="{{ site.LanguageCode }}"
-      xml:base="{{site.BaseURL }}">
-    <title>{{ printf "<![CDATA[%s]]>" site.Title | safeHTML }}</title>
-    {{ with site.Params.description }}<subtitle type="html">{{ printf "<![CDATA[%s]]>" . | safeHTML }}</subtitle>{{ end }}
+      xml:base="{{ site.BaseURL }}">
+    <title>{{ site.Title }}</title>
+    {{ with site.Params.description }}<subtitle type="html">{{ . }}</subtitle>{{ end }}
     {{ with site.Home.OutputFormats.Get "Atom" }}<link href="{{ .RelPermalink }}" rel="self" type="{{ .MediaType.Type | html }}" />{{ end }}
     {{ $logo := resources.Get (site.Params.assets.logo | default "/img/open-graph-logo.png" ) }}{{ $logo = $logo.Resize "96x96" }}<icon>{{$logo.RelPermalink}}</icon>
     <logo>{{$logo.RelPermalink}}</logo>
     {{ with site.Author.name }}<author>
-        <name>{{ printf "<![CDATA[%s]]>" . | safeHTML }}</name>
+        <name>{{ . }}</name>
         {{ with site.Author.email }}<email>{{ . }}</email>{{end}}
     </author>{{end}}
     {{ with site.Params.Copyright }}<rights type="text">{{ .}}</rights>{{end}}
@@ -42,7 +42,7 @@
             {{- end }}
         {{ end }}
         <summary type="html">
-            {{ printf "<![CDATA[%s]]>" .Summary | safeHTML }}
+            {{ printf "<![CDATA[%s]]>" .Summary | chomp | safeHTML }}
         </summary>
     </entry>
     {{- end }}
