@@ -22,3 +22,5 @@ resources/_gen/** linguist-vendored
 
 LICENSE           text eol=lf
 README.md         text eol=lf
+
+layouts/_default/home.*.* linguist-language=Jinja
