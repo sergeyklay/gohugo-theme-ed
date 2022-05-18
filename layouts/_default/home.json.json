@@ -1,6 +1,6 @@
 {
   "version": "https://jsonfeed.org/version/1.1",
-  "title": {{ (printf "%s JSON Feed" site.Title) | jsonify }},
+  "title": {{ (printf "%s JSON Feed" site.Title) | htmlUnescape | jsonify }},
   "home_page_url": {{ site.BaseURL  | absURL | jsonify }},
   {{ with .OutputFormats.Get "JSON" }}"feed_url": {{.Permalink | absURL | jsonify }},{{ end }}
   {{ with site.Params.description}}"description": {{site.Params.description | jsonify}},{{end}}

@@ -17,7 +17,7 @@ disableKinds = ['RSS']
 [outputs]
   # TODO:
   # section = [ "HTML", "Atom" ]
-  home = [ 'HTML', 'Atom', 'FEED', 'JSON', 'humanstxt' ]
+  home = [ 'HTML', 'Atom', 'FEED', 'JSON', 'MANIFEST', 'humanstxt' ]
 
 # Atom feed.
 # For more see: https://validator.w3.org/feed/docs/atom.html#whatIsAtom
@@ -60,6 +60,21 @@ disableKinds = ['RSS']
   isHTML = false
   noUgly = false
 
+# The .webmanifest extension is specified in the Media type registration
+# section of the specification (the response of the manifest file should
+# return Content-Type: application/manifest+json).
+#
+# For more see: https://w3c.github.io/manifest/#media-type-registration=
+[outputFormats.MANIFEST]
+  name = 'Manifest'
+  mediaType = 'application/manifest+json'
+  baseName = 'manifest'
+  rel = 'manifest'
+  isPlainText = true
+  isHTML = false
+  noUgly = false
+  notAlternative = true
+
 # For more see: https://gohugo.io/templates/output-formats/
 [outputFormats.humanstxt]
   mediaType = 'text/plain'
@@ -75,6 +90,8 @@ disableKinds = ['RSS']
     suffixes = ['xml']
   [mediaTypes.'application/feed+json']
     suffixes = ['json']
+  [mediaTypes.'application/manifest+json']
+    suffixes = ['webmanifest']
 
 [author]
   name = 'John Doe'
