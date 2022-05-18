@@ -20,8 +20,8 @@
       "url": {{ .Permalink | jsonify  }},
       "title": {{ .Title   | plainify | chomp | jsonify }},
       "summary": {{ .Summary | plainify | chomp | jsonify }},
-      "date_published": {{ .PublishDate.UTC.Format site.Params.dateFormatFeed | jsonify  }},
-      "date_modified" : {{ .Lastmod.UTC.Format site.Params.dateFormatFeed | jsonify  }}
+      "date_published": {{ .PublishDate.UTC.Format site.Params.dateFormatFeed | jsonify  }}{{ if ne .Date .Lastmod }},
+      "date_modified" : {{ .Lastmod.UTC.Format site.Params.dateFormatFeed | jsonify  }}{{ end }}
     }
     {{- end}}
   ]

@@ -26,7 +26,7 @@ features = [
   "blog",
   "clean",
   "favicon",
-  "feed",
+  "jsonfeed",
   "minimal",
   "minimalist",
   "mobile",

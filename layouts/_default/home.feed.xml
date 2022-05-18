@@ -34,8 +34,8 @@
     {{- range first $feedsize (where site.RegularPages.ByDate.Reverse "Type" "in" site.Params.mainSections) }}
     <item>
         {{ printf `<title type="html"><![CDATA[%s]]></title>` .Title | safeHTML }}
-        <link>{{ .Permalink | absURL }}</link>{{ $date := .PublishDate.UTC }}
-        <pubDate>{{ $date.Format site.Params.dateFormatRFC822Z | html }}</pubDate>
+        <link>{{ .Permalink | absURL }}</link>
+        <pubDate>{{ .PublishDate.UTC.Format site.Params.dateFormatRFC822Z | html }}</pubDate>
         <category>{{ .Section }}</category>
         {{ range (.GetTerms "tags") }}<category>{{ .LinkTitle }}</category>{{end}}
         <guid isPermaLink="false">{{ md5 .Permalink }}</guid>
