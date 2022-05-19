@@ -15,7 +15,7 @@
       "url": {{ $m.URL | jsonify }}
     }{{ end}}{{ end}}
   ],
-  "icons": [{{ $t := slice 144 192 256 512}}{{ range $t }}
+  "icons": [{{ $t := slice 192 512}}{{ range $t }}
     {
       "src": "/img/yy{{.}}.png",
       "type": "image/png",
