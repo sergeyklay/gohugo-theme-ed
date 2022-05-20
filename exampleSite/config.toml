@@ -135,7 +135,6 @@ disableKinds = ['RSS']
     favicon = '' # favicon.ico for legacy browsers
     svgicon = '' # A single SVG icon with a light/dark version for modern browsers
     apple_touch_icon = '' # 180×180 PNG image for Apple devices
-    webmanifest = '' # Web app manifest with 192×192 and 512×512 PNG icons for modern browsers
 
     logo = '/img/open-graph-logo.png' # Logo image, relative to ./assets
     logo_width = 200 # Logo image width
