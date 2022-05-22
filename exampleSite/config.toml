@@ -18,9 +18,9 @@ disableKinds = ['RSS']
   home = [ 'HTML', 'Atom', 'FEED', 'JSON', 'MANIFEST', 'humanstxt' ]
   section = [ 'HTML', 'Atom', 'FEED', 'JSON' ]
   # TODO: SITEMAP
-  # page = [ 'HTML' ]
-  # taxonomy = [ 'HTML' ]
-  # term = [ 'HTML' ]
+  page = [ 'HTML' ]
+  taxonomy = [ 'HTML' ]
+  term = [ 'HTML' ]
 
 # Atom feed.
 # For more see: https://validator.w3.org/feed/docs/atom.html#whatIsAtom
