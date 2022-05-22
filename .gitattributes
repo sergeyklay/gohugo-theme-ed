@@ -48,7 +48,6 @@ README.md     text eol=lf
 .gitignore      text eol=lf
 .gitmodules     text eol=lf
 *.webmanifest   text eol=lf diff=json
-*.webmanifest   text eol=lf filter=gpg diff=gpg
 
 #
 # Exclude files from exporting
@@ -62,5 +61,3 @@ README.md     text eol=lf
 .gitignore      export-ignore
 .gitmodules     export-ignore
 /.github        export-ignore
-go.mod          export-ignore
-go.sum          export-ignore
