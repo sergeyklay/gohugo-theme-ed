@@ -2,7 +2,7 @@
     <p>
         {{- with site.Params.footer -}}
         {{- $footer_text := replace . "{year}" now.Year -}}
-        {{- $footer_text = replace $copyright "&copy;" "©" }}
+        {{- $footer_text = replace $footer_text "&copy;" "©" }}
         {{ $footer_text | safeHTML }}
         {{- else }}{{- /* TODO: translate strings */ -}}
         {{- with .Params.editor }}<p>Edited by {{ . }}, {{ now.Format "2006" }}.</p>{{ end }}
