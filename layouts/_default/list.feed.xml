@@ -1,4 +1,19 @@
-{{ safeHTML "<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"yes\" ?>" }}
+{{- $pctx := . -}}
+{{- if .IsHome -}}{{ $pctx = .Site }}{{- end -}}
+
+{{- $pages := slice -}}
+{{- if $.IsHome -}}
+    {{- $pages = where $pctx.RegularPages.ByDate.Reverse "Type" "in" site.Params.mainSections -}}
+{{- else if $.IsSection -}}
+    {{- $pages = $pctx.RegularPages.ByDate.Reverse -}}
+{{- else -}}
+    {{- $pages = $pctx.Pages -}}
+{{- end -}}
+
+{{- $limit := site.Params.feedSize | default 25 -}}
+{{- $pages = $pages | first $limit -}}
+
+{{- safeHTML "<?xml version=\"1.0\" encoding=\"utf-8\" ?>" }}
 <rss version="2.0"
     xmlns:content="http://purl.org/rss/1.0/modules/content/"
     xmlns:wfw="http://wellformedweb.org/CommentAPI/"
@@ -12,7 +27,7 @@
         {{ printf `<title type="html"><![CDATA[%s RSS 2.0]]></title>` site.Title | safeHTML }}
     </channel>
     <link type="text/html">{{ site.BaseURL | absURL }}</link>
-    {{ $logo := resources.Get (site.Params.assets.logo | default "/img/open-graph-logo.png" ) }}{{ $logo = $logo.Resize "96x96" }}
+    {{ $logo := resources.Get (site.Params.assets.logo | default "/img/open-graph-logo.png") }}{{ $logo = $logo.Resize "96x96" }}
     <image>
         <url>{{ $logo.Permalink | absURL }}</url>
         {{ printf `<title type="html"><![CDATA[%s RSS 2.0]]></title>` site.Title | safeHTML }}
@@ -20,21 +35,26 @@
         <width>{{ $logo.Width }}</width>
         <height>{{ $logo.Height }}</height>
     </image>
-    <link href="{{ site.BaseURL | absURL }}" type="text/html" />
-    {{ with site.Home.OutputFormats.Get "FEED"}}<atom:link href="{{ .Permalink | absURL }}" rel="self" type="{{ .MediaType.Type | html }}" />{{end}}
-    {{ with site.Home.OutputFormats.Get "ATOM"}}<atom:link href="{{ .Permalink | absURL }}" rel="alternate" type="{{ .MediaType.Type | html }}" />{{end}}
-    {{ with site.Home.OutputFormats.Get "JSON"}}<link href="{{ .Permalink | absURL }}" rel="alternate" type="{{ .MediaType.Type | html }}" />{{end}}
+    {{- $output_formats := .OutputFormats }}
+    {{- range $output_formats -}}
+    {{- $rel := (or (and (eq "feed" (.Name | lower)) "self") "alternate") -}}
+    {{- with $output_formats.Get .Name }}
+    {{ printf `<atom:link href=%q rel=%q type=%q title=%q />` .Permalink $rel .MediaType.Type .Name | safeHTML }}
+    {{- end -}}
+    {{- end }}
     {{ with site.Params.description }}{{ printf `<description type="html"><![CDATA[%s]]></description>` . | safeHTML }}{{ end }}
     <generator>Hugo {{ hugo.Version }}</generator>
     {{ with site.Author.name }}{{ printf `<dc:creator type="html"><![CDATA[%s]]></dc:creator>` . | safeHTML }}{{ end }}
     {{ with site.LanguageCode }}<language>{{ . }}</language>{{ end }}
-    {{ with site.Params.Copyright }}{{ printf `<copyright type="html"><![CDATA[%s]]></copyright>` . | safeHTML }}{{ end }}
+    {{ with site.Params.Copyright }}
+    {{- $copyright := replace . "{year}" now.Year -}}
+    {{- $copyright = replace $copyright "&copy;" "©" }}<copyright>{{ $copyright | plainify }}</copyright>{{ end }}
     {{ if not site.LastChange.IsZero }}<lastBuildDate>{{ site.LastChange.UTC.Format site.Params.dateFormatRFC822Z | html }}</lastBuildDate>{{ end }}
     {{ $feedsize := site.Params.feedSize | default 25 }}
-    {{- range first $feedsize (where site.RegularPages.ByDate.Reverse "Type" "in" site.Params.mainSections) }}
+    {{- range $pages }}
     <item>
         {{ printf `<title type="html"><![CDATA[%s]]></title>` .Title | safeHTML }}
-        <link>{{ .Permalink | absURL }}</link>
+        <link>{{ .Permalink | absURL }}?utm_source=rss_feed</link>
         <pubDate>{{ .PublishDate.UTC.Format site.Params.dateFormatRFC822Z | html }}</pubDate>
         <category>{{ .Section }}</category>
         {{ range (.GetTerms "tags") }}<category>{{ .LinkTitle }}</category>{{end}}

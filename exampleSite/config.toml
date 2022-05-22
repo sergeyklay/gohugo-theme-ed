@@ -15,9 +15,12 @@ disableKinds = ['RSS']
   disableXML = true
 
 [outputs]
-  # TODO:
-  # section = [ "HTML", "Atom" ]
   home = [ 'HTML', 'Atom', 'FEED', 'JSON', 'MANIFEST', 'humanstxt' ]
+  section = [ 'HTML', 'Atom', 'FEED', 'JSON' ]
+  # TODO: SITEMAP
+  # page = [ 'HTML' ]
+  # taxonomy = [ 'HTML' ]
+  # term = [ 'HTML' ]
 
 # Atom feed.
 # For more see: https://validator.w3.org/feed/docs/atom.html#whatIsAtom
@@ -110,7 +113,7 @@ disableKinds = ['RSS']
   # Site description. Used in meta description
   description = 'Ed is a Hugo theme designed for textual editors based on minimal computing principles, and focused on legibility and flexibility.'
   # Copyright string
-  copyright = 'Copyright (c) 2019 John Doe'
+  copyright = 'Copyright &copy; 2019-{year} John Doe'
   # Color scheme. Options: red, orange, magenta, cyan, blue, brown
   colorScheme = ''
   # Used in site header

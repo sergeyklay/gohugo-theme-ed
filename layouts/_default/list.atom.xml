@@ -1,29 +1,52 @@
-{{ safeHTML "<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"yes\" ?>" }}
+{{- $pctx := . -}}
+{{- if .IsHome -}}{{ $pctx = .Site }}{{- end -}}
+
+{{- $pages := slice -}}
+{{- if $.IsHome -}}
+    {{- $pages = where $pctx.RegularPages.ByDate.Reverse "Type" "in" site.Params.mainSections -}}
+{{- else if $.IsSection -}}
+    {{- $pages = $pctx.RegularPages.ByDate.Reverse -}}
+{{- else -}}
+    {{- $pages = $pctx.Pages -}}
+{{- end -}}
+
+{{- $limit := site.Params.feedSize | default 25 -}}
+{{- $pages = $pages | first $limit -}}
+
+{{- safeHTML "<?xml version=\"1.0\" encoding=\"utf-8\" ?>" }}
 <feed xmlns="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" xml:lang="{{ site.LanguageCode }}">
     {{ printf `<title type="html"><![CDATA[%s]]></title>` site.Title | safeHTML }}
     {{ with site.Params.description }}{{ printf `<subtitle type="html"><![CDATA[%s]]></subtitle>` . | safeHTML }}{{ end }}
-    <link href="{{ site.BaseURL | absURL }}" type="text/html" />
-    {{ with site.Home.OutputFormats.Get "ATOM" }}<link href="{{ .Permalink | absURL }}" rel="self" type="{{ .MediaType.Type | html }}" />{{ end }}
-    {{ with site.Home.OutputFormats.Get "FEED"}}<link href="{{ .Permalink | absURL }}" rel="alternate" type="{{ .MediaType.Type | html }}" />{{end}}
-    {{ with site.Home.OutputFormats.Get "JSON"}}<link href="{{ .Permalink | absURL }}" rel="alternate" type="{{ .MediaType.Type | html }}" />{{end}}
-    {{ $logo := resources.Get (site.Params.assets.logo | default "/img/open-graph-logo.png" ) }}{{ $logo = $logo.Resize "96x96" }}<icon>{{ $logo.Permalink | absURL }}</icon>
+    {{- $output_formats := .OutputFormats }}
+    {{- range $output_formats -}}
+    {{- $rel := (or (and (eq "atom" (.Name | lower)) "self") "alternate") -}}
+    {{- with $output_formats.Get .Name }}
+    {{ printf `<link href=%q rel=%q type=%q title=%q />` .Permalink $rel .MediaType.Type .Name | safeHTML }}
+    {{- end -}}
+    {{- end }}
+    {{ $logo := resources.Get (site.Params.assets.logo | default "/img/open-graph-logo.png") }}{{ $logo = $logo.Resize "96x96" }}<icon>{{ $logo.Permalink | absURL }}</icon>
     <logo>{{ $logo.Permalink | absURL }}</logo>
     {{ with site.Author.name }}<author>
         {{ printf `<name type="html"><![CDATA[%s]]></name>` . | safeHTML }}
         {{ with site.Author.email }}<email>{{ . | html }}</email>{{ end }}
     </author>{{ end }}
-    {{ with site.Params.Copyright }}{{ printf `<rights type="html"><![CDATA[%s]]></rights>` . | safeHTML }}{{ end }}
+    {{ with site.Params.Copyright }}
+    {{- $copyright := replace . "{year}" now.Year -}}
+    {{- $copyright = replace $copyright "&copy;" "©" }}<rights>{{ $copyright | plainify }}</rights>{{ end }}
     <generator uri="https://gohugo.io" version="{{ hugo.Version }}">Hugo</generator>
     {{ if not site.LastChange.IsZero }}<updated>{{ site.LastChange.UTC.Format site.Params.dateFormatFeed }}</updated>{{ end }}
     {{ $uuid := sha1 (site.BaseURL | absURL) }}<id>urn:uuid:{{ substr $uuid 0 8 }}-{{ substr $uuid 8 4 }}-5{{ substr $uuid 13 3 }}-{{ substr $uuid 16 1 }}9{{ substr $uuid 17 2 }}-{{ substr $uuid 21 12 }}</id>
-    {{ $feedsize := site.Params.feedSize | default 25 }}
-    {{- range first $feedsize (where site.RegularPages.ByDate.Reverse "Type" "in" site.Params.mainSections) }}
+    {{- range $pages }}
     <entry>
         {{- $url := .Permalink | absURL }}{{ $uuid := sha1 (.Permalink | absURL) }}{{ $page := . }}
         <category term="{{ .Section }}" />
         {{ range (.GetTerms "tags") }}<category term="{{ .LinkTitle }}" />{{ end }}
-        <link rel="alternate" type="type/html" href="{{ $url }}" />
+        <link rel="alternate" type="type/html" href="{{ $url }}?utm_source=atom_feed" />
         {{ printf `<title type="html"><![CDATA[%s]]></title>` .Title | safeHTML }}
+        {{/* rel=related: See https://validator.w3.org/feed/docs/atom.html#link */}}
+        {{- range first 5 (site.RegularPages.Related .) }}
+        <link href="{{ .Permalink }}?utm_source=atom_feed" rel="related" type="text/html" title="{{ .Title }}" />
+        {{- end }}
         <published>{{ (.PublishDate.Format site.Params.dateFormatFeed) | html }}</published>
         {{ if ne .Date .Lastmod }}<updated>{{ .Lastmod.UTC.Format site.Params.dateFormatFeed  }}</updated>{{ end }}
         <id>urn:uuid:{{ substr $uuid 0 8 }}-{{ substr $uuid 8 4 }}-5{{ substr $uuid 13 3 }}-{{ substr $uuid 16 1 }}9{{ substr $uuid 17 2 }}-{{ substr $uuid 21 12 }}</id>
