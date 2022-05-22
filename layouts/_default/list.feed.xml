@@ -24,13 +24,13 @@
     xmlns:media="http://search.yahoo.com/mrss/"
     xml:lang="{{ site.LanguageCode }}">
     <channel>
-        {{ printf `<title type="html"><![CDATA[%s RSS 2.0]]></title>` site.Title | safeHTML }}
+        {{ printf `<title type="html"><![CDATA[%s]]></title>` (partial "title.html" .) | safeHTML }}
     </channel>
     <link type="text/html">{{ site.BaseURL | absURL }}</link>
     {{ $logo := resources.Get (site.Params.assets.logo | default "/img/open-graph-logo.png") }}{{ $logo = $logo.Resize "96x96" }}
     <image>
         <url>{{ $logo.Permalink | absURL }}</url>
-        {{ printf `<title type="html"><![CDATA[%s RSS 2.0]]></title>` site.Title | safeHTML }}
+        {{ printf `<title type="html"><![CDATA[%s]]></title>` (partial "title.html" .) | safeHTML }}
         <link>{{ site.BaseURL | absURL }}</link>
         <width>{{ $logo.Width }}</width>
         <height>{{ $logo.Height }}</height>

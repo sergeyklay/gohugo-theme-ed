@@ -15,7 +15,7 @@
 
 {{- safeHTML "<?xml version=\"1.0\" encoding=\"utf-8\" ?>" }}
 <feed xmlns="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" xml:lang="{{ site.LanguageCode }}">
-    {{ printf `<title type="html"><![CDATA[%s]]></title>` site.Title | safeHTML }}
+    {{ printf `<title type="html"><![CDATA[%s]]></title>` (partial "title.html" .) | safeHTML }}
     {{ with site.Params.description }}{{ printf `<subtitle type="html"><![CDATA[%s]]></subtitle>` . | safeHTML }}{{ end }}
     {{- $output_formats := .OutputFormats }}
     {{- range $output_formats -}}

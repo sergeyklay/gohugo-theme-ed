@@ -5,7 +5,7 @@
 
     <link rel="canonical" href="{{ .Permalink }}">
 
-    <title>{{ block "title" . }}{{ if .IsHome }}{{ site.Title }}{{ else }}{{ with .Params.Title }}{{ . }} - {{ end }}{{ site.Title }}{{ end }}{{ end }}</title>
+    <title>{{ block "title" . }}{{- partial "title.html" . -}}{{ end }}</title>
     <meta name="description" content="{{ (partial "description.html" . ) }}">
     <meta name="author" content="{{ (partial "author.html" . ) }}">
     {{ hugo.Generator }}
