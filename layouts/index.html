@@ -18,9 +18,8 @@
 {{- else }}
     {{ $paginator := .Paginate (where site.RegularPages "Type" "in" site.Params.mainSections) }}
     <div class="articles">
-    {{- range $paginator.Pages }}
-        {{- .Render "teaser" }}
-    {{- end }}
+        {{ with .Title }}<h1 class="page-title">{{ . }}</h1>{{ end }}
+        {{ range $paginator.Pages }}{{- .Render "teaser" }}{{ end }}
     </div>
 {{- end }}
 {{- end }}
