@@ -5,20 +5,62 @@
 # Auto-detect text files, ensure they use LF.
 * text=auto eol=lf
 
-.ecrc             export-ignore diff=json linguist-language=JSON
-.editorconfig     export-ignore linguist-language=INI
-.eslintrc         export-ignore diff=json linguist-language=JSON
-.gitattributes    export-ignore
-.gitignore        export-ignore
-.github           export-ignore
-
-go.mod            export-ignore
-go.sum            export-ignore
+#
+# Ignore path for Linguist.
+#
 
 exampleSite/**    linguist-vendored
-resources/_gen/** linguist-vendored
+resources/_gen/** linguist-generated
 
-LICENSE           text eol=lf
-README.md         text eol=lf
+#
+# Setting up Linguist
+#
 
-layouts/_default/home.*.* linguist-language=Jinja
+.ecrc             linguist-language=JSON
+.editorconfig     linguist-language=INI
+.eslintrc         linguist-language=JSON
+*.asc             linguist-language=Public Key
+*.md              linguist-detectable=true linguist-documentation=false
+*.webmanifest     linguist-language=JSON
+README.md         linguist-detectable=false linguist-documentation=true
+CHANGELOG.md      linguist-detectable=false linguist-documentation=true
+
+/layouts/_default/home.*.* linguist-language=Jinja
+
+#
+# Text files.
+# Set files to be explicitly interpreted as text,
+# plus any specific settings
+#
+
+CHANGELOG.md  text eol=lf
+LICENSE       text eol=lf
+README.md     text eol=lf
+
+#
+# Configuration and some text files.
+#
+
+.ecrc           text eol=lf diff=json
+.editorconfig   text eol=lf
+.eslintrc       text eol=lf diff=json
+.gitattributes  text eol=lf
+.gitignore      text eol=lf
+.gitmodules     text eol=lf
+*.webmanifest   text eol=lf diff=json
+*.webmanifest   text eol=lf filter=gpg diff=gpg
+
+#
+# Exclude files from exporting
+# (used by the "download ZIP archive" option, for example).
+#
+
+.ecrc           export-ignore
+.editorconfig   export-ignore
+.eslintrc       export-ignore
+.gitattributes  export-ignore
+.gitignore      export-ignore
+.gitmodules     export-ignore
+/.github        export-ignore
+go.mod          export-ignore
+go.sum          export-ignore
