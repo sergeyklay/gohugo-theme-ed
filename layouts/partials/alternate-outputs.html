@@ -1,0 +1,6 @@
+{{- range .AlternativeOutputFormats }}
+    <link rel="{{ .Rel }}" type="{{ .MediaType.Type | html }}" href="{{ .RelPermalink | safeURL }}" title="{{ .Name }}">
+{{- end }}
+    <link rel="manifest" type="application/manifest+json" href="{{ "manifest.webmanifest" | relURL }}" title="Manifest">
+    <link rel="sitemap" type="application/xml" href="{{ "sitemap.xml" | relURL }}" title="Sitemap">
+    <link rel="author" type="text/plain" href="{{ "humans.txt" | relURL }}" title="Humans">

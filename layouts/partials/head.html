@@ -17,12 +17,10 @@
     <link rel="icon" href="{{ site.Params.assets.favicon | default "favicon.ico" | relURL }}" sizes="any"><!-- 32×32 -->
     <link rel="icon" href="{{ site.Params.assets.svgicon | default "icon.svg" | relURL }}" type="image/svg+xml">
     <link rel="apple-touch-icon" href="{{ site.Params.assets.apple_touch_icon | default "apple-touch-icon.png" | relURL }}"><!-- 180×180 -->
-    <link rel="manifest" href="{{ "manifest.webmanifest" | relURL }}">
 
-    {{- /* RSS */}}
-    {{ range .AlternativeOutputFormats }}
-    <link rel="{{ .Rel }}" type="{{ .MediaType.Type | html }}" title="{{ $.Site.Title }}" href="{{ .Permalink | safeURL }}">
-    {{- end -}}
+    {{- /* Feed, sitemap and manifest */}}
+    {{ partial "alternate-outputs.html" . }}
+
     {{- range .AllTranslations -}}
     <link rel="alternate" hreflang="{{ .Lang }}" href="{{ .Permalink }}">
     {{ end -}}

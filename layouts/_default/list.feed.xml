@@ -22,7 +22,8 @@
     xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
     xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
     xmlns:media="http://search.yahoo.com/mrss/"
-    xml:lang="{{ site.LanguageCode }}">
+    xml:lang="{{ site.LanguageCode }}"
+    xml:base="{{ site.BaseURL }}">
     <channel>
         {{ printf `<title type="html"><![CDATA[%s]]></title>` (partial "title.html" .) | safeHTML }}
     </channel>
@@ -39,7 +40,7 @@
     {{- range $output_formats -}}
     {{- $rel := (or (and (eq "feed" (.Name | lower)) "self") "alternate") -}}
     {{- with $output_formats.Get .Name }}
-    {{ printf `<atom:link href=%q rel=%q type=%q title=%q />` .Permalink $rel .MediaType.Type .Name | safeHTML }}
+    {{ printf `<atom:link href=%q rel=%q type=%q title=%q />` .RelPermalink $rel .MediaType.Type .Name | safeHTML }}
     {{- end -}}
     {{- end }}
     {{ with site.Params.description }}{{ printf `<description type="html"><![CDATA[%s]]></description>` . | safeHTML }}{{ end }}

@@ -7,7 +7,7 @@ theme = ['github.com/sergeyklay/gohugo-theme-ed']
 resourceDir = '../resources'
 enableRobotsTXT = true
 
-# kick out RSS, we'll use Atom
+# kick out RSS, we'll use Atom and FEED bellow
 disableKinds = ['RSS']
 
 [minify]
@@ -17,7 +17,6 @@ disableKinds = ['RSS']
 [outputs]
   home = [ 'HTML', 'Atom', 'FEED', 'JSON', 'MANIFEST', 'humanstxt' ]
   section = [ 'HTML', 'Atom', 'FEED', 'JSON' ]
-  # TODO: SITEMAP
   page = [ 'HTML' ]
   taxonomy = [ 'HTML' ]
   term = [ 'HTML' ]
@@ -87,6 +86,7 @@ disableKinds = ['RSS']
   isHTML = false
   noUgly = true
   permalinkable = false
+  notAlternative = true
 
 [mediaTypes]
   [mediaTypes.'text/xml']
@@ -95,6 +95,12 @@ disableKinds = ['RSS']
     suffixes = ['json']
   [mediaTypes.'application/manifest+json']
     suffixes = ['webmanifest']
+
+# Sitemap config
+[sitemap]
+  changefreq = 'weekly'
+  filename = 'sitemap.xml'
+  priority = 0.5
 
 [author]
   name = 'John Doe'
