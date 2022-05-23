@@ -3,11 +3,11 @@
   "name": {{ site.Title | htmlUnescape | jsonify }},
   {{ with site.Params.tagline }}"short_name": {{ . | htmlUnescape | jsonify }},{{ end }}
   {{ with site.Params.description }}"description": {{ . | htmlUnescape | jsonify }},{{ end }}
-  {{ with site.LanguageCode }}"lang": {{ . | jsonify }},{{ end }}
+  {{ with site.LanguageCode }}"lang": {{ . | jsonify }},
+  "dir": "ltr", {{/* TODO: Get dir from lang */}}{{ end }}
   "start_url": "/index.html",
   "display": "fullscreen",
   "orientation": "natural",
-  "dir": "ltr", {{/* TODO: Get dir from lang */}}
   "shortcuts": [ {{ range $index, $m := site.Menus.main }} {{ if or (lt .Weight 900) site.IsServer }}
     {{ if $index }}, {{ end }}
     {
@@ -18,7 +18,7 @@
   ],
   "icons": [{{ $t := slice 192 512 }}{{ range $t }}
     {
-      "src": "/img/icon-{{.}}.png",
+      "src": "/icon-{{.}}.png",
       "type": "image/png",
       "sizes": "{{.}}x{{.}}"
     }{{ if ne . 512 }},{{ end }}{{- end }}
