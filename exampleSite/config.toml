@@ -2,6 +2,12 @@ baseURL = 'https://example.com/'
 
 languageCode = 'en-us'
 defaultContentLanguage = 'en'
+# Keep title short to prevent overflow.
+# There’s no official guidance on this, but 40 characters for
+# mobile and 60 for desktop is roughly the sweet spot.
+#
+# NB: Final title of shareable pages will be this plus the
+#     title of the page. Eg. "Contacts - Ed."
 title = 'Ed.'
 theme = ['github.com/sergeyklay/gohugo-theme-ed']
 resourceDir = '../resources'
