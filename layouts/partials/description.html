@@ -10,6 +10,10 @@
     {{- else -}}
         {{- $description = print .Summary -}}
     {{- end -}}
+
+    {{ if eq (len $description) 0 -}}
+        {{- $description = site.Params.Description -}}
+    {{ end -}}
 {{- end -}}
 
 {{- /* Meta descriptions can technically be any length, but Google generally
