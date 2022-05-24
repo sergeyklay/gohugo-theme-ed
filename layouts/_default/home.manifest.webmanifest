@@ -1,5 +1,5 @@
 {
-  "$schema": "https://json.schemastore.org/web-manifest-combined.json",
+  "$schema": "https://json.schemastore.org/web-manifest",
   "name": {{ site.Title | htmlUnescape | jsonify }},
   {{ with site.Params.tagline }}"short_name": {{ . | htmlUnescape | jsonify }},{{ end }}
   {{ with site.Params.description }}"description": {{ . | htmlUnescape | jsonify }},{{ end }}
@@ -9,7 +9,7 @@
   "display": "fullscreen",
   "orientation": "natural",
   "shortcuts": [ {{ range $index, $m := site.Menus.main }} {{ if or (lt .Weight 900) site.IsServer }}
-    {{ if $index }}, {{ end }}
+    {{- if $index }},{{ end }}
     {
       "name": {{ $m.Name | jsonify }},
       "short_name" : {{ $m.Identifier | jsonify }},
