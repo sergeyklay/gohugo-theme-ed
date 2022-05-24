@@ -18,9 +18,9 @@
   ],
   "icons": [{{ $t := slice 192 512 }}{{ range $t }}
     {
-      "src": "/icon-{{.}}.png",
+      "src": "/icon-{{ . }}.png",
       "type": "image/png",
-      "sizes": "{{.}}x{{.}}"
+      "sizes": "{{ . }}x{{ . }}"
     }{{ if ne . 512 }},{{ end }}{{- end }}
   ]
 }
