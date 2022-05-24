@@ -1,6 +1,7 @@
 ---
 title: Documentation
 author: Alex Gil
+featured_image: screenshot-home.png
 ---
 
 ## Contents

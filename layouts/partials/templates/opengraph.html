@@ -3,26 +3,19 @@
     <meta property="og:description" content="{{ (partial "description.html" . ) }}">
     <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
     <meta property="og:url" content="{{ .Permalink }}">
-{{- if .Params.cover.image -}}
-    {{- if (ne .Params.cover.relative true) }}
-    <meta property="og:image" content="{{ .Params.cover.image | absURL }}">
-    {{- else }}
-    <meta property="og:image" content="{{ (path.Join .RelPermalink .Params.cover.image ) | absURL }}">
-    {{- end }}
 
-    {{- if .Params.cover.width -}}
-    <meta property="og:image:width" content="{{ .Params.cover.width }}">
-    {{- end }}
+{{- $logo := resources.Get (site.Params.assets.logo | default "/img/open-graph-logo.png" ) -}}
+{{- $image := .Resources.GetMatch .Params.featured_image -}}
 
-    {{- if .Params.cover.height -}}
-    <meta property="og:image:height" content="{{ .Params.cover.height }}">
-    {{- end }}
+{{- if and .IsPage $image }}
+    <meta property="og:image" content="{{ $image.Permalink }}">
+    <meta property="og:image:width" content="{{ $image.Width }}">
+    <meta property="og:image:height" content="{{ $image.Height }}">
 {{- else }}
-    {{- $logo := resources.Get (site.Params.assets.logo | default "/img/open-graph-logo.png" ) }}
     <meta property="og:image" content="{{ $logo.Permalink }}">
-    <meta property="og:image:width" content="{{ site.Params.assets.logo_width | default 200 }}">
-    <meta property="og:image:height" content="{{ site.Params.assets.logo_height | default 200 }}">
-{{- end }}
+    <meta property="og:image:width" content="{{ $logo.Width }}">
+    <meta property="og:image:height" content="{{ $logo.Height }}">
+{{- end -}}
 
 {{- /* Facebook Page Admin ID for Domain Insights */}}
 {{- with site.Social.facebook_admin }}
