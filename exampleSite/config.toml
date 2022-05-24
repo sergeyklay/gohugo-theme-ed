@@ -156,6 +156,8 @@ disableKinds = ['RSS']
   facebook_admin = ''
   # Facebook Page ID
   facebook_id = ''
+  # Twitter username for the website used in the card footer
+  twitter = 'john_doe'
 
 # For more see https://gohugo.io/content-management/menus/
 [menu]

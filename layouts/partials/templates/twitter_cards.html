@@ -1,0 +1,19 @@
+    <!-- Twitter Card metadata -->
+    <meta name="twitter:title" content="{{- partial "title.html" . -}}">
+    <meta name="twitter:description" content="{{ (partial "description.html" . ) }}">
+
+    {{- /* Twitter username for the website used in the card footer */}}
+    {{- with site.Social.twitter }}
+    <meta name="twitter:site" content="@{{ . }}">
+    {{- end }}
+
+    {{- $logo := resources.Get (site.Params.assets.logo | default "/img/open-graph-logo.png" ) -}}
+    {{- $image := .Resources.GetMatch .Params.featured_image -}}
+
+    {{- if and .IsPage $image }}
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:image" content="{{ $image.Permalink }}">
+    {{- else }}
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:image" content="{{ $logo.Permalink }}">
+    {{- end -}}
