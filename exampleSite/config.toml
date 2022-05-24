@@ -148,11 +148,7 @@ disableKinds = ['RSS']
     favicon = '' # favicon.ico for legacy browsers
     svgicon = '' # A single SVG icon with a light/dark version for modern browsers
     apple_touch_icon = '' # 180×180 PNG image for Apple devices
-
     logo = '/img/open-graph-logo.png' # Logo image, relative to ./assets
-    logo_width = 200 # Logo image width
-    logo_height = 200 # Logo image height
-
     disable_fingerprinting = false
 
 [social]
