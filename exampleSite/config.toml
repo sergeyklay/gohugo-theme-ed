@@ -7,6 +7,10 @@ theme = ['github.com/sergeyklay/gohugo-theme-ed']
 resourceDir = '../resources'
 enableRobotsTXT = true
 
+# When using ref or relref to resolve page links and a link cannot
+# resolved, it will be logged with this log level.
+refLinksErrorLevel = 'WARNING'
+
 # kick out RSS, we'll use Atom and FEED bellow
 disableKinds = ['RSS']
 
