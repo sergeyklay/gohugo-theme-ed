@@ -1,11 +1,13 @@
+{{- $uuid := sha1 (printf "%s/index.html?homescreen=1" site.BaseURL) -}}
 {
   "$schema": "https://json.schemastore.org/web-manifest",
+  "id": "{{ substr $uuid 0 8 }}-{{ substr $uuid 8 4 }}-5{{ substr $uuid 13 3 }}-{{ substr $uuid 16 1 }}9{{ substr $uuid 17 2 }}-{{ substr $uuid 21 12 }}",
   "name": {{ site.Title | htmlUnescape | jsonify }},
   {{ with site.Params.tagline }}"short_name": {{ . | htmlUnescape | jsonify }},{{ end }}
   {{ with site.Params.description }}"description": {{ . | htmlUnescape | jsonify }},{{ end }}
   {{ with site.LanguageCode }}"lang": {{ . | jsonify }},
   "dir": "ltr", {{/* TODO: Get dir from lang */}}{{ end }}
-  "start_url": "/index.html",
+  "start_url": "/index.html?homescreen=1",
   "display": "fullscreen",
   "orientation": "natural",
   "shortcuts": [ {{ range $index, $m := site.Menus.main }} {{ if or (lt .Weight 900) site.IsServer }}
