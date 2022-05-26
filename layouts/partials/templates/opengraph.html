@@ -5,7 +5,11 @@
     <meta property="og:url" content="{{ .Permalink }}">
 
 {{- $logo := resources.Get (site.Params.assets.logo | default "/img/open-graph-logo.png" ) -}}
-{{- $image := .Resources.GetMatch .Params.featured_image -}}
+
+{{- $image := "" -}}
+{{- with .Params.featured_image -}}
+    {{- $image := .Resources.GetMatch .Params.featured_image -}}
+{{- end -}}
 
 {{- if and .IsPage $image }}
     <meta property="og:image" content="{{ $image.Permalink }}">
