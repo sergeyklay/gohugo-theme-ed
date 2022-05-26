@@ -1,0 +1,76 @@
+[build]
+  publish = 'exampleSite/public'
+  command = 'hugo --gc --verbose --minify'
+
+[context.production.environment]
+  HUGO_VERSION = '0.99.1'
+  HUGO_ENV = 'production'
+  HUGO_ENABLEGITINFO = 'true'
+
+[context.split1]
+  command = 'hugo --gc --minify --enableGitInfo'
+
+[context.split1.environment]
+  HUGO_VERSION = '0.99.1'
+  HUGO_ENV = 'production'
+
+[context.deploy-preview]
+  command = 'hugo --gc --minify --buildFuture -b $DEPLOY_PRIME_URL'
+
+[context.deploy-preview.environment]
+  HUGO_VERSION = '0.99.1'
+
+[context.branch-deploy]
+  command = 'hugo --gc --minify -b $DEPLOY_PRIME_URL'
+
+[context.branch-deploy.environment]
+  HUGO_VERSION = '0.99.1'
+
+[context.next.environment]
+  HUGO_ENABLEGITINFO = 'true'
+
+[[headers]]
+  for = '/feeds/*.xml'
+  [headers.values]
+    # The correct header Content-Type header for an Atom feed is
+    # application/atom+xml. However, Chromium does not handle it
+    # correctly (see https://code.google.com/p/chromium/issues/detail?id=104358).
+    #
+    # The most compatible header is 'text/xml; charset=utf-8', which
+    # will cause the feed to be parsed correctly by most clients.
+    # Note that you should be encoding your feed in UTF-8.
+    Content-Type = 'text/xml; charset=utf-8'
+
+[[headers]]
+  for = '/*/feeds/*.xml'
+  [headers.values]
+    Content-Type = 'text/xml; charset=utf-8'
+
+[[headers]]
+  for = '/feeds/*.json'
+  [headers.values]
+    # JSON Feed files should be served using the MIME type application/json.
+    # JSON Feeds should be encoded using UTF-8.
+    Content-Type = 'application/feed+json; charset=utf-8'
+
+[[headers]]
+  for = '/*/feeds/*.json'
+  [headers.values]
+    Content-Type = 'application/feed+json; charset=utf-8'
+
+[[headers]]
+  for = '/manifest.webmanifest'
+  [headers.values]
+    # The .webmanifest extension is specified in the Media type registration
+    # section of the specification (the response of the manifest file should
+    # return Content-Type: application/manifest+json).
+    #
+    # For more see: https://w3c.github.io/manifest/#media-type-registration=
+    Content-Type = 'application/manifest+json; charset=utf-8'
+
+[[headers]]
+  for = '/robots.txt'
+  [headers.values]
+    # The server’s robots.txt file must be saved as plain text with
+    # ASCII character encoding.
+    Content-Type = 'text/plain; charset=us-ascii'
