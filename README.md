@@ -4,7 +4,13 @@ Ed is a [Hugo][hugo] theme designed for textual editors based on
 [minimal computing][mincomp] principles, and focused on legibility, durability,
 ease and flexibility.
 
-![screenshot][]
+---
+
+<p align="center">
+  <kbd><img src="https://raw.githubusercontent.com/sergeyklay/gohugo-theme-ed/master/exampleSite/content/documentation/screenshot-home.png" alt="Mockup image" title="Mockup"/></kbd>
+</p>
+
+---
 
 This theme is adopted and finalized with new functionality from
 [Jekyll][jekyll] [Ed][ed-original] theme by [Alex Gil][gil-twitter].
@@ -63,7 +69,6 @@ information.
 
 [hugo]: http://gohugo.io
 [mincomp]: http://go-dh.github.io/mincomp/
-[screenshot]: https://raw.githubusercontent.com/sergeyklay/gohugo-theme-ed/master/exampleSite/content/documentation/screenshot-home.png
 [jekyll]: https://jekyllrb.com
 [ed-original]: https://github.com/minicomp/ed
 [gil-twitter]: https://twitter.com/elotroalex
