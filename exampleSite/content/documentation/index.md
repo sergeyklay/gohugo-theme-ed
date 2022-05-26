@@ -231,36 +231,32 @@ The `{.poetry}` tag at the end tells the processor to think of the lines above i
 
 ## Pages
 
-Your editions are treated as {{< link src="https://jekyllrb.com/docs/collections/" target="_blank" rel="noopener noreferrer" >}}collections{{< /link >}} in Ed. Other web pages in your site exist outside the `_texts` folder. The homepage, for example, is constructed from the `index.html` file found on the root folder of your Ed project.
+Your editions are treated as {{< link src="https://gohugo.io/content-management/sections/" target="_blank" rel="noopener noreferrer" >}}sections{{< /link >}} or {{< link src="https://gohugo.io/content-management/page-bundles/" target="_blank" rel="noopener noreferrer" >}}page bundles{{< /link >}} in Ed. Other web pages in your site exist outside the `content` folder. Default homepage, for example, is constructed from the `index.html` file found on the `layouts` folder of Ed theme.
 
-You will notice that the homepage in particular has a `.html` file ending instead of a `.md` ending. All template files in Jekyll are HTML, and the index behaves as a template file. Although these files are mostly written in HTML, notice that they still contain YAML front matter and liquid tags. To edit the homepage replace the content on the file shipped with Ed, making sure that your changes to `index.html` are written in valid HTML. The same goes for the template files in the `_layouts` folder.
-
-Ed also comes with a search page, `search.html`. This page implements {{< link src="http://elasticlunr.com/" target="_blank" rel="noopener noreferrer" >}}elastic lunr{{< /link >}}, "a lightweight full-text search engine in Javascript for browser search and offline search." This simple search page can be useful if you have large collections of texts. If you don't, and don't feel the need, go ahead and delete it along with the `assets/js` folder.
-
-Besides the homepage and the search page, Ed ships with an About page, `about.md` and a documentation page, `documentation.md`, i.e. this page. As you can see, these are regular `.md` files. You can replace the contents of each file using normal kramdown syntax. This also applies to any new page you create, which you should remember to save with an `.md` extension. When editing the `bibliography.md` file, be careful not to replace the liquid tag that generates your bibliography, unless you don't want to have a bibliography at all.
+You will notice that the homepage in particular has a `.html` file ending instead of a `.md` ending. All template files in Hugo are HTML, and the index behaves as a template file. Although these files are mostly written in HTML, notice that they may contain {{< link src="https://gohugo.io/templates/introduction/" target="_blank" rel="noopener noreferrer" >}}template tags{{< /link >}}. To create your own homepage create `index.html` file in project `layouts` folder, making sure that your changes to `index.html` are written in valid HTML. The same goes for all Ed's template files in the `layouts` folder.
 
 ---
 
 ## Tables of Content
 
-You will find three kinds of Tables of Content in Ed. The first example is in the list of Sample Texts in the Homepage. This list is generated using the {{< link src="http://liquidmarkup.org/" target="_blank" rel="noopener noreferrer" >}}Liquid Templating language{{< /link >}}. This is one of the major components of Jekyll, and I recommend you deepen your knowledge of it if you want to modify the logic that automates much of Ed. Here is the code that generates the Sample Texts list on the homepage:
+You will find three kinds of Tables of Content in Ed. The first example is in the list of Latest Publications in the Homepage. This list is generated using the {{< link src="https://gohugo.io/templates/introduction/" target="_blank" rel="noopener noreferrer" >}}templating language{{< /link >}}. This is one of the major components of Hugo, and I recommend you deepen your knowledge of it if you want to modify the logic that automates much of Ed. Here is the code that generates the Latest Publications list on the homepage:
 
 ~~~ html
 <div class="toc">
-  <h2>Sample texts</h2>
-  <ul class="post">
-  {% for item in site.texts %}
-    <li class="text-title">
-      <a href="{{ site.baseurl }}{{ item.url }}">
-        {{ item.title }}
-      </a>
-    </li>
-  {% endfor %}
+  <h2>Latest Publications</h2>
+  <ul class="texts">
+      {{ range first 10 (where site.RegularPages.ByDate.Reverse "Type" "in" site.Params.mainSections) }}
+          <li class="text-title">
+              <a href="{{ .Permalink }}">{{ .Title }}</a>
+          </li>
+      {{ end }}
   </ul>
 </div>
 ~~~
 
-As you can see, the liquid tags `{%raw%}{% %}{%endraw%}` and `{%raw%}{{ }}{%endraw%}` are embedded into the HTML. Those with `{%raw%}{% %}{%endraw%}` often use programmatic logic, as is the case here. If you are not already familiar with programming languages, you may need to start elsewhere. I recommend learning Ruby, since this is the language used to build jekyll and jekyll-scholar in the first place (it's also the first programming language I used, so I'm biased). The `{%raw%}{{ }}{%endraw%}` simply pulls data from your project. In the example above it pulls the title from each 'post', i.e. each edited text. As you may have noticed already, we are basically adapting the blogging features of Jekyll to our own ends, what Cuban designer and theorist Ernesto Oroza would call "{{< link src="http://www.ernestooroza.com/" target="_blank" rel="noopener noreferrer" >}}technological dissobedience{{< /link >}}."
+As you can see, the templating tags `{{ }}` are embedded into the HTML. These tags often use programmatic logic, as is the case here. However, another use of these tags is pull data from your project. In the example above it pulls the `Title` from each allowed post type.
+
+As you may have noticed already, we are basically adapting the blogging features of Hugo to our own ends, what Cuban designer and theorist Ernesto Oroza would call "{{< link src="http://www.ernestooroza.com/" target="_blank" rel="noopener noreferrer" >}}technological dissobedience{{< /link >}}."
 
 The second kind of table of content is exemplified in this documentation. If you open the source file for the documentation, you will notice at the top this snippet:
 
