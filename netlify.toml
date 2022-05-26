@@ -1,6 +1,6 @@
 [build]
-  publish = 'exampleSite/public'
-  command = 'hugo --gc --verbose --minify'
+  publish = 'public'
+  command = 'hugo --source=exampleSite --gc --verbose --minify --destination ../public'
 
 [context.production.environment]
   HUGO_VERSION = '0.99.1'

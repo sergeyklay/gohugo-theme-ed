@@ -31,7 +31,7 @@
     "url": "git+https://github.com/sergeyklay/gohugo-theme-ed.git"
   },
   "scripts": {
-    "build": "hugo --source=exampleSite --gc --verbose --minify",
+    "build": "hugo --source=exampleSite --gc --verbose --minify --destination ../public",
     "server": "hugo server --source=exampleSite --disableFastRender",
     "lint:editorconfig": "editorconfig-checker",
     "lint:js": "eslint static/js/*.js",
