@@ -5,10 +5,7 @@ featured_image: screenshot-home.png
 ---
 
 ## Contents
-{:.no_toc}
-
-* ToC
-{:toc}
+{{< toc >}}
 
 ---
 
@@ -262,15 +259,12 @@ The second kind of table of content is exemplified in this documentation. If you
 
 ~~~ markdown
 ## Contents
-{:.no_toc}
-
-* ToC
-{:toc}
+{{</* toc */>}}
 ~~~
 
-This is the kramdown way. The first tag, `{:.no_toc}` tells the processor not to add `## Contents` to the ToC. The second part creates an empty list and then tells the processor to replace it with a table of contents based on headers in the document. You can use this syntax in any page on the site that uses headers.
+This is the Hugo way. The shortcode, `{{</* toc */>}}` tells the processor to create a table of contents based on headers in the document. You can use this syntax in any page on the site that uses headers.
 
-The third way is slightly more involved, but very useful for long texts. If we add the table of contents to the YAML front matter of a page, Ed will activate the optional table of content sidebar (`_includes/sidebar-toc.html`) and move the table of contents to a special sidebar for that page. *Narrative of the Life* uses this method for its table of content. If you would like to replicate this functionality in your own long texts, make sure to use the same syntax:
+The third way is slightly more involved, but very useful for long texts. If we add the table of contents to the YAML front matter of a page, Ed will activate the optional table of content sidebar (`layouts/partials/sidebar-toc.html` in Ed) and move the table of contents to a special sidebar for that page. *Narrative of the Life* uses this method for its table of content. If you would like to replicate this functionality in your own long texts, make sure to use the same syntax:
 
 ~~~ yaml
 toc:
@@ -282,136 +276,6 @@ toc:
 ~~~
 
 The internal links pointing to the right sections in your document are generated from the title names automatically. In order for the links to work the names on section headings must contain the same words as the section headers. The punctuation and capitalization is irrelevant. If you can figure out how Ed accomplishes this trick, you have graduated from the Ed school of minimal editions.
-
----
-
-## Bibliographies
-
-If you want to include a small bibliography, and you feel it would be easier to write it out directly, Ed can help you render it with hanging indentation.  To achieve this effect make sure to use the `.bibliography` class in an ordered list. For example:
-
-~~~ markdown
-1. Douglass, Frederick et al. Narrative of the Life of Frederick Douglass: An American Slave. Charlottesville, Va.: University of Virginia Library, 1996. Open WorldCat. Web. 17 Apr. 2016.
-2. Hansberry, Lorraine, and Robert Nemiroff. A Raisin in the Sun. Rep Rei edition. New York: Vintage, 2004. Print.
-{.bibliography}
-~~~
-
-Which should display like this:
-
-1. Douglass, Frederick et al. Narrative of the Life of Frederick Douglass: An American Slave. Charlottesville, Va.: University of Virginia Library, 1996. Open WorldCat. Web. 17 Apr. 2016.
-2. Hansberry, Lorraine, and Robert Nemiroff. A Raisin in the Sun. Rep Rei edition. New York: Vintage, 2004. Print.
-{:.bibliography}
-
----
-
-
-To help us style and generate bibliographies and citations *automatically*, Ed can use the jekyll-scholar gem by {{< link src="https://github.com/inukshuk/" target="_blank" rel="noopener noreferrer" >}}Sylvester Keil{{< /link >}}. To learn more about the gem beyond the basic instructions below, make sure to read the documentation on the {{< link src="https://github.com/inukshuk/jekyll-scholar" target="_blank" rel="noopener noreferrer" >}}jekyll-scholar{{< /link >}} GitHub page. Keep in mind, though, that installing jekyll-scholar and working with it may be a bit difficult for beginners.
-
-
-If you can get over the hurdles, jekyll-scholar can save you enormous amounts of time in the long term for your citation and bibliographic work. To begin, you must move the contents of the `jekyll-scholar starter kit` in your `optional` folder into the root folder. This will effectively replace the original `_config.yml` and `Gemfile` files, and add a `_bibliography` folder, and the `bibliography.md` and `Rakefile` files. To enable jekyll-scholar you must re-run `bundle install` again.
-
-If everything goes smoothly, you should be able to start using jekyll-scholar at this point. The first thing you may want to do is provide Jekyll with your own bibliographic information in the form of a `.bib` file to replace the content of the `references.bib` file we've provided in the `_bibliography` folder.
-
-To make it easy to create your own version of this file and to keep track of your bibliography for your project, in general I recommend you use {{< link src="http://zotero.org/" target="_blank" rel="noopener noreferrer" >}}Zotero{{< /link >}}. To export from Zotero in this format select the references you need from within your Zotero library, right click and select `export in...` and choose the BibLaTeX format. Rename your file to `references.bib` and move it into the `_bibliography` folder. You are, of course, free to create your `references.bib` file using any method you prefer as long as it is a BibTeX file.
-
-Because as textual editors we are more likely than not to use citations in footnotes or pages that contain footnotes, and because footnotes will be necessarily generated at the bottom of the page, Ed also needs a separate page for your Bibliography or works cited. This is the role of the `bibliography.md` file. Feel free to edit the sample text, but make sure to leave the following line intact:
-
-<pre>
-&#123;% bibliography %&#125;
-</pre>
-
-To link your citations to the bibliography page, instead of writing them by hand, you can use the cite function in jekyll-scholar:
-
-<pre>
-&#123;% cite cesaire_discourse_2001 %&#125;
-</pre>
-
-Here's the breakdown:
-
-* `cite` is the jekyllscholar command.
-* `cesaire_discourse_2001` is the unique ID for Césaire's *Discourse on Colonialism* entry included in the reference.bib file.
-
-Note that our jekyll-scholar starter kit comes ready for MLA style. To use Chicago style or more advanced citation features, refer to the documentation on jekyll-scholar to make the appropriate changes.
-
-**Publishing your site on Github Pages with jekyll-scholar**
-
-If you install jekyll-scholar, or most other plugins in Jekyll, you will need a workaround to publish your site on Github Pages, which only runs in 'safe mode.' I've provided a slightly modified version of a `Rakefile` originally created by {{< link src="https://blog.sorryapp.com/blogging-with-jekyll/2014/01/31/using-jekyll-plugins-on-github-pages.html" target="_blank" rel="noopener noreferrer" >}}Robert Rawlins{{< /link >}} that will help you accomplish this task. Once you are ready to publish, switch to your `gh-pages` branch and run the following command:
-
-~~~ bash
-$ rake ed:publish
-~~~
-
----
-
-## Tips and Tricks
-
-- The folding sidebar menu is generated from the `sidebar.html` file in the `_includes` folder. The top menu items are generated automatically from your pages. The bottom menu items are manually written in HTML. This structure can allow you to add external links. If you don't have that many pages, you may choose to do all the links by hand.
-- For more hand-crafted layouts---such as {{< link src="{{ site.baseurl }}/texts/narrative/index.html#title-page" target="_blank" rel="noopener noreferrer" >}}the title page in *The Narrative of the Life*{{< /link >}}---you may choose to work directly with HTML. One of the great advantages of working with the kramdown processor is that we have a lot of flexibility to mix HTML with the kramdown syntax. Note though, that even in the case of the title page, you can achieve these effects using kramdown syntax.
-- Make sure to add horizontal rules, `---`, to separate sections in your texts. This creates a more pleasant layout.
-- You can clean unnecessary folders and files from the original Ed package before publishing your site. This will help you reduce overhead. For example, you can erase this page, the sample texts and the `syntax.css` file (used for styling code).
-- Consider providing tips for your readers on how to make their font bigger or smaller by taking advantage of <kbd>Command</kbd> + <kbd>+</kbd> and <kbd>Command</kbd> + <kbd>-</kbd>. Or returning to the top of the page using <kbd>Command</kbd> + <kbd>Up Arrow</kbd>. Part of the philosophy behind Ed is to avoid duplicating features that are already easily available in most web ecosystems.
-- If you want to allow annotations on your site, consider providing a `via.hypothes.is` link. Our sample site can be annotated, for example, using the following link: `https://via.hypothes.is/https://sergeyklay.github.io/gohugo-theme-ed/`, which readers can access on the sidebar. Once you've indicated your own URL in the config file, the link will update automatically. Make sure to visit {{< link src="https://hypothes.is/" target="_blank" rel="noopener noreferrer" >}}hypothes.is{{< /link >}} to learn more.
-- Ed includes metadata in the headers that makes it easier for users of Zotero, and other systems to grab bibliographic information for the site and individual texts. Our metadata functionality may not be enough to generate a full proper citation. Consider providing visible citation information in your about page or homepage.
-- Make sure to deepen your knowledge of the building blocks of Ed: Jekyll, YAML and Liquid. A great list of resources can be found in the blog "{{< link src="http://jameswillweb.github.io/jekyll-for-designers/resources.html" target="_blank" rel="noopener noreferrer" >}}Jekyll for Web Designers{{< /link >}}".
-- Our base themes Poole/Lanyon allow for easily customization of the interface. You can, for example, switch the position of the sidebar, change the theme colors and overlay options. To learn more check out the {{< link src="https://github.com/poole/lanyon#themes" target="_blank" rel="noopener noreferrer" >}}Lanyon documentation{{< /link >}}, and make sure to try the green, `.theme-base-0b`, it's really nice.
-- You can change the look and feel of the site as a whole by changing the `color-scheme` in the `_config.yml` file. If you want to have more granularity, short of editing the `css`, you can change the variable values in the `assets/css/style.scss` file.
-- In the `optional` folder you will find a sample `xslt` to help you get started converting TEI to Ed. You will also find css for adding pop-up "balloons" or tooltips to your texts.
-
----
-
-## Publishing: A UNIX server
-
-Publishing and Ed edition can be done in one of two ways. One way is to host it on a server you rent, own or have access to. Most mortals pay a hosting provider to host their sites. I recommend {{< link src="https://reclaimhosting.com/" target="_blank" rel="noopener noreferrer" >}}Reclaim Hosting{{< /link >}}, which is run by scholars for scholars. If you are affiliated with a university, chances are that your institution provides you with a UNIX account and a bit of server space. Since Jekyll generates a full static site for you, that means you can park it there too. To do so you need to build the site first. If you have been keeping your eye on your project by using `jekyll serve`, chances are you have a current built site in your project folder labelled `_site`.
-
-If you don't already, you can build one easily by using the following Jekyll command:
-
-~~~ bash
-$ jekyll build
-~~~
-
-Or, again, if you have multiple environments:
-
-~~~ bash
-$ bundle exec jekyll serve
-~~~
-
-Using an FTP client like {{< link src="https://filezilla-project.org/" target="_blank" rel="noopener noreferrer" >}}Filezilla{{< /link >}}, or {{< link src="https://www.siteground.com/tutorials/ssh/" target="_blank" rel="noopener noreferrer" >}}SSH on your terminal{{< /link >}}, you need to push the contents of the `_site` folder to the folder on your server where you would like your project to exist. Depending on your host provider, you may be able to receive help from the sys admins with this step.
-
-Please refer to the {{< link src="#a-note-on-your-base-url" target="_blank" rel="noopener noreferrer" >}}note below on base urls{{< /link >}} to make sure your new links work on your new site.
-
-## Publishing: GitHub pages
-
-The second option is to publish your site for free on GitHub Pages.
-Whether you decide to publish on GitHub pages or not, we recommend that you still use git and GitHub to version your edition and make the data available via another channel other than your webpage. This is one of the great advantages of using our system, increasing the chances of survival of your work and opening new audiences for it.
-
-If you do decide to use the GitHub pages option, please make sure to read the [note below on base urls](#a-note-on-your-base-url).
-
-To publish on GitHub pages, you must have a copy of the repository in GitHub. That means you also need an account there. Once you've created the repository that you will use, you must link your local repository to the one on GitHub. Notice that because you cloned the original source files from my repository, it will be linked to my repository (to which you don't have writing privileges) until you do this step. Instructions for changing the remote URL can be found {{< link src="https://help.github.com/articles/changing-a-remote-s-url/" target="_blank" rel="noopener noreferrer" >}}here{{< /link >}}.
-
-The usual way of doing it is to create a different git branch called `gh-pages` within your local repository for your site. This is a branch is published by GitHub by default. GitHub also gives you the option to select {{< link src="https://github.com/blog/2228-simpler-github-pages-publishing" target="_blank" rel="noopener noreferrer" >}}any branch you want to publish{{< /link >}}, including the master branch.
-
-In the following I use the gh-pages branch. To create and use that branch use the following command:
-
-~~~ bash
-$ git checkout -b gh-pages
-~~~
-
-Once you are using that branch, you are ready to publish your site. To do so use simply push the gh-pages branch to github:
-
-~~~ bash
-$ git push origin gh-pages
-~~~
-
-You can now access your site using an address that looks like `http://your-username.github.io/your-project-name`. The sample page for Ed, for example, is hosted at {{< link src="https://sergeyklay.github.io/gohugo-theme-ed/" target="_blank" rel="noopener noreferrer" >}}sergeyklay.github.io/gohugo-theme-ed{{< /link >}}.
-
-**<span id="a-note-on-your-base-url">A note on your base url</span>**
-
-When you publish on a subfolder—automatic on GitHub pages—many of your links will break unless you indicate the name of your sub-folder in the `baseurl` value in your `_config.html` file. In addition, you need to make sure that your site-wide links (your links to your CSS files, for example) are preceded by the `{{ site.baseurl }}` tag. The base Ed install already uses this system, so you can simply replace the value `/ed` in your `baseurl` to `/your-project-slug`.
-
-If on the other hand you are running your site on a root folder, simply erase `/ed`, but do make sure to leave the single quotes:
-
-~~~ yaml
-baseurl: ''
-~~~
 
 ---
 
