@@ -1,4 +1,4 @@
-baseURL = 'https://example.com/'
+baseURL = 'https://gohugo-theme-ed.netlify.app/'
 
 languageCode = 'en-us'
 defaultContentLanguage = 'en'
