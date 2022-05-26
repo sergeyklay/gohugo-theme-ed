@@ -8,7 +8,7 @@
         {{/* TODO: Translate me */}}
         <h2>Latest Publications</h2>
         <ul class="texts">
-            {{ range first 10 (where site.RegularPages "Section" "!=" "") }}
+            {{ range first 10 (where site.RegularPages.ByDate.Reverse "Type" "in" site.Params.mainSections) }}
                 <li class="text-title">
                     <a href="{{ .Permalink }}">{{ .Title }}</a>
                 </li>
