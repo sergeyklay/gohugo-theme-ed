@@ -42,10 +42,7 @@ to generate high-quality editions on github.io in large quantities based on the
 ## Sample Ed editions
 
 - [Our sample site][sample-site] is the first edition built with Ed.
-- [Fugitive Verses][fig-vt]: Popular Reprinted Poetry from Nineteenth Century Newspapers
-- [mini lazarillo][lazarillo]: A minimal edition of the *Lazarillo de Tormes*
-- [Making and Knowing][GR8975]: The BnF Ms Fr 640 in Translation
-- [Daisy Miller][dmiller-play]: A Comedy in Three Acts
+- [Serghei Iakovlev's blog][blog]
 
 ## Features
 
@@ -61,7 +58,7 @@ to generate high-quality editions on github.io in large quantities based on the
 
 ## License
 
-Ed licensed under the MIT License. See the [LICENSE](./LICENSE) file for more
+Ed licensed under the MIT License. See the [LICENSE][license] file for more
 information.
 
 [hugo]: http://gohugo.io
@@ -73,9 +70,7 @@ information.
 [minimal-editions]: https://github.com/susannalles/MinimalEditions/blob/master/README.md
 [git-lit]: http://jonreeve.com/2015/09/introducing-git-lit/
 [sample-site]: https://gohugo-theme-ed.netlify.app/
-[fig-vt]: http://fugitiverses.viraltexts.org/
-[lazarillo]: http://minilazarillo.github.io/
-[GR8975]: https://cu-mkp.github.io/GR8975-edition/
-[dmiller-play]: https://britaneeelizabeth.github.io/ed/texts/DaisyMillerPlay/
+[blog]: https://serghei.blog/?utm_source=ed&utm_campaign=docs&utm_medium=smm
 [example-site]: https://github.com/sergeyklay/gohugo-theme-ed/tree/master/exampleSite
 [config-sample]: https://github.com/sergeyklay/gohugo-theme-ed/blob/master/exampleSite/config.toml
+[license]: https://raw.githubusercontent.com/sergeyklay/gohugo-theme-ed/master/LICENSE
