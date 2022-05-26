@@ -31,23 +31,20 @@ for you, Kindle!
 
 ## Sample Ed editions.
 
-- {{< link src="https://sergeyklay.github.io/gohugo-theme-ed/" target="_blank" rel="noopener noreferrer" >}}Our sample site{{< /link >}} is the first edition built with Ed.
+- {{< link src="https://gohugo-theme-ed.netlify.app/" target="_blank" rel="noopener noreferrer" >}}Our sample site{{< /link >}} is the first edition built with Ed.
 - {{< link src="https://serghei.blog/?utm_source=ed&utm_campaign=docs&utm_medium=smm" target="_blank" rel="noopener noreferrer" >}}Serghei Iakovlev's blog{{< /link >}}
 
 ## Current Features
 
 - Templates for narrative, drama and poetry
-- Responsive design for mobile phones, tablets and PCs.
+- Responsive design for mobile phones, tablets and PCs
 - Relatively easy to learn and teach
 - Works well in high- or low- bandwidth scenarios
 - Easier for digital archives and libraries to preserve
 - Open source, open access
 - Unobtrusive footnotes
-- Metadata in Dublin Core and OpenGraph to play nice with Zotero, libraries and social media.
+- Metadata in OpenGraph to play nice with social media and search engines
 - Automatic table of content generation
-- Simple search functionality
-- Annotations via {{< link src="https://hypothes.is/" target="_blank" rel="noopener noreferrer" >}}hypothes.is{{< /link >}}
-- Optional: Ability to generate well-formatted bibliographies and linked citations
 
 
 ## Installing and using Ed

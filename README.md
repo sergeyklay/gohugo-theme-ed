@@ -72,7 +72,7 @@ information.
 [gil-twitter]: https://twitter.com/elotroalex
 [minimal-editions]: https://github.com/susannalles/MinimalEditions/blob/master/README.md
 [git-lit]: http://jonreeve.com/2015/09/introducing-git-lit/
-[sample-site]: https://sergeyklay.github.io/gohugo-theme-ed/
+[sample-site]: https://gohugo-theme-ed.netlify.app/
 [fig-vt]: http://fugitiverses.viraltexts.org/
 [lazarillo]: http://minilazarillo.github.io/
 [GR8975]: https://cu-mkp.github.io/GR8975-edition/
