@@ -6,12 +6,8 @@
 
 {{- $logo := resources.Get (site.Params.assets.logo | default "/img/open-graph-logo.png" ) -}}
 
-{{- $image := "" -}}
-{{- with .Params.featured_image -}}
-    {{- $image := .Resources.GetMatch .Params.featured_image -}}
-{{- end -}}
-
-{{- if and .IsPage $image }}
+{{- if and .IsPage .Params.featured_image -}}
+    {{- $image := .Resources.GetMatch .Params.featured_image }}
     <meta property="og:image" content="{{ $image.Permalink }}">
     <meta property="og:image:width" content="{{ $image.Width }}">
     <meta property="og:image:height" content="{{ $image.Height }}">
