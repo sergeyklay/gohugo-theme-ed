@@ -188,11 +188,6 @@ disableKinds = ['RSS']
     url = '/documentation/'
     weight = 4
   [[menu.main]]
-    identifier = 'search'
-    name = 'Search'
-    url = '/search/' # TODO: Implement search
-    weight = 5
-  [[menu.main]]
     identifier = 'github'
     name = 'GitHub Project'
     url = 'https://github.com/sergeyklay/gohugo-theme-ed/'
