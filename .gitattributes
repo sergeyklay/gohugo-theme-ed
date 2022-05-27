@@ -25,7 +25,8 @@ resources/_gen/** linguist-generated
 README.md         linguist-detectable=false linguist-documentation=true
 CHANGELOG.md      linguist-detectable=false linguist-documentation=true
 
-/layouts/_default/home.*.* linguist-language=Jinja
+/layouts/_default/list.*.* linguist-language=HTML
+/layouts/_default/home.*.* linguist-language=HTML
 
 #
 # Text files.
