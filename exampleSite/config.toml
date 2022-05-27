@@ -150,7 +150,7 @@ disableKinds = ['RSS']
   feedSize = 25
 
   [params.contact]
-    # Formspree URL, used in contacts form
+    # Forms Backend URL, used in contacts form
     formAction = 'https://submit-form.com/example'
     # Contact form email subject
     emailSubject = 'Contact form submission'
