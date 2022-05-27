@@ -3,10 +3,6 @@
   "bugs": {
     "url": "https://github.com/sergeyklay/gohugo-theme-ed/issues"
   },
-  "comments": {
-    "dependencies": {},
-    "devDependencies": {}
-  },
   "dependencies": {},
   "description": "Ed theme for minimal editions, based on Alex Gil theme",
   "devDependencies": {
