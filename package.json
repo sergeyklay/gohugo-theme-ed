@@ -33,5 +33,5 @@
     "lint:js": "eslint static/js/*.js",
     "lint": "npm run lint:js && npm run lint:editorconfig"
   },
-  "version": "0.1.0"
+  "version": "0.2.0"
 }
