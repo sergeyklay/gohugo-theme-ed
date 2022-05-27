@@ -46,6 +46,8 @@ for you, Kindle!
 - Metadata in OpenGraph to play nice with social media and search engines
 - Automatic table of content generation
 - Contact form
+- Custom `robots.txt` (changes values based on environment)
+- RSS/Atom/Json Feeds Discovery
 
 
 ## Installing and using Ed
