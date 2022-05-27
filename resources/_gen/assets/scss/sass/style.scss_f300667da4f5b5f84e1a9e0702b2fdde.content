@@ -717,24 +717,166 @@ pre code {
 .highlight pre {
   margin-bottom: 0; }
 
+/* Form elements */
+.form-input {
+  border: 1px solid #ccc;
+  border-radius: .2em;
+  font-family: inherit;
+  font-size: 1.25em;
+  color: #000;
+  background-color: #fff;
+  width: 100%;
+  padding: 0.5em;
+  -webkit-transition: all 0.15s ease-in-out;
+  -moz-transition: all 0.15s ease-in-out;
+  -ms-transition: all 0.15s ease-in-out;
+  -o-transition: all 0.15s ease-in-out;
+  transition: all 0.15s ease-in-out;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none; }
+  @media only screen and (min-width: 768px) {
+    .form-input {
+      font-size: 1.15em; } }
+  @media only screen and (min-width: 1220px) {
+    .form-input {
+      font-size: 1.1em; } }
+  .form-input:focus {
+    outline: none;
+    border-color: #5e5e5e; }
+
+.contact-form {
+  width: 100%;
+  padding-bottom: 20px; }
+  @media only screen and (min-width: 768px) {
+    .contact-form {
+      padding-bottom: 40px; } }
+  @media only screen and (min-width: 1220px) {
+    .contact-form {
+      padding-bottom: 50px; } }
+  @media only screen and (min-width: 1600px) {
+    .contact-form {
+      padding-bottom: 60px; } }
+  .contact-form:first-child {
+    margin-top: 0; }
+
+.contact-form-item {
+  margin-top: 15px; }
+  @media only screen and (min-width: 768px) {
+    .contact-form-item {
+      margin-top: 20px; } }
+  @media only screen and (min-width: 1220px) {
+    .contact-form-item {
+      margin-top: 30px; } }
+  .contact-form-item:first-child {
+    margin-top: 0; }
+
+form input[type="number"]:-moz-submit-invalid,
+form input[type="email"]:-moz-submit-invalid,
+form textarea:-moz-submit-invalid,
+form input[type="text"]:-moz-submit-invalid,
+form select:-moz-submit-invalid,
+form input:-moz-ui-invalid {
+  -webkit-box-shadow: 0 0 2px 1px #D64541 !important;
+  -moz-box-shadow: 0 0 2px 1px #D64541 !important;
+  box-shadow: 0 0 2px 1px #D64541 !important; }
+
+.contact-form-item-error .contact-form-input,
+.contact-form-item-error .contact-form-textarea {
+  -webkit-box-shadow: 0 0 2px 1px #D64541 !important;
+  -moz-box-shadow: 0 0 2px 1px #D64541 !important;
+  box-shadow: 0 0 2px 1px #D64541 !important; }
+
+.contact-form-label {
+  display: block;
+  font-size: 16px;
+  font-weight: 600;
+  color: #676767; }
+  @media only screen and (min-width: 768px) {
+    .contact-form-label {
+      font-size: 18px; } }
+  @media only screen and (min-width: 1220px) {
+    .contact-form-label {
+      font-size: 20px; } }
+.contact-form-input,
+.contact-form-textarea {
+  margin-top: 8px; }
+
+::-webkit-input-placeholder {
+  color: #d4dada; }
+
+::-moz-placeholder {
+  color: #d4dada; }
+
+:-ms-input-placeholder {
+  color: #d4dada; }
+
+:-moz-placeholder {
+  color: #d4dada; }
+
+.contact-form-textarea {
+  font-size: 1.1em;
+  min-height: 200px;
+  resize: none; }
+  @media only screen and (min-width: 768px) {
+    .contact-form-textarea {
+      font-size: 1.05em; } }
+  @media only screen and (min-width: 1220px) {
+    .contact-form-textarea {
+      font-size: 1em; } }
+.button {
+  display: inline-block;
+  padding: 9px 10px 10px;
+  font-size: 13px;
+  line-height: 1;
+  border: 2px solid #5e5e5e;
+  border-radius: 3px;
+  background: #5e5e5e;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer; }
+  @media only screen and (min-width: 768px) {
+    .button {
+      padding: 11px 20px 12px;
+      font-size: 15px; } }
+  .button:hover {
+    background: #404040;
+    border-color: #404040;
+    color: #fff; }
+  .button svg {
+    margin-right: 5px; }
+    .button svg:last-child {
+      margin-right: 0;
+      margin-left: 5px; }
+    @media only screen and (min-width: 768px) {
+      .button svg {
+        margin-right: 8px; }
+        .button svg:last-child {
+          margin-right: 0;
+          margin-left: 8px; } }
 .masthead-title small {
   font-size: .78rem; }
 
+#page-contact,
 .introduction {
   min-height: 40px;
   margin-bottom: 40px; }
   @media only screen and (min-width: 768px) {
+    #page-contact,
     .introduction {
       min-height: 60px;
       margin-bottom: 60px; } }
   @media only screen and (min-width: 1024px) {
+    #page-contact,
     .introduction {
       min-height: 80px;
       margin-bottom: 80px; } }
   @media only screen and (min-width: 1220px) {
+    #page-contact,
     .introduction {
       min-height: 100px;
       margin-bottom: 100px; } }
+#page-contact .container,
 .introduction .container {
   margin: 10px auto;
   max-width: 600px;

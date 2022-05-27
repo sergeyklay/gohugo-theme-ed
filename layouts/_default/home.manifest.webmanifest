@@ -9,6 +9,8 @@
   "dir": "ltr", {{/* TODO: Get dir from lang */}}{{ end }}
   "start_url": "/index.html?homescreen=1",
   "display": "fullscreen",
+  "theme_color": "#ffffff",
+  "background_color": "#ffffff",
   "orientation": "natural",
   "shortcuts": [ {{ range $index, $m := site.Menus.main }} {{ if or (lt .Weight 900) site.IsServer }}
     {{- if $index }},{{ end }}

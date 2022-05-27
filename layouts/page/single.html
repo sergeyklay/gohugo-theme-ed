@@ -1,5 +1,5 @@
 {{ define "main" }}
-<article class="page">
+<article class="page" id="page-{{ .File.TranslationBaseName | lower }}">
     <h1 class="page-title">{{ .Params.caption | default .Title }}</h1>
     {{ .Content }}
 </article>

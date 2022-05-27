@@ -1,0 +1,161 @@
+/* Form elements */
+
+@import "_mixins";
+
+.form-input {
+  border: 1px solid #ccc;
+  border-radius: .2em;
+  font-family: inherit;
+  font-size: 1.25em;
+  color: #000;
+  background-color: #fff;
+  width: 100%;
+  padding: 0.5em;
+
+  @include transition(all 0.15s ease-in-out);
+  @include appearance(none);
+
+  @include mq(tabletp) {
+		font-size: 1.15em;
+	}
+
+	@include mq(laptop) {
+		font-size: 1.1em;
+	}
+
+	&:focus {
+		outline: none;
+		border-color: #5e5e5e;
+	}
+}
+
+.contact-form {
+  width: 100%;
+  padding-bottom: 20px;
+
+  @include mq(tabletp) {
+		padding-bottom: 40px;
+	}
+
+  @include mq(laptop) {
+		padding-bottom: 50px;
+	}
+
+	@include mq(desktop) {
+		padding-bottom: 60px;
+	}
+
+	&:first-child {
+		margin-top: 0;
+	}
+}
+
+.contact-form-item {
+  margin-top: 15px;
+
+  @include mq(tabletp) {
+		margin-top: 20px;
+	}
+
+	@include mq(laptop) {
+		margin-top: 30px;
+	}
+
+	&:first-child {
+		margin-top: 0;
+  }
+}
+
+form input[type="number"]:-moz-submit-invalid,
+form input[type="email"]:-moz-submit-invalid,
+form textarea:-moz-submit-invalid,
+form input[type="text"]:-moz-submit-invalid,
+form select:-moz-submit-invalid,
+form input:-moz-ui-invalid {
+  @include box-shadow (0 0 2px 1px #D64541!important);
+}
+
+.contact-form-item-error {
+  .contact-form-input,
+  .contact-form-textarea {
+    @include box-shadow (0 0 2px 1px #D64541!important);
+  }
+}
+
+.contact-form-label {
+	display: block;
+	font-size: 16px;
+	font-weight: 600;
+	color: #676767;
+
+	@include mq(tabletp) {
+		font-size: 18px;
+	}
+
+	@include mq(laptop) {
+		font-size: 20px;
+	}
+}
+
+.contact-form-input,
+.contact-form-textarea {
+	margin-top: 8px;
+}
+
+@include input-placeholder(#ABB7B7, 15%);
+
+.contact-form-textarea {
+  font-size: 1.1em;
+	min-height: 200px;
+  resize: none;
+
+	@include mq(tabletp) {
+		font-size: 1.05em;
+  }
+
+	@include mq(laptop) {
+		font-size: 1em;
+	}
+}
+
+.button {
+  display: inline-block;
+	padding: 9px 10px 10px;
+	font-size: 13px;
+	line-height: 1;
+	border: 2px solid #5e5e5e;
+	border-radius: 3px;
+	background: #5e5e5e;
+	color: #fff;
+	font-weight: 600;
+  cursor: pointer;
+
+  @include mq(tabletp) {
+		padding: 11px 20px 12px;
+		font-size: 15px;
+  }
+
+  &:hover {
+		background: adjust-hue(#404040,15%);
+		border-color: adjust-hue(#404040,15%);
+		color: #fff;
+  }
+
+  svg {
+		margin-right: 5px;
+
+		&:last-child {
+			margin-right: 0;
+			margin-left: 5px;
+		}
+
+		@include mq(tabletp) {
+			margin-right: 8px;
+
+			&:last-child {
+				margin-right: 0;
+				margin-left: 8px;
+			}
+		}
+	}
+}

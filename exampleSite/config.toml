@@ -149,6 +149,12 @@ disableKinds = ['RSS']
   # RSS/Atom feed size
   feedSize = 25
 
+  [params.contact]
+    # Formspree URL, used in contacts form
+    formAction = 'https://formspree.io/f/example'
+    # Contact form email subject
+    emailSubject = 'Contact form submission'
+
   [params.assets]
     # Site icons, relative to ./static
     favicon = '' # favicon.ico for legacy browsers
@@ -187,6 +193,11 @@ disableKinds = ['RSS']
     name = 'Documentation'
     url = '/documentation/'
     weight = 4
+  [[menu.main]]
+    identifier = 'contact'
+    name = 'Contact'
+    url = '/contact/'
+    weight = 5
   [[menu.main]]
     identifier = 'github'
     name = 'GitHub Project'

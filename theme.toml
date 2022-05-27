@@ -35,7 +35,8 @@ features = [
   "responsive",
   "rss",
   "shortcodes",
-  "simple"
+  "simple",
+  "contact form"
 ]
 
 min_version = "0.95.0"
