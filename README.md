@@ -61,6 +61,7 @@ to generate high-quality editions on github.io in large quantities based on the
 - Unobtrusive footnotes
 - Metadata in OpenGraph to play nice with social media and search engines
 - Automatic table of content generation
+- Contact form
 
 ## License
 

@@ -45,6 +45,7 @@ for you, Kindle!
 - Unobtrusive footnotes
 - Metadata in OpenGraph to play nice with social media and search engines
 - Automatic table of content generation
+- Contact form
 
 
 ## Installing and using Ed

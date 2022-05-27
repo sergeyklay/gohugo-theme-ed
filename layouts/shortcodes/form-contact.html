@@ -1,24 +1,26 @@
 {{- /* TODO: Translate me */ -}}
 <div class="contact-form">
-    <form accept-charset="UTF-8" action="{{ site.Params.Contact.formAction | default "example.com" }}" method="POST" id="contact-form">
+    <form accept-charset="UTF-8" action="{{ site.Params.Contact.formAction | default site.BaseURL }}" method="POST" id="contact-form">
         <div class="contact-form-item">
             <label for="name" class="contact-form-label">Your name</label>
-            <input type="text" id="name" name="name" class="contact-form-input form-input" placeholder="Your name" required aria-labelledby="name">
+            <input type="text" id="name" name="name" class="contact-form-input form-input" placeholder="" required aria-labelledby="name">
         </div>
 
         <div class="contact-form-item">
             <label for="email" class="contact-form-label">Email addres</label>
-            <input type="email" id="email" name="email" class="contact-form-input form-input" placeholder="Email addres" required aria-labelledby="email">
+            <input type="email" id="email" name="email" class="contact-form-input form-input" placeholder="" required aria-labelledby="email">
         </div>
 
         <div class="contact-form-item">
             <label for="message" class="contact-form-label">Message</label>
-            <textarea id="message" name="message" class="contact-form-textarea form-input" placeholder="Message" required aria-labelledby="message"></textarea>
+            <textarea id="message" name="message" class="contact-form-textarea form-input" placeholder="" required aria-labelledby="message"></textarea>
         </div>
 
-        <input type="hidden" name="_language" value="{{ site.Language.Lang }}" >
-        <input type="hidden" name="_subject" value="{{ site.Params.Contact.emailSubject | default "Contact form submission" }}">
-        <input type="text" name="_gotcha" style="display:none" class="contact-form-gotcha" value="">
+        <input type="hidden" name="_feedback.language" value="{{ site.Language.Lang }}" >
+        <input type="hidden" name="_email.subject" value="{{ site.Params.Contact.emailSubject | default "" }}">
+        <input type="hidden" name="_redirect" value="{{ site.Params.Contact.thanksUrl | absURL }}">
+
+        <input type="checkbox" name="_honeypot" style="display:none" tabindex="-1" autocomplete="off" class="contact-form-gotcha" value="">
 
         <div class="contact-form-item">
             <input type="submit" value="Send" class="button button-large">

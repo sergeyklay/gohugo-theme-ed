@@ -151,9 +151,11 @@ disableKinds = ['RSS']
 
   [params.contact]
     # Formspree URL, used in contacts form
-    formAction = 'https://formspree.io/f/example'
+    formAction = 'https://submit-form.com/example'
     # Contact form email subject
     emailSubject = 'Contact form submission'
+    # After successful submit, where should the user be redirected?
+    thanksUrl = '/thanks'
 
   [params.assets]
     # Site icons, relative to ./static
