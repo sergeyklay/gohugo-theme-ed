@@ -1,22 +1,27 @@
 {{ define "main" }}
+{{- $mainSections := site.Params.mainSections | default (slice "post") }}
 {{- with .Content }}
     <div class="introduction">
         {{ . }}
     </div>
+    {{- $section := where site.RegularPages "Section" "in" $mainSections }}
+    {{- $section_count := len $section }}
+    {{- if ge $section_count 1 }}
     <hr>
     <div class="toc">
         {{/* TODO: Translate me */}}
         <h2>Latest Publications</h2>
         <ul class="texts">
-            {{ range first 10 (where site.RegularPages.ByDate.Reverse "Type" "in" site.Params.mainSections) }}
+            {{ range first 10 $section }}
                 <li class="text-title">
                     <a href="{{ .Permalink }}">{{ .Title }}</a>
                 </li>
             {{ end }}
         </ul>
     </div>
+    {{ end }}
 {{- else }}
-    {{ $paginator := .Paginate (where site.RegularPages "Type" "in" site.Params.mainSections) }}
+    {{ $paginator := .Paginate (where site.RegularPages "Section" "in" $mainSections) }}
     <div class="articles">
         {{ with .Title }}<h1 class="page-title">{{ . }}</h1>{{ end }}
         {{ range $paginator.Pages }}{{- .Render "teaser" }}{{ end }}
