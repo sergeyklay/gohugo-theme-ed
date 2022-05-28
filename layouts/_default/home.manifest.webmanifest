@@ -5,8 +5,8 @@
   "name": {{ site.Title | htmlUnescape | jsonify }},
   {{ with site.Params.tagline }}"short_name": {{ . | htmlUnescape | jsonify }},{{ end }}
   {{ with site.Params.description }}"description": {{ . | htmlUnescape | jsonify }},{{ end }}
-  {{ with site.LanguageCode }}"lang": {{ . | jsonify }},
-  "dir": "ltr", {{/* TODO: Get dir from lang */}}{{ end }}
+  "lang": "{{ site.LanguageCode | default site.Language.Lang }}",{{ with partialCached "func/GetLanguageDirection" "GetLanguageDirection" }}
+  "dir": {{ . | jsonify }},{{ end }}
   "start_url": "/index.html?homescreen=1",
   "display": "fullscreen",
   "theme_color": "#ffffff",
@@ -28,3 +28,5 @@
     }{{ if ne . 512 }},{{ end }}{{- end }}
   ]
 }
+
+

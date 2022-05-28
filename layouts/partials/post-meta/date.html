@@ -1,11 +1,10 @@
 {{- if not .Date.IsZero }}
 <time datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">
-    {{- .Date.Format (site.Params.dateformat | default "January 02, 2006") -}}
+    {{- .Date | time.Format (site.Params.dateformat | default "January 02, 2006") -}}
 </time>
 {{- if ne .Date .Lastmod }}
 <time datetime="{{ .Lastmod.Format "2006-01-02T15:04:05Z07:00" }}">
-    {{- /* TODO: Translate me */}}
-    (Updated: {{ .Lastmod.Format (site.Params.dateformat | default "January 02, 2006") -}})
+    ({{ i18n "updated_at" }} {{ .Lastmod | time.Format (site.Params.dateformat | default "January 02, 2006") -}})
 </time>
 {{- end -}}
 {{- end }}

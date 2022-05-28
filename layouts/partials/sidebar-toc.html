@@ -8,9 +8,8 @@
     </div>
 
     <nav class="sidebar-nav">
-        {{/* TODO: Translate links */}}
-        <a class="sidebar-nav-item" href="{{ site.Home.RelPermalink }}">Home</a>
-        <a class="sidebar-nav-item" href="#" data-proofer-ignore>Return to Top</a>
+        <a class="sidebar-nav-item" href="{{ site.Home.RelPermalink }}">{{ i18n "home" }}</a>
+        <a class="sidebar-nav-item" href="#" data-proofer-ignore>{{ i18n "top" }}</a>
 
         {{ range $item := .Params.toc }}
             {{/* TODO: Add 'active' class for curent section */}}

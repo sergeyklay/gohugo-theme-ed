@@ -1,7 +1,9 @@
+# You may need to change this line for your real project.
 baseURL = 'https://gohugo-theme-ed.netlify.app/'
 
 languageCode = 'en-us'
 defaultContentLanguage = 'en'
+
 # Keep title short to prevent overflow.
 # There’s no official guidance on this, but 40 characters for
 # mobile and 60 for desktop is roughly the sweet spot.
@@ -9,8 +11,13 @@ defaultContentLanguage = 'en'
 # NB: Final title of shareable pages will be this plus the
 #     title of the page. Eg. "Contacts - Ed."
 title = 'Ed.'
+
+# You may need to change this line for your real project.
 theme = ['github.com/sergeyklay/gohugo-theme-ed']
+
+# You may need to delete this line for your real project.
 resourceDir = '../resources'
+
 enableRobotsTXT = true
 
 # When using ref or relref to resolve page links and a link cannot

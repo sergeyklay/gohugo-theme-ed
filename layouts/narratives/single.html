@@ -1,7 +1,7 @@
 {{ define "main" }}
 <article class="narrative">
     <h1 class="text-title">{{ .Params.caption | default .Title }}</h1>
-    <p class="byline">by {{ .Params.author }}</p>
+    {{ with .Params.author }}<p class="byline">{{ i18n "by" . }}</p>{{ end }}
     {{ .Content }}
 </article>
 {{ end }}

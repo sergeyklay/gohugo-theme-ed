@@ -17,6 +17,7 @@ tags = [
   "light",
   "minimal",
   "minimalist",
+  "multilingual",
   "responsive",
   "simple"
 ]
@@ -25,18 +26,19 @@ tags = [
 features = [
   "blog",
   "clean",
+  "contact form",
   "favicon",
   "jsonfeed",
   "minimal",
   "minimalist",
   "mobile",
+  "multilingual",
   "opengraph",
   "posts",
   "responsive",
   "rss",
   "shortcodes",
-  "simple",
-  "contact form"
+  "simple"
 ]
 
 min_version = "0.95.0"

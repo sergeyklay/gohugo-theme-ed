@@ -1,0 +1,38 @@
+[home]
+  other = 'На главную'
+
+[top]
+  other = 'Вернуться наверх'
+
+[more]
+  other = 'Далее...'
+
+[updated_at]
+  other = 'Обновлено'
+
+[latest_publications]
+  other = 'Последние публикации'
+
+[your_name]
+  other = 'Ваше имя'
+
+[email_addres]
+  other = 'Email'
+
+[message]
+  other = 'Сообщение'
+
+[edited_by]
+  other = 'Редактор {{ . }}'
+
+[404_title]
+  other = 'Страница не найдена'
+
+[404_description]
+  other = 'Извините, мы потеряли этот адрес или он указывает на что-то несуществующее.'
+
+[404_back]
+  other = 'Вернитесь на главную, чтобы попытаться найти страницу снова'
+
+[by]
+  other = '{{ . }}'

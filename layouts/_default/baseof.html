@@ -1,21 +1,24 @@
 <!DOCTYPE html>
 <html lang="{{ site.LanguageCode | default site.Language.Lang }}" {{- with partialCached "func/GetLanguageDirection" "GetLanguageDirection" }} dir="{{ . }}" {{- end }} prefix="og: http://ogp.me/ns#">
-    {{- partial "head.html" . -}}
+    {{ partial "head.html" . }}
     <body class="theme-base-{{ site.Params.colorScheme }}">
-        {{ if .Params.toc }}{{ partial "sidebar-toc.html" . }}{{ else }}{{ partial "sidebar.html" . }}{{ end }}
+        {{ if .Params.toc }}
+            {{ partial "sidebar-toc.html" . }}
+        {{ else }}
+            {{ partial "sidebar.html" . }}
+        {{ end }}
         <div class="wrap">
             <header class="masthead">
                 <div class="container">
                     <h3 class="masthead-title">
-                        {{/* TODO: Translate titlle */}}
-                        <a href="{{ site.Home.RelPermalink }}" title="Home">{{ site.Title }}</a>
+                        <a href="{{ site.Home.RelPermalink }}" title="{{ i18n "home" }}">{{ site.Title }}</a>
                         <br><small>{{ site.Params.tagline }}</small>
                     </h3>
                 </div>
             </header>
 
             <main class="container content" id="main" data-type="{{ .Type }}">
-                {{- block "main" . }}{{- end }}
+                {{ block "main" . }}{{ end }}
             </main>
         </div>
 

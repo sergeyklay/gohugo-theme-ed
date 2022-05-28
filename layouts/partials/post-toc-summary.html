@@ -1,6 +1,6 @@
 <span class="post-meta">
     <time datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">
-        {{- .Date.Format (site.Params.dateFormatToc | default "2006.01.02") }}
+        {{- .Date | time.Format (site.Params.dateFormatToc | default "2006.01.02") }}
     </time>
 </span>
 

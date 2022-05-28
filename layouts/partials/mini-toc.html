@@ -12,8 +12,7 @@
     {{ $mxPosts := site.Params.recentPostsSize | default 5 }}
 
     <div class="toc" role="navigation">
-        {{/* TODO: Translate me */}}
-        <h2>Latest Publications</h2>
+        <h2>{{ i18n "latest_publications" }}</h2>
         <ul class="texts">
             {{/* Range through the first $mxPosts items of the $section */}}
             {{ range (first $mxPosts $section) }}

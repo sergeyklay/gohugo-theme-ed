@@ -7,7 +7,7 @@
             {{ end }}
             {{ with .Params.editor }}
                 <p>
-                    Edited by {{ . }},
+                    {{ i18n "edited_by" . }},
                     {{ if not $.Params.Lastmod.IsZero }}
                         {{ $.Params.Lastmod.Format "2006" }}
                     {{ else }}

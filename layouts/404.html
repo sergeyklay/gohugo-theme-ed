@@ -3,17 +3,11 @@
 <section class="introduction">
     <div class="container">
         <h1 class="accent">404</h1>
-        <p><strong>Page not found</strong></p>
+        <p><strong>{{ i18n "404_title" }}</strong></p>
     </div>
 
-    <p>
-        Sorry, we've misplaced that URL or it's pointing to something
-        that doesn't exist.
-    </p>
-
-    <p>
-        <a href="{{ "/" | relURL }}">Head back home to try finding it again</a>.
-    </p>
+    <p>{{ i18n "404_description" }}</p>
+    <p><a href="{{ "/" | relURL }}">{{ i18n "404_back" }} </a>.</p>
 </section>
 
 <hr>

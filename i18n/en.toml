@@ -1,0 +1,38 @@
+[home]
+  other = 'Home'
+
+[top]
+  other = 'Return to Top'
+
+[more]
+  other = 'Read more...'
+
+[updated_at]
+  other = 'Updated at'
+
+[latest_publications]
+  other = 'Latest publications'
+
+[your_name]
+  other = 'Your name'
+
+[email_addres]
+  other = 'Email address'
+
+[message]
+  other = 'Message'
+
+[edited_by]
+  other = 'Edited by {{ . }}'
+
+[404_title]
+  other = 'Page not found'
+
+[404_description]
+  other = "Sorry, we've misplaced that URL or it's pointing to something that doesn't exist."
+
+[404_back]
+  other = 'Head back home to try finding it again'
+
+[by]
+  other = 'by {{ . }}'
