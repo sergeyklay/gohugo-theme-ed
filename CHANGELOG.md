@@ -9,8 +9,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- Added multilanguage support
-- Added Russian translation
+- Add multilanguage support
+- Add Russian translation
+- Provide an ability to use hreflang attribute in raw links
 
 ### Changed
 
