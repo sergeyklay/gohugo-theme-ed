@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Add fallback if main sections are not configured
 - Reformat default 404 page
 - Rework the "Latest Publications" section, add post date
+- Add 404 page to robots.txt file (to prevent search engines from indexing it) 
 
 ## v0.1.0 - 2022-05-27
 

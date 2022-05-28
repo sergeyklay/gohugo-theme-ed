@@ -3,6 +3,7 @@
 User-agent: *
 {{- if eq (getenv "HUGO_ENV") "production" | or (eq site.Params.env "production")  }}
 Allow: /
+Disallow: /404.html
 Disallow: /thanks
 
 Sitemap: {{ "/stemap.xml" | absURL }}
