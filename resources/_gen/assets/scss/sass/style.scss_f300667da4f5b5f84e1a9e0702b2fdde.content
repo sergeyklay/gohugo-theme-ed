@@ -887,6 +887,15 @@ form input:-moz-ui-invalid {
   max-width: 600px;
   text-align: center; }
 
+.introduction h1.accent {
+  margin: 30px 0;
+  font-size: 4em;
+  line-height: 1;
+  letter-spacing: -1px; }
+
+.post-meta time {
+  padding-right: 1rem; }
+
 .blog-post {
   margin-top: 40px; }
   @media only screen and (min-width: 768px) {

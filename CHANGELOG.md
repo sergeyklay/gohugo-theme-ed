@@ -12,6 +12,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Amend documentation
 - Do not show "Latest Publications" section at the homepage if there are no publications
 - Add fallback if main sections are not configured
+- Reformat default 404 page
 
 ## v0.1.0 - 2022-05-27
 
