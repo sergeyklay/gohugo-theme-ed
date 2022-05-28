@@ -54,3 +54,7 @@ for you, Kindle!
 
 To learn how to install and begin using Ed, please visit our
 [documentation page]({{< relref "/documentation" >}} "Visit the documentation").
+
+---
+
+{{< mini-toc >}}
