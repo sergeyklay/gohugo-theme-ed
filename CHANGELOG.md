@@ -16,6 +16,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Rework the "Latest Publications" section, add post date
 - Add 404 page to robots.txt file (to prevent search engines from indexing it) 
 
+### Fixed
+
+- Fix margin bottom on the nested unordered lists for page's table of contents
+
 ## v0.1.0 - 2022-05-27
 
 - Initial release

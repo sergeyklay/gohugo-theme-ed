@@ -69,6 +69,15 @@
   min-height: 100px;
 }
 
+#TableOfContents ul ul,
+#TableOfContents ul ul ul,
+#TableOfContents ul ul ul ul,
+#TableOfContents ul ul ul ul ul,
+#TableOfContents ul ul ul ul ul ul,
+#TableOfContents ul ul ul ul ul ul ul {
+  margin-bottom: 0;
+}
+
 .post-meta {
   margin-top: 5px;
   font-size: .85rem;
