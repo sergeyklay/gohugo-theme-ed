@@ -36,3 +36,6 @@
 
 [by]
   other = 'by {{ . }}'
+
+[send]
+  other = 'Send'
