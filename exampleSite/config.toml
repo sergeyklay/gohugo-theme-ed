@@ -128,14 +128,15 @@ disableKinds = ['RSS']
 [params]
   # Site description. Used in meta description
   description = 'Ed is a Hugo theme designed for textual editors based on minimal computing principles, and focused on legibility and flexibility.'
-  # Copyright string
+  # Copyright string. "{year}" will be replaced by © and the current year.
   copyright = 'Copyright &copy; 2019-{year} John Doe'
   # Color scheme. Options: red, orange, magenta, cyan, blue, brown
   colorScheme = ''
   # Used in site header
   tagline = 'a Hugo theme for minimal editions'
-  # Custom footer text
-  footer = ''
+  # Custom footer text on left sidebar. Use HTMl if needed.
+  # "{year}" will be replaced by © and the current year.
+  footer = 'Built with <a href="https://github.com/sergeyklay/gohugo-theme-ed" target="_blank" rel="noopener noreferrer">Ed</a>. Distributed under an MIT license.'
   # Sections to be displayed in the main page, as well as RSS/Atom feeds
   mainSections = ['posts', 'dramas', 'narratives', 'poems']
   # Order of post meta information

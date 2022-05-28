@@ -1,13 +1,21 @@
-<div class="sidebar-item">
-    <p>
-        {{- with site.Params.footer -}}
-        {{- $footer_text := replace . "{year}" now.Year -}}
-        {{- $footer_text = replace $footer_text "&copy;" "©" }}
-        {{ $footer_text | safeHTML }}
-        {{- else }}{{- /* TODO: translate strings */ -}}
-        {{- with .Params.editor }}<p>Edited by {{ . }}, {{ now.Format "2006" }}.</p>{{ end }}
-        Built with <a href="https://github.com/sergeyklay/gohugo-theme-ed" target="_blank" rel="noopener noreferrer">Ed.</a>
-        Distributed under an MIT license.
-        {{- end }}
-    </p>
-</div>
+{{ if or site.Params.footer .Params.editor }}
+    <div class="sidebar-item">
+        <p>
+            {{ with site.Params.footer }}
+                {{ $footerText := replace . "{year}" now.Year }}
+                {{ $footerText | safeHTML }}
+            {{ end }}
+            {{ with .Params.editor }}
+                <p>
+                    Edited by {{ . }},
+                    {{ if not $.Params.Lastmod.IsZero }}
+                        {{ $.Params.Lastmod.Format "2006" }}
+                    {{ else }}
+                        {{ now.Format "2006" }}
+                    {{ end }}
+                    .
+                </p>
+            {{ end }}
+        </p>
+    </div>
+{{ end }}

@@ -1,6 +1,6 @@
 ---
 title: "O Captain! My Captain!"
-date: 2022-02-02T23:56:58+02:00
+date: 2021-02-02T23:56:58+02:00
 draft: false
 author: Walt Whitman
 editor: Alex Gil
