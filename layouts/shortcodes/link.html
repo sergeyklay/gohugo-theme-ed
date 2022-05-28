@@ -1,3 +1,4 @@
+<!-- editorconfig-checker-disable -->
 <a href="{{ .Get "src" | absURL }}"
    {{- with .Get "hreflang" }} hreflang="{{ . }}"{{ end }}
    {{- with .Get "title" }} title="{{ . }}"{{ end }}
@@ -6,3 +7,4 @@
    {{- with .Get "rel" }} rel="{{ . }}"{{ end }}>
    {{- .Inner -}}
 </a>
+<!-- editorconfig-checker-enable -->

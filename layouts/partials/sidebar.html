@@ -14,12 +14,14 @@
             {{ $active := or ($current.IsMenuCurrent "main" .) ($current.HasMenuCurrent "main" .) }}
             {{ $active = or $active (eq .URL $current.RelPermalink) }}
             {{ $active = or $active (eq .Name $current.Title) }}
+            <!-- editorconfig-checker-disable -->
             <a class="sidebar-nav-item{{ if $active }} active{{ end }}"
                href="{{ .URL }}"
                id="menu-main-{{ .Identifier }}"
                {{- if eq .Params.external true }} target="_blank" rel="noopener noreferrer"{{ end }}>
                {{- print .Name | safeHTML -}}
             </a>
+            <!-- editorconfig-checker-enable -->
         {{ end }}
 
         {{/* TODO: Add hypothesis support */}}
