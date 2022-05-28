@@ -51,7 +51,7 @@ After installing the theme successfully it requires a just a few more steps to g
 
 Take a look inside the [`exampleSite`](https://github.com/sergeyklay/gohugo-theme-ed/tree/master/exampleSite) folder of this theme. You'll find a file called [`config.toml`](https://github.com/sergeyklay/gohugo-theme-ed/blob/master/exampleSite/config.toml). To use it, copy the [`config.toml`](https://github.com/sergeyklay/gohugo-theme-ed/blob/master/exampleSite/config.toml) in the root folder of your Hugo site. Feel free to change the strings in this theme.
 
-You may need to delete the line: `themesDir = "../.."`, because it's necessary only for theme developers. Also, make sure  the theme option is set to `ed`:
+You may need to delete the line: `resourceDir = '../resources'`, because it's necessary only for theme developers. Also, make sure  the theme option is set to `ed`:
 
 ~~~ toml
 theme = "ed"
