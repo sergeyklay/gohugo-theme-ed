@@ -12,7 +12,7 @@ source: Ciudad Seva
 
 - Mienten, *Julia de Burgos*. Mienten, Julia de Burgos.
 - La que se alza en mis versos no es tu voz: es mi voz
-- porque tú eres {{< link src="http://www.spanishdict.com/translate/ropaje" target="_blank" rel="noopener noreferrer" >}}ropaje{{< /link >}} y la esencia soy yo; y el más
+- porque tú eres [ropaje](http://www.spanishdict.com/translate/ropaje) y la esencia soy yo; y el más
 - profundo abismo se tiende entre las dos.
 
 - Tú eres fria muñeca de mentira social,

@@ -13,15 +13,15 @@ featured_image: screenshot-home.png
 
 This documentation was built with beginners in mind, but has the necessary information for more seasoned producers.
 
-To install and use Ed you will be using your terminal. If you need a refresher, I highly recommend "{{< link src="https://www.computervillage.org/articles/CommandLine.pdf" target="_blank" rel="noopener noreferrer" >}}The Command Line Crash Course{{< /link >}}." Working knowledge of HTML and CSS is also taken for granted. If you're new to HTML and CSS, you may want to check out the relevant courses on {{< link src="https://www.codecademy.com/learn/web" target="_blank" rel="noopener noreferrer" >}}codecademy.com{{< /link >}}.
+To install and use Ed you will be using your terminal. If you need a refresher, I highly recommend "[The Command Line Crash Course](https://www.computervillage.org/articles/CommandLine.pdf)." Working knowledge of HTML and CSS is also taken for granted. If you're new to HTML and CSS, you may want to check out the relevant courses on [codecademy.com](https://www.codecademy.com/learn/web).
 
 ---
 
 ## Installing Ed
 
-Before starting, please be sure that you have {{< link src="https://gohugo.io/getting-started/quick-start/#step-1-install-hugo" target="_blank" rel="noopener noreferrer" >}}installed Hugo{{< /link >}} and {{< link src="https://gohugo.io/getting-started/quick-start/#step-2-create-a-new-site" target="_blank" rel="noopener noreferrer" >}}created a new site{{< /link >}}. After that, you are ready to install Ed.
+Before starting, please be sure that you have [installed Hugo](https://gohugo.io/getting-started/quick-start/#step-1-install-hugo) and [created a new site](https://gohugo.io/getting-started/quick-start/#step-2-create-a-new-site). After that, you are ready to install Ed.
 
-The first step to install Ed is to download the source files from GitHub. To do so you must have git installed on your computer. You probably have git already, but if you don't, the easiest way is probably to install {{< link src="https://desktop.github.com/" target="_blank" rel="noopener noreferrer" >}}Github Desktop{{< /link >}} (even though we will be using git and github from the terminal in this tutorial). Mac users may want to ensure they have {{< link src="https://developer.apple.com/xcode/" target="_blank" rel="noopener noreferrer" >}}Xcode{{< /link >}} and its command line tools installed as well. To check if git is running on your system enter the following line on your terminal (remember to ignore the $):
+The first step to install Ed is to download the source files from GitHub. To do so you must have git installed on your computer. You probably have git already, but if you don't, the easiest way is probably to install [Github Desktop](https://desktop.github.com/) (even though we will be using git and github from the terminal in this tutorial). Mac users may want to ensure they have [Xcode](https://developer.apple.com/xcode/) and its command line tools installed as well. To check if git is running on your system enter the following line on your terminal (remember to ignore the $):
 
 ~~~ bash
 $ git --version
@@ -49,7 +49,7 @@ After installing the theme successfully it requires a just a few more steps to g
 
 ### The config file
 
-Take a look inside the {{< link src="https://github.com/sergeyklay/gohugo-theme-ed/tree/master/exampleSite" target="_blank" rel="noopener noreferrer" >}}`exampleSite`{{< /link >}} folder of this theme. You'll find a file called {{< link src="https://github.com/sergeyklay/gohugo-theme-ed/blob/master/exampleSite/config.toml" target="_blank" rel="noopener noreferrer" >}}`config.toml`{{< /link >}}. To use it, copy the {{< link src="https://github.com/sergeyklay/gohugo-theme-ed/blob/master/exampleSite/config.toml" target="_blank" rel="noopener noreferrer" >}}`config.toml`{{< /link >}} in the root folder of your Hugo site. Feel free to change the strings in this theme.
+Take a look inside the [`exampleSite`](https://github.com/sergeyklay/gohugo-theme-ed/tree/master/exampleSite) folder of this theme. You'll find a file called [`config.toml`](https://github.com/sergeyklay/gohugo-theme-ed/blob/master/exampleSite/config.toml). To use it, copy the [`config.toml`](https://github.com/sergeyklay/gohugo-theme-ed/blob/master/exampleSite/config.toml) in the root folder of your Hugo site. Feel free to change the strings in this theme.
 
 You may need to delete the line: `themesDir = "../.."`, because it's necessary only for theme developers. Also, make sure  the theme option is set to `ed`:
 
@@ -71,9 +71,9 @@ Copy the url from your terminal log and paste it into your browser of choice. Th
 
 ## Hugo
 
-Ed is a Hugo theme. That means you will need some familiarity with Hugo to take advantage of its full potential. While running a Hugo site is a bit more involved than Wordpress and other similar tools, the payoff in the long term is worth the effort to learn it. If you are new to Hugo, I recommend you take a look at {{< link src="https://strapi.io/blog/guide-to-using-hugo-site-generator" target="_blank" rel="noopener noreferrer" >}}A Guide to Using Hugo{{< /link >}} at *Strapi*, {{< link src="https://gohugo.io/hosting-and-deployment/hosting-on-github/" target="_blank" rel="noopener noreferrer" >}}Host on GitHub{{< /link >}} on *Hugo Documentation Site* and {{< link src="https://gohugo.io/documentation/" target="_blank" rel="noopener noreferrer" >}}Hugo's own documentation{{< /link >}} to start getting a sense of how it works.
+Ed is a Hugo theme. That means you will need some familiarity with Hugo to take advantage of its full potential. While running a Hugo site is a bit more involved than Wordpress and other similar tools, the payoff in the long term is worth the effort to learn it. If you are new to Hugo, I recommend you take a look at [A Guide to Using Hugo](https://strapi.io/blog/guide-to-using-hugo-site-generator) at *Strapi*, [Host on GitHub](https://gohugo.io/hosting-and-deployment/hosting-on-github/) on *Hugo Documentation Site* and [Hugo's own documentation](https://gohugo.io/documentation/) to start getting a sense of how it works.
 
-Once you have gone through these tutorials, you can get started using Ed. Remember to always and only edit content files for your site using {{< link src="https://en.wikipedia.org/wiki/Text_editor" target="_blank" rel="noopener noreferrer" >}}a plain text editor{{< /link >}}, and *not* a word processor. I'm composing this file using a plain text editor called {{< link src="https://code.visualstudio.com/" target="_blank" rel="noopener noreferrer" >}}Visual Studio Code{{< /link >}}.
+Once you have gone through these tutorials, you can get started using Ed. Remember to always and only edit content files for your site using [a plain text editor](https://en.wikipedia.org/wiki/Text_editor), and *not* a word processor. I'm composing this file using a plain text editor called [Visual Studio Code](https://code.visualstudio.com/).
 
 You should make sure that all your texts have the YAML front matter (the information at the top of the file). YAML stands for "YAML Ain't Markup Language" --- no disrespect to XML --- and it's the main way that Hugo handles named data. Here's an example of YAML front matter:
 
@@ -89,9 +89,9 @@ draft: true
 
 ## Markdown and CommonMark
 
-Ed is designed for scholars and amateur editors who want to produce either a clean reading edition or a scholarly annotated edition of a text. The main language we use to write in the Hugo environment is called Markdown. To learn more about the Markdown family, see Dennis Tenen and Grant Wythoff's "{{< link src="http://programminghistorian.org/lessons/sustainable-authorship-in-plain-text-using-pandoc-and-markdown" target="_blank" rel="noopener noreferrer" >}}Sustainable Authorship in Plain Text using Pandoc and Markdown{{< /link >}}."
+Ed is designed for scholars and amateur editors who want to produce either a clean reading edition or a scholarly annotated edition of a text. The main language we use to write in the Hugo environment is called Markdown. To learn more about the Markdown family, see Dennis Tenen and Grant Wythoff's "[Sustainable Authorship in Plain Text using Pandoc and Markdown](http://programminghistorian.org/lessons/sustainable-authorship-in-plain-text-using-pandoc-and-markdown)."
 
-By default Hugo uses a special Markdown processor called Goldmark. The processor can be said to use it's own 'flavor' of Markdown called CommonMark, and sometimes the Markdown syntax will be different than other flavors of Markdown. CommonMark is a rationalized version of Markdown syntax with a spec whose goal is to remove the ambiguities and inconsistency surrounding the original Markdown specification. It offers a standardized specification that defines the common syntax of the language along with a suite of comprehensive tests to validate Markdown implementations against this specification. You can become familiar with the CommonMark syntax in the {{< link src="https://spec.commonmark.org/" target="_blank" rel="noopener noreferrer" >}}CommonMark documentation{{< /link >}}. Another way to become familiar is to examine the sample text source files we provided.
+By default Hugo uses a special Markdown processor called Goldmark. The processor can be said to use it's own 'flavor' of Markdown called CommonMark, and sometimes the Markdown syntax will be different than other flavors of Markdown. CommonMark is a rationalized version of Markdown syntax with a spec whose goal is to remove the ambiguities and inconsistency surrounding the original Markdown specification. It offers a standardized specification that defines the common syntax of the language along with a suite of comprehensive tests to validate Markdown implementations against this specification. You can become familiar with the CommonMark syntax in the [CommonMark documentation](https://spec.commonmark.org/). Another way to become familiar is to examine the sample text source files we provided.
 
 ---
 
@@ -228,15 +228,15 @@ The `{.poetry}` tag at the end tells the processor to think of the lines above i
 
 ## Pages
 
-Your editions are treated as {{< link src="https://gohugo.io/content-management/sections/" target="_blank" rel="noopener noreferrer" >}}sections{{< /link >}} or {{< link src="https://gohugo.io/content-management/page-bundles/" target="_blank" rel="noopener noreferrer" >}}page bundles{{< /link >}} in Ed. Other web pages in your site exist outside the `content` folder. Default homepage, for example, is constructed from the `index.html` file found on the `layouts` folder of Ed theme.
+Your editions are treated as [sections](https://gohugo.io/content-management/sections/) or [page bundles](https://gohugo.io/content-management/page-bundles/) in Ed. Other web pages in your site exist outside the `content` folder. Default homepage, for example, is constructed from the `index.html` file found on the `layouts` folder of Ed theme.
 
-You will notice that the homepage in particular has a `.html` file ending instead of a `.md` ending. All template files in Hugo are HTML, and the index behaves as a template file. Although these files are mostly written in HTML, notice that they may contain {{< link src="https://gohugo.io/templates/introduction/" target="_blank" rel="noopener noreferrer" >}}template tags{{< /link >}}. To create your own homepage create `index.html` file in project `layouts` folder, making sure that your changes to `index.html` are written in valid HTML. The same goes for all Ed's template files in the `layouts` folder.
+You will notice that the homepage in particular has a `.html` file ending instead of a `.md` ending. All template files in Hugo are HTML, and the index behaves as a template file. Although these files are mostly written in HTML, notice that they may contain [template tags](https://gohugo.io/templates/introduction/). To create your own homepage create `index.html` file in project `layouts` folder, making sure that your changes to `index.html` are written in valid HTML. The same goes for all Ed's template files in the `layouts` folder.
 
 ---
 
 ## Tables of Content
 
-You will find three kinds of Tables of Content in Ed. The first example is in the list of Latest Publications in the Homepage. This list is generated using the {{< link src="https://gohugo.io/templates/introduction/" target="_blank" rel="noopener noreferrer" >}}templating language{{< /link >}}. This is one of the major components of Hugo, and I recommend you deepen your knowledge of it if you want to modify the logic that automates much of Ed. Here is the code that generates the Latest Publications list on the homepage:
+You will find three kinds of Tables of Content in Ed. The first example is in the list of Latest Publications in the Homepage. This list is generated using the [templating language](https://gohugo.io/templates/introduction/). This is one of the major components of Hugo, and I recommend you deepen your knowledge of it if you want to modify the logic that automates much of Ed. Here is the code that generates the Latest Publications list on the homepage:
 
 ~~~ html
 <div class="toc">
@@ -253,7 +253,7 @@ You will find three kinds of Tables of Content in Ed. The first example is in th
 
 As you can see, the templating tags `{{ }}` are embedded into the HTML. These tags often use programmatic logic, as is the case here. However, another use of these tags is pull data from your project. In the example above it pulls the `Title` from each allowed post type.
 
-As you may have noticed already, we are basically adapting the blogging features of Hugo to our own ends, what Cuban designer and theorist Ernesto Oroza would call "{{< link src="http://www.ernestooroza.com/" target="_blank" rel="noopener noreferrer" >}}technological dissobedience{{< /link >}}."
+As you may have noticed already, we are basically adapting the blogging features of Hugo to our own ends, what Cuban designer and theorist Ernesto Oroza would call "[technological dissobedience](http://www.ernestooroza.com/)."
 
 The second kind of table of content is exemplified in this documentation. If you open the source file for the documentation, you will notice at the top this snippet:
 
@@ -279,7 +279,7 @@ The internal links pointing to the right sections in your document are generated
 
 ---
 
-That should do it. If you have suggestions on how to improve Ed, make sure to leave us a line on {{< link src="https://github.com/sergeyklay/gohugo-theme-ed/issues" target="_blank" rel="noopener noreferrer" >}}our issues page{{< /link >}}, or send us a pull request.
+That should do it. If you have suggestions on how to improve Ed, make sure to leave us a line on [our issues page](https://github.com/sergeyklay/gohugo-theme-ed/issues), or send us a pull request.
 
 Happy editing!
 

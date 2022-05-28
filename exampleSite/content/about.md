@@ -22,17 +22,17 @@ useful type of editions for editors and readers. An edition produced with Ed con
 pages whose rate of decay is substantially lower than database-driven systems. As an added bonus,
 these static pages require less bandwidth. Our hope is that our approach can help beginners and
 veterans deploy beautiful editions with less effort, and that it can help us teach a 'full stack'
-{{< link src="https://github.com/susannalles/MinimalEditions/blob/master/README.md" target="_blank" rel="noopener noreferrer" >}}in one academic semester{{< /link >}},
+[in one academic semester](https://github.com/susannalles/MinimalEditions/blob/master/README.md),
 while allowing us to care for our projects at less cost, and perhaps, just perhaps, to generate
 high-quality editions on github.io in large quantities based on the
-{{< link src="http://jonreeve.com/2015/09/introducing-git-lit/" target="_blank" rel="noopener noreferrer" >}}git-lit{{< /link >}} model by Jonathan Reeve. We're coming
+[git-lit](http://jonreeve.com/2015/09/introducing-git-lit/) model by Jonathan Reeve. We're coming
 for you, Kindle!
 
 
 ## Sample Ed editions.
 
-- {{< link src="https://gohugo-theme-ed.netlify.app/" target="_blank" rel="noopener noreferrer" >}}Our sample site{{< /link >}} is the first edition built with Ed.
-- {{< link src="https://serghei.blog/?utm_source=ed&utm_campaign=docs&utm_medium=smm" target="_blank" rel="noopener noreferrer" >}}Serghei Iakovlev's blog{{< /link >}}
+- [Our sample site](https://gohugo-theme-ed.netlify.app/) is the first edition built with Ed.
+- [Serghei Iakovlev's blog](https://serghei.blog/?utm_source=ed&utm_campaign=docs&utm_medium=smm)
 
 ## Current Features
 
