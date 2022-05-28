@@ -221,6 +221,22 @@ disableKinds = ['RSS']
     [menu.main.params]
       external = true
 
+  [[menu.feeds]]
+    identifier = 'rss'
+    name = 'RSS 2.0'
+    url = '/feeds/feed.rss.xml'
+    weight = 1
+  [[menu.feeds]]
+    identifier = 'atom'
+    name = 'Atom'
+    url = '/feeds/feed.atom.xml'
+    weight = 2
+  [[menu.feeds]]
+    identifier = 'json'
+    name = 'Json Feed'
+    url = '/feeds/feed.json'
+    weight = 3
+
 # For more see https://gohugo.io/getting-started/configuration-markup/
 [markup]
   defaultMarkdownHandler = 'goldmark'

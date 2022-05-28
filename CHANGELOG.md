@@ -11,9 +11,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Add multilanguage support
 - Add Russian translation
-- Provide an ability to use hreflang attribute in raw links
+- Provide an ability to use hreflang attribute in `link` shortcode
 - Add `{{< mini-toc >}}` shortcode
 - Provide an ability to use `keywords` meta tag
+- Provide ability to render feeds menu
 
 ### Changed
 
