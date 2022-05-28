@@ -13,6 +13,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Add Russian translation
 - Provide an ability to use hreflang attribute in raw links
 - Add `{{< mini-toc >}}` shortcode
+- Provide an ability to use `keywords` meta tag
 
 ### Changed
 
