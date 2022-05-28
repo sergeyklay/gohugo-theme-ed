@@ -1,5 +1,5 @@
 {{- if .Params.tags -}}
     {{- delimit .Params.tags ", " -}}
-{{- else -}}{{ site.Params.keywords }}
+{{- else -}}
     {{- delimit site.Params.seoKeywords ", " -}}
 {{- end -}}
