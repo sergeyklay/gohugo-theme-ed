@@ -3,7 +3,7 @@
 
 {{- $pages := slice -}}
 {{- if $.IsHome -}}
-    {{- $mainSections := site.Params.mainSections | default (slice "post") }}
+    {{- $mainSections := site.Params.mainSections | default (slice "posts") }}
     {{- $pages = where $pctx.RegularPages.ByDate.Reverse "Type" "in" $mainSections -}}
 {{- else if $.IsSection -}}
     {{- $pages = $pctx.RegularPages.ByDate.Reverse -}}

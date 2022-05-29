@@ -29,6 +29,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 
 - Fix margin bottom on the nested unordered lists for page's table of contents
+- Fix default section type for the `params.mainSections` configuration variable
 
 ## v0.1.0 - 2022-05-27
 
