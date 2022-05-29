@@ -33,9 +33,9 @@ Add any other context about the problem here.
 
 If it's a UI issue, fill the following information:
 
- - OS: [e.g. iOS]
- - Browser [e.g. chrome, safari]
- - Version [e.g. 22]
+- OS: [e.g. iOS]
+- Browser [e.g. chrome, safari]
+- Version [e.g. 22]
 
 ## Content of config.yaml
 ```yaml

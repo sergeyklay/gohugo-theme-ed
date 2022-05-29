@@ -108,7 +108,7 @@ time to complete.
 1. Make your change and commit to the new branch from the previous step
     1. Write a clear commit message
     1. If you've added code that need documentation, update
-       `exampleSite/content/documentation/index.md` file.
+      `exampleSite/content/documentation/index.md` file.
 1. Make sure your code lints (`npm run lint`)
 1. Push to your fork
 1. Submit a Pull Request (PR) to the upstream
