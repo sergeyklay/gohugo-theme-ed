@@ -1,25 +1,34 @@
 {{/* Define a section to pull recent posts from.
     This will default to the section with the most number of pages. */}}
-{{ $mainSections := site.Params.mainSections | default (slice "post") }}
+{{ $mainSections := site.Params.mainSections | default (slice "posts") }}
 
 {{/* Create a variable with that section to use in multiple places. */}}
-{{ $section := where site.RegularPages "Section" "in" $mainSections }}
+{{ $section := where site.RegularPages.ByDate.Reverse "Section" "in" $mainSections }}
 
 {{/* Check to see if the section is defined for ranging through it */}}
 {{ $sectionCount := len $section }}
 
 {{ if ge $sectionCount 1 }}
-    {{ $mxPosts := site.Params.recentPostsSize | default 5 }}
+    {{ $maxPosts := site.Params.recentPostsSize | default 5 }}
 
     <div class="toc" role="navigation">
         <h2>{{ i18n "latest_publications" }}</h2>
         <ul class="texts">
-            {{/* Range through the first $mxPosts items of the $section */}}
-            {{ range (first $mxPosts $section) }}
+            {{/* Range through the first $maxPosts items of the $section */}}
+            {{ range (first $maxPosts $section) }}
                 <li class="text-title">
                     {{ partial "post-toc-summary" . }}
                 </li>
             {{ end }}
         </ul>
+
+        {{ if gt $sectionCount $maxPosts }}
+        <p>
+            <a href="{{ "all-posts" | relURL }}">
+                {{ i18n "all_publications" }}
+                <span aria-hidden="true">&rarr;</span>
+            </a>
+        </p>
+        {{ end }}
     </div>
 {{ end }}

@@ -39,3 +39,6 @@
 
 [send]
   other = 'Send'
+
+[all_publications]
+  other = 'All publications'

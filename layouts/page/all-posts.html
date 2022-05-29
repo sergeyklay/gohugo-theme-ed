@@ -1,0 +1,22 @@
+{{ define "main" }}
+{{/* Define a section to pull recent posts from.
+    This will default to the section with the most number of pages. */}}
+{{ $mainSections := site.Params.mainSections | default (slice "posts") }}
+
+{{/* Create a variable with that section to use in multiple places. */}}
+{{ $section := where site.RegularPages.ByDate.Reverse "Section" "in" $mainSections }}
+
+<div class="articles">
+    {{ with .Title }}<h1 class="page-title">{{ . }}</h1>{{ end }}
+
+    {{ with .Content }}
+        <div class="category-content">
+            {{ .Content }}
+        </div>
+    {{ end }}
+
+    {{ range $section }}
+        {{ .Render "teaser" }}
+    {{ end }}
+</div>
+{{ end }}

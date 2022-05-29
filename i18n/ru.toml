@@ -5,7 +5,7 @@
   other = 'Вернуться наверх'
 
 [more]
-  other = 'Далее...'
+  other = 'Читать далее...'
 
 [updated_at]
   other = 'Обновлено'
@@ -17,7 +17,7 @@
   other = 'Ваше имя'
 
 [email_addres]
-  other = 'Email'
+  other = 'Обратный адрес'
 
 [message]
   other = 'Сообщение'
@@ -39,3 +39,6 @@
 
 [send]
   other = 'Отправить'
+
+[all_publications]
+  other = 'Все публикации'
