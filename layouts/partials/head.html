@@ -14,7 +14,7 @@
     {{ hugo.Generator }}
 
     {{- partial "styles.html" . }}
-    {{- partial "custom-scripts.html" . }}
+    {{ block "custom-scripts" . }}{{ partial "custom-scripts.html" . }}{{ end }}
 
     {{- /* Favicons */}}
     <link rel="icon" href="{{ site.Params.assets.favicon | default "favicon.ico" | relURL }}" sizes="any"><!-- 32×32 -->
@@ -28,7 +28,7 @@
     <link rel="alternate" hreflang="{{ .Lang }}" href="{{ .Permalink }}">
     {{ end -}}
 
-    {{- partial "custom-head.html" . -}}
+    {{ block "custom-head" . }}{{ partial "custom-head.html" . }}{{ end }}
 
     {{- /* Misc */}}
     {{ template "partials/templates/opengraph.html" . }}

@@ -5,6 +5,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased](https://github.com/sergeyklay/gohugo-theme-ed/compare/v0.2.0...HEAD)
+
+### Added
+
+- Provide ability to include custom scripts in the theme.
+
 ## [v0.2.0](https://github.com/sergeyklay/gohugo-theme-ed/compare/v0.1.0...v0.2.0)
 
 ### Added
@@ -13,7 +19,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Add Russian translation
 - Provide an ability to use hreflang attribute in `link` shortcode
 - Add `{{< mini-toc >}}` shortcode
-- Provide an ability to use `keywords` meta tag
+- Provide ability to use `keywords` meta tag
 - Provide ability to render feeds menu
 - Add pagination support
 
