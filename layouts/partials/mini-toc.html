@@ -24,7 +24,7 @@
 
         {{ if gt $sectionCount $maxPosts }}
         <p>
-            <a href="{{ relref . "all-posts" }}">
+            <a href="{{ "all-posts" | relURL }}">
                 {{ i18n "all_publications" }}
                 <span aria-hidden="true">&rarr;</span>
             </a>
