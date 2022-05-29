@@ -45,7 +45,7 @@
   padding-right: 1rem;
 }
 
-.blog-post {
+.post {
   margin-top: 40px;
 
   @include mq(tabletp) {
@@ -89,6 +89,37 @@
   font-weight: normal;
   letter-spacing: 0;
   margin-top: -.5rem;
+}
+
+nav.pagination {
+  justify-content: center;
+}
+
+ul.pager {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+ul.pager li {
+  display: inline;
+  padding: 10px;
+  margin: 5px;
+}
+
+.divider {
+  position: relative;
+  margin: 2.5rem 0;
+}
+
+.divider::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.d-flex {
+  display: flex;
 }
 
 .footnotes hr {

@@ -1,13 +1,24 @@
 {{ define "main" }}
+
 <div class="articles">
+    {{/* Render category name if any */}}
     {{ with .Title }}<h1 class="page-title">{{ . }}</h1>{{ end }}
+
+    {{/* Render category content if any */}}
     {{ with .Content }}
-        <div class="category-content">
+        <div class="section-content">
             {{ .Content }}
         </div>
     {{ end }}
-    {{ range .Paginator.Pages }}
-        {{ .Render "teaser" }}
-    {{ end }}
+
+    {{/* Render posts list */}}
+    <div class="post-list">
+        {{ range .Paginator.Pages }}
+            {{ .Render "teaser" }}
+        {{ end }}
+
+        {{- partial "pagination.html" . -}}
+    </div>
 </div>
+
 {{ end }}

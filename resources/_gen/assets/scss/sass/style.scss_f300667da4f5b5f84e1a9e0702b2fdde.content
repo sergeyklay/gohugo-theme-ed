@@ -896,18 +896,18 @@ form input:-moz-ui-invalid {
 .post-meta time {
   padding-right: 1rem; }
 
-.blog-post {
+.post {
   margin-top: 40px; }
   @media only screen and (min-width: 768px) {
-    .blog-post {
+    .post {
       margin-top: 60px; } }
   @media only screen and (min-width: 1024px) {
-    .blog-post {
+    .post {
       margin-top: 80px; } }
   @media only screen and (min-width: 1220px) {
-    .blog-post {
+    .post {
       margin-top: 100px; } }
-  .blog-post:first-of-type {
+  .post:first-of-type {
     margin-top: 0; }
 
 #main article {
@@ -931,6 +931,31 @@ form input:-moz-ui-invalid {
   font-weight: normal;
   letter-spacing: 0;
   margin-top: -.5rem; }
+
+nav.pagination {
+  justify-content: center; }
+
+ul.pager {
+  margin: 0;
+  padding: 0;
+  list-style: none; }
+
+ul.pager li {
+  display: inline;
+  padding: 10px;
+  margin: 5px; }
+
+.divider {
+  position: relative;
+  margin: 2.5rem 0; }
+
+.divider::after {
+  content: "";
+  display: table;
+  clear: both; }
+
+.d-flex {
+  display: flex; }
 
 .footnotes hr {
   margin: 0;

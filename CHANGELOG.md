@@ -15,7 +15,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Add `{{< mini-toc >}}` shortcode
 - Provide an ability to use `keywords` meta tag
 - Provide ability to render feeds menu
-- Provide ability to get list of all posts any kind of content
+- Add pagination support
 
 ### Changed
 

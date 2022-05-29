@@ -1,0 +1,33 @@
+{{ if gt .Paginator.TotalPages 1 }}
+    <div class="divider"></div>
+
+    <nav aria-label="pagination" class="pagination d-flex">
+        <ul class="pager d-flex">
+            {{ $.Scratch.Set "hasPrevDots" false }}
+            {{ $.Scratch.Set "hasNextDots" false }}
+
+            {{ range .Paginator.Pagers }}
+                {{ $currentItem := . }}
+                {{ if eq $currentItem $.Paginator }}
+                    <li class="pager-item pager-item-current">
+                        {{- .PageNumber -}}
+                    </li>
+                {{ else if or (or (eq . $.Paginator.First) (eq . $.Paginator.Prev)) (or  (eq . $.Paginator.Next) (eq . $.Paginator.Last )) }}
+                    <li class="pager-item{{ if eq . $.Paginator.Next }} pager-item-next{{ else if eq . $.Paginator.Prev }} pager-item-prev{{ end }}">
+                        <a href="{{ .URL }}"{{ if eq . $.Paginator.Next }} rel="next"{{ else if eq . $.Paginator.Prev }} rel="prev"{{ end }} class="pager-link">
+                            {{- .PageNumber -}}
+                        </a>
+                    </li>
+                {{ else }}
+                    {{ if and (not ($.Scratch.Get "hasPrevDots")) (lt .PageNumber $.Paginator.PageNumber)  }}
+                        {{ $.Scratch.Set "hasPrevDots" true }}
+                        <li class='pager-item pager-item-dots'>&hellip;</li>
+                    {{ else if and (not ($.Scratch.Get "hasNextDots")) (gt .PageNumber $.Paginator.PageNumber) }}
+                        {{ $.Scratch.Set "hasNextDots" true }}
+                        <li class='pager-item pager-item-dots'>&hellip;</li>
+                    {{ end }}
+                {{ end }}
+            {{ end }}
+        </ul>
+    </nav>
+{{ end }}

@@ -1,19 +1,19 @@
-<article class="blog-post">
+<article class="post">
     {{/* TODO: partial "post-thumbnail.html" (dict "class" "list" "page" .) */}}
     <header>
-        <h2 class="blog-post-title">
+        <h2 class="post-title">
             <a href="{{ .Permalink }}" rel="bookmark">{{ .Title }}</a>
         </h2>
         {{- partial "post-meta.html" . -}}
     </header>
-    <p class="blog-post-content">
+    <p class="post-content">
         {{ .Summary }}
     </p>
-    {{- if site.Params.readmore }}
-    {{- if .Truncated }}
-    <footer>
-        <a href="{{ .RelPermalink }}" class="read-more">{{ i18n "more" }}</a>
-    </footer>
-    {{- end }}
-    {{- end }}
+    {{ if site.Params.readmore }}
+        {{ if .Truncated }}
+            <footer>
+                <a href="{{ .RelPermalink }}" class="read-more">{{ i18n "more" }}</a>
+            </footer>
+        {{ end }}
+    {{ end }}
 </article>
