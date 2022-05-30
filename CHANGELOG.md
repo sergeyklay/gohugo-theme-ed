@@ -10,6 +10,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - Provide ability to include custom scripts in the theme.
+- Provide ability to specify custom language of a post.
+
+### Changed
+
+- Mior reformatting of posts layout.
+- Allow to manually override lastmod date of a post.
 
 ## [v0.2.0](https://github.com/sergeyklay/gohugo-theme-ed/compare/v0.1.0...v0.2.0)
 

@@ -149,8 +149,8 @@ disableKinds = ['RSS']
   footer = 'Built with <a href="https://github.com/sergeyklay/gohugo-theme-ed" target="_blank" rel="noopener noreferrer">Ed</a>. Distributed under an MIT license.'
   # Sections to be displayed in the main page, as well as RSS/Atom feeds
   mainSections = ['posts', 'dramas', 'narratives', 'poems']
-  # Order of post meta information
-  postMeta = ['date']
+  # Order of post meta information. Order is important.
+  postMeta = ['author', 'date']
   # Posts date format, for example: 2006-01-02
   dateformat = ':date_long'
   dateFormatToc = '2006.01.02'
@@ -251,3 +251,9 @@ disableKinds = ['RSS']
       [markup.goldmark.parser.attribute]
         # Enable custom attribute support for blocks
         block = true
+
+# If enableGitInfo is true, it will override any lastmod dates in our
+# front matter. We should at least allow ourselves to manually override
+# this value in the front matter.
+[frontmatter]
+  lastmod = ['lastmod', ':git', 'date', 'publishDate']

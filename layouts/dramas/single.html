@@ -1,7 +1,15 @@
 {{ define "main" }}
-<article class="drama">
-    <h1 class="text-title">{{ .Params.caption | default .Title }}</h1>
-    {{ with .Params.author }}<p class="byline">{{ i18n "by" . }}</p>{{ end }}
+<article class="drama" role="document"{{ with .Params.lang}} lang="{{ . }}"{{ end }}>
+    <header>
+        <h1 class="text-title">
+            {{ .Params.caption | default .Title }}
+        </h1>
+    </header>
+
+    <p class="byline">
+        {{ partial "post-meta/author.html" . }}
+    </p>
+
     {{ .Content }}
 </article>
 {{ end }}

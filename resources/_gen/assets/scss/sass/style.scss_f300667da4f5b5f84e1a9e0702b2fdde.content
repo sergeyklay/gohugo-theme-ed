@@ -893,9 +893,6 @@ form input:-moz-ui-invalid {
   line-height: 1;
   letter-spacing: -1px; }
 
-.post-meta time {
-  padding-right: 1rem; }
-
 .post {
   margin-top: 40px; }
   @media only screen and (min-width: 768px) {
@@ -931,6 +928,15 @@ form input:-moz-ui-invalid {
   font-weight: normal;
   letter-spacing: 0;
   margin-top: -.5rem; }
+
+.post .byline,
+.poem .byline,
+.poetry .byline {
+  margin-bottom: 1rem; }
+
+.byline .author,
+.post-meta .author {
+  padding-right: 1rem; }
 
 nav.pagination {
   justify-content: center; }

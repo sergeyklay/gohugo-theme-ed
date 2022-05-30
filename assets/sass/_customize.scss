@@ -41,10 +41,6 @@
   letter-spacing: -1px;
 }
 
-.post-meta time {
-  padding-right: 1rem;
-}
-
 .post {
   margin-top: 40px;
 
@@ -90,6 +86,18 @@
   letter-spacing: 0;
   margin-top: -.5rem;
 }
+
+.post .byline,
+.poem .byline,
+.poetry .byline {
+  margin-bottom: 1rem;
+}
+
+.byline .author,
+.post-meta .author {
+  padding-right: 1rem;
+}
+
 
 nav.pagination {
   justify-content: center;

@@ -1,7 +1,11 @@
 {{ define "main" }}
-<article class="page" id="page-{{ .File.TranslationBaseName | lower }}">
-    <h1 class="page-title">{{ .Params.caption | default .Title }}</h1>
+<article class="page" role="document" id="page-{{ .File.TranslationBaseName | lower }}"{{ with .Params.lang}} lang="{{ . }}"{{ end }}>
+    <header>
+        <h1 class="page-title">
+            {{ .Params.caption | default .Title }}
+        </h1>
+    </header>
+
     {{ .Content }}
 </article>
 {{ end }}
-
