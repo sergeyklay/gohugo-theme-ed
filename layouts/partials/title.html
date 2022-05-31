@@ -1,5 +1,7 @@
 {{- if or .IsHome (eq .Title site.Title) -}}
     {{- site.Title -}}
+{{- else if and (eq .Kind "term") (eq .Data.Singular "tag") -}}
+    {{- with .Title }}{{ i18n "publications_tagged" . }} - {{ end }}{{ site.Title -}}
 {{- else -}}
     {{- with .Title }}{{ . }} - {{ end }}{{ site.Title -}}
 {{- end -}}

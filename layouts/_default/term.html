@@ -1,0 +1,26 @@
+{{ define "main" }}
+
+<div class="articles">
+    {{/* TODO: Translate me */}}
+    <h1 class="page-title">
+        {{ with .Title }}{{ i18n "publications_tagged" . }}{{ end }}
+    </h1>
+
+    {{/* Render category content if any */}}
+    {{ with .Content }}
+        <div class="section-content">
+            {{ .Content }}
+        </div>
+    {{ end }}
+
+    {{/* Render posts list */}}
+    <div class="post-list">
+        {{ range .Paginator.Pages }}
+            {{ .Render "teaser" }}
+        {{ end }}
+
+        {{- partial "pagination.html" . -}}
+    </div>
+</div>
+
+{{ end }}

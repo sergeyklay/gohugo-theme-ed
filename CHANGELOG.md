@@ -9,13 +9,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- Provide ability to include custom scripts in the theme.
-- Provide ability to specify custom language of a post.
+- Provide ability to include custom scripts in the theme
+- Provide ability to specify custom language of a post
+- Add tagging support
 
 ### Changed
 
-- Mior reformatting of posts layout.
-- Allow to manually override lastmod date of a post.
+- Minor reformatting of posts layout
+- Allow manually override lastmod date of a post
+- Check that `lastmod` exists and is greater than `date` before printing it
 
 ## [v0.2.0](https://github.com/sergeyklay/gohugo-theme-ed/compare/v0.1.0...v0.2.0)
 
@@ -43,7 +45,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Fix margin bottom on the nested unordered lists for page's table of contents
 - Fix default section type for the `params.mainSections` configuration variable
-- Fix url to sitemap in robots.txt file
+- Fix url to sitemap in `robots.txt` file
 
 ## v0.1.0 - 2022-05-27
 

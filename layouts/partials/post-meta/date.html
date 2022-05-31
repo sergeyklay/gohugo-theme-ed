@@ -1,11 +1,14 @@
-{{ if not .Date.IsZero }}
-    <time datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">
-        {{ .Date | time.Format (site.Params.dateformat | default "January 02, 2006") }}
-    </time>
+{{ $date := .Date | time.Format (site.Params.dateformat | default "January 02, 2006") }}
+{{ $lastmod := .Lastmod | time.Format (site.Params.dateformat | default "January 02, 2006") }}
 
-    {{ if ne .Date .Lastmod }}
-        <time datetime="{{ .Lastmod.Format "2006-01-02T15:04:05Z07:00" }}">
-            ({{ i18n "updated_at" }} {{ .Lastmod | time.Format (site.Params.dateformat | default "January 02, 2006") }})
-        </time>
-    {{ end }}
+<time datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">
+    {{ $date }}
+</time>
+
+{{/* Check that lastmod exists and is greater than date
+    (i.e. the last modified date must be after the publish date) */}}
+{{ if and (ne $lastmod $date) (gt .Lastmod .Date) }}
+    <time datetime="{{ .Lastmod.Format "2006-01-02T15:04:05Z07:00" }}">
+        ({{ i18n "updated_at" }} {{ $lastmod }})
+    </time>
 {{ end }}

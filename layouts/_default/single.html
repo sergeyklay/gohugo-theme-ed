@@ -13,5 +13,9 @@
     <div class="post-body">
         {{ .Content }}
     </div>
+
+    <div class="post-tags-wrapper">
+        {{ partial "post-tags.html" . }}
+    </div>
 </article>
 {{ end }}
