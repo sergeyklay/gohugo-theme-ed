@@ -29,6 +29,38 @@
 [context.next.environment]
   HUGO_ENABLEGITINFO = 'true'
 
+# There are a basic set of standard security headers that every
+# website should set to help make your website more secure.
+[[headers]]
+  for = "/*"
+  [headers.values]
+    # This sets whether you want your website to be in a frame or not.
+    # Most of the time you don’t, as it can open up a website to clickjacking.
+    X-Frame-Options = "DENY"
+    # In older browsers and mainly Safari, this stops pages loading
+    # when they detect reflected cross-site scripting attacks.
+    X-XSS-Protection = "1; mode=block"
+    # Used to stop browser from sniffing and changing MIME content type.
+    X-Content-Type-Options = "nosniff"
+    # This controls how much referrer information is included with
+    # requests.
+    Referrer-Policy = "same-origin"
+    # Inform browsers that the site should only be accessed using HTTPS,
+    # and that any future attempts to access it using HTTP should automatically
+    # be converted to HTTPS.
+    #
+    # includeSubDomains - If this optional parameter is specified, this rule
+    #                     applies to all of the site's subdomains as well.
+    #
+    # preload - If this optional parameter is specified, the browser will
+    #           send a preload request to the server for the HTTPS version
+    #           of the resource as soon as the user switches to the HTTPS
+    #           version of the page.
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains; preload"
+    # This used to be called Feature Policy and is mainly only support by
+    # Chrome browsers. It’s used to control what browser APIs can be used.
+    Permissions-Policy = "accelerometer=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=(), interest-cohort=()"
+
 [[headers]]
   for = '/feeds/*.xml'
   [headers.values]
@@ -44,13 +76,14 @@
 [[headers]]
   for = '/*/feeds/*.xml'
   [headers.values]
+    # The same reason as above applies to Atom feeds.
     Content-Type = 'text/xml; charset=utf-8'
 
 [[headers]]
   for = '/feeds/*.json'
   [headers.values]
-    # JSON Feed files should be served using the MIME type application/json.
-    # JSON Feeds should be encoded using UTF-8.
+    # JSON Feed files should be served using the MIME type application/json
+    # and should be encoded using UTF-8.
     Content-Type = 'application/feed+json; charset=utf-8'
 
 [[headers]]
