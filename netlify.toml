@@ -8,20 +8,20 @@
   HUGO_ENABLEGITINFO = 'true'
 
 [context.split1]
-  command = 'hugo --gc --minify --enableGitInfo'
+  command = 'hugo --source=exampleSite --gc --minify --enableGitInfo --destination ../public'
 
 [context.split1.environment]
   HUGO_VERSION = '0.100.1'
   HUGO_ENV = 'production'
 
 [context.deploy-preview]
-  command = 'hugo --gc --minify --buildDrafts --buildFuture --baseURL $DEPLOY_PRIME_URL'
+  command = 'hugo --source=exampleSite --gc --minify --buildDrafts --buildFuture --baseURL $DEPLOY_PRIME_URL --destination ../public'
 
 [context.deploy-preview.environment]
   HUGO_VERSION = '0.100.1'
 
 [context.branch-deploy]
-  command = 'hugo --gc --minify --baseURL $DEPLOY_PRIME_URL'
+  command = 'hugo --source=exampleSite --gc --minify --baseURL $DEPLOY_PRIME_URL --destination ../public'
 
 [context.branch-deploy.environment]
   HUGO_VERSION = '0.100.1'
@@ -67,17 +67,7 @@
     # files received from those allowed domains, ignoring all other scripts
     # (including inline scripts and event-handling HTML attributes).
     #
-    # Default to only allow content from the current site
-    # Allow images from current site and data:
-    # Don't allow objects such as Flash and Java
-    # Only allow scripts from the current site
-    # Only allow styles from the current site
-    # Only allow frames from the current site
-    # Restrict URL's in the <base> tag to current site
-    # Allow forms to submit only to the current site and https://submit-form.com
-    #
-    # For more see: https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy
-    # Content-Security-Policy = "default-src 'none'; base-uri 'self'; form-action 'self' 'https://submit-form.com'; img-src 'self' data:; script-src 'self'; style-src 'self'; font-src 'self'; worker-src 'self'; object-src 'self'; media-src 'self'; frame-ancestors 'none'; manifest-src 'self'; connect-src 'self'"
+    Content-Security-Policy = "base-uri 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; object-src 'self'; media-src 'self'; worker-src 'self'; img-src 'self' data:; script-src 'self' *.netlify.app *.netlify.com; form-action 'self' submit-form.com; frame-ancestors 'none'; manifest-src 'self'; connect-src 'self';"
 
 [[headers]]
   for = '/feeds/*.xml'
