@@ -12,6 +12,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Provide ability to include custom scripts in the theme
 - Provide ability to specify custom language of a post
 - Add tagging support
+- Provide ability to hide particular page from the sitemap by using
+  `private: true` in front matter
 
 ### Changed
 
