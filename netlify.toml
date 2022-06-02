@@ -77,8 +77,8 @@
     # Allow forms to submit only to the current site and https://submit-form.com
     #
     # For more see: https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy
-    Content-Security-Policy = "default-src 'self'; img-src 'self' data:; object-src 'none'; script-src 'self';"
-    # style-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self' 'https://submit-form.com';"
+    # Content-Security-Policy = "default-src 'self'; img-src 'self' data:; object-src 'none'; script-src 'self';"
+    Content-Security-Policy = "style-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self' 'https://submit-form.com';"
 
 [[headers]]
   for = '/feeds/*.xml'
