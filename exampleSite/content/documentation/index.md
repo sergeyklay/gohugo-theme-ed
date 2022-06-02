@@ -279,6 +279,13 @@ The internal links pointing to the right sections in your document are generated
 
 ---
 
+## Getting help
+
+If you run into an issue that isn't answered by this documentation or the [`exampleSite`](https://github.com/sergeyklay/gohugo-theme-ed/tree/master/exampleSite), then visit the [Hugo forum](https://discourse.gohugo.io/). The folks there are helpful and friendly. **Before** asking your question, be sure to read the [requesting help guidelines](https://discourse.gohugo.io/t/requesting-help/9132). Feel free to tag me in your question, my forum username is [@frjo](https://discourse.gohugo.io/u/frjo/summary).
+
+
+---
+
 That should do it. If you have suggestions on how to improve Ed, make sure to leave us a line on [our issues page](https://github.com/sergeyklay/gohugo-theme-ed/issues), or send us a pull request.
 
 Happy editing!
