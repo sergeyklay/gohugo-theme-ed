@@ -152,10 +152,8 @@ disableKinds = ['RSS']
   # Order of post meta information. Order is important.
   postMeta = ['author', 'date']
   # Posts date format, for example: 2006-01-02
-  dateformat = ':date_long'
+  dateFormat = ':date_long'
   dateFormatToc = '2006.01.02'
-  dateFormatFeed = '2006-01-02T15:04:05Z07:00'
-  dateFormatRFC822Z = '02 Jan 2006 15:04:05 UT'
   # Show "Read more" button in list if true
   readmore = true
   # RSS/Atom feed size

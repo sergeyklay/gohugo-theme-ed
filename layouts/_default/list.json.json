@@ -36,8 +36,8 @@
       "url": {{ printf "%s?utm_source=json_feed" .Permalink | jsonify  }},
       "title": {{ .Title | plainify | chomp | jsonify }},
       "summary": {{ .Summary | plainify | chomp | jsonify }},
-      "date_published": {{ .PublishDate.UTC.Format site.Params.dateFormatFeed | jsonify  }}{{ if ne .Date .Lastmod }},
-      "date_modified" : {{ .Lastmod.UTC.Format site.Params.dateFormatFeed | jsonify  }}{{ end }}
+      "date_published": {{ .PublishDate.Format "2006-01-02T15:04:05Z07:00" | jsonify  }}{{ if ne .Date .Lastmod }},
+      "date_modified" : {{ .Lastmod.Format "2006-01-02T15:04:05Z07:00" | jsonify }}{{ end }}
     }
     {{- end}}
   ]

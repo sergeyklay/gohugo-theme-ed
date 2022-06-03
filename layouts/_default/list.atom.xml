@@ -33,7 +33,7 @@
     </author>{{ end }}{{ with site.Params.Copyright }}{{ $copyright := replace . "{year}" now.Year }}{{ $copyright = replace $copyright "&copy;" "©" }}
     <rights>{{ $copyright | plainify }}</rights>{{ end }}
     <generator uri="https://gohugo.io" version="{{ hugo.Version }}">Hugo</generator>{{ if not site.LastChange.IsZero }}
-    <updated>{{ site.LastChange.UTC.Format site.Params.dateFormatFeed }}</updated>{{ end }}{{ $uuid := sha1 (site.BaseURL | absURL) }}
+    <updated>{{ site.LastChange.Format "2006-01-02T15:04:05Z07:00" | safeHTML }}</updated>{{ end }}{{ $uuid := sha1 (site.BaseURL | absURL) }}
     <id>urn:uuid:{{ substr $uuid 0 8 }}-{{ substr $uuid 8 4 }}-5{{ substr $uuid 13 3 }}-{{ substr $uuid 16 1 }}9{{ substr $uuid 17 2 }}-{{ substr $uuid 21 12 }}</id>{{- range $pages }}
     <entry>
         {{- $url := .Permalink | absURL }}{{ $uuid := sha1 (.Permalink | absURL) }}{{ $page := . }}
@@ -42,8 +42,8 @@
         <link rel="alternate" type="type/html" href="{{ $url }}?utm_source=atom_feed" />
         {{ printf `<title type="html"><![CDATA[%s]]></title>` .Title | safeHTML }}{{ range first 5 (site.RegularPages.Related .) }}
         <link href="{{ .Permalink }}?utm_source=atom_feed" rel="related" type="text/html" title="{{ .Title }}" />{{ end }}
-        <published>{{ (.PublishDate.Format site.Params.dateFormatFeed) | html }}</published>{{ if ne .Date .Lastmod }}
-        <updated>{{ .Lastmod.UTC.Format site.Params.dateFormatFeed  }}</updated>{{ end }}
+        <published>{{ .Date.Format "2006-01-02T15:04:05Z07:00" | safeHTML }}</published>{{ if ne .Date .Lastmod }}
+        <updated>{{ .Lastmod.Format "2006-01-02T15:04:05Z07:00" | safeHTML  }}</updated>{{ end }}
         <id>urn:uuid:{{ substr $uuid 0 8 }}-{{ substr $uuid 8 4 }}-5{{ substr $uuid 13 3 }}-{{ substr $uuid 16 1 }}9{{ substr $uuid 17 2 }}-{{ substr $uuid 21 12 }}</id>
         {{ if .Params.author }}
             {{- $author_type := (printf "%T" .Params.author) }}

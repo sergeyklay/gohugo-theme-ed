@@ -18,8 +18,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 - Minor reformatting of posts layout
-- Allow manually override lastmod date of a post
+- Allow manually override `lastmod` for posts
 - Check that `lastmod` exists and is greater than `date` before printing it
+- Do not allow modification of date formats that are required by spec
 
 ## [v0.2.0](https://github.com/sergeyklay/gohugo-theme-ed/compare/v0.1.0...v0.2.0)
 
@@ -27,7 +28,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Add multilanguage support
 - Add Russian translation
-- Provide an ability to use hreflang attribute in `link` shortcode
+- Provide an ability to use `hreflang` attribute in `link` shortcode
 - Add `{{< mini-toc >}}` shortcode
 - Provide ability to use `keywords` meta tag
 - Provide ability to render feeds menu
