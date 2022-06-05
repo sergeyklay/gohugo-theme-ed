@@ -37,11 +37,20 @@
     <id>urn:uuid:{{ substr $uuid 0 8 }}-{{ substr $uuid 8 4 }}-5{{ substr $uuid 13 3 }}-{{ substr $uuid 16 1 }}9{{ substr $uuid 17 2 }}-{{ substr $uuid 21 12 }}</id>{{- range $pages }}
     <entry>
         {{- $url := .Permalink | absURL }}{{ $uuid := sha1 (.Permalink | absURL) }}{{ $page := . }}
-        <category term="{{ .Section }}" />{{ range (.GetTerms "tags") }}
-        <category term="{{ .LinkTitle }}" />{{ end }}
+        {{ $section := .Section }}
+        <category term="{{ $section }}" />
+        {{ range (.GetTerms "tags") }}
+            {{ if not (eq .LinkTitle $section) }}
+            <category term="{{ .LinkTitle }}" x="y" />
+            {{ end }}
+        {{ end }}
         <link rel="alternate" type="type/html" href="{{ $url }}?utm_source=atom_feed" />
-        {{ printf `<title type="html"><![CDATA[%s]]></title>` .Title | safeHTML }}{{ range first 5 (site.RegularPages.Related .) }}
-        <link href="{{ .Permalink }}?utm_source=atom_feed" rel="related" type="text/html" title="{{ .Title }}" />{{ end }}
+        {{ printf `<title type="html"><![CDATA[%s]]></title>` .Title | safeHTML }}
+        {{/* See: https://discourse.gohugo.io/t/using-regularpages-related-gives-me-keywords-index-support-error/35657?u=egrep */}}
+        {{ $related := first 5 (where (where .Site.Pages ".Params.tags" "intersect" .Params.tags) "Permalink" "!=" .Permalink) }}
+        {{ range $related }}
+            <link href="{{ .Permalink }}?utm_source=atom_feed" rel="related" type="text/html" title="{{ .Title }}" />
+        {{ end }}
         <published>{{ .Date.Format "2006-01-02T15:04:05Z07:00" | safeHTML }}</published>{{ if ne .Date .Lastmod }}
         <updated>{{ .Lastmod.Format "2006-01-02T15:04:05Z07:00" | safeHTML  }}</updated>{{ end }}
         <id>urn:uuid:{{ substr $uuid 0 8 }}-{{ substr $uuid 8 4 }}-5{{ substr $uuid 13 3 }}-{{ substr $uuid 16 1 }}9{{ substr $uuid 17 2 }}-{{ substr $uuid 21 12 }}</id>

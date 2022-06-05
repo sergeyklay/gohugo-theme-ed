@@ -1,5 +1,13 @@
-{{- if .Params.tags -}}
-    {{- delimit .Params.tags ", " -}}
-{{- else -}}
-    {{- delimit site.Params.seoKeywords ", " -}}
+{{- $keywords := (slice) -}}
+
+{{- with .Keywords -}}
+    {{- $keywords = . -}}
+{{- else }}
+    {{- with .Params.tags -}}
+        {{- $keywords = . -}}
+    {{- else -}}
+        {{- $keywords = site.Params.keywords | default slice -}}
+    {{- end -}}
 {{- end -}}
+
+{{- delimit $keywords ", " -}}

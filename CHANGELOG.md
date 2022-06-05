@@ -10,13 +10,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 - Rework post dates format. Now they prefixes with "Published on" and "Updated on"
-- Rework single post layouts. Reduce the number of layouts for poems, dramas, narratives and posts to one 
+- Rework single post layouts. Reduce the number of layouts for poems, dramas,
+  narratives and posts to one
+- Rename `site.Params.seoKeywords` to `site.Params.keywords` to match the Hugo
+  documentation
+- Global `site.Params.keywords` may be overridden by `.Params.keywords` or
+  `.Params.tags` in the post front matter
 
 ### Fixed
 
 - Fix tags html layout
 - Add missed `theme-color` meta tag
 - Enable maskable icon support
+- Rework term rendering for Atom feeds to not include duplicates
 
 ## [v0.3.0](https://github.com/sergeyklay/gohugo-theme-ed/compare/v0.2.0...v0.3.0)
 

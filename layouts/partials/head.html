@@ -1,4 +1,3 @@
-{{/* */}}
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0,shrink-to-fit=no">
@@ -6,11 +5,10 @@
     <link rel="canonical" href="{{ .Permalink }}">
 
     <title>{{ block "title" . }}{{- partial "title.html" . -}}{{ end }}</title>
-    <meta name="description" content="{{ (partial "description.html" . ) }}">
-    {{ if or .Params.tags site.Params.seoKeywords }}
-        <meta name="keywords" content="{{ (partial "keywords.html" . ) }}">
-    {{ end }}
-    <meta name="author" content="{{ (partial "author.html" . ) }}">
+    <meta name="description" content="{{ partial "description.html" . }}">
+    <meta name="keywords" content="{{ partial "keywords.html" . }}">
+
+    <meta name="author" content="{{ partial "author.html" . }}">
     {{ hugo.Generator }}
 
     {{- partial "styles.html" . }}

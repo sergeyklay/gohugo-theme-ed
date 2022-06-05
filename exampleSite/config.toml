@@ -135,25 +135,35 @@ disableKinds = ['RSS']
 [params]
   # Site description. Used in meta description
   description = 'Ed is a Hugo theme designed for textual editors based on minimal computing principles, and focused on legibility and flexibility.'
+
   # SEO keywords. Used in 'meta name="keywords"' tag.
-  # May be overridden by page tags.
-  seoKeywords = ['hugo', 'ed', 'hugo theme', 'minimal', 'responsive', 'clean']
-  # Copyright string. "{year}" will be replaced by © and the current year.
+  # May be overridden by .Keywords or .Tags in front matter.
+  keywords = ['hugo', 'ed', 'hugo theme', 'minimal', 'responsive', 'clean']
+
+  # A "copyright"-line to be added to RSS/Atom files.
+  # "&copy;" and "{year}" will be replaced by © and the current year.
   copyright = 'Copyright &copy; 2019-{year} John Doe'
+
   # Color scheme. Options: red, orange, magenta, cyan, blue, brown
   colorScheme = ''
+
   # Used in site header
   tagline = 'a Hugo theme for minimal editions'
+
   # Custom footer text on left sidebar. Use HTMl if needed.
   # "{year}" will be replaced by © and the current year.
   footer = 'Built with <a href="https://github.com/sergeyklay/gohugo-theme-ed" target="_blank" rel="noopener noreferrer">Ed</a>. Distributed under an MIT license.'
+
   # Sections to be displayed in the main page, as well as RSS/Atom feeds
   mainSections = ['posts', 'dramas', 'narratives', 'poems']
+
   # Posts date format, for example: 2006-01-02
   dateFormat = ':date_long'
   dateFormatToc = '2006.01.02'
+
   # Show "Read more" button in list if true
   readmore = true
+
   # RSS/Atom feed size
   feedSize = 25
   recentPostsSize = 5
@@ -161,17 +171,27 @@ disableKinds = ['RSS']
   [params.contact]
     # Forms Backend URL, used in contacts form
     formAction = 'https://submit-form.com/example'
+
     # Contact form email subject
     emailSubject = 'Contact form submission'
+
     # After successful submit, where should the user be redirected?
     thanksUrl = '/thanks'
 
   [params.assets]
     # Site icons, relative to ./static
-    favicon = '' # favicon.ico for legacy browsers
-    svgicon = '' # A single SVG icon with a light/dark version for modern browsers
-    apple_touch_icon = '' # 180×180 PNG image for Apple devices
-    logo = '/img/open-graph-logo.png' # Logo image, relative to ./assets
+
+    # favicon.ico for legacy browsers
+    favicon = ''
+
+    # A single SVG icon with a light/dark version for modern browsers
+    svgicon = ''
+
+    # 180×180 PNG image for Apple devices
+    apple_touch_icon = ''
+
+    # Logo image, relative to ./assets
+    logo = '/img/open-graph-logo.png'
     disable_fingerprinting = false
 
   [params.seo]
@@ -182,8 +202,10 @@ disableKinds = ['RSS']
 [social]
   # Facebook Page Admin ID for Domain Insights
   facebook_admin = ''
+
   # Facebook Page ID
   facebook_id = ''
+
   # Twitter username for the website used in the card footer
   twitter = 'john_doe'
 
