@@ -919,7 +919,7 @@ form input:-moz-ui-invalid {
   margin-bottom: 0; }
 
 .post-meta {
-  margin-top: 5px;
+  margin-bottom: 0;
   font-size: .85rem;
   color: #676767; }
 
@@ -933,10 +933,6 @@ form input:-moz-ui-invalid {
 .poem .byline,
 .poetry .byline {
   margin-bottom: 1rem; }
-
-.byline .author,
-.post-meta .author {
-  padding-right: 1rem; }
 
 nav.pagination {
   justify-content: center; }
@@ -971,7 +967,7 @@ ul.pager li {
   margin-bottom: 1rem;
   display: inline-block; }
 
-.post-tags-wrapper {
+.tags-wrapper {
   position: relative; }
 
 .post-tags {

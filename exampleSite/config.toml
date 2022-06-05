@@ -149,8 +149,6 @@ disableKinds = ['RSS']
   footer = 'Built with <a href="https://github.com/sergeyklay/gohugo-theme-ed" target="_blank" rel="noopener noreferrer">Ed</a>. Distributed under an MIT license.'
   # Sections to be displayed in the main page, as well as RSS/Atom feeds
   mainSections = ['posts', 'dramas', 'narratives', 'poems']
-  # Order of post meta information. Order is important.
-  postMeta = ['author', 'date']
   # Posts date format, for example: 2006-01-02
   dateFormat = ':date_long'
   dateFormatToc = '2006.01.02'

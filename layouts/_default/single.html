@@ -1,21 +1,28 @@
 {{ define "main" }}
-<article class="post" role="document"{{ with .Params.lang}} lang="{{ . }}"{{ end }}>
+{{- $postType := .Type | lower | singularize -}}
+<article class="{{ partial "post-class.html" . }}" role="document"{{ with .Params.lang}} lang="{{ . }}"{{ end }}>
     <header>
         <h1 class="text-title">
             {{ .Params.caption | default .Title }}
         </h1>
+        <p class="byline">
+            {{ if in (slice "drama" "narrative" "poem") $postType }}
+                {{ partial "post-meta/author.html" . }}
+            {{ else }}
+                {{ partial "post-meta/date.html" . }}
+            {{ end }}
+        </p>
     </header>
 
-    <p class="byline">
-        {{ partial "post-meta/date.html" . }}
-    </p>
-
-    <div class="post-body">
+    <div class="{{ $postType }}-body">
         {{ .Content }}
     </div>
 
-    <div class="post-tags-wrapper">
-        {{ partial "post-tags.html" . }}
-    </div>
+    {{/* Post tags are not allowed for drama, narratives and poems */}}
+    {{ if not (in (slice "drama" "narrative" "poem") $postType) }}
+        <div class="tags-wrapper">
+            {{ partial "post-tags.html" . }}
+        </div>
+    {{ end }}
 </article>
 {{ end }}

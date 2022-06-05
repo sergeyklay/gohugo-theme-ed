@@ -75,7 +75,7 @@
 }
 
 .post-meta {
-  margin-top: 5px;
+  margin-bottom: 0;
   font-size: .85rem;
   color: $text-light-color;
 }
@@ -92,12 +92,6 @@
 .poetry .byline {
   margin-bottom: 1rem;
 }
-
-.byline .author,
-.post-meta .author {
-  padding-right: 1rem;
-}
-
 
 nav.pagination {
   justify-content: center;
@@ -140,7 +134,7 @@ ul.pager li {
   display: inline-block;
 }
 
-.post-tags-wrapper {
+.tags-wrapper {
   position: relative;
 }
 

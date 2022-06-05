@@ -4,7 +4,9 @@
         <h2 class="post-title">
             <a href="{{ .Permalink }}" rel="bookmark">{{ .Title }}</a>
         </h2>
-        {{- partial "post-meta.html" . -}}
+        <p class="post-meta">
+            {{- partial "post-meta/date.html" . -}}
+        </p>
     </header>
     <p class="post-content">
         {{ .Summary }}

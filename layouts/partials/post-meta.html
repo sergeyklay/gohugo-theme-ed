@@ -1,9 +1,0 @@
-<div class="post-meta">
-    {{- $root := . -}}
-    {{- with .Param "postMeta" -}}
-        {{- range $field := . -}}
-            {{- $p := printf "post-meta/%s.html" $field -}}
-            {{- partial $p $root -}}
-        {{- end -}}
-    {{- end -}}
-</div>
