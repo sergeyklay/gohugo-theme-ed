@@ -16,6 +16,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Fix tags html layout
 - Add missed `theme-color` meta tag
+- Enable maskable icon support
 
 ## [v0.3.0](https://github.com/sergeyklay/gohugo-theme-ed/compare/v0.2.0...v0.3.0)
 

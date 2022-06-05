@@ -24,7 +24,8 @@
     {
       "src": "/icon-{{ . }}.png",
       "type": "image/png",
-      "sizes": "{{ . }}x{{ . }}"
+      "sizes": "{{ . }}x{{ . }}",
+      "purpose": "any maskable"
     }{{ if ne . 512 }},{{ end }}{{- end }}
   ]
 }
