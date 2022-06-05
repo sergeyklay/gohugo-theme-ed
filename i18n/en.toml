@@ -7,8 +7,11 @@
 [more]
   other = 'Read more...'
 
-[updated_at]
-  other = 'Updated at'
+[published_on]
+  other = 'Published on'
+
+[updated_on]
+  other = 'Updated on'
 
 [latest_publications]
   other = 'Latest publications'
