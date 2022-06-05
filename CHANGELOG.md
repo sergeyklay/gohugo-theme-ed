@@ -12,6 +12,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Rework post dates format. Now they prefixes with "Published on" and "Updated on"
 - Rework single post layouts. Reduce the number of layouts for poems, dramas, narratives and posts to one 
 
+### Fixed
+
+- Fix tags html layout
+
 ## [v0.3.0](https://github.com/sergeyklay/gohugo-theme-ed/compare/v0.2.0...v0.3.0)
 
 ### Added
