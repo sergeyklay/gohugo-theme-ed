@@ -16,7 +16,7 @@
 
 {
   "version": "https://jsonfeed.org/version/1.1",
-  "title": {{ (printf "%s" (partial "title.html" .)) | htmlUnescape | jsonify }},
+  "title": {{ (partial "title.html" .) | htmlUnescape | jsonify }},
   "home_page_url": {{ printf "%s?utm_source=json_feed" site.BaseURL  | absURL | jsonify }},
   {{ with .OutputFormats.Get "JSON" }}"feed_url": {{ .Permalink | absURL | jsonify }},{{ end }}
   {{ with site.Params.description}}"description": {{ site.Params.description | jsonify }},{{ end }}
@@ -39,6 +39,6 @@
       "date_published": {{ .PublishDate.Format "2006-01-02T15:04:05Z07:00" | jsonify  }}{{ if ne .Date .Lastmod }},
       "date_modified" : {{ .Lastmod.Format "2006-01-02T15:04:05Z07:00" | jsonify }}{{ end }}
     }
-    {{- end}}
+    {{- end }}
   ]
 }

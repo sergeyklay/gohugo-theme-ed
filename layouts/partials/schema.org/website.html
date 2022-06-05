@@ -1,0 +1,10 @@
+<script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": {{ partial "title.html" . }},
+        "url": {{ site.BaseURL }}
+    }
+</script>
+{{- /* TODO: Add "potentialAction" with search.
+    For more see: https://developers.google.com/structured-data/slsb-overview */ -}}

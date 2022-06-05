@@ -14,6 +14,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Add tagging support
 - Provide ability to hide particular page from the sitemap by using
   `private: true` in front matter
+- Provided initial support os schema.org microdata for the site
+  and for the posts
 
 ### Changed
 

@@ -176,6 +176,11 @@ disableKinds = ['RSS']
     logo = '/img/open-graph-logo.png' # Logo image, relative to ./assets
     disable_fingerprinting = false
 
+  [params.seo]
+    # Will be used in schema.org/Organization.
+    # The site.Title  will be used if empty.
+    publisher = 'Serghei Iakovlev'
+
 [social]
   # Facebook Page Admin ID for Domain Insights
   facebook_admin = ''

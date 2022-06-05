@@ -1,0 +1,5 @@
+{{ if .IsHome }}
+    {{ partial "schema.org/website.html" . }}
+{{ else if and .IsPage (ne .Params.private true) }}
+    {{ partial "schema.org/article.html" . }}
+{{ end }}
