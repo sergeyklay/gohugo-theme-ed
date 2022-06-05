@@ -7,15 +7,17 @@
         <p>{{ .Title }}</p>
     </div>
 
-    <nav class="sidebar-nav">
-        <a class="sidebar-nav-item" href="{{ site.Home.RelPermalink }}">{{ i18n "home" }}</a>
-        <a class="sidebar-nav-item" href="#" data-proofer-ignore>{{ i18n "top" }}</a>
+    {{ $toc := .Page.TableOfContents }}
+    {{ $home := printf `<a class="sidebar-nav-item" href="%s">%s</a>` site.Home.RelPermalink (i18n "home") | safeHTML }}
+    {{ $top := printf `<a class="sidebar-nav-item" href="#" data-proofer-ignore>%s</a>` (i18n "top") | safeHTML }}
 
-        {{ range $item := .Params.toc }}
-            {{/* TODO: Add 'active' class for curent section */}}
-            <a class="sidebar-nav-item sidebar-nav-item-toc" href="#{{ . | anchorize }}">{{ . }}</a>
-        {{ end }}
-    </nav>
+    {{ $toc = $toc | replaceRE `id="TableOfContents"` `class="sidebar-nav"` | safeHTML }}
+    {{ $toc = $toc | replaceRE "(<[/]?ul>|<[/]?ol>|<[/]?li>)" "" | safeHTML }}
+    {{ $toc = $toc | replaceRE `<a href="(.*)">(.*)</a>` `<a class="sidebar-nav-item sidebar-nav-item-toc" href="$1">$2</a>` | safeHTML }}
+    {{ $toc = $toc | replaceRE `<nav class="sidebar-nav">` (printf `<nav class="sidebar-nav">%s` $top) | safeHTML }}
+    {{ $toc = $toc | replaceRE `<nav class="sidebar-nav">` (printf `<nav class="sidebar-nav">%s` $home) | safeHTML }}
+
+    {{ $toc }}
 
     {{ partial "footer" . }}
 </aside>

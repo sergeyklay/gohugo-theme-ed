@@ -4,7 +4,6 @@ author: Alex Gil
 featured_image: screenshot-home.png
 ---
 
-## Contents
 {{< toc >}}
 
 ---
@@ -251,6 +250,8 @@ You will find three kinds of Tables of Content in Ed. The first example is in th
 </div>
 ~~~
 
+To override this list, create file `mini-toc.html` inside `layouts/partials` folder.
+
 As you can see, the templating tags `{{ }}` are embedded into the HTML. These tags often use programmatic logic, as is the case here. However, another use of these tags is pull data from your project. In the example above it pulls the `Title` from each allowed post type.
 
 As you may have noticed already, we are basically adapting the blogging features of Hugo to our own ends, what Cuban designer and theorist Ernesto Oroza would call "[technological dissobedience](http://www.ernestooroza.com/)."
@@ -258,24 +259,20 @@ As you may have noticed already, we are basically adapting the blogging features
 The second kind of table of content is exemplified in this documentation. If you open the source file for the documentation, you will notice at the top this snippet:
 
 ~~~ markdown
-## Contents
 {{</* toc */>}}
 ~~~
 
 This is the Hugo way. The shortcode, `{{</* toc */>}}` tells the processor to create a table of contents based on headers in the document. You can use this syntax in any page on the site that uses headers.
 
-The third way is slightly more involved, but very useful for long texts. If we add the table of contents to the YAML front matter of a page, Ed will activate the optional table of content sidebar (`layouts/partials/sidebar-toc.html` in Ed) and move the table of contents to a special sidebar for that page. *Narrative of the Life* uses this method for its table of content. If you would like to replicate this functionality in your own long texts, make sure to use the same syntax:
+The third way is simple as the previous one, but very useful for long texts. If we enable the table of contents in the YAML front matter of a page:
 
 ~~~ yaml
-toc:
-- Title Page
-- Preface
-- Letter From Wendell Phillips
-- Chapter I
-- Chapter II
+toc: true
 ~~~
 
-The internal links pointing to the right sections in your document are generated from the title names automatically. In order for the links to work the names on section headings must contain the same words as the section headers. The punctuation and capitalization is irrelevant. If you can figure out how Ed accomplishes this trick, you have graduated from the Ed school of minimal editions.
+Ed will activate the optional table of content sidebar (`layouts/partials/sidebar-toc.html` in Ed) and move the table of contents to a special sidebar for that page. *Narrative of the Life* uses this method for its table of content. 
+
+The internal links pointing to the right sections in your document are generated from the title names automatically. If you can figure out how Ed accomplishes this trick, you have graduated from the Ed school of minimal editions.
 
 ---
 

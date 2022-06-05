@@ -16,6 +16,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   documentation
 - Global `site.Params.keywords` may be overridden by `.Params.keywords` or
   `.Params.tags` in the post front matter
+- Use builtin `.TableOfContents` to generate table of contents in the sidebar
+- Change the way you enable table of contents in the sidebar. Now you can
+  enable/disable it in the front matter using `toc: true` or `toc: false`
 
 ### Fixed
 

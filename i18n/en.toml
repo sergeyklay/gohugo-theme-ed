@@ -48,3 +48,6 @@
 
 [publications_tagged]
   other = 'Publications tagged "{{ . }}"'
+
+[table_of_contents]
+  other = 'Contents'
