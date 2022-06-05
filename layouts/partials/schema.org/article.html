@@ -1,7 +1,7 @@
 {{- /* Get schema type. */}}
 {{ $schemaType := "Article" }}
 {{ if or (eq .Type "post") (eq .Type "posts") }}
-  {{ $schemaType = "BlogPosting" }}
+    {{ $schemaType = "BlogPosting" }}
 {{ end -}}
 
 {{- $publisher := site.Params.seo.publisher | default site.Title }}
