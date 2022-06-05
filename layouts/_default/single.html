@@ -1,6 +1,6 @@
 {{ define "main" }}
 {{- $postType := .Type | lower | singularize -}}
-<article class="{{ partial "post-class.html" . }}" role="document"{{ with .Params.lang}} lang="{{ . }}"{{ end }}>
+<article class="{{ partial "post-class.html" . }}" role="document"{{ with .Params.lang }} lang="{{ . }}"{{ end }}>
     <header>
         <h1 class="text-title">
             {{ .Params.caption | default .Title }}
