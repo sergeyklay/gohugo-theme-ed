@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased](https://github.com/sergeyklay/gohugo-theme-ed/compare/v0.3.0...HEAD)
 
+### Added
+
+- Add `keywords` to schema.org metadata
+
 ### Changed
 
 - Rework post dates format. Now they prefixes with "Published on" and "Updated on"

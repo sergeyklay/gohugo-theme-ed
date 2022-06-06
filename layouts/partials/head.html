@@ -6,7 +6,7 @@
 
     <title>{{ block "title" . }}{{- partial "title.html" . -}}{{ end }}</title>
     <meta name="description" content="{{ partial "description.html" . }}">
-    <meta name="keywords" content="{{ partial "keywords.html" . }}">
+    <meta name="keywords" content="{{ delimit (partial "keywords.html" .) ", " }}">
 
     <meta name="author" content="{{ partial "author.html" . }}">
     {{ hugo.Generator }}

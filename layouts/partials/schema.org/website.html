@@ -3,7 +3,8 @@
         "@context": "https://schema.org",
         "@type": "WebSite",
         "name": {{ partial "title.html" . }},
-        "url": {{ site.BaseURL }}
+        "url": {{ site.BaseURL }},
+        "keywords": {{ partial "keywords.html" . }}
     }
 </script>
 {{- /* TODO: Add "potentialAction" with search.
