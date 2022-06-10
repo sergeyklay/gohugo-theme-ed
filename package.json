@@ -1,37 +1,37 @@
 {
-  "author": "Serghei Iakovlev",
+  "name": "ed",
+  "version": "0.4.0",
+  "private": true,
+  "description": "Ed theme for minimal editions, based on Alex Gil theme",
+  "keywords": [
+    "hugo",
+    "theme",
+    "minimal"
+  ],
+  "homepage": "https://github.com/sergeyklay/gohugo-theme-ed#readme",
   "bugs": {
     "url": "https://github.com/sergeyklay/gohugo-theme-ed/issues"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sergeyklay/gohugo-theme-ed.git"
+  },
+  "license": "MIT",
+  "author": "Serghei Iakovlev",
+  "main": "index.js",
+  "scripts": {
+    "build": "hugo --source=exampleSite --gc --verbose --minify --destination ../public",
+    "lint": "npm run lint:js && npm run lint:editorconfig",
+    "lint:editorconfig": "editorconfig-checker",
+    "lint:js": "eslint static/js/*.js",
+    "server": "hugo server --source=exampleSite --disableFastRender"
+  },
   "dependencies": {},
-  "description": "Ed theme for minimal editions, based on Alex Gil theme",
   "devDependencies": {
     "editorconfig-checker": "^4.0.2",
     "eslint": "^8.16.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-plugin-import": "^2.25.4",
     "eslint-plugin-node": "^11.1.0"
-  },
-  "homepage": "https://github.com/sergeyklay/gohugo-theme-ed#readme",
-  "keywords": [
-    "hugo",
-    "theme",
-    "minimal"
-  ],
-  "license": "MIT",
-  "main": "index.js",
-  "name": "ed",
-  "private": true,
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/sergeyklay/gohugo-theme-ed.git"
-  },
-  "scripts": {
-    "build": "hugo --source=exampleSite --gc --verbose --minify --destination ../public",
-    "server": "hugo server --source=exampleSite --disableFastRender",
-    "lint:editorconfig": "editorconfig-checker",
-    "lint:js": "eslint static/js/*.js",
-    "lint": "npm run lint:js && npm run lint:editorconfig"
-  },
-  "version": "0.4.0"
+  }
 }
