@@ -27,6 +27,9 @@ refLinksErrorLevel = 'WARNING'
 # kick out RSS, we'll use Atom and FEED bellow
 disableKinds = ['RSS']
 
+# Google Analytics Tracking id
+googleAnalytics = ''
+
 [minify]
   # Do not minify XML files to avoid CDATA escape issues
   disableXML = true

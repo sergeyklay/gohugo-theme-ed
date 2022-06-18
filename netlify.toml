@@ -6,6 +6,7 @@
   HUGO_VERSION = '0.100.2'
   HUGO_ENV = 'production'
   HUGO_ENABLEGITINFO = 'true'
+  HUGO_GOOGLEANALYTICS = 'G-DP9Q137C3X'
 
 [context.split1]
   command = 'hugo --source=exampleSite --gc --minify --enableGitInfo --destination ../public'
@@ -67,7 +68,7 @@
     # files received from those allowed domains, ignoring all other scripts
     # (including inline scripts and event-handling HTML attributes).
     #
-    Content-Security-Policy = "base-uri 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; object-src 'self'; media-src 'self'; worker-src 'self'; img-src 'self' data:; script-src 'self' *.netlify.app *.netlify.com; form-action 'self' submit-form.com; frame-ancestors 'none'; manifest-src 'self'; connect-src 'self';"
+    Content-Security-Policy = "base-uri 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; object-src 'self'; media-src 'self'; worker-src 'self'; img-src 'self' data:; script-src 'self' *.netlify.app *.netlify.com www.googletagmanager.com; form-action 'self' submit-form.com; frame-ancestors 'none'; manifest-src 'self'; connect-src 'self';"
 
 [[headers]]
   for = '/feeds/*.xml'
