@@ -3,7 +3,7 @@
   command = 'hugo --source=exampleSite --gc --verbose --minify --destination ../public'
 
 [context.production.environment]
-  HUGO_VERSION = '0.100.2'
+  HUGO_VERSION = '0.101.0'
   HUGO_ENV = 'production'
   HUGO_ENABLEGITINFO = 'true'
   HUGO_GOOGLEANALYTICS = 'G-DP9Q137C3X'
@@ -12,20 +12,20 @@
   command = 'hugo --source=exampleSite --gc --minify --enableGitInfo --destination ../public'
 
 [context.split1.environment]
-  HUGO_VERSION = '0.100.2'
+  HUGO_VERSION = '0.101.0'
   HUGO_ENV = 'production'
 
 [context.deploy-preview]
   command = 'hugo --source=exampleSite --gc --minify --buildDrafts --buildFuture --baseURL $DEPLOY_PRIME_URL --destination ../public'
 
 [context.deploy-preview.environment]
-  HUGO_VERSION = '0.100.2'
+  HUGO_VERSION = '0.101.0'
 
 [context.branch-deploy]
   command = 'hugo --source=exampleSite --gc --minify --baseURL $DEPLOY_PRIME_URL --destination ../public'
 
 [context.branch-deploy.environment]
-  HUGO_VERSION = '0.100.2'
+  HUGO_VERSION = '0.101.0'
 
 [context.next.environment]
   HUGO_ENABLEGITINFO = 'true'
