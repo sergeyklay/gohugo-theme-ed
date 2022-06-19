@@ -19,6 +19,7 @@ if (isDoNotTrackEnabled()) {
 } else {
     // Known DNT values not set, so we will assume it's off.
     const data = JSON.parse(document.getElementById('ed-data').innerHTML)
+    console.log('[TRACKING]: Site data: ' + JSON.stringify(data));
 
     if (typeof data !== 'undefined' && data.analytics_code) {
         (function () {
@@ -40,6 +41,27 @@ if (isDoNotTrackEnabled()) {
             dataLayer.push(arguments);
         }
 
+        function trackOutboundLink(url, target) {
+            gtag('event', 'click', {
+                 'event_category': 'outbound',
+                 'event_label': url,
+                 'transport_type': 'beacon',
+                 'event_callback': function () {
+                   if (target !== '_blank') {
+                     document.location = url;
+                   }
+                 }
+            });
+            console.debug("Outbound link clicked: " + url);
+        }
+
+        function onClickCallback(event) {
+            if ((event.target.tagName !== 'A') || (event.target.host === window.location.host)) {
+                return;
+            }
+            trackOutboundLink(event.target, event.target.getAttribute('target'));  // Send GA event.
+        }
+
         gtag('js', new Date());
 
         // Setup the project analytics code and send a pageview
@@ -47,5 +69,10 @@ if (isDoNotTrackEnabled()) {
             'anonymize_ip': true,
             'cookie_expires': 30 * 24 * 60 * 60  // 30 days
         })
+
+        gtag('set', {'cookie_flags': 'SameSite=None;Secure'});
+
+        // Outbound link tracking.
+        document.addEventListener('click', onClickCallback, false);
     }
 }
