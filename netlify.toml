@@ -68,7 +68,7 @@
     # files received from those allowed domains, ignoring all other scripts
     # (including inline scripts and event-handling HTML attributes).
     #
-    Content-Security-Policy = "default-src 'self'; script-src 'self' *.netlify.app *.netlify.com *.googletagmanager.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: *.google-analytics.com *.googletagmanager.com; font-src 'self'; connect-src 'self' *.google-analytics.com *.analytics.google.com *.googletagmanager.com; media-src 'self'; object-src 'self'; frame-src 'none'; worker-src 'self'; frame-ancestors 'none'; form-action 'self' submit-form.com; upgrade-insecure-requests; base-uri 'self'; manifest-src 'self'; report-uri https://4908d40959a9f3d63d9095d1afd87166.report-uri.com/r/d/csp/enforce"
+    Content-Security-Policy = "default-src 'self'; script-src 'self' *.netlify.app *.netlify.com *.googletagmanager.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: *.google-analytics.com *.googletagmanager.com; font-src 'self'; connect-src 'self' *.google-analytics.com *.analytics.google.com *.googletagmanager.com; media-src 'self'; object-src 'self'; frame-src 'none'; worker-src 'self'; frame-ancestors 'none'; form-action 'self' submit-form.com; upgrade-insecure-requests; base-uri 'self'; manifest-src 'self'; report-uri https://edtheme.report-uri.com/r/d/csp/enforce"
 
 [[headers]]
   for = '/feeds/*.xml'
