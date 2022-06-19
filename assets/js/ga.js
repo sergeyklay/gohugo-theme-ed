@@ -19,7 +19,6 @@ if (isDoNotTrackEnabled()) {
 } else {
     // Known DNT values not set, so we will assume it's off.
     const data = JSON.parse(document.getElementById('ed-data').innerHTML)
-    console.log('[TRACKING]: Site data: ' + JSON.stringify(data));
 
     if (typeof data !== 'undefined' && data.analytics_code) {
         (function () {
