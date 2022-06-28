@@ -51,22 +51,41 @@ if (isDoNotTrackEnabled()) {
                    }
                  }
             });
-            console.debug("Outbound link clicked: " + url);
+        }
+
+        function trackInternalEvent(label, category) {
+            gtag('event', 'click', {
+                'event_label': label,
+                'event_category': category
+            });
         }
 
         function onClickCallback(event) {
+            const className = event.target.getAttribute('class');
+            if (className === 'sidebar-toggle') {
+                trackInternalEvent('Sidebar Toggle', 'navigation');
+                return;
+            }
+
+            // Track only external URLs.
             if ((event.target.tagName !== 'A') || (event.target.host === window.location.host)) {
                 return;
             }
-            trackOutboundLink(event.target, event.target.getAttribute('target'));  // Send GA event.
+
+            // Send GA event.
+            trackOutboundLink(
+                event.target,
+                event.target.getAttribute('target')
+            );
         }
 
         gtag('js', new Date());
 
         // Setup the project analytics code and send a pageview
         gtag('config', data.analytics_code, {
+            'page_title': data.page_title,
             'anonymize_ip': true,
-            'cookie_expires': 30 * 24 * 60 * 60  // 30 days
+            'cookie_expires': 30 * 24 * 60 * 60  // 30 days, in seconds
         })
 
         gtag('set', {'cookie_flags': 'SameSite=None;Secure'});

@@ -1,7 +1,7 @@
 <script type="application/json" id="ed-data">
     {
         "analytics_code": {{ site.GoogleAnalytics | default "" }},
-        "site_name": {{ site.Title }},
+        "page_title": {{- partial "title.html" . -}},
         "language": {{ site.LanguageCode | default site.Language.Lang }}
     }
 </script>
