@@ -191,9 +191,9 @@ At the moment (May 2022) time the footnotes system provided by Hugo does have on
 
 ---
 
-## Blockquotes
+## Blockquote
 
-*Narrative of the Life* also includes several blockquotes. You can also find another example of blockquote use in the footnote of "O Captain! My Captain!" Simple blockquotes are simple enough in Markdown:
+*Narrative of the Life* also includes several blockquote elements. You can also find another example of blockquote use in the footnote of "O Captain! My Captain!" Simple blockquote are simple enough in Markdown:
 
 ~~~
 > This is to certify that I, the undersigned, have given the bearer, my servant, full liberty to go to Baltimore, and spend the Easter holidays.
