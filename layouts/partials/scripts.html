@@ -1,0 +1,25 @@
+{{- $vendors := slice -}}
+
+{{- $vendorNames := slice "jquery.min" -}}
+{{- range $vendorNames -}}
+    {{ $vendors = $vendors | append (resources.Get (printf "js/vendor/%s.js" .) ) }}
+{{- end -}}
+
+{{- $vendors := $vendors | resources.Concat "js/vendor-bundle.js" | minify | fingerprint -}}
+
+{{- if not site.Params.assets.disable_fingerprinting -}}
+    {{- $vendors = $vendors | fingerprint -}}
+    <script src="{{ $vendors.Permalink }}" integrity="{{ $vendors.Data.Integrity }}"></script>
+{{- else -}}
+    <script src="{{ $vendors.Permalink }}"></script>
+{{- end -}}
+
+{{- with site.GoogleAnalytics -}}
+    {{- $ga := resources.Get "js/ga.js" | minify | fingerprint -}}
+    {{- if not site.Params.assets.disable_fingerprinting -}}
+        {{- $ga = $ga | fingerprint -}}
+        <script src="{{ $ga.Permalink }}" integrity="{{ $ga.Data.Integrity }}"></script>
+    {{- else -}}
+        <script src="{{ $ga.Permalink }}"></script>
+    {{- end -}}
+{{- end -}}

@@ -12,8 +12,6 @@
     {{ hugo.Generator }}
 
     {{ partial "styles.html" . }}
-    {{ partial "data.html" . }}
-    {{ block "custom-scripts" . }}{{ partial "custom-scripts.html" . }}{{ end }}
 
     {{- /* Favicons */}}
     <link rel="icon" href="{{ site.Params.assets.favicon | default "favicon.ico" | relURL }}" sizes="any"><!-- 32×32 -->
@@ -30,15 +28,9 @@
     <meta name="theme-color" content="#ffffff">
     {{ block "custom-head" . }}{{ partial "custom-head.html" . }}{{ end }}
 
-    {{ with site.GoogleAnalytics }}
-        {{ $ga := resources.Get "js/ga.js" | minify | fingerprint }}
-        {{ if not site.Params.assets.disable_fingerprinting }}
-            {{ $ga = $ga | fingerprint }}
-            <script src="{{ $ga.Permalink }}" integrity="{{ $ga.Data.Integrity }}"></script>
-        {{ else }}
-            <script src="{{ $ga.Permalink }}"></script>
-        {{ end }}
-    {{ end }}
+    {{ partial "data.html" . }}
+    {{ partial "scripts.html" . }}
+    {{ block "custom-scripts" . }}{{ partial "custom-scripts.html" . }}{{ end }}
 
     {{- /* Misc */}}
     {{ template "partials/templates/opengraph.html" . }}

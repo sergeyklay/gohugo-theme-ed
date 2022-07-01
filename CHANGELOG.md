@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Add `keywords` to schema.org metadata
 - Add support for Global site tag (Google Analytics)
+- Add support for jQuery
 
 ### Changed
 
