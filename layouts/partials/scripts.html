@@ -5,7 +5,7 @@
     {{ $vendors = $vendors | append (resources.Get (printf "js/vendor/%s.js" .) ) }}
 {{- end -}}
 
-{{- $vendors := $vendors | resources.Concat "js/vendor-bundle.js" | minify | fingerprint -}}
+{{- $vendors := $vendors | resources.Concat "js/vendor-bundle.js" | minify -}}
 
 {{- if not site.Params.assets.disable_fingerprinting -}}
     {{- $vendors = $vendors | fingerprint -}}
@@ -15,7 +15,7 @@
 {{- end -}}
 
 {{- with site.GoogleAnalytics -}}
-    {{- $ga := resources.Get "js/ga.js" | minify | fingerprint -}}
+    {{- $ga := resources.Get "js/ga.js" | minify -}}
     {{- if not site.Params.assets.disable_fingerprinting -}}
         {{- $ga = $ga | fingerprint -}}
         <script src="{{ $ga.Permalink }}" integrity="{{ $ga.Data.Integrity }}"></script>
