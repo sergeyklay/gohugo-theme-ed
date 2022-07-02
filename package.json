@@ -20,17 +20,23 @@
   "author": "Serghei Iakovlev",
   "main": "index.js",
   "scripts": {
-    "build": "hugo --source=exampleSite --gc --verbose --minify --destination ../public",
+    "clean": "rimraf public",
+    "build": "hugo --source=exampleSite --gc --verbose --destination ../public",
+    "build:prod": "hugo --source=exampleSite --destination ../public",
+    "build:split1": "hugo --source=exampleSite --enableGitInfo --destination ../public",
+    "build:preview": "HUGO_PREVIEW=true hugo --source=exampleSite --buildDrafts --buildFuture --baseURL $DEPLOY_PRIME_URL --destination ../public",
+    "build:branch": "hugo --source=exampleSite --buildDrafts --buildFuture --baseURL $DEPLOY_PRIME_URL --destination ../public",
+    "server": "HUGO_PREVIEW=true HUGO_ENV=development hugo server --verbose --source=exampleSite --buildDrafts --buildFuture --ignoreCache --disableFastRender",
     "lint": "npm run lint:js && npm run lint:editorconfig",
     "lint:editorconfig": "editorconfig-checker",
     "lint:js": "eslint static/js/*.js",
-    "vendor:js": "cp node_modules/jquery/dist/jquery.min.js assets/js/vendor",
-    "server": "hugo server --source=exampleSite --disableFastRender"
+    "vendor:js": "cp node_modules/jquery/dist/jquery.min.js assets/js/vendor"
   },
   "dependencies": {
     "jquery": "^3.6.0"
   },
   "devDependencies": {
+    "rimraf": "^3.0.2",
     "editorconfig-checker": "^4.0.2",
     "eslint": "^8.18.0",
     "eslint-config-airbnb-base": "^15.0.0",
