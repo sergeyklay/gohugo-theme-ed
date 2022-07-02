@@ -1,6 +1,6 @@
 [build]
   publish = 'public'
-  command = 'hugo --source=exampleSite --gc --verbose --minify --destination ../public'
+  command = 'hugo --source=exampleSite --gc --verbose --destination ../public'
 
 [context.production.environment]
   HUGO_VERSION = '0.101.0'
@@ -9,20 +9,20 @@
   HUGO_GOOGLEANALYTICS = 'G-DP9Q137C3X'
 
 [context.split1]
-  command = 'hugo --source=exampleSite --gc --minify --enableGitInfo --destination ../public'
+  command = 'hugo --source=exampleSite --gc --enableGitInfo --destination ../public'
 
 [context.split1.environment]
   HUGO_VERSION = '0.101.0'
   HUGO_ENV = 'production'
 
 [context.deploy-preview]
-  command = 'hugo --source=exampleSite --gc --minify --buildDrafts --buildFuture --baseURL $DEPLOY_PRIME_URL --destination ../public'
+  command = 'hugo --source=exampleSite --gc --buildDrafts --buildFuture --baseURL $DEPLOY_PRIME_URL --destination ../public'
 
 [context.deploy-preview.environment]
   HUGO_VERSION = '0.101.0'
 
 [context.branch-deploy]
-  command = 'hugo --source=exampleSite --gc --minify --baseURL $DEPLOY_PRIME_URL --destination ../public'
+  command = 'hugo --source=exampleSite --gc --baseURL $DEPLOY_PRIME_URL --destination ../public'
 
 [context.branch-deploy.environment]
   HUGO_VERSION = '0.101.0'
