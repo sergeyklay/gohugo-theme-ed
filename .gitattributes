@@ -18,7 +18,7 @@ resources/_gen/** linguist-generated
 
 .ecrc             linguist-language=JSON
 .editorconfig     linguist-language=INI
-.eslintrc         linguist-language=JSON
+.eslintrc         linguist-language=JSONC
 *.asc             linguist-language=Public Key
 *.md              linguist-detectable=true linguist-documentation=false
 *.webmanifest     linguist-language=JSON
@@ -26,6 +26,7 @@ resources/_gen/** linguist-generated
 CHANGELOG.md      linguist-detectable=false linguist-documentation=true
 CONTRIBUTING.md   linguist-detectable=false linguist-documentation=true
 README.md         linguist-detectable=false linguist-documentation=true
+SECURITY.md       linguist-detectable=false linguist-documentation=true
 
 /layouts/_default/list.*.* linguist-language=HTML
 /layouts/_default/home.*.* linguist-language=HTML
@@ -42,6 +43,7 @@ CONTRIBUTING.md  text eol=lf
 CHANGELOG.md     text eol=lf
 LICENSE          text eol=lf
 README.md        text eol=lf
+SECURITY.md      text eol=lf
 
 #
 # Configuration and some text files.
