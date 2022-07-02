@@ -4,15 +4,15 @@
 {{- /* order is important */}}
 {{- /* to ass more styles use the following format: slice $theme $style1 $style2 $style3 ... */}}
 {{- $core := (slice $theme) | resources.Concat "assets/css/core.css" }}
-{{- $extended := (resources.Match "css/extended/*.css") | resources.Concat "assets/css/extended.css" }}
+{{- $extended := (resources.Match "css/extended/*.css") | resources.Concat "css/extended.css" }}
 
 {{- /* bundle all required css */}}
 {{- /* Add extended css after theme style */ -}}
-{{- $stylesheet := (slice $core $extended) | resources.Concat "assets/css/stylesheet.css" | minify }}
+{{- $stylesheet := (slice $core $extended) | resources.Concat "css/stylesheet.css" | minify }}
 
 {{- if not site.Params.assets.disable_fingerprinting -}}
     {{- $stylesheet := $stylesheet | fingerprint }}
-    {{ printf `<link crossorigin="anonymous" href="%s" integrity="%s" rel="preload stylesheet" as="style">` $stylesheet.Permalink $stylesheet.Data.Integrity | safeHTML }}
+    {{ printf `<link crossorigin="anonymous" href="%s" integrity="%s" rel="preload stylesheet" as="style">` $stylesheet.RelPermalink $stylesheet.Data.Integrity | safeHTML }}
 {{- else }}
-    <link crossorigin="anonymous" href="{{ $stylesheet.Permalink }}" rel="preload stylesheet" as="style">
+    <link crossorigin="anonymous" href="{{ $stylesheet.RelPermalink }}" rel="preload stylesheet" as="style">
 {{- end }}

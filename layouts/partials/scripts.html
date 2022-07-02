@@ -9,17 +9,17 @@
 
 {{- if not site.Params.assets.disable_fingerprinting -}}
     {{- $vendors = $vendors | fingerprint -}}
-    <script src="{{ $vendors.Permalink }}" integrity="{{ $vendors.Data.Integrity }}"></script>
+    <script src="{{ $vendors.RelPermalink }}" integrity="{{ $vendors.Data.Integrity }}"></script>
 {{- else -}}
-    <script src="{{ $vendors.Permalink }}"></script>
+    <script src="{{ $vendors.RelPermalink }}"></script>
 {{- end -}}
 
 {{- with site.GoogleAnalytics -}}
     {{- $ga := resources.Get "js/ga.js" | minify -}}
     {{- if not site.Params.assets.disable_fingerprinting -}}
         {{- $ga = $ga | fingerprint -}}
-        <script src="{{ $ga.Permalink }}" integrity="{{ $ga.Data.Integrity }}"></script>
+        <script src="{{ $ga.RelPermalink }}" integrity="{{ $ga.Data.Integrity }}"></script>
     {{- else -}}
-        <script src="{{ $ga.Permalink }}"></script>
+        <script src="{{ $ga.RelPermalink }}"></script>
     {{- end -}}
 {{- end -}}
