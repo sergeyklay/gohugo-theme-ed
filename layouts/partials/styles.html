@@ -12,7 +12,7 @@
 
 {{- if not site.Params.assets.disable_fingerprinting -}}
     {{- $stylesheet := $stylesheet | fingerprint }}
-    {{ printf `<link crossorigin="anonymous" href="%s" integrity="%s" rel="preload stylesheet" as="style">` $stylesheet.RelPermalink $stylesheet.Data.Integrity | safeHTML }}
+    {{ printf `<link crossorigin="anonymous" href="%s" integrity="%s" rel="preload stylesheet" as="style">` $stylesheet.Permalink $stylesheet.Data.Integrity | safeHTML }}
 {{- else }}
-    <link crossorigin="anonymous" href="{{ $stylesheet.RelPermalink }}" rel="preload stylesheet" as="style">
+    <link crossorigin="anonymous" href="{{ $stylesheet.Permalink }}" rel="preload stylesheet" as="style">
 {{- end }}
