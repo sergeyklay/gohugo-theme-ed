@@ -35,8 +35,8 @@ googleAnalytics = ''
   disableXML = true
 
 [outputs]
-  home = [ 'HTML', 'Atom', 'FEED', 'JSON', 'MANIFEST', 'humanstxt' ]
-  section = [ 'HTML', 'Atom', 'FEED', 'JSON' ]
+  home = [ 'HTML', 'Atom', 'FEED', 'JSONFEED', 'JSON', 'MANIFEST', 'humanstxt' ]
+  section = [ 'HTML', 'Atom', 'FEED', 'JSONFEED' ]
   page = [ 'HTML' ]
   taxonomy = [ 'HTML' ]
   term = [ 'HTML' ]
@@ -73,8 +73,8 @@ googleAnalytics = ''
   permalinkable = false
 
 # For more see: https://www.jsonfeed.org/
-[outputFormats.JSON]
-  name = 'Json'
+[outputFormats.JSONFEED]
+  name = 'JsonFeed'
   mediaType = 'application/feed+json'
   baseName = 'feeds/feed'
   rel = 'alternate'

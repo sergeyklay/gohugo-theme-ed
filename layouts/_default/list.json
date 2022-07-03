@@ -1,0 +1,29 @@
+{{- $pctx := . -}}
+{{- if .IsHome -}}{{ $pctx = .Site }}{{- end -}}
+
+{{- $pages := slice -}}
+{{- if $.IsHome -}}
+    {{- $mainSections := site.Params.mainSections | default (slice "posts") }}
+    {{- $pages = where $pctx.RegularPages.ByDate.Reverse "Type" "in" $mainSections -}}
+{{- else if $.IsSection -}}
+    {{- $pages = $pctx.RegularPages.ByDate.Reverse -}}
+{{- else -}}
+    {{- $pages = $pctx.Pages -}}
+{{- end -}}
+
+{{- $.Scratch.Add "pagesIndex" slice -}}
+
+{{- range $index, $page := $pages -}}
+  {{- if gt (len $page.Content) 0 -}}
+    {{- $pageData := (dict
+      "title" $page.Title
+      "href" $page.Permalink
+      "tags" (delimit ($page.Params.tags | default slice) " ; ")
+      "categories" (delimit ($page.Params.categories | default slice) " ; ")
+      "content" $page.Plain
+    ) -}}
+    {{- $.Scratch.Add "pagesIndex" $pageData -}}
+  {{- end -}}
+{{- end -}}
+
+{{- $.Scratch.Get "pagesIndex" | jsonify -}}
