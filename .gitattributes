@@ -18,6 +18,7 @@ resources/_gen/** linguist-generated
 
 .ecrc             linguist-language=JSON
 .editorconfig     linguist-language=INI
+.eslintrc.yml     linguist-detectable=true
 *.asc             linguist-language=Public Key
 *.md              linguist-detectable=true linguist-documentation=false
 *.webmanifest     linguist-language=JSON
