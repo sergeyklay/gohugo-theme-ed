@@ -1,3 +1,5 @@
+'use strict';
+
 function isDoNotTrackEnabled() {
   if (typeof window === 'undefined') {
     return false;
