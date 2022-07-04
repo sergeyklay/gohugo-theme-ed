@@ -126,7 +126,6 @@ function renderSearchResults(query, results) {
 }
 
 function clearSearchResults() {
-  $('#query').empty();
   $('#search-results-body').empty();
   $('#results-count').empty();
   $('#results-count-text').empty();
@@ -137,7 +136,6 @@ function clearAndFocusSearchInput() {
 }
 
 function updateSearchResults(query, results) {
-  $('#query').html(query);
   $('#search-results-body').html(results.map((hit) => `
   <article class="post" data-score="${hit.score.toFixed(2)}">
     <header>
