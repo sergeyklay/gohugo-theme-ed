@@ -31,8 +31,6 @@ SECURITY.md       linguist-detectable=false linguist-documentation=true
 /layouts/_default/list.*.* linguist-language=HTML
 /layouts/_default/home.*.* linguist-language=HTML
 
-/assets/js/vendor/*.js linguist-vendored
-
 #
 # Text files.
 # Set files to be explicitly interpreted as text,
