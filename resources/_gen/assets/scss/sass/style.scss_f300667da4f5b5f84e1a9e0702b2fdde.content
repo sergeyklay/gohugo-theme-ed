@@ -745,19 +745,19 @@ pre code {
     outline: none;
     border-color: #5e5e5e; }
 
-.contact-form {
+#site-contact {
   width: 100%;
   padding-bottom: 20px; }
   @media only screen and (min-width: 768px) {
-    .contact-form {
+    #site-contact {
       padding-bottom: 40px; } }
   @media only screen and (min-width: 1220px) {
-    .contact-form {
+    #site-contact {
       padding-bottom: 50px; } }
   @media only screen and (min-width: 1600px) {
-    .contact-form {
+    #site-contact {
       padding-bottom: 60px; } }
-  .contact-form:first-child {
+  #site-contact:first-child {
     margin-top: 0; }
 
 .form-item {
