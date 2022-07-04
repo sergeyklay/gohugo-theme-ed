@@ -60,3 +60,12 @@
 
 [clear_search_results]
   other = 'Новый поиск'
+
+[search_enter_term]
+  other = 'Введите поисковый запрос.'
+
+[search_no_results]
+  other = 'Ничего не найдено.'
+
+[search_results]
+  other = 'Найдено результатов:'

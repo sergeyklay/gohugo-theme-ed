@@ -1,6 +1,6 @@
 'use strict';
 
-let pagesIndex, searchIndex;
+let config, pagesIndex, searchIndex;
 
 // Maximum length (in words) of each text blurb. You can change this
 // value if you find that 100 is too short or too long for your taste.
@@ -17,10 +17,28 @@ const SENTENCE_BOUNDARY_REGEX = /\b\.\s/gm;
 // in the blurb as it is being built.
 const WORD_REGEX = /\b(\w*)[\W|\s|\b]?/gm;
 
+function initConfig() {
+  const defaults = {
+    strings: {
+      searchEnterTerm: 'Please enter a search term.',
+      searchNoResults: 'No results found.'
+    }
+  };
+
+  try {
+    const config = JSON.parse($('#ed-data').html());
+    return Object.assign(config, defaults);
+  } catch (e) {
+    return defaults;
+  }
+}
+
 async function initSearchIndex() {
   try {
     const response = await fetch('/index.json');
     pagesIndex = await response.json();
+
+    // Create the lunr index for the search
     searchIndex = lunr(function () { // eslint-disable-line no-undef
       this.field('title');
       this.field('categories');
@@ -39,14 +57,15 @@ function handleSearchQuery(event) {
   event.preventDefault();
 
   const query = $('#search').val().trim().toLowerCase();
+
   if (!query) {
-    displayErrorMessage('Please enter a search term.');
+    displayErrorMessage(config.strings.searchEnterTerm);
     return;
   }
 
   const results = searchSite(query);
   if (!results.length) {
-    displayErrorMessage('No results found.');
+    displayErrorMessage(config.strings.searchNoResults);
     return;
   }
 
@@ -128,7 +147,6 @@ function renderSearchResults(query, results) {
 function clearSearchResults() {
   $('#search-results-body').empty();
   $('#results-count').empty();
-  $('#results-count-text').empty();
 }
 
 function clearAndFocusSearchInput() {
@@ -148,9 +166,7 @@ function updateSearchResults(query, results) {
   `
   ).join(''));
 
-  const searchResultListItems = $('#search-results-body article');
-  $('#results-count').html(searchResultListItems.length);
-  $('#results-count-text').html(searchResultListItems.length > 1 ? 'results' : 'result');
+  $('#results-count').html($('#search-results-body article').length);
 }
 
 function createSearchResultBlurb(query, pageContent) {
@@ -287,6 +303,7 @@ if (!String.prototype.matchAll) {
 $(function() {
   const searchForm = $('#search-form');
   const searchInput = $('#search');
+  config = initConfig();
 
   if (searchForm.length === 0 || searchInput.length === 0) {
     return;

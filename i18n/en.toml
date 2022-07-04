@@ -60,3 +60,12 @@
 
 [clear_search_results]
   other = 'New Search'
+
+[search_enter_term]
+  other = 'Please enter a search term.'
+
+[search_no_results]
+  other = 'No results found.'
+
+[search_results]
+  other = 'Found results:'

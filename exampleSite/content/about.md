@@ -45,6 +45,7 @@ for you, Kindle!
 - Unobtrusive footnotes
 - Metadata in OpenGraph to play nice with social media and search engines
 - Automatic table of content generation
+- Simple search functionality
 - Contact form
 - Custom `robots.txt` (changes values based on environment)
 - RSS/Atom/Json Feeds Discovery

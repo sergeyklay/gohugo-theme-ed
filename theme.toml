@@ -19,6 +19,7 @@ tags = [
   "minimalist",
   "multilingual",
   "responsive",
+  "search",
   "simple"
 ]
 
@@ -37,6 +38,7 @@ features = [
   "posts",
   "responsive",
   "rss",
+  "search",
   "shortcodes",
   "simple"
 ]
