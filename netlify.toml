@@ -67,7 +67,6 @@
     # A CSP compatible browser will then only execute scripts loaded in source
     # files received from those allowed domains, ignoring all other scripts
     # (including inline scripts and event-handling HTML attributes).
-    #
     Content-Security-Policy = "default-src 'self'; script-src 'self' *.netlify.app *.netlify.com *.googletagmanager.com; style-src 'self'; img-src 'self' data: *.google-analytics.com *.googletagmanager.com *.gstatic.com; font-src 'self'; connect-src 'self' *.google-analytics.com analytics.google.com *.googletagmanager.com *.doubleclick.net; media-src 'self'; object-src 'self'; frame-src 'none'; worker-src 'self'; frame-ancestors 'none'; form-action 'self' submit-form.com; upgrade-insecure-requests; base-uri 'self'; manifest-src 'self'; report-uri https://egrep.report-uri.com/r/d/csp/enforce"
 
 [[headers]]
