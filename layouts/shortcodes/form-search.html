@@ -1,0 +1,20 @@
+<div id="site-search" class="search-form">
+    <p>{{ i18n "search_help" }}</p>
+    <form role="form" id="search-form">
+        <div class="search-wrapper">
+            <div class="search-container form-item">
+                <input autocomplete="off" placeholder="" id="search" class="search-form-input form-input" aria-label="{{ i18n "search_site" }}" type="text" name="q">
+            </div>
+            <div class="search-error hide-element">
+                <p class="search-error-message"></p>
+            </div>
+        </div>
+    </form>
+    <div id="clear-search-results" class="form-item hide-element">
+        <button class="button button-large" type="reset">
+            {{ i18n "clear_search_results" }}
+        </button>
+    </div>
+</div>
+
+{{- partial "search-results" . -}}

@@ -7,6 +7,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased](https://github.com/sergeyklay/gohugo-theme-ed/compare/v0.4.0...HEAD)
 
+### Added
+
+- Provide template to render pure JSON of the site contents.
+- Provide search feature.
+
+### Changed
+
+- Rename template to render JSON Feed from `list.json.json` to
+  `list.jsonfeed.json`
 
 ## [v0.4.0](https://github.com/sergeyklay/gohugo-theme-ed/compare/v0.3.0...v0.4.0)
 

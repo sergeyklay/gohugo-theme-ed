@@ -51,3 +51,21 @@
 
 [table_of_contents]
   other = 'Contents'
+
+[search_help]
+  other = "To search the site, enter a search term and press Enter."
+
+[search_site]
+  other = 'Search site'
+
+[clear_search_results]
+  other = 'New Search'
+
+[search_enter_term]
+  other = 'Please enter a search term.'
+
+[search_no_results]
+  other = 'No results found.'
+
+[search_results]
+  other = 'Found results:'

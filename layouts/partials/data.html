@@ -2,6 +2,10 @@
     {
         "analytics_code": {{ site.GoogleAnalytics | default "" }},
         "page_title": {{- partial "title.html" . -}},
-        "language": {{ site.LanguageCode | default site.Language.Lang }}
+        "language": {{ site.LanguageCode | default site.Language.Lang }},
+        "strings": {
+            "searchEnterTerm": {{ i18n "search_enter_term" }},
+            "searchNoResults": {{ i18n "search_no_results" }}
+        }
     }
 </script>

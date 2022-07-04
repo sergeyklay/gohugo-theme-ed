@@ -1,17 +1,31 @@
 {{- $vendors := slice -}}
 
-{{- $vendorNames := slice "jquery.min" -}}
+{{- $vendorNames := slice "jquery.js" "lunr.js" -}}
 {{- range $vendorNames -}}
-    {{ $vendors = $vendors | append (resources.Get (printf "js/vendor/%s.js" .) ) }}
+    {{ $vendors = $vendors | append (resources.Get (printf "js/vendor/%s" .) ) }}
 {{- end -}}
 
-{{- $vendors := $vendors | resources.Concat "js/vendor-bundle.js" | minify -}}
+{{- $vendors = $vendors | resources.Concat "js/vendor-bundle.js" -}}
+{{- if or (eq (getenv "HUGO_ENV") "production") (eq site.Params.env "production")  }}
+    {{- $vendors = $vendors | minify -}}
+{{- end -}}
 
 {{- if not site.Params.assets.disable_fingerprinting -}}
     {{- $vendors = $vendors | fingerprint -}}
     <script src="{{ $vendors.RelPermalink }}" integrity="{{ $vendors.Data.Integrity }}"></script>
 {{- else -}}
     <script src="{{ $vendors.RelPermalink }}"></script>
+{{- end -}}
+
+{{- $search := resources.Get "js/search.js" -}}
+{{- if or (eq (getenv "HUGO_ENV") "production") (eq site.Params.env "production")  }}
+    {{- $search = $search | minify -}}
+{{- end -}}
+{{- if not site.Params.assets.disable_fingerprinting -}}
+    {{- $search = $search | fingerprint -}}
+    <script src="{{ $search.RelPermalink }}" integrity="{{ $search.Data.Integrity }}"></script>
+{{- else -}}
+    <script src="{{ $search.RelPermalink }}"></script>
 {{- end -}}
 
 {{- with site.GoogleAnalytics -}}
