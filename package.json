@@ -29,13 +29,9 @@
     "server": "HUGO_PREVIEW=true HUGO_ENV=development hugo server --verbose --source=exampleSite --buildDrafts --buildFuture --ignoreCache --disableFastRender",
     "lint": "npm run lint:js && npm run lint:editorconfig",
     "lint:editorconfig": "editorconfig-checker",
-    "lint:js": "eslint static/js/*.js assets/js/*.js",
-    "vendor:js": "ncp node_modules/jquery/dist/jquery.min.js assets/js/vendor/jquery.min.js; ncp node_modules/lunr/lunr.min.js assets/js/vendor/lunr.min.js"
+    "lint:js": "eslint static/js/*.js assets/js/*.js"
   },
-  "dependencies": {
-    "jquery": "^3.6.0",
-    "lunr": "^2.3.9"
-  },
+  "dependencies": {},
   "devDependencies": {
     "editorconfig-checker": "^4.0.2",
     "eslint": "^8.19.0",

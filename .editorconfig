@@ -17,3 +17,7 @@ indent_size              = 2
 
 [layouts/**.{svg}]
 insert_final_newline     = false
+
+[go.{mod,sum}]
+indent_style             = tab
+indent_size              = 4

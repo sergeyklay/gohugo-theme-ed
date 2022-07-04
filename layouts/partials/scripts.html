@@ -1,11 +1,14 @@
 {{- $vendors := slice -}}
 
-{{- $vendorNames := slice "jquery.min" "lunr.min" -}}
+{{- $vendorNames := slice "jquery.js" "lunr.js" -}}
 {{- range $vendorNames -}}
-    {{ $vendors = $vendors | append (resources.Get (printf "js/vendor/%s.js" .) ) }}
+    {{ $vendors = $vendors | append (resources.Get (printf "js/vendor/%s" .) ) }}
 {{- end -}}
 
-{{- $vendors := $vendors | resources.Concat "js/vendor-bundle.js" | minify -}}
+{{- $vendors = $vendors | resources.Concat "js/vendor-bundle.js" -}}
+{{- if or (eq (getenv "HUGO_ENV") "production") (eq site.Params.env "production")  }}
+    {{- $vendors = $vendors | minify -}}
+{{- end -}}
 
 {{- if not site.Params.assets.disable_fingerprinting -}}
     {{- $vendors = $vendors | fingerprint -}}
