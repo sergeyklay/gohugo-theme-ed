@@ -24,6 +24,7 @@
   }
 
   &:focus {
+    @include box-shadow (none);
     outline: none;
     border-color: #5e5e5e;
   }
@@ -82,7 +83,7 @@ form input:-moz-ui-invalid {
   }
 }
 
-.contact-form-label {
+.form-label {
   display: block;
   font-size: 16px;
   font-weight: 600;
