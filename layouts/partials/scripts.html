@@ -1,6 +1,6 @@
 {{- $vendors := slice -}}
 
-{{- $vendorNames := slice "jquery.min" -}}
+{{- $vendorNames := slice "jquery.min" "lunr.min" -}}
 {{- range $vendorNames -}}
     {{ $vendors = $vendors | append (resources.Get (printf "js/vendor/%s.js" .) ) }}
 {{- end -}}
@@ -12,6 +12,14 @@
     <script src="{{ $vendors.RelPermalink }}" integrity="{{ $vendors.Data.Integrity }}"></script>
 {{- else -}}
     <script src="{{ $vendors.RelPermalink }}"></script>
+{{- end -}}
+
+{{- $search := resources.Get "js/search.js" | minify -}}
+{{- if not site.Params.assets.disable_fingerprinting -}}
+    {{- $search = $search | fingerprint -}}
+    <script src="{{ $search.RelPermalink }}" integrity="{{ $search.Data.Integrity }}"></script>
+{{- else -}}
+    <script src="{{ $search.RelPermalink }}"></script>
 {{- end -}}
 
 {{- with site.GoogleAnalytics -}}

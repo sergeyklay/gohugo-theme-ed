@@ -30,10 +30,11 @@
     "lint": "npm run lint:js && npm run lint:editorconfig",
     "lint:editorconfig": "editorconfig-checker",
     "lint:js": "eslint static/js/*.js assets/js/*.js",
-    "vendor:js": "ncp node_modules/jquery/dist/jquery.min.js assets/js/vendor/jquery.min.js"
+    "vendor:js": "ncp node_modules/jquery/dist/jquery.min.js assets/js/vendor/jquery.min.js; ncp node_modules/lunr/lunr.min.js assets/js/vendor/lunr.min.js"
   },
   "dependencies": {
-    "jquery": "^3.6.0"
+    "jquery": "^3.6.0",
+    "lunr": "^2.3.9"
   },
   "devDependencies": {
     "editorconfig-checker": "^4.0.2",
