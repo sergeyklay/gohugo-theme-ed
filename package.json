@@ -30,7 +30,7 @@
     "lint": "npm run lint:js && npm run lint:editorconfig",
     "lint:editorconfig": "editorconfig-checker",
     "lint:js": "eslint static/js/*.js assets/js/*.js",
-    "vendor:js": "cp node_modules/jquery/dist/jquery.min.js assets/js/vendor"
+    "vendor:js": "ncp node_modules/jquery/dist/jquery.min.js assets/js/vendor/jquery.min.js"
   },
   "dependencies": {
     "jquery": "^3.6.0"
@@ -38,6 +38,7 @@
   "devDependencies": {
     "editorconfig-checker": "^4.0.2",
     "eslint": "^8.19.0",
-    "rimraf": "^3.0.2"
+    "rimraf": "^3.0.2",
+    "ncp": "^2.0.0"
   }
 }
