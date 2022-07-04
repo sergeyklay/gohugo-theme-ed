@@ -35,7 +35,6 @@
   "devDependencies": {
     "editorconfig-checker": "^4.0.2",
     "eslint": "^8.19.0",
-    "rimraf": "^3.0.2",
-    "ncp": "^2.0.0"
+    "rimraf": "^3.0.2"
   }
 }
