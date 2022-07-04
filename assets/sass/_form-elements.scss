@@ -50,7 +50,7 @@
   }
 }
 
-.contact-form-item {
+.form-item {
   margin-top: 15px;
 
   @include mq(tabletp) {
@@ -75,9 +75,9 @@ form input:-moz-ui-invalid {
   @include box-shadow (0 0 2px 1px #D64541!important);
 }
 
-.contact-form-item-error {
-  .contact-form-input,
-  .contact-form-textarea {
+.form-item-error {
+  .form-input,
+  .form-textarea {
     @include box-shadow (0 0 2px 1px #D64541!important);
   }
 }

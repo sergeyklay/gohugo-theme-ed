@@ -760,15 +760,15 @@ pre code {
   .contact-form:first-child {
     margin-top: 0; }
 
-.contact-form-item {
+.form-item {
   margin-top: 15px; }
   @media only screen and (min-width: 768px) {
-    .contact-form-item {
+    .form-item {
       margin-top: 20px; } }
   @media only screen and (min-width: 1220px) {
-    .contact-form-item {
+    .form-item {
       margin-top: 30px; } }
-  .contact-form-item:first-child {
+  .form-item:first-child {
     margin-top: 0; }
 
 form input[type="number"]:-moz-submit-invalid,
@@ -781,8 +781,8 @@ form input:-moz-ui-invalid {
   -moz-box-shadow: 0 0 2px 1px #D64541 !important;
   box-shadow: 0 0 2px 1px #D64541 !important; }
 
-.contact-form-item-error .contact-form-input,
-.contact-form-item-error .contact-form-textarea {
+.form-item-error .form-input,
+.form-item-error .form-textarea {
   -webkit-box-shadow: 0 0 2px 1px #D64541 !important;
   -moz-box-shadow: 0 0 2px 1px #D64541 !important;
   box-shadow: 0 0 2px 1px #D64541 !important; }
