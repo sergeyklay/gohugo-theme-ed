@@ -21,7 +21,7 @@ async function initSearchIndex() {
   try {
     const response = await fetch('/index.json');
     pagesIndex = await response.json();
-    searchIndex = lunr(function () {
+    searchIndex = lunr(function () { // eslint-disable-line no-undef
       this.field('title');
       this.field('categories');
       this.field('tags');
@@ -238,7 +238,7 @@ function chunkify(input, chunkSize) {
     if (lastChunkIsUneven && i === totalChunks - 1) {
       end = input.length;
     }
-    output += input.slice(start, end) + " ";
+    output += input.slice(start, end) + ' ';
   }
   return output;
 }
@@ -266,17 +266,16 @@ function ellipsize(input, maxLength) {
   if (words.length <= maxLength) {
     return input;
   }
-  return input.slice(0, words[maxLength].end) + "...";
+  return input.slice(0, words[maxLength].end) + '...';
 }
 
 if (!String.prototype.matchAll) {
   String.prototype.matchAll = function (regex) {
-    "use strict";
     function ensureFlag(flags, flag) {
       return flags.includes(flag) ? flags : flags + flag;
     }
     function* matchAll(str, regex) {
-      const localCopy = new RegExp(regex, ensureFlag(regex.flags, "g"));
+      const localCopy = new RegExp(regex, ensureFlag(regex.flags, 'g'));
       let match;
       while ((match = localCopy.exec(str))) {
         match.index = localCopy.lastIndex - match[0].length;
