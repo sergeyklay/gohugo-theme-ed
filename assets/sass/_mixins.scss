@@ -78,9 +78,9 @@ $break-desktop: 1600px;
 
 @mixin transition($args...) {
   -webkit-transition: $args;
-      -moz-transition: $args;
+     -moz-transition: $args; // editorconfig-checker-disable-line
       -ms-transition: $args;
-        -o-transition: $args;
+       -o-transition: $args; // editorconfig-checker-disable-line
           transition: $args;
 }
 
@@ -91,9 +91,9 @@ $break-desktop: 1600px;
 // Usage: @include appearance(button);
 
 @mixin appearance($value) {
-  -webkit-appearance: none;
-      -moz-appearance: none;
-          appearance: none;
+  -webkit-appearance: $value;
+     -moz-appearance: $value; // editorconfig-checker-disable-line
+          appearance: $value;
 }
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  Placeholder
@@ -126,7 +126,7 @@ $break-desktop: 1600px;
 
 @mixin box-sizing ($value) {
   -webkit-box-sizing: $value;
-      -moz-box-sizing: $value;
+     -moz-box-sizing: $value; // editorconfig-checker-disable-line
           box-sizing: $value;
 }
 
@@ -137,7 +137,7 @@ $break-desktop: 1600px;
 
 @mixin box-shadow ($args...) {
   -webkit-box-shadow: $args;
-      -moz-box-shadow: $args;
+     -moz-box-shadow: $args; // editorconfig-checker-disable-line
           box-shadow: $args;
 }
 
@@ -148,7 +148,7 @@ $break-desktop: 1600px;
 
 @mixin border-radius ($args...) {
   -webkit-border-radius: $args;
-      -moz-border-radius: $args;
+     -moz-border-radius: $args; // editorconfig-checker-disable-line
           border-radius: $args;
 }
 
