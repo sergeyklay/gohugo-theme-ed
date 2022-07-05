@@ -5,9 +5,8 @@
     {{ $vendors = $vendors | append (resources.Get (printf "js/vendor/%s" .) ) }}
 {{- end -}}
 
-{{- /* TODO: Add support fpr more languages */ -}}
 {{- $vendors = $vendors | append (resources.Get "js/vendor/lunr.stemmer.support.js" ) -}}
-{{- $lunrLangs := slice "ru" -}}
+{{- $lunrLangs := slice "de" "es" "fr" "it" "pt" "ru" -}}
 {{- range $lunrLangs -}}
     {{ $vendors = $vendors | append (resources.Get (printf "js/vendor/lunr.%s.js" .) ) }}
 {{- end -}}

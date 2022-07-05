@@ -17,7 +17,17 @@ module:
       mounts:
         - source: lunr.stemmer.support.js
           target: assets/js/vendor/lunr.stemmer.support.js
-        - source: lunr.ru.js
-          target: assets/js/vendor/lunr.multi.js
         - source: lunr.multi.js
+          target: assets/js/vendor/lunr.multi.js
+        - source: lunr.de.js
+          target: assets/js/vendor/lunr.de.js
+        - source: lunr.es.js
+          target: assets/js/vendor/lunr.es.js
+        - source: lunr.fr.js
+          target: assets/js/vendor/lunr.fr.js
+        - source: lunr.it.js
+          target: assets/js/vendor/lunr.it.js
+        - source: lunr.pt.js
+          target: assets/js/vendor/lunr.pt.js
+        - source: lunr.ru.js
           target: assets/js/vendor/lunr.ru.js
