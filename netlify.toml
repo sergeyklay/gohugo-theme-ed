@@ -8,6 +8,10 @@
   # located at the absolute path "root/project/build-output"
   publish = 'public'
 
+[build.environment]
+  HUGO_VERSION = '0.101.0'
+  HUGO_ENABLEGITINFO = 'true'
+
 # Production context: all deploys from the Production branch
 # set in your site’s Branches settings in the UI will inherit
 # these settings. You can define environment variables
@@ -17,9 +21,7 @@
   command = 'hugo --enableGitInfo --source=exampleSite --destination ../public'
 
 [context.production.environment]
-  HUGO_VERSION = '0.101.0'
   HUGO_ENV = 'production'
-  HUGO_ENABLEGITINFO = 'true'
   HUGO_GOOGLEANALYTICS = 'G-DP9Q137C3X'
 
 # Deploy Preview context: all deploys generated from
@@ -28,9 +30,7 @@
   command = 'hugo --enableGitInfo --source=exampleSite --buildDrafts --buildFuture --baseURL ${DEPLOY_PRIME_URL} --destination ../public'
 
 [context.deploy-preview.environment]
-  HUGO_VERSION = '0.101.0'
   HUGO_ENV = 'development'
-  HUGO_ENABLEGITINFO = 'true'
 
 # Branch Deploy context: all deploys that are not from
 # a pull/merge request or from the Production branch
@@ -39,9 +39,7 @@
   command = 'hugo --enableGitInfo --source=exampleSite --buildDrafts --buildFuture --baseURL ${DEPLOY_PRIME_URL} --destination ../public'
 
 [context.branch-deploy.environment]
-  HUGO_VERSION = '0.101.0'
   HUGO_ENV = 'development'
-  HUGO_ENABLEGITINFO = 'true'
 
 # There are a basic set of standard security headers that every
 # website should set to help make your website more secure.
