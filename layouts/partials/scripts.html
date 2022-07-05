@@ -5,6 +5,14 @@
     {{ $vendors = $vendors | append (resources.Get (printf "js/vendor/%s" .) ) }}
 {{- end -}}
 
+{{- /* TODO: Add support fpr more languages */ -}}
+{{- $vendors = $vendors | append (resources.Get "js/vendor/lunr.stemmer.support.js" ) -}}
+{{- $lunrLangs := slice "ru" -}}
+{{- range $lunrLangs -}}
+    {{ $vendors = $vendors | append (resources.Get (printf "js/vendor/lunr.%s.js" .) ) }}
+{{- end -}}
+{{- $vendors = $vendors | append (resources.Get "js/vendor/lunr.multi.js" ) -}}
+
 {{- $vendors = $vendors | resources.Concat "js/vendor-bundle.js" -}}
 {{- if or (eq (getenv "HUGO_ENV") "production") (eq site.Params.env "production")  }}
     {{- $vendors = $vendors | minify -}}

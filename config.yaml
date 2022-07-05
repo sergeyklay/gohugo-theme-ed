@@ -13,3 +13,11 @@ module:
       mounts:
         - source: lunr.js
           target: assets/js/vendor/lunr.js
+    - path: github.com/MihaiValentin/lunr-languages
+      mounts:
+        - source: lunr.stemmer.support.js
+          target: assets/js/vendor/lunr.stemmer.support.js
+        - source: lunr.ru.js
+          target: assets/js/vendor/lunr.multi.js
+        - source: lunr.multi.js
+          target: assets/js/vendor/lunr.ru.js

@@ -40,6 +40,9 @@ async function initSearchIndex() {
 
     // Create the lunr index for the search
     searchIndex = lunr(function () { // eslint-disable-line no-undef
+      // TODO: Add support fpr more languages
+      this.use(lunr.multiLanguage('en', 'ru'));
+
       this.field('title');
       this.field('categories');
       this.field('tags');
