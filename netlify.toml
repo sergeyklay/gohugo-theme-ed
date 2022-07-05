@@ -46,19 +46,19 @@
 # There are a basic set of standard security headers that every
 # website should set to help make your website more secure.
 [[headers]]
-  for = "/*"
+  for = '/*'
   [headers.values]
     # This sets whether you want your website to be in a frame or not.
     # Most of the time you don’t, as it can open up a website to clickjacking.
-    X-Frame-Options = "DENY"
+    X-Frame-Options = 'DENY'
     # In older browsers and mainly Safari, this stops pages loading
     # when they detect reflected cross-site scripting attacks.
-    X-XSS-Protection = "1; mode=block"
+    X-XSS-Protection = '1; mode=block'
     # Used to stop browser from sniffing and changing MIME content type.
-    X-Content-Type-Options = "nosniff"
+    X-Content-Type-Options = 'nosniff'
     # This controls how much referrer information is included with
     # requests.
-    Referrer-Policy = "same-origin"
+    Referrer-Policy = 'same-origin'
     # Inform browsers that the site should only be accessed using HTTPS,
     # and that any future attempts to access it using HTTP should automatically
     # be converted to HTTPS.
@@ -70,10 +70,10 @@
     #           send a preload request to the server for the HTTPS version
     #           of the resource as soon as the user switches to the HTTPS
     #           version of the page.
-    Strict-Transport-Security = "max-age=31536000; includeSubDomains; preload"
+    Strict-Transport-Security = 'max-age=31536000; includeSubDomains; preload'
     # This used to be called Feature Policy and is mainly only support by
     # Chrome browsers. It’s used to control what browser APIs can be used.
-    Permissions-Policy = "accelerometer=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=(), interest-cohort=()"
+    Permissions-Policy = 'accelerometer=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=(), interest-cohort=()'
     # CSP makes it possible for server administrators to reduce or eliminate
     # the vectors by which XSS can occur by specifying the domains that the
     # browser should consider to be valid sources of executable scripts.
