@@ -26,7 +26,7 @@ function initConfig() {
   };
 
   try {
-    const config = JSON.parse($('#ed-data').html());
+    const config = JSON.parse(document.querySelector('#ed-data').innerHTML);
     return Object.assign({}, defaults, config);
   } catch (e) {
     return defaults;
@@ -58,8 +58,7 @@ async function initSearchIndex() {
 function handleSearchQuery(event) {
   event.preventDefault();
 
-  const query = $('#search').val().trim().toLowerCase();
-
+  const query = document.getElementById('search').value.trim().toLowerCase();
   if (!query) {
     displayErrorMessage(config.strings.searchEnterTerm);
     return;
@@ -113,17 +112,19 @@ function getLunrSearchQuery(query) {
 }
 
 function displayErrorMessage(message) {
-  $('.search-container').addClass('form-item-error');
-  $('.search-error-message').html(message);
-  $('.search-container').removeClass('focused');
-  $('.search-error').removeClass('hide-element');
+  const searchContainer = document.querySelector('.search-container');
+  searchContainer.classList.add('form-item-error');
+  searchContainer.classList.remove('focused');
+  document.querySelector('.search-error-message').innerHTML = message;
+  document.querySelector('.search-error').classList.remove('hide-element');
 }
 
 function hideErrorMessage() {
-  $('.search-container').removeClass('form-item-error');
-  $('.search-error-message').empty();
-  $('.search-container').addClass('focused');
-  $('.search-error').addClass('hide-element');
+  const searchContainer = document.querySelector('.search-container');
+  searchContainer.classList.add('focused');
+  searchContainer.classList.remove('form-item-error');
+  document.querySelector('.search-error').classList.add('hide-element');
+  document.querySelector('.search-error-message').innerHTML = '';
 }
 
 function handleClearSearchButtonClicked() {
@@ -134,9 +135,9 @@ function handleClearSearchButtonClicked() {
 }
 
 function hideSearchResults() {
-  $('#clear-search-results').addClass('hide-element');
-  $('#site-search').removeClass('expanded');
-  $('#search-results').addClass('hide-element');
+  document.getElementById('clear-search-results').classList.add('hide-element');
+  document.getElementById('site-search').classList.remove('expanded');
+  document.getElementById('search-results').classList.add('hide-element');
 }
 
 function renderSearchResults(query, results) {
@@ -147,26 +148,30 @@ function renderSearchResults(query, results) {
 }
 
 function clearSearchResults() {
-  $('#search-results-body').empty();
-  $('#results-count').empty();
+  document.getElementById('search-results-body').innerHTML = '';
+  document.getElementById('results-count').innerHTML = '';
 }
 
 function clearAndFocusSearchInput() {
-  $('.search-form-input').val('').focus();
+  const search = document.getElementById('search');
+  search.value = '';
+  search.focus();
 }
 
 function updateSearchResults(query, results) {
-  $('#search-results-body').html(results.map((hit) => `
-  <article class="post" data-score="${hit.score.toFixed(2)}">
-    <header>
-      <h2 class="post-title">
-      <a href="${hit.href}?utm_source=search" class="search-result-page-title">${hit.title}</a>
-      </h2>
-    </header>
-    <p class="post-content">${createSearchResultBlurb(query, hit.content)}</p>
-  </article>
-  `
-  ).join(''));
+  document.getElementById('search-results-body').innerHTML = results
+    .map((hit) => `
+    <article class="post" data-score="${hit.score.toFixed(2)}">
+      <header>
+        <h2 class="post-title">
+        <a href="${hit.href}?utm_source=search" class="search-result-page-title">${hit.title}</a>
+        </h2>
+      </header>
+      <p class="post-content">${createSearchResultBlurb(query, hit.content)}</p>
+    </article>
+    `
+    )
+    .join('');
 
   $('#results-count').html($('#search-results-body article').length);
 }
@@ -260,9 +265,9 @@ function chunkify(input, chunkSize) {
 }
 
 function showSearchResults() {
-  $('#search-results').removeClass('hide-element');
-  $('#site-search').removeClass('expanded');
-  $('#clear-search-results').removeClass('hide-element');
+  document.getElementById('search-results').classList.remove('hide-element');
+  document.getElementById('site-search').classList.remove('expanded');
+  document.getElementById('clear-search-results').classList.remove('hide-element');
 }
 
 function scrollToTop() {
@@ -302,26 +307,29 @@ if (!String.prototype.matchAll) {
   };
 }
 
-$(function() {
-  const searchForm = $('#search-form');
-  const searchInput = $('#search');
+document.addEventListener('DOMContentLoaded', function () {
+  const searchForm = document.getElementById('search-form');
+  const searchInput = document.getElementById('search');
+
   config = initConfig();
 
-  if (searchForm.length === 0 || searchInput.length === 0) {
+  if (searchForm === null || searchInput === null) {
     return;
   }
 
   initSearchIndex();
 
-  searchForm.submit((e) => {
+  searchForm.addEventListener('submit', (e) => {
     e.preventDefault();
   });
 
-  searchInput.on('keypress', (e) => {
-    if (e.which === 13) {
+  searchInput.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') {
       handleSearchQuery(e);
     }
   });
 
-  $('#clear-search-results').on('click', () => handleClearSearchButtonClicked());
+  document
+    .getElementById('clear-search-results')
+    .addEventListener('click', () => handleClearSearchButtonClicked());
 });

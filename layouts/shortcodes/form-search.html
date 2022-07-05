@@ -18,3 +18,14 @@
 </div>
 
 {{- partial "search-results" . -}}
+
+{{- $search := resources.Get "js/search.js" -}}
+{{- if or (eq (getenv "HUGO_ENV") "production") (eq site.Params.env "production")  }}
+    {{- $search = $search | minify -}}
+{{- end -}}
+{{- if not site.Params.assets.disable_fingerprinting -}}
+    {{- $search = $search | fingerprint -}}
+    <script src="{{ $search.RelPermalink }}" integrity="{{ $search.Data.Integrity }}"></script>
+{{- else -}}
+    <script src="{{ $search.RelPermalink }}"></script>
+{{- end -}}
