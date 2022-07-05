@@ -28,6 +28,8 @@ refLinksErrorLevel = 'WARNING'
 disableKinds = ['RSS']
 
 # Google Analytics Tracking ID.
+# Set `HUGO_ENV` environment variable or `site.Params.env` configuration
+# parameter to "production" to use Google Analytics.
 googleAnalytics = ''
 
 [minify]

@@ -35,12 +35,14 @@
     <script src="{{ $search.RelPermalink }}"></script>
 {{- end -}}
 
-{{- with site.GoogleAnalytics -}}
-    {{- $ga := resources.Get "js/ga.js" | minify -}}
-    {{- if not site.Params.assets.disable_fingerprinting -}}
-        {{- $ga = $ga | fingerprint -}}
-        <script src="{{ $ga.RelPermalink }}" integrity="{{ $ga.Data.Integrity }}"></script>
-    {{- else -}}
-        <script src="{{ $ga.RelPermalink }}"></script>
+{{- if or (eq (getenv "HUGO_ENV") "production") (eq site.Params.env "production")  }}
+    {{- with site.GoogleAnalytics -}}
+        {{- $ga := resources.Get "js/ga.js" | minify -}}
+        {{- if not site.Params.assets.disable_fingerprinting -}}
+            {{- $ga = $ga | fingerprint -}}
+            <script src="{{ $ga.RelPermalink }}" integrity="{{ $ga.Data.Integrity }}"></script>
+        {{- else -}}
+            <script src="{{ $ga.RelPermalink }}"></script>
+        {{- end -}}
     {{- end -}}
 {{- end -}}
