@@ -27,7 +27,7 @@ function initConfig() {
 
   try {
     const config = JSON.parse($('#ed-data').html());
-    return Object.assign(config, defaults);
+    return Object.assign({}, defaults, config);
   } catch (e) {
     return defaults;
   }
