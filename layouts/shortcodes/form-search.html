@@ -19,6 +19,25 @@
 
 {{- partial "search-results" . -}}
 
+{{- $vendors := slice (resources.Get "js/vendor/lunr.js") -}}
+{{- $vendors = $vendors | append (resources.Get "js/vendor/lunr.multi.js" ) -}}
+{{- $vendors = $vendors | append (resources.Get "js/vendor/lunr.stemmer.support.js" ) -}}
+{{- $lunrLangs := slice "de" "es" "fr" "it" "pt" "ru" -}}
+{{- range $lunrLangs -}}
+    {{ $vendors = $vendors | append (resources.Get (printf "js/vendor/lunr.%s.js" .) ) }}
+{{- end -}}
+
+{{- $vendors = $vendors | resources.Concat "js/lunr-bundle.js" -}}
+{{- if or (eq (getenv "HUGO_ENV") "production") (eq site.Params.env "production")  }}
+    {{- $vendors = $vendors | minify -}}
+{{- end -}}
+{{- if not site.Params.assets.disable_fingerprinting -}}
+    {{- $vendors = $vendors | fingerprint -}}
+    <script src="{{ $vendors.RelPermalink }}" integrity="{{ $vendors.Data.Integrity }}"></script>
+{{- else -}}
+    <script src="{{ $vendors.RelPermalink }}"></script>
+{{- end -}}
+
 {{- $search := resources.Get "js/search.js" -}}
 {{- if or (eq (getenv "HUGO_ENV") "production") (eq site.Params.env "production")  }}
     {{- $search = $search | minify -}}
