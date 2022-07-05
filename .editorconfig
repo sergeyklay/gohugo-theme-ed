@@ -12,7 +12,7 @@ trim_trailing_whitespace = true
 [*.md]
 trim_trailing_whitespace = false
 
-[*.{svg,css,scss,js,json,webmanifest,yaml,yml,toml,md,babelrc,eslintrc,postcssrc,stylelintrc,ecrc,gitattributes}]
+[*.{svg,css,scss,js,json,webmanifest,yaml,yml,toml,md,ecrc,gitattributes}]
 indent_size              = 2
 
 [layouts/**.{svg}]
