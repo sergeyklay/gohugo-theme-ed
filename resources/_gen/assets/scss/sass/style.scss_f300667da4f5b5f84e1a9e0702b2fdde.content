@@ -860,31 +860,13 @@ form input:-moz-ui-invalid {
 .hide-element {
   display: none; }
 
-.search-container {
-  width: 100%;
-  display: flex;
-  flex-flow: row nowrap;
-  align-items: center;
-  justify-content: space-evenly;
-  line-height: 1.3; }
-
-#site-search a {
-  color: #d9d9d9;
-  text-decoration: none; }
-
 #search-form .search-error.hide-element {
   display: none; }
 
 .search-item {
   font-weight: bold; }
 
-.search-error {
-  -webkit-transition: all 0.5s ease-out;
-  -moz-transition: all 0.5s ease-out;
-  -ms-transition: all 0.5s ease-out;
-  -o-transition: all 0.5s ease-out;
-  transition: all 0.5s ease-out; }
-
+.search-error,
 .search-error-message {
   -webkit-transition: all 0.5s ease-out;
   -moz-transition: all 0.5s ease-out;
