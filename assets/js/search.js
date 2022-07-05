@@ -173,7 +173,8 @@ function updateSearchResults(query, results) {
     )
     .join('');
 
-  $('#results-count').html($('#search-results-body article').length);
+  const searchResultListItems = document.querySelectorAll('#search-results-body article');
+  document.getElementById('results-count').innerHTML = searchResultListItems.length;
 }
 
 function createSearchResultBlurb(query, pageContent) {
