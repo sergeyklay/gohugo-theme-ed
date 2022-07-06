@@ -18,6 +18,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   `list.jsonfeed.json`
 - Load `ga.js` only on production mode
 
+### Removed
+
+- Remove no longer needed jQuery library
+
 ## [v0.4.0](https://github.com/sergeyklay/gohugo-theme-ed/compare/v0.3.0...v0.4.0)
 
 ### Added

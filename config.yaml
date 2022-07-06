@@ -5,10 +5,6 @@ module:
     min: '0.95.0'
 
   imports:
-    - path: github.com/jquery/jquery-dist
-      mounts:
-        - source: dist/jquery.js
-          target: assets/js/vendor/jquery.js
     - path: github.com/olivernn/lunr.js
       mounts:
         - source: lunr.js
