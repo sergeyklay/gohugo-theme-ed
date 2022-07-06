@@ -1,22 +1,3 @@
-{{- $vendors := slice -}}
-
-{{- $vendorNames := slice "jquery.js"  -}}
-{{- range $vendorNames -}}
-    {{ $vendors = $vendors | append (resources.Get (printf "js/vendor/%s" .) ) }}
-{{- end -}}
-
-{{- $vendors = $vendors | resources.Concat "js/vendor-bundle.js" -}}
-{{- if or (eq (getenv "HUGO_ENV") "production") (eq site.Params.env "production")  }}
-    {{- $vendors = $vendors | minify -}}
-{{- end -}}
-
-{{- if not site.Params.assets.disable_fingerprinting -}}
-    {{- $vendors = $vendors | fingerprint -}}
-    <script src="{{ $vendors.RelPermalink }}" integrity="{{ $vendors.Data.Integrity }}"></script>
-{{- else -}}
-    <script src="{{ $vendors.RelPermalink }}"></script>
-{{- end -}}
-
 {{- if or (eq (getenv "HUGO_ENV") "production") (eq site.Params.env "production")  }}
     {{- with site.GoogleAnalytics -}}
         {{- $ga := resources.Get "js/ga.js" | minify -}}
