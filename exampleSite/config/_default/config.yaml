@@ -13,6 +13,7 @@ defaultContentLanguage: en
 title: Ed.
 
 # Use full path to theme's repository in case of using Hugo Modules.
+# This is replaced in go.mod for exampleSite to point to the directory above.
 theme: github.com/sergeyklay/gohugo-theme-ed
 
 # You may need to delete this line for your real project.
@@ -148,157 +149,6 @@ author:
   twitter: john_doe
   location: 'Kyiv, Ukraine'
 
-languages:
-  en:
-    weight: 1
-    languageDirection: ltr
-    languageName: English
-
-params:
-  # Site description. Used in meta description
-  description: >-
-    Ed is a Hugo theme designed for textual editors based on minimal computing
-    principles, and focused on legibility and flexibility.
-
-  # SEO keywords. Used in 'meta name="keywords"' tag.
-  # May be overridden by .Keywords or .Tags in front matter.
-  keywords:
-    - hugo
-    - ed
-    - hugo theme
-    - minimal
-    - responsive
-    - clean
-
-  # A "copyright"-line to be added to RSS/Atom files.
-  # "&copy;" and "{year}" will be replaced by © and the current year.
-  copyright: 'Copyright &copy; 2019-{year} John Doe'
-
-  # Color scheme. Options: red, orange, magenta, cyan, blue, brown
-  colorScheme: ''
-
-  # Used in site header
-  tagline: a Hugo theme for minimal editions
-
-  # Custom footer text on left sidebar. Use HTMl if needed.
-  # "&copy;" and "{year}" will be replaced by © and the current year.
-  footer: >-
-    Built with <a href="https://github.com/sergeyklay/gohugo-theme-ed"
-    target="_blank" rel="noopener noreferrer">Ed</a>. Distributed under an MIT
-    license.
-
-  # Sections to be displayed in the main page, RSS/Atom feeds as well as search index.
-  mainSections:
-    - posts
-    - dramas
-    - narratives
-    - poems
-
-  # Posts date format, for example: 2006-01-02
-  dateFormat: ':date_long'
-  dateFormatToc: 2006.01.02
-
-  # Show "Read more" button in list if true
-  readmore: true
-
-  # RSS/Atom feed size
-  feedSize: 25
-
-  recentPostsSize: 5
-
-  contact:
-    # Forms Backend URL, used in contacts form
-    formAction: 'https://submit-form.com/example'
-
-    # Contact form email subject
-    emailSubject: Contact form submission
-
-    # Where should the user be redirected after successful form submit?
-    thanksUrl: /thanks
-
-  # Site icons, relative to ./static
-  assets:
-    # favicon.ico for legacy browsers
-    favicon: ''
-
-    # A single SVG icon with a light/dark version for modern browsers
-    svgicon: ''
-
-    # 180×180 PNG image for Apple devices
-    apple_touch_icon: ''
-
-    # Logo image, relative to ./assets
-    logo: /img/open-graph-logo.png
-    disable_fingerprinting: false
-  seo:
-    # Will be used in schema.org/Organization.
-    # The site.Title  will be used if empty.
-    publisher: Serghei Iakovlev
-
-social:
-  # Facebook Page Admin ID for Domain Insights
-  facebook_admin: ''
-
-  # Facebook Page ID
-  facebook_id: ''
-
-  # Twitter username for the website
-  twitter: john_doe
-
-# For more see https://gohugo.io/content-management/menus/
-menu:
-  main:                # sections in the website sidebar
-    - identifier: home # section id
-      name: Home       # section display title
-      url: /           # path to the section
-      weight: 1        # order of sections
-
-    - identifier: about
-      name: About
-      url: /about/
-      weight: 2
-
-    - identifier: credits
-      name: Credits
-      url: /credits/
-      weight: 3
-
-    - identifier: documentation
-      name: Documentation
-      url: /documentation/
-      weight: 4
-
-    - identifier: search
-      name: Search
-      url: /search/
-      weight: 5
-
-    - identifier: contact
-      name: Contact
-      url: /contact/
-      weight: 6
-
-    - identifier: github
-      name: GitHub Project
-      url: 'https://github.com/sergeyklay/gohugo-theme-ed/'
-      weight: 20
-      params:
-        external: true
-
-  feeds:
-    - identifier: rss
-      name: RSS 2.0
-      url: /feeds/feed.rss.xml
-      weight: 1
-    - identifier: atom
-      name: Atom
-      url: /feeds/feed.atom.xml
-      weight: 2
-    - identifier: json
-      name: Json Feed
-      url: /feeds/feed.json
-      weight: 3
-
 # For more see https://gohugo.io/getting-started/configuration-markup/
 markup:
   defaultMarkdownHandler: goldmark
@@ -321,3 +171,8 @@ frontmatter:
     - ':git'
     - date
     - publishDate
+
+module:
+  hugoVersion:
+    extended: true
+    min: '0.95.0'
