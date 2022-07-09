@@ -2,7 +2,7 @@
   "name": "ed",
   "version": "0.5.0",
   "private": true,
-  "description": "Ed theme for minimal editions, based on Alex Gil theme",
+  "description": "Ed theme for minimal editions, based on Alex Gil theme.",
   "keywords": [
     "hugo",
     "theme",
@@ -17,7 +17,7 @@
     "url": "git+https://github.com/sergeyklay/gohugo-theme-ed.git"
   },
   "license": "MIT",
-  "author": "Serghei Iakovlev",
+  "author": "Serghei Iakovlev <egrep@protonmail.ch>",
   "main": "index.js",
   "scripts": {
     "server": "HUGO_ENV=development hugo server --verbose --source=exampleSite --buildDrafts --buildFuture --ignoreCache --disableFastRender",
