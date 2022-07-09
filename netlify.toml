@@ -18,7 +18,7 @@
 # here but we recommend using the Netlify UI for sensitive
 # values to keep them out of your source repository.
 [context.production]
-  command = 'hugo --source=exampleSite --destination ../public'
+  command = 'echo "---\nenv\n---\n~~~ bash\n$(env)\n~~~" >| exampleSite/content/env.md; hugo --source=exampleSite --destination ../public'
 
 [context.production.environment]
   HUGO_ENV = 'production'
