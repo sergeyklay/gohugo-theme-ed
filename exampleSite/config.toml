@@ -12,8 +12,8 @@ defaultContentLanguage = 'en'
 #     title of the page. Eg. "Contacts - Ed."
 title = 'Ed.'
 
-# You may need to change this line for your real project.
-theme = ['github.com/sergeyklay/gohugo-theme-ed']
+# Use full path to theme's repository in case of using Hugo Modules.
+theme = 'github.com/sergeyklay/gohugo-theme-ed'
 
 # You may need to delete this line for your real project.
 resourceDir = '../resources'
