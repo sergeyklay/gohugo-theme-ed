@@ -1,0 +1,53 @@
+# For more see https://gohugo.io/content-management/menus/
+
+main:                # sections in the website sidebar
+  - identifier: home # section id
+    name: Home       # section display title
+    url: /           # path to the section
+    weight: 1        # order of sections
+
+  - identifier: about
+    name: About
+    url: /about/
+    weight: 2
+
+  - identifier: credits
+    name: Credits
+    url: /credits/
+    weight: 3
+
+  - identifier: documentation
+    name: Documentation
+    url: /documentation/
+    weight: 4
+
+  - identifier: search
+    name: Search
+    url: /search/
+    weight: 5
+
+  - identifier: contact
+    name: Contact
+    url: /contact/
+    weight: 6
+
+  - identifier: github
+    name: GitHub Project
+    url: 'https://github.com/sergeyklay/gohugo-theme-ed/'
+    weight: 20
+    params:
+      external: true
+
+feeds:
+  - identifier: rss
+    name: RSS 2.0
+    url: /feeds/feed.rss.xml
+    weight: 1
+  - identifier: atom
+    name: Atom
+    url: /feeds/feed.atom.xml
+    weight: 2
+  - identifier: json
+    name: Json Feed
+    url: /feeds/feed.json
+    weight: 3

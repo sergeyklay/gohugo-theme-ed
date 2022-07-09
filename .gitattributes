@@ -22,6 +22,7 @@ resources/_gen/** linguist-generated
 *.asc             linguist-language=Public Key
 *.md              linguist-detectable=true linguist-documentation=false
 *.webmanifest     linguist-language=JSON
+*.yaml            linguist-detectable=true
 
 CHANGELOG.md      linguist-detectable=false linguist-documentation=true
 CONTRIBUTING.md   linguist-detectable=false linguist-documentation=true
@@ -37,8 +38,8 @@ SECURITY.md       linguist-detectable=false linguist-documentation=true
 # plus any specific settings
 #
 
-CONTRIBUTING.md  text eol=lf
 CHANGELOG.md     text eol=lf
+CONTRIBUTING.md  text eol=lf
 LICENSE          text eol=lf
 README.md        text eol=lf
 SECURITY.md      text eol=lf

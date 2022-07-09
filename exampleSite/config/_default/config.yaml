@@ -1,0 +1,179 @@
+# You may need to change this line for your real project.
+baseURL: 'https://gohugo-theme-ed.netlify.app/'
+
+languageCode: en-us
+defaultContentLanguage: en
+
+# Keep title short to prevent overflow.
+# There’s no official guidance on this, but 40 characters for
+# mobile and 60 for desktop is roughly the sweet spot.
+#
+# NB: Final title of shareable pages will be this plus the
+#     title of the page. Eg. "Contacts - Ed."
+title: Ed.
+
+# Use full path to theme's repository in case of using Hugo Modules.
+# This is replaced in go.mod for exampleSite to point to the directory above.
+theme: github.com/sergeyklay/gohugo-theme-ed
+
+enableRobotsTXT: true
+
+# When using ref or relref to resolve page links and a link cannot
+# resolved, it will be logged with this log level.
+refLinksErrorLevel: WARNING
+
+# Kick out RSS, we'll use Atom and FEED bellow.
+disableKinds:
+  - RSS
+
+# Google Analytics Tracking ID.
+#
+# For more info, read the article
+# https://support.google.com/analytics/answer/10089681
+#
+# Set `HUGO_ENV` environment variable or `site.Params.env` configuration
+# parameter to "production" to use Google Analytics.
+googleAnalytics: ''
+
+minify:
+  # Do not minify XML files to avoid CDATA escape issues
+  disableXML: true
+
+outputs:
+  home:
+    - HTML
+    - Atom
+    - FEED
+    - JSONFEED
+    - JSON
+    - MANIFEST
+    - humanstxt
+  section:
+    - HTML
+    - Atom
+    - FEED
+    - JSONFEED
+  page:
+    - HTML
+  taxonomy:
+    - HTML
+  term:
+    - HTML
+
+outputFormats:
+  # For more see: https://validator.w3.org/feed/docs/atom.html#whatIsAtom
+  Atom:
+    name: Atom
+    # The correct header Content-Type header for an Atom feed is
+    # application/atom+xml. However, Chromium does not handle it
+    # correctly (see https://code.google.com/p/chromium/issues/detail?id=104358).
+    #
+    # The most compatible header is 'text/xml; charset=utf-8', which
+    # will cause the feed to be parsed correctly by most clients.
+    # Note that you should be encoding your feed in UTF-8.
+    mediaType: text/xml
+    # generated file = <baseName>.<mediaType.'text/xml'.suffixes[0]> = feeds/feed.atom.xml
+    baseName: feeds/feed.atom
+    rel: alternate
+    isPlainText: false
+    isHTML: false
+    noUgly: true
+    permalinkable: false
+
+  FEED:
+    name: Feed
+    mediaType: text/xml
+    baseName: feeds/feed.rss
+    rel: alternate
+    isPlainText: false
+    isHTML: false
+    noUgly: true
+    permalinkable: false
+
+  # For more see: https://www.jsonfeed.org/
+  JSONFEED:
+    name: JsonFeed
+    mediaType: application/feed+json
+    baseName: feeds/feed
+    rel: alternate
+    isPlainText: true
+    isHTML: false
+    noUgly: false
+
+  MANIFEST:
+    # The .webmanifest extension is specified in the Media type registration
+    # section of the specification (the response of the manifest file should
+    # return Content-Type: application/manifest+json).
+    #
+    # For more see: https://w3c.github.io/manifest/#media-type-registration=
+    name: Manifest
+    mediaType: application/manifest+json
+    baseName: manifest
+    rel: manifest
+    isPlainText: true
+    isHTML: false
+    noUgly: false
+    notAlternative: true
+
+  # For more see: https://gohugo.io/templates/output-formats/
+  humanstxt:
+    mediaType: text/plain
+    baseName: humans
+    rel: author
+    isPlainText: true
+    isHTML: false
+    noUgly: true
+    permalinkable: false
+    notAlternative: true
+
+mediaTypes:
+  text/xml:
+    suffixes:
+      - xml
+  application/feed+json:
+    suffixes:
+      - json
+  application/manifest+json:
+    suffixes:
+      - webmanifest
+
+# Sitemap config
+sitemap:
+  changefreq: weekly
+  filename: sitemap.xml
+  priority: 0.5
+
+author:
+  name: John Doe
+  email: john@example.com
+  github: john_doe
+  twitter: john_doe
+  location: 'Kyiv, Ukraine'
+
+# For more see https://gohugo.io/getting-started/configuration-markup/
+markup:
+  defaultMarkdownHandler: goldmark
+  highlight:
+    # Syntax highlight style.
+    # For more see https://xyproto.github.io/splash/docs/
+    style: emacs
+  goldmark:
+    parser:
+      attribute:
+      # Enable custom attribute support for blocks
+        block: true
+
+# If enableGitInfo is true, it will override any lastmod dates in our
+# front matter. We should at least allow ourselves to manually override
+# this value in the front matter.
+frontmatter:
+  lastmod:
+    - lastmod
+    - ':git'
+    - date
+    - publishDate
+
+module:
+  hugoVersion:
+    extended: true
+    min: '0.95.0'

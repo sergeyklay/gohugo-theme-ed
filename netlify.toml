@@ -27,7 +27,7 @@
 # Deploy Preview context: all deploys generated from
 # a pull/merge request will inherit these settings.
 [context.deploy-preview]
-  command = 'hugo --source=exampleSite --buildDrafts --buildFuture --baseURL ${DEPLOY_PRIME_URL} --destination ../public'
+  command = './netlify-update-csp-headers.rb; hugo --source=exampleSite --buildDrafts --buildFuture --baseURL ${DEPLOY_PRIME_URL} --destination ../public'
 
 [context.deploy-preview.environment]
   HUGO_ENV = 'development'
@@ -89,7 +89,7 @@
     # (including inline scripts and event-handling HTML attributes).
     Content-Security-Policy = """
     default-src 'self';
-    script-src 'self' *.netlify.app *.netlify.com *.googletagmanager.com;
+    script-src 'self' *.googletagmanager.com;
     style-src 'self';
     img-src 'self' data: *.google-analytics.com *.googletagmanager.com *.gstatic.com;
     font-src 'self';
