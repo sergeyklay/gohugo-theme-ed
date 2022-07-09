@@ -20,22 +20,34 @@ To install and use Ed you will be using your terminal. If you need a refresher, 
 
 Before starting, please be sure that you have [installed Hugo](https://gohugo.io/getting-started/quick-start/#step-1-install-hugo) and [created a new site](https://gohugo.io/getting-started/quick-start/#step-2-create-a-new-site). After that, you are ready to install Ed.
 
-The first step to install Ed is to download the source files from GitHub. To do so you must have git installed on your computer. You probably have git already, but if you don't, the easiest way is probably to install [Github Desktop](https://desktop.github.com/) (even though we will be using git and github from the terminal in this tutorial). Mac users may want to ensure they have [Xcode](https://developer.apple.com/xcode/) and its command line tools installed as well. To check if git is running on your system enter the following line on your terminal (remember to ignore the $):
+Please note, to install Ed, you must have [Go >= 1.12](https://golang.org/dl/) installed on your computer. You probably have Go already, but if you don't, the easiest way is probably to install is to follow [Go installation instruction](https://go.dev/doc/install). To check if Go is running on your system enter the following line on your terminal (remember to ignore the `$`):
 
 ~~~ bash
-$ git --version
+$ go version
 ~~~
 
-If you don't get an error, you're good to go. Using the `cd` command on your terminal, navigate to the folder where you keep your web projects. Once you're in the folder where project live, download it from github using the following line (remember you can copy and paste):
+If you don't get an error, you're good to go. Using the `cd` command on your terminal, navigate to the folder where you keep your web projects. Once you're in the folder where project live, initialize the Hugo Module system using the following line (replace `<your_user>` and `<your_project>` by real names):
 
 ~~~ bash
-$ git clone https://github.com/sergeyklay/gohugo-theme-ed.git themes/ed
+$ hugo mod init github.com/<your_user>/<your_project>
 ~~~
 
-Or, if you don't plan to make any significant changes but want to track and update the theme, you can add it as a git submodule via the following command:
+Take a look inside the [`exampleSite`](https://github.com/sergeyklay/gohugo-theme-ed/tree/master/exampleSite) folder of this theme. You'll find a file called [`config.toml`](https://github.com/sergeyklay/gohugo-theme-ed/blob/master/exampleSite/config.toml). To use it, copy the [`config.toml`](https://github.com/sergeyklay/gohugo-theme-ed/blob/master/exampleSite/config.toml) in the root folder of your Hugo site. Feel free to change the strings in this theme.
+
+You will need to delete the following line: `resourceDir = '../resources'`, because it's necessary only for theme developers.
+
+After that, import the theme adding the following lines to `config.yaml`:
+
+~~~ toml
+[module]
+[[module.imports]]
+  path = 'github.com/sergeyklay/gohugo-theme-ed'
+~~~
+
+Finally, install Hugo Modules using the following command (remember you can copy and paste):
 
 ~~~ bash
-$ git submodule add https://github.com/sergeyklay/gohugo-theme-ed.git themes/ed
+$ hugo mod get
 ~~~
 
 ---
@@ -44,17 +56,7 @@ $ git submodule add https://github.com/sergeyklay/gohugo-theme-ed.git themes/ed
 
 After installing the theme successfully it requires a just a few more steps to get your site running.
 
----
-
-### The config file
-
-Take a look inside the [`exampleSite`](https://github.com/sergeyklay/gohugo-theme-ed/tree/master/exampleSite) folder of this theme. You'll find a file called [`config.toml`](https://github.com/sergeyklay/gohugo-theme-ed/blob/master/exampleSite/config.toml). To use it, copy the [`config.toml`](https://github.com/sergeyklay/gohugo-theme-ed/blob/master/exampleSite/config.toml) in the root folder of your Hugo site. Feel free to change the strings in this theme.
-
-You may need to delete the line: `resourceDir = '../resources'`, because it's necessary only for theme developers. Also, make sure  the theme option is set to `ed`:
-
-~~~ toml
-theme = "ed"
-~~~
+If you create a new Hugo project, the `content` folder is blank by default. You can copy the `content` folder from `exampleSite/content` to the project root directory to preview.
 
 To see if Ed is working properly we will take advantage of Hugo's built in server. You can build the first version of your site and run the Hugo server at the same time by entering:
 
