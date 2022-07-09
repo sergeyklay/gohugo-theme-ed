@@ -16,9 +16,6 @@ title: Ed.
 # This is replaced in go.mod for exampleSite to point to the directory above.
 theme: github.com/sergeyklay/gohugo-theme-ed
 
-# You may need to delete this line for your real project.
-resourceDir: ../resources
-
 enableRobotsTXT: true
 
 # When using ref or relref to resolve page links and a link cannot
@@ -30,6 +27,10 @@ disableKinds:
   - RSS
 
 # Google Analytics Tracking ID.
+#
+# For more info, read the article
+# https://support.google.com/analytics/answer/10089681
+#
 # Set `HUGO_ENV` environment variable or `site.Params.env` configuration
 # parameter to "production" to use Google Analytics.
 googleAnalytics: ''

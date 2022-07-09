@@ -26,15 +26,13 @@ Please note, to install Ed, you must have [Go >= 1.12](https://golang.org/dl/) i
 $ go version
 ~~~
 
-If you don't get an error, you're good to go. Using the `cd` command on your terminal, navigate to the folder where you keep your web projects. Once you're in the folder where project live, initialize the Hugo Module system using the following line (replace `<your_user>` and `<your_project>` by real names):
+If you don't get an error, you're good to go. Using the `cd` command on your terminal, navigate to the folder where you keep your web projects. Once you're in the folder where project live, initialize the [Hugo Modules](https://gohugo.io/hugo-modules) system using the following line (replace `<your_user>` and `<your_project>` by real names):
 
 ~~~ bash
 $ hugo mod init github.com/<your_user>/<your_project>
 ~~~
 
 Take a look inside the [`exampleSite`](https://github.com/sergeyklay/gohugo-theme-ed/tree/master/exampleSite) folder of this theme. You'll find a folder called [`config`](https://github.com/sergeyklay/gohugo-theme-ed/blob/master/exampleSite/config). Copy the [`config`](https://github.com/sergeyklay/gohugo-theme-ed/blob/master/exampleSite/config) folder in the project root of your Hugo site. Check the contents of the `config` folder and configure it.
-
-You will need to delete the following line: `resourceDir = '../resources'`, because it's necessary only for theme developers.
 
 After that, import the theme adding the following lines to `config/_default/config.yaml`:
 
