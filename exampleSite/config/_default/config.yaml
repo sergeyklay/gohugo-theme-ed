@@ -1,5 +1,5 @@
 # You may need to change this line for your real project.
-baseURL: 'https://gohugo-theme-ed.netlify.app/'
+baseURL: /
 
 languageCode: en-us
 defaultContentLanguage: en
