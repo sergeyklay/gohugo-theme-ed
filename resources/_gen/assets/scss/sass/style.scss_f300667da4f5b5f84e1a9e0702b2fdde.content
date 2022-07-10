@@ -864,7 +864,8 @@ form input:-moz-ui-invalid {
   display: none; }
 
 .search-item {
-  font-weight: bold; }
+  font-weight: bold;
+  background-color: #ffff54; }
 
 .search-error,
 .search-error-message {
