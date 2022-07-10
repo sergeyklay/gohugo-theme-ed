@@ -40,25 +40,11 @@ minify:
   disableXML: true
 
 outputs:
-  home:
-    - HTML
-    - Atom
-    - FEED
-    - JSONFEED
-    - JSON
-    - MANIFEST
-    - humanstxt
-  section:
-    - HTML
-    - Atom
-    - FEED
-    - JSONFEED
-  page:
-    - HTML
-  taxonomy:
-    - HTML
-  term:
-    - HTML
+  home: [HTML, Atom, FEED, JSONFEED, JSON, MANIFEST, humanstxt]
+  section: [HTML, Atom, FEED, JSONFEED]
+  page: [HTML]
+  taxonomy: [HTML]
+  term: [HTML]
 
 outputFormats:
   # For more see: https://validator.w3.org/feed/docs/atom.html#whatIsAtom

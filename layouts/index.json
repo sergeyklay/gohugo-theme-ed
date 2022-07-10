@@ -1,0 +1,25 @@
+{{- $pages := slice -}}
+
+{{- $mainSections := site.Params.mainSections | default (slice "posts") }}
+{{- $pages = where site.RegularPages.ByDate.Reverse "Type" "in" $mainSections -}}
+
+{{- $.Scratch.Add "pagesIndex" slice -}}
+{{- $.Scratch.Add "urlsAdded" slice -}}
+
+{{- range $index, $page := $pages -}}
+  {{- if gt (len $page.Content) 0 -}}
+    {{- if not (in ($.Scratch.Get "urlsAdded") $page.Permalink) -}}
+      {{- $pageData := (dict
+        "title" $page.Title
+        "href" $page.Permalink
+        "tags" (delimit ($page.Params.tags | default slice) " ; ")
+        "categories" (delimit ($page.Params.categories | default slice) " ; ")
+        "content" $page.Plain
+      ) -}}
+      {{- $.Scratch.Add "pagesIndex" $pageData -}}
+      {{- $.Scratch.Add "urlsAdded" $page.Permalink -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+
+{{- $.Scratch.Get "pagesIndex" | jsonify -}}

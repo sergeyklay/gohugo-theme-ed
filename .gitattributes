@@ -29,6 +29,7 @@ CONTRIBUTING.md   linguist-detectable=false linguist-documentation=true
 README.md         linguist-detectable=false linguist-documentation=true
 SECURITY.md       linguist-detectable=false linguist-documentation=true
 
+/layouts/index.json        linguist-language=HTML
 /layouts/_default/list.*.* linguist-language=HTML
 /layouts/_default/home.*.* linguist-language=HTML
 
