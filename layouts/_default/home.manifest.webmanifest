@@ -1,4 +1,5 @@
-{{- $uuid := sha1 (printf "%s/index.html?homescreen=1" site.BaseURL) -}}
+{{- $url := "index.html?source=pwa" -}}
+{{- $uuid := sha1 (printf "%s/%s" site.BaseURL $url) -}}
 {
   "$schema": "https://json.schemastore.org/web-manifest",
   "id": "{{ substr $uuid 0 8 }}-{{ substr $uuid 8 4 }}-5{{ substr $uuid 13 3 }}-{{ substr $uuid 16 1 }}9{{ substr $uuid 17 2 }}-{{ substr $uuid 21 12 }}",
@@ -7,7 +8,7 @@
   {{ with site.Params.description }}"description": {{ . | htmlUnescape | jsonify }},{{ end }}
   "lang": "{{ site.LanguageCode | default site.Language.Lang }}",{{ with partialCached "func/GetLanguageDirection" "GetLanguageDirection" }}
   "dir": {{ . | jsonify }},{{ end }}
-  "start_url": "/index.html?homescreen=1",
+  "start_url": {{ (printf "/%s" $url) | jsonify }},
   "display": "fullscreen",
   "theme_color": "#ffffff",
   "background_color": "#ffffff",

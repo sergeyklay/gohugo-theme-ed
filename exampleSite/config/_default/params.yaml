@@ -30,7 +30,11 @@ footer: >-
   target="_blank" rel="noopener noreferrer">Ed</a>. Distributed under an MIT
   license.
 
-# Sections to be displayed in the main page, RSS/Atom feeds as well as search index.
+# Sections to be displayed in:
+# - main page
+# - RSS/Atom/Json feeds
+# - search index
+# - ...
 mainSections:
   - posts
   - dramas
