@@ -153,7 +153,6 @@ function handleClearSearchButtonClicked() {
 }
 
 function hideSearchResults() {
-  document.getElementById('clear-search-results').classList.add('hide-element');
   document.getElementById('site-search').classList.remove('expanded');
   document.getElementById('search-results').classList.add('hide-element');
 }
@@ -284,7 +283,6 @@ function chunkify(input, chunkSize) {
 function showSearchResults() {
   document.getElementById('search-results').classList.remove('hide-element');
   document.getElementById('site-search').classList.remove('expanded');
-  document.getElementById('clear-search-results').classList.remove('hide-element');
 }
 
 function scrollToTop() {
@@ -308,10 +306,14 @@ function ellipsize(input, maxLength) {
 }
 
 // RegExp.escape() polyfill
-if (!RegExp.escape) {
+//
+// For more see:
+// - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions#Escaping
+// - https://github.com/benjamingr/RegExp.escape/issues/37
+if (!Object.prototype.hasOwnProperty.call(RegExp, 'escape')) {
   RegExp.escape = function(str) {
     // $& means the whole matched string
-    return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    return str.replace(/[.*+\-?^${}()|[\]\\]/g, '\\$&');
   };
 }
 
@@ -348,13 +350,5 @@ document.addEventListener('DOMContentLoaded', function () {
     e.preventDefault();
   });
 
-  searchInput.addEventListener('keydown', (e) => {
-    if (e.key === 'Enter') {
-      handleSearchQuery(e);
-    }
-  });
-
-  document
-    .getElementById('clear-search-results')
-    .addEventListener('click', () => handleClearSearchButtonClicked());
+  searchInput.addEventListener('keyup', (e) => handleSearchQuery(e));
 });

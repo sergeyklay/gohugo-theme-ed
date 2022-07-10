@@ -10,14 +10,17 @@
             </div>
         </div>
     </form>
-    <div id="clear-search-results" class="form-item hide-element">
-        <button class="button button-large" type="reset">
-            {{ i18n "clear_search_results" }}
-        </button>
-    </div>
 </div>
 
-{{- partial "search-results" . -}}
+<section id="search-results" class="hide-element">
+    <div id="search-results-header">
+        <div class="search-query search-query-right">
+            <span id="results-count-text">{{ i18n "search_results" }}</span>
+            <span id="results-count"></span>
+        </div>
+    </div>
+    <div id="search-results-body" class="post-list"></div>
+</section>
 
 {{- $vendors := slice (resources.Get "js/vendor/lunr.js") -}}
 {{- $vendors = $vendors | append (resources.Get "js/vendor/lunr.multi.js" ) -}}

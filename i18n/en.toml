@@ -53,13 +53,10 @@
   other = 'Contents'
 
 [search_help]
-  other = "To search the site, enter a search term and press Enter."
+  other = "To search the site, enter a search term."
 
 [search_site]
   other = 'Search site'
-
-[clear_search_results]
-  other = 'New Search'
 
 [search_enter_term]
   other = 'Please enter a search term.'
