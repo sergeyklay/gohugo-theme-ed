@@ -17,11 +17,23 @@ const SENTENCE_BOUNDARY_REGEX = /\b\.\s/gm;
 // in the blurb as it is being built.
 const WORD_REGEX = /\b(\w*)[\W|\s|\b]?/gm;
 
+function buildPath(...args) {
+  return args.map((part, i) => {
+    if (i === 0) {
+      return part.trim().replace(/[/]*$/g, '');
+    }
+    return part.trim().replace(/(^[/]*|[/]*$)/g, '');
+  }).filter(x=>x.length).join('/');
+}
+
 function initConfig() {
   const defaults = {
     strings: {
       searchEnterTerm: 'Please enter a search term.',
       searchNoResults: 'No results found.'
+    },
+    site: {
+      baseUrl: '/'
     }
   };
 
@@ -35,7 +47,11 @@ function initConfig() {
 
 async function initSearchIndex() {
   try {
-    const response = await fetch('/index.json');
+    const url = buildPath(config.site.baseUrl, 'index.json');
+    const response = await fetch(url);
+
+    if (response.status !== 200) return;
+
     pagesIndex = await response.json();
 
     // Create the lunr index for the search
@@ -91,6 +107,8 @@ function searchSite(query) {
 }
 
 function getSearchResults(query) {
+  if (typeof searchIndex === 'undefined') return [];
+
   return searchIndex.search(query).flatMap((hit) => {
     if (hit.ref === 'undefined') return [];
     let pageMatch = pagesIndex.filter((page) => page.href === hit.ref)[0];
@@ -178,15 +196,21 @@ function updateSearchResults(query, results) {
 }
 
 function createSearchResultBlurb(query, pageContent) {
+  // g: Global search
+  // m: Multi-line search
+  // i: Case-insensitive search
   const searchQueryRegex = new RegExp(createQueryStringRegex(query), 'gmi');
+
   const searchQueryHits = Array.from(
     pageContent.matchAll(searchQueryRegex),
     (m) => m.index
   );
+
   const sentenceBoundaries = Array.from(
     pageContent.matchAll(SENTENCE_BOUNDARY_REGEX),
     (m) => m.index
   );
+
   let parsedSentence = '';
   let searchResultText = '';
   let lastEndOfSentence = 0;
@@ -217,16 +241,8 @@ function createSearchResultBlurb(query, pageContent) {
 }
 
 function createQueryStringRegex(query) {
-  const searchTerms = query.split(' ');
-  if (searchTerms.length === 1) {
-    return query;
-  }
-  query = '';
-  for (const term of searchTerms) {
-    query += `${term}|`;
-  }
-  query = query.slice(0, -1);
-  return `(${query})`;
+  let escaped = RegExp.escape(query);
+  return escaped.split(' ').length === 1 ? `(${escaped})` : `(${escaped.split(' ').join('|')})`;
 }
 
 function tokenize(input) {
@@ -291,6 +307,15 @@ function ellipsize(input, maxLength) {
   return input.slice(0, words[maxLength].end) + '...';
 }
 
+// RegExp.escape() polyfill
+if (!RegExp.escape) {
+  RegExp.escape = function(str) {
+    // $& means the whole matched string
+    return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  };
+}
+
+// 'string'.matchAll(str, regex) polyfill
 if (!String.prototype.matchAll) {
   String.prototype.matchAll = function (regex) {
     function ensureFlag(flags, flag) {
@@ -312,12 +337,11 @@ document.addEventListener('DOMContentLoaded', function () {
   const searchForm = document.getElementById('search-form');
   const searchInput = document.getElementById('search');
 
-  config = initConfig();
-
   if (searchForm === null || searchInput === null) {
     return;
   }
 
+  config = initConfig();
   initSearchIndex();
 
   searchForm.addEventListener('submit', (e) => {
