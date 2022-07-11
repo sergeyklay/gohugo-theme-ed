@@ -2,13 +2,6 @@
     {
         "analytics_code": {{ site.GoogleAnalytics | default "" }},
         "page_title": {{- partial "title.html" . -}},
-        "language": {{ site.LanguageCode | default site.Language.Lang }},
-        "strings": {
-            "searchEnterTerm": {{ i18n "search_enter_term" }},
-            "searchNoResults": {{ i18n "search_no_results" }}
-        },
-        "site": {
-            "baseUrl": {{ site.BaseURL }}
-        }
+        "language": {{ site.LanguageCode | default site.Language.Lang }}
     }
 </script>

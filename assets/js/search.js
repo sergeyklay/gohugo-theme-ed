@@ -1,10 +1,6 @@
-'use strict';
+import {searchConfig, i18n} from '@params';
 
-let config, pagesIndex, searchIndex;
-
-// Maximum length (in words) of each text blurb. You can change this
-// value if you find that 100 is too short or too long for your taste.
-const MAX_SUMMARY_LENGTH = 100;
+let pagesIndex, searchIndex;
 
 // Since the blurb is comprised of full sentences containing any search
 // term, we need a way to identify where each sentence begins/ends. This
@@ -17,38 +13,9 @@ const SENTENCE_BOUNDARY_REGEX = /\b\.\s/gm;
 // in the blurb as it is being built.
 const WORD_REGEX = /\b(\w*)[\W|\s|\b]?/gm;
 
-function buildPath(...args) {
-  return args.map((part, i) => {
-    if (i === 0) {
-      return part.trim().replace(/[/]*$/g, '');
-    }
-    return part.trim().replace(/(^[/]*|[/]*$)/g, '');
-  }).filter(x=>x.length).join('/');
-}
-
-function initConfig() {
-  const defaults = {
-    strings: {
-      searchEnterTerm: 'Please enter a search term.',
-      searchNoResults: 'No results found.'
-    },
-    site: {
-      baseUrl: '/'
-    }
-  };
-
-  try {
-    const config = JSON.parse(document.querySelector('#ed-data').innerHTML);
-    return Object.assign({}, defaults, config);
-  } catch (e) {
-    return defaults;
-  }
-}
-
 async function initSearchIndex() {
   try {
-    const url = buildPath(config.site.baseUrl, 'index.json');
-    const response = await fetch(url);
+    const response = await fetch(searchConfig.indexURI);
 
     if (response.status !== 200) return;
 
@@ -58,6 +25,7 @@ async function initSearchIndex() {
     searchIndex = lunr(function () { // eslint-disable-line no-undef
       this.use(lunr.multiLanguage('de', 'en', 'es', 'fr', 'it', 'pt', 'ru')); // eslint-disable-line no-undef
 
+      this.field('objectID');
       this.field('title');
       this.field('categories');
       this.field('tags');
@@ -76,14 +44,14 @@ function handleSearchQuery(event) {
 
   const query = document.getElementById('search').value.trim().toLowerCase();
   if (!query) {
-    displayErrorMessage(config.strings.searchEnterTerm);
+    displayErrorMessage(i18n.enterTerm);
     hideSearchResults();
     return;
   }
 
   const results = searchSite(query);
   if (!results.length) {
-    displayErrorMessage(config.strings.searchNoResults);
+    displayErrorMessage(i18n.noResults);
     hideSearchResults();
     return;
   }
@@ -220,9 +188,9 @@ function createSearchResultBlurb(query, pageContent) {
     if (pageBreakers.length > 0) {
       searchResultText = fixPageBreakers(searchResultText, pageBreakers);
     }
-    if (searchResultWords.length >= MAX_SUMMARY_LENGTH) break;
+    if (searchResultWords.length >= searchConfig.maxSummaryLength) break;
   }
-  return ellipsize(searchResultText, MAX_SUMMARY_LENGTH).replace(
+  return ellipsize(searchResultText, searchConfig.maxSummaryLength).replace(
     searchQueryRegex,
     '<span class="search-item">$&</span>'
   );
@@ -324,6 +292,7 @@ if (!String.prototype.matchAll) {
   };
 }
 
+initSearchIndex();
 document.addEventListener('DOMContentLoaded', function () {
   const searchForm = document.getElementById('search-form');
   const searchInput = document.getElementById('search');
@@ -331,9 +300,6 @@ document.addEventListener('DOMContentLoaded', function () {
   if (searchForm === null || searchInput === null) {
     return;
   }
-
-  config = initConfig();
-  initSearchIndex();
 
   searchForm.addEventListener('submit', (e) => {
     e.preventDefault();

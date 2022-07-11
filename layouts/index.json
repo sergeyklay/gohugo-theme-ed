@@ -1,3 +1,4 @@
+{{- /* Generate the search index. */ -}}
 {{- $pages := slice -}}
 
 {{- $mainSections := site.Params.mainSections | default (slice "posts") }}
@@ -7,19 +8,43 @@
 {{- $.Scratch.Add "urlsAdded" slice -}}
 
 {{- range $index, $page := $pages -}}
-  {{- if gt (len $page.Content) 0 -}}
-    {{- if not (in ($.Scratch.Get "urlsAdded") $page.Permalink) -}}
-      {{- $pageData := (dict
-        "title" $page.Title
-        "href" $page.Permalink
-        "tags" (delimit ($page.Params.tags | default slice) " ; ")
-        "categories" (delimit ($page.Params.categories | default slice) " ; ")
-        "content" $page.Plain
-      ) -}}
-      {{- $.Scratch.Add "pagesIndex" $pageData -}}
-      {{- $.Scratch.Add "urlsAdded" $page.Permalink -}}
+  {{- /* Do not index drafts or private pages. */ -}}
+  {{- if and (not .Draft) (not .Params.private) | and (ne .Params.searchable false) -}}
+
+    {{- /* Do not index pages w/o content. */ -}}
+    {{- if gt (len $page.Content) 0 -}}
+
+      {{- /* Add page to index. */ -}}
+      {{- if not (in ($.Scratch.Get "urlsAdded") $page.Permalink) -}}
+
+        {{/* Exclude virtual pages which aren't backed by a file */}}
+        {{ if .File }}
+          {{- $pageData := (dict
+            "objectID" $page.File.UniqueID
+            "date" $page.Date.UTC.Unix
+            "publishDate" $page.PublishDate
+            "lastmod" $page.Lastmod.UTC.Unix
+            "expiryDate" $page.ExpiryDate.UTC.Unix
+            "lang" $page.Lang
+            "title" $page.Title
+            "href" $page.Permalink
+            "kind" $page.Kind
+            "type" $page.Type
+            "section" $page.Section
+            "tags" (delimit ($page.Params.tags | default slice) " ; ")
+            "categories" (delimit ($page.Params.categories | default slice) " ; ")
+            "content" $page.Plain
+          ) -}}
+          {{- $.Scratch.Add "pagesIndex" $pageData -}}
+          {{- $.Scratch.Add "urlsAdded" $page.Permalink -}}
+        {{- end -}}
+
+      {{- end -}}
+
     {{- end -}}
+
   {{- end -}}
+
 {{- end -}}
 
 {{- $.Scratch.Get "pagesIndex" | jsonify -}}

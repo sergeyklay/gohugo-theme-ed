@@ -84,7 +84,7 @@ time to complete.
   - Be minified to a single line with no formatting
   - Not contain any JS or CSS section inside it
   - Not contain any additional transformations (matrix, translate, scale)
-  - Сompatible with [MIT License](https://raw.githubusercontent.com/sergeyklay/gohugo-theme-ed/master/LICENSE)
+  - Compatible with [MIT License](https://raw.githubusercontent.com/sergeyklay/gohugo-theme-ed/master/LICENSE)
 - Maintain clean commit history and use meaningful commit messages.
   Pull Requests with messy commit history (with commit messages
   like "update", "another update", etc) are difficult to review and won't

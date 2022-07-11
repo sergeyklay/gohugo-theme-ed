@@ -91,3 +91,9 @@ facebook_id: ''
 
 # Twitter username for the website
 twitter: john_doe
+
+# Configure search engine
+search:
+  # Maximum length (in words) of each text blurb. You can change this
+  # value if you find that 100 is too short or too long for your taste.
+  maxSummaryLength: 100
