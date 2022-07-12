@@ -1,14 +1,14 @@
 {{- /* Get schema type. */}}
-{{ $schemaType := "Article" }}
-{{ if or (eq .Type "post") (eq .Type "posts") }}
-    {{ $schemaType = "BlogPosting" }}
-{{ end -}}
+{{- $schemaType := "Article" -}}
+{{- if or (eq .Type "post") (eq .Type "posts") -}}
+    {{- $schemaType = "BlogPosting" -}}
+{{- end -}}
 
-{{- $publisher := site.Params.seo.publisher | default site.Title }}
-{{ $logo := resources.Get (site.Params.assets.logo | default "/img/open-graph-logo.png") }}
-{{ $logo = $logo.Resize "96x96" -}}
+{{- $publisher := site.Params.seo.publisher | default site.Title -}}
+{{- $logo := resources.Get (site.Params.assets.logo | default "/img/open-graph-logo.png") -}}
+{{- $logo = $logo.Resize "96x96" }}
 
-<script type="application/ld+json">
+<script type="application/ld+json" id="schema-data">
     {
         "@context": "https://schema.org",
         "@type": {{ $schemaType }},
@@ -62,5 +62,3 @@
         "description": {{ partial "description.html" . }}
     }
 </script>
-
-

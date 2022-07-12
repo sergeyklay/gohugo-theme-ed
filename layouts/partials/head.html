@@ -23,18 +23,18 @@
 
     {{- range .AllTranslations -}}
     <link rel="alternate" hreflang="{{ .Lang }}" href="{{ .Permalink }}">
-    {{ end -}}
+    {{- end }}
 
     <meta name="theme-color" content="#ffffff">
 
-    {{ block "custom-head" . }}{{ partial "custom-head.html" . }}{{ end }}
-    {{ block "custom-scripts" . }}{{ partial "custom-scripts.html" . }}{{ end }}
+    {{- block "custom-head" . }}{{ partial "custom-head.html" . }}{{ end }}
+    {{- block "custom-scripts" . }}{{ partial "custom-scripts.html" . }}{{ end }}
 
     {{- /* Misc */}}
-    {{ template "partials/templates/opengraph.html" . }}
-    {{ template "partials/templates/twitter_cards.html" . }}
-    {{ template "partials/templates/schema_json.html" . }}
+    {{- template "partials/templates/opengraph.html" . }}
+    {{- template "partials/templates/twitter_cards.html" . }}
+    {{- template "partials/templates/schema_json.html" . }}
 
     {{- /* SEO */}}
-    {{ partial "partials/seo/ga.html" . }}
+    {{- partial "partials/seo/ga.html" . }}
 </head>

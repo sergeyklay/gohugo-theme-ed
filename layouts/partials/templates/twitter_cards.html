@@ -10,10 +10,10 @@
     {{- $logo := resources.Get (site.Params.assets.logo | default "/img/open-graph-logo.png" ) -}}
 
     {{- if and .IsPage .Params.featured_image }}
-        {{- $image := .Resources.GetMatch .Params.featured_image }}
-        <meta name="twitter:card" content="summary_large_image">
-        <meta name="twitter:image" content="{{ $image.Permalink }}">
+    {{- $image := .Resources.GetMatch .Params.featured_image }}
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="{{ $image.Permalink }}">
     {{- else }}
-        <meta name="twitter:card" content="summary_large_image">
-        <meta name="twitter:image" content="{{ $logo.Permalink }}">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="{{ $logo.Permalink }}">
     {{- end -}}
