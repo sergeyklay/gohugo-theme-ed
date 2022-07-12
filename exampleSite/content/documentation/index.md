@@ -1,7 +1,7 @@
 ---
 title: Documentation
 author: Alex Gil
-featured_image: screenshot-home.png
+featuredImage: screenshot-home.png
 ---
 
 {{< toc >}}
@@ -74,15 +74,33 @@ Ed is a Hugo theme. That means you will need some familiarity with Hugo to take 
 
 Once you have gone through these tutorials, you can get started using Ed. Remember to always and only edit content files for your site using [a plain text editor](https://en.wikipedia.org/wiki/Text_editor), and *not* a word processor. I'm composing this file using a plain text editor called [Visual Studio Code](https://code.visualstudio.com/).
 
-You should make sure that all your texts have the YAML front matter (the information at the top of the file). YAML stands for "YAML Ain't Markup Language" --- no disrespect to XML --- and it's the main way that Hugo handles named data. Here's an example of YAML front matter:
+You should make sure that all your texts have the YAML [Front Matter](https://gohugo.io/content-management/front-matter/) (the information at the top of the file). YAML stands for "YAML Ain't Markup Language" --- no disrespect to XML --- and it's the main way that Hugo handles named data. Here's an example of YAML Front Matter:
 
 ~~~ yaml
 ---
+# Common-Defined params
 title: "Cahier d'un retour au pays natal"
-author: Aimé Césaire
-draft: true
+draft: true # Is this text a draft?
+tags:
+  - Tag
+  - "Another tag"
+date: 2022-02-01T14:56:58+02:00
+lastmod: 2022-05-01T14:56:58+02:00
+
+# Theme-Defined params
+author: Aimé Césaire # Author of the text
+editor: Alex Gil # Editor of the text
+source: Project Guttenberg # The source of the text
+rights: Public Domain # Rights for this text
+pageTitle: Hello! # The title for the content w/o setting <title> tag
+toc: true # Enable Table of Contents for specific page
+private: true # Hide text from search engines
+semanticType: about # Semantic type of the work (used for Schema.org)
+featuredImage: screenshot-home.png # Featured image of the text
 ---
 ~~~
+
+For more information about all available standard front matter variables, please read [Hugo Front Matter](https://gohugo.io/content-management/front-matter/).
 
 ---
 
