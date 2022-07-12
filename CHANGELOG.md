@@ -14,13 +14,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
-- Rename template to render JSON Feed from `list.json.json` to
-  `list.jsonfeed.json`
-- Load `ga.js` only on production mode
+- Rename template to render JSON Feed from `list.json.json` to `list.jsonfeed.json`
+- Rename partial for Google Site Tag tagging/analytics
+  framework from `layouts/partials/scripts.html` to `layouts/partials/seo/ga.html`
+- Use Google Site Tag tagging/analytics framework on production mode only
 
 ### Removed
 
 - Remove no longer needed jQuery library
+- Remove no longer used `layouts/partials/data.html` partial
 
 ## [v0.4.0](https://github.com/sergeyklay/gohugo-theme-ed/compare/v0.3.0...v0.4.0)
 

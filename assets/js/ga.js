@@ -1,3 +1,5 @@
+import {analyticsCode, anonymizeIp} from '@params';
+
 function isDoNotTrackEnabled() {
   if (typeof window === 'undefined') {
     return false;
@@ -22,16 +24,17 @@ if (isDoNotTrackEnabled()) {
   console.info('[TRACKING]: Respecting DNT with respect to analytics...'); // eslint-disable-line no-console
 } else {
   // Known DNT values not set, so we will assume it's off.
-  const data = JSON.parse(document.getElementById('ed-data').innerHTML);
-
-  if (typeof data !== 'undefined' && data.analytics_code) {
+  if (analyticsCode) {
     (function () {
       // New Google Site Tag (gtag.js) tagging/analytics framework
       // See: https://developers.google.com/gtagjs
       const baseUrl = 'https://www.googletagmanager.com';
-      let script = document.createElement('script');
+      const params = new URLSearchParams({
+        id: analyticsCode
+      });
 
-      script.src = baseUrl + '/gtag/js?id=' + data.analytics_code;
+      let script = document.createElement('script');
+      script.src = baseUrl + '/gtag/js?' + params.toString();
       script.type = 'text/javascript';
       script.async = true;
 
@@ -88,9 +91,8 @@ if (isDoNotTrackEnabled()) {
     const month = 30 * 24 * 60 * 60; // 30 days, in seconds
 
     // Setup the project analytics code and send a pageview
-    gtag('config', data.analytics_code, {
-      'page_title': data.page_title,
-      'anonymize_ip': true,
+    gtag('config', analyticsCode, {
+      'anonymize_ip': anonymizeIp,
       'cookie_expires': month
     });
 

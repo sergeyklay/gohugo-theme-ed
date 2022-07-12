@@ -17,7 +17,7 @@ keywords:
 # "&copy;" and "{year}" will be replaced by © and the current year.
 copyright: 'Copyright &copy; 2019-{year} John Doe'
 
-# Color scheme. Options: red, orange, magenta, cyan, blue, brown
+# Colour scheme. Options: red, orange, magenta, cyan, blue, brown
 colorScheme: ''
 
 # Used in site header
@@ -77,20 +77,26 @@ assets:
   # Logo image, relative to ./assets
   logo: /img/open-graph-logo.png
   disable_fingerprinting: false
+
 seo:
   # Will be used in schema.org/Organization.
   # The site.Title  will be used if empty.
   publisher: Serghei Iakovlev
 
+  # To anonymize the IP addresses of hits sent to Google Analytics
+  # set this param to true. Please note, to enable Google Analytics
+  # you have to set `googleAnalytics` param in config.yaml file.
+  anonymizeIp: true
+
 social:
-# Facebook Page Admin ID for Domain Insights
-facebook_admin: ''
+  # Facebook Page Admin ID for Domain Insights
+  facebook_admin: ''
 
-# Facebook Page ID
-facebook_id: ''
+  # Facebook Page ID
+  facebook_id: ''
 
-# Twitter username for the website
-twitter: john_doe
+  # Twitter username for the website
+  twitter: john_doe
 
 # Configure search engine
 search:

@@ -28,8 +28,7 @@
     <meta name="theme-color" content="#ffffff">
     {{ block "custom-head" . }}{{ partial "custom-head.html" . }}{{ end }}
 
-    {{ partial "data.html" . }}
-    {{ partial "scripts.html" . }}
+    {{ partial "partials/seo/ga.html" . }}
     {{ block "custom-scripts" . }}{{ partial "custom-scripts.html" . }}{{ end }}
 
     {{- /* Misc */}}
