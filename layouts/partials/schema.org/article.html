@@ -19,8 +19,8 @@
             "@type": "WebPage",
             "@id": {{ .Permalink }}
         },
-        "headline": {{ partial "title.html" . | htmlUnescape }},{{ if .Params.featured_image }}
-        {{ $image := .Resources.GetMatch .Params.featured_image -}}
+        "headline": {{ partial "title.html" . | htmlUnescape }},{{ if .Params.featuredImage }}
+        {{ $image := .Resources.GetMatch .Params.featuredImage -}}
         "image": [
             {{ $image.Permalink }}
         ],{{ end }}

@@ -21,6 +21,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   framework from `layouts/partials/scripts.html` to `layouts/partials/seo/ga.html`
 - Use Google Site Tag tagging/analytics framework on production mode only
 - Rename `.Params.caption` to `.Params.pageTitle` Front Matter param
+- Rename `.Params.featured_image` to `.Params.featuredImage` Front Matter param
+
 
 ### Removed
 
