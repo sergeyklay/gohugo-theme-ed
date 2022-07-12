@@ -1,6 +1,7 @@
 ---
 title: About
 caption: Hello!
+semanticType: about
 ---
 
 One of our most pressing and ever-evolving needs as scholars is to pass on our textual artifacts

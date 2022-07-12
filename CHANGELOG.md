@@ -11,6 +11,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Provide template to render pure JSON of the site contents.
 - Provide search feature.
+- Provide ability to specify semantic page type in Front Matter
+  (will be used for Schema.org)
 
 ### Changed
 

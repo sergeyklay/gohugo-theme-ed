@@ -1,6 +1,9 @@
 {{- /* Get schema type. */}}
 {{- $schemaType := "Article" -}}
-{{- if or (eq .Type "post") (eq .Type "posts") -}}
+
+{{- if (eq .Params.semanticType "about") -}}
+    {{- $schemaType = "AboutPage" -}}
+{{- else if or (eq .Type "post") (eq .Type "posts") -}}
     {{- $schemaType = "BlogPosting" -}}
 {{- end -}}
 
@@ -25,30 +28,28 @@
         "datePublished": {{ .Date.Format "2006-01-02T15:04:05Z07:00" }},
         "dateModified": {{ .Lastmod.Format "2006-01-02T15:04:05Z07:00" }},
         {{- if .Params.author }}
-            {{- $authorType := (printf "%T" .Params.author) }}
+            {{- $authorType := (printf "%T" .Params.author) -}}
             {{- if eq $authorType "string" }}
-                "author": {
-                    "@type": "Person",
-                    "name": {{ .Params.author }}
-                },
+            "author": {
+                "@type": "Person",
+                "name": {{ .Params.author }}
+            },
             {{- else if eq $authorType "[]string" }}
-                "author": [
-                    {{ range $i, $author := .Params.author }}{{ if $i }},{{ end }}
-                    {
-                        "@type": "Person",
-                        "name": {{ $author }}
-                    }{{ end }}
-                ],
+            "author": [
+                {{ range $i, $author := .Params.author }}{{ if $i }},{{ end }}
+                {
+                    "@type": "Person",
+                    "name": {{ $author }}
+                }{{ end }}
+            ],
             {{- end }}
         {{- else }}
             {{- with site.Author.name }}
-                "author": {
-                    "@type": "Person",
-                    "name": {{ . }}
-                    {{ with site.Author.twitter }},
-                        "url": "https://twitter.com/{{ . }}"
-                    {{ end }}
-                },
+            "author": {
+                "@type": "Person",
+                "name": {{ . }}{{ with site.Author.twitter }},
+                "url": "https://twitter.com/{{ . }}"{{ end }}
+            },
             {{- end }}
         {{- end }}
         "publisher": {
