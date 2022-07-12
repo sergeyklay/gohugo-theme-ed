@@ -1,6 +1,6 @@
 ---
 title: About
-caption: Hello!
+pageTitle: Hello!
 semanticType: about
 ---
 

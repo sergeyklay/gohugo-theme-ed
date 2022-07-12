@@ -2,7 +2,7 @@
 <article class="{{ partial "post-class.html" . }}" role="document" id="page-{{ .File.TranslationBaseName | lower }}"{{ with .Params.lang}} lang="{{ . }}"{{ end }}>
     <header>
         <h1 class="page-title">
-            {{ .Params.caption | default .Title }}
+            {{ .Params.pageTitle | default .Title }}
         </h1>
     </header>
 
