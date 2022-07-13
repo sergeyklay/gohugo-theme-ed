@@ -139,10 +139,8 @@ author:
 # For more see https://gohugo.io/getting-started/configuration-markup/
 markup:
   defaultMarkdownHandler: goldmark
-  highlight:
-    # Syntax highlight style.
-    # For more see https://xyproto.github.io/splash/docs/
-    style: emacs
+  # false due to generated Syntax Highlighter CSS
+  noClasses: false
   goldmark:
     parser:
       attribute:
