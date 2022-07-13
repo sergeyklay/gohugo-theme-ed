@@ -139,8 +139,9 @@ author:
 # For more see https://gohugo.io/getting-started/configuration-markup/
 markup:
   defaultMarkdownHandler: goldmark
-  # false due to generated Syntax Highlighter CSS
-  noClasses: false
+  highlight:
+    # false due to generated Syntax Highlighter CSS
+    noClasses: false
   goldmark:
     parser:
       attribute:
