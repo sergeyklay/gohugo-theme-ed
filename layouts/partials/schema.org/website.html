@@ -7,5 +7,25 @@
         "keywords": {{ partial "keywords.html" . }}
     }
 </script>
-{{- /* TODO: Add "potentialAction" with search.
-    For more see: https://developers.google.com/structured-data/slsb-overview */ -}}
+
+{{- /*
+TODO: Add "potentialAction" with a search entrypoint (now we have a search)
+
+For more see:
+- https://developers.google.com/search/docs/advanced/structured-data/sitelinks-searchbox
+
+Example:
+{
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "url": "https://www.example.com/",
+    "potentialAction": {
+        "@type": "SearchAction",
+        "target": {
+        "@type": "EntryPoint",
+        "urlTemplate": "https://query.example.com/search?q={search_term_string}"
+        },
+        "query-input": "required name=search_term_string"
+    }
+}
+*/ -}}

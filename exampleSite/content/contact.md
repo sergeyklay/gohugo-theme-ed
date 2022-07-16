@@ -1,6 +1,7 @@
 ---
 title: Contact
 description: We'd love to hear from you
+semanticType: contact
 ---
 
 This is an example of a custom shortcode that you can put right into your content.

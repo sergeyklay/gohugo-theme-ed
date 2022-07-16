@@ -1,7 +1,9 @@
 {{- /* Get schema type. */}}
 {{- $schemaType := "Article" -}}
 
-{{- if (eq .Params.semanticType "about") -}}
+{{- if (eq .Params.semanticType "contact") -}}
+    {{- $schemaType = "ContactPage" -}}
+{{- else if (eq .Params.semanticType "about") -}}
     {{- $schemaType = "AboutPage" -}}
 {{- else if or (eq .Type "post") (eq .Type "posts") -}}
     {{- $schemaType = "BlogPosting" -}}
@@ -19,11 +21,16 @@
             "@type": "WebPage",
             "@id": {{ .Permalink }}
         },
-        "headline": {{ partial "title.html" . | htmlUnescape }},{{ if .Params.featuredImage }}
+        "url": {{ .Permalink }},
+        "headline": {{ partial "title.html" . | htmlUnescape }},
+        "description": {{ partial "description.html" . }},{{ if .Params.featuredImage }}
         {{ $image := .Resources.GetMatch .Params.featuredImage -}}
-        "image": [
-            {{ $image.Permalink }}
-        ],{{ end }}
+        "image": {
+            "@type": "ImageObject",
+            "url": {{ $image.Permalink }},
+            "width": "{{ $image.Width }}",
+            "height": "{{ $image.Height }}"
+        },{{ end }}
         "keywords": {{ partial "keywords.html" . }},
         "datePublished": {{ .Date.Format "2006-01-02T15:04:05Z07:00" }},
         "dateModified": {{ .Lastmod.Format "2006-01-02T15:04:05Z07:00" }},
@@ -59,7 +66,6 @@
                 "@type": "ImageObject",
                 "url": {{ $logo.Permalink | absURL }}
             }
-        },
-        "description": {{ partial "description.html" . }}
+        }
     }
 </script>
