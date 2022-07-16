@@ -5,4 +5,4 @@
     {{- with .Get "target" }} target="{{ . }}"{{ end }}
     {{- with .Get "rel" }} rel="{{ . }}"{{ end }}>
     {{- .Inner -}}
-</a>
+{{- safeHTML "</a>" -}}
