@@ -145,19 +145,19 @@ function createSearchResultBlurb(query, pageContent) {
   // i: Case-insensitive search
   const searchQueryRegex = new RegExp(createQueryStringRegex(query), 'gmi');
 
+  // Since the blurb is comprised of full sentences containing any search
+  // term, we need a way to identify where each sentence begins/ends. This
+  // regex will be used to produce a list of all sentences from the page
+  // content.
+  const sentenceBoundaryRegex = /\b\.\s/gm;
+
   const searchQueryHits = Array.from(
     pageContent.matchAll(searchQueryRegex),
     (m) => m.index
   );
 
-  // Since the blurb is comprised of full sentences containing any search
-  // term, we need a way to identify where each sentence begins/ends. This
-  // regex will be used to produce a list of all sentences from the page
-  // content.
-  const SENTENCE_BOUNDARY_REGEX = /\b\.\s/gm;
-
   const sentenceBoundaries = Array.from(
-    pageContent.matchAll(SENTENCE_BOUNDARY_REGEX),
+    pageContent.matchAll(sentenceBoundaryRegex),
     (m) => m.index
   );
 
@@ -199,9 +199,9 @@ function tokenize(input) {
   // This is a simple regex that produces a list of words from the text
   // it is applied to. This will be used to check the number of total words
   // in the blurb as it is being built.
-  const WORD_REGEX = /\b(\w*)[\W|\s|\b]?/gm;
+  const wordRegex = /\b(\w*)[\W|\s|\b]?/gm;
 
-  const wordMatches = Array.from(input.matchAll(WORD_REGEX), (m) => m);
+  const wordMatches = Array.from(input.matchAll(wordRegex), (m) => m);
   return wordMatches.map((m) => ({
     word: m[0],
     start: m.index,
