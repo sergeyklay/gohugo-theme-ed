@@ -1,9 +1,19 @@
 <div id="site-search" class="search-form">
     <p>{{ i18n "search_help" }}</p>
-    <form role="form" id="search-form">
+    <form role="search" id="search-form">
         <div class="search-wrapper">
             <div class="search-container form-item">
-                <input autocomplete="off" placeholder="" id="search" class="search-form-input form-input" aria-label="{{ i18n "search_site" }}" type="text" name="q">
+                <input
+                    autofocus
+                    autocomplete="off"
+                    spellcheck="false"
+                    placeholder=""
+                    class="search-form-input form-input"
+                    aria-label="{{ i18n "search_site" }}"
+                    type="search"
+                    id="search"
+                    name="search"
+                    maxlength="128">
             </div>
             <div class="search-error hide-element">
                 <p class="search-error-message"></p>
