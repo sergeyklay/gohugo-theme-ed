@@ -28,11 +28,11 @@
 {{- $lunrSearch := slice (resources.Get "js/vendor/lunr.js") -}}
 
 {{- /* Add lunr multilanguage support. */ -}}
-{{- $lunrSearch = $lunrSearch | append (resources.Get "js/vendor/lunr.multi.js" ) -}}
-{{- $lunrSearch = $lunrSearch | append (resources.Get "js/vendor/lunr.stemmer.support.js" ) -}}
+{{- $lunrSearch = $lunrSearch | append (resources.Get "js/vendor/lunr.multi.js") -}}
+{{- $lunrSearch = $lunrSearch | append (resources.Get "js/vendor/lunr.stemmer.support.js") -}}
 {{- $lunrLangs := slice "de" "es" "fr" "it" "pt" "ru" -}}
 {{- range $lunrLangs -}}
-    {{ $lunrSearch = $lunrSearch | append (resources.Get (printf "js/vendor/lunr.%s.js" .) ) -}}
+    {{ $lunrSearch = $lunrSearch | append (resources.Get (printf "js/vendor/lunr.%s.js" .)) -}}
 {{- end -}}
 
 {{- /* Build lunr. */ -}}
