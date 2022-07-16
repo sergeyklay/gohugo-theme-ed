@@ -175,3 +175,20 @@ $break-desktop: 1600px;
       -ms-box-decoration-break: $value;
           box-decoration-break: $value;
 }
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - Mask
+
+
+// Usage: @include @include mask-image (url("/img/external-link.svg"));
+
+@mixin mask-image($value) {
+  -webkit-mask-image: $value; // Chrome, iOS, Safari
+          mask-image: $value; // None yet / Non-standard
+}
+
+// Usage: @include mask-size (cover);
+
+@mixin mask-size($value) {
+  -webkit-mask-size: $value; // Chrome, iOS, Safari
+          mask-size: $value; // None yet / Non-standard
+}

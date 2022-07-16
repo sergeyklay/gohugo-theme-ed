@@ -1052,6 +1052,18 @@ ul.pager li {
 .post-tags a:hover:before {
   border-color: transparent #676767 transparent transparent; }
 
+a.external:after {
+  background-color: #ac4142;
+  content: "";
+  display: inline-flex;
+  height: 10px;
+  margin-left: 4px;
+  width: 10px;
+  -webkit-mask-size: cover;
+  mask-size: cover;
+  -webkit-mask-image: url("/img/external-link.svg");
+  mask-image: url("/img/external-link.svg"); }
+
 /* Themes */
 /* Red */
 .theme-base-red .post-tags a {

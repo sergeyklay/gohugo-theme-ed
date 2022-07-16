@@ -201,6 +201,18 @@ ul.pager li {
   border-color: transparent $text-light-color transparent transparent;
 }
 
+a.external:after {
+  background-color: #ac4142;
+  content: "";
+  display: inline-flex;
+  height: 10px;
+  margin-left: 4px;
+  width: 10px;
+
+  @include mask-size (cover);
+  @include mask-image (url("/img/external-link.svg"));
+}
+
 /* Themes */
 
 /* Red */
