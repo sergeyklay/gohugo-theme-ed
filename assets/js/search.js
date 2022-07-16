@@ -44,7 +44,6 @@ function handleSearchQuery(event) {
 
   const query = document.getElementById('search').value.trim().toLowerCase();
   if (!query) {
-    displayErrorMessage(i18n.enterTerm);
     hideSearchResults();
     return;
   }
@@ -306,4 +305,9 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   searchInput.addEventListener('keyup', (e) => handleSearchQuery(e));
+  searchInput.addEventListener('input', (e) => {
+    if (!e.currentTarget.value) {
+      hideSearchResults();
+    }
+  });
 });

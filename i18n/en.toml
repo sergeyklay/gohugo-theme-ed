@@ -58,9 +58,6 @@
 [search_site]
   other = 'Search site'
 
-[search_enter_term]
-  other = 'Please enter a search term.'
-
 [search_no_results]
   other = 'No results found.'
 

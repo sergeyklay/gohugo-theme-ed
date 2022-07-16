@@ -58,9 +58,6 @@
 [search_site]
   other = 'Поиск по сайту'
 
-[search_enter_term]
-  other = 'Введите поисковый запрос.'
-
 [search_no_results]
   other = 'Ничего не найдено.'
 

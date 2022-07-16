@@ -62,7 +62,7 @@
 {{- /* Configure search engine. */ -}}
 {{- $maxSummaryLength := site.Params.search.maxSummaryLength | default 100 -}}
 {{- $searchConfig := dict "indexURI" ("/index.json" | relLangURL) "maxSummaryLength" $maxSummaryLength -}}
-{{- $searchI18n := dict "enterTerm" (i18n "search_enter_term") "noResults" (i18n "search_no_results") -}}
+{{- $searchI18n := dict "noResults" (i18n "search_no_results") -}}
 {{- $searchParams := dict "searchConfig" $searchConfig "i18n" $searchI18n -}}
 
 {{- $siteSearch := slice -}}
