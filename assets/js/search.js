@@ -2,17 +2,6 @@ import {searchConfig, i18n} from '@params';
 
 let pagesIndex, searchIndex;
 
-// Since the blurb is comprised of full sentences containing any search
-// term, we need a way to identify where each sentence begins/ends. This
-// regex will be used to produce a list of all sentences from the page
-// content.
-const SENTENCE_BOUNDARY_REGEX = /\b\.\s/gm;
-
-// This is a simple regex that produces a list of words from the text
-// it is applied to. This will be used to check the number of total words
-// in the blurb as it is being built.
-const WORD_REGEX = /\b(\w*)[\W|\s|\b]?/gm;
-
 async function initSearchIndex() {
   try {
     const response = await fetch(searchConfig.indexURI);
@@ -161,6 +150,12 @@ function createSearchResultBlurb(query, pageContent) {
     (m) => m.index
   );
 
+  // Since the blurb is comprised of full sentences containing any search
+  // term, we need a way to identify where each sentence begins/ends. This
+  // regex will be used to produce a list of all sentences from the page
+  // content.
+  const SENTENCE_BOUNDARY_REGEX = /\b\.\s/gm;
+
   const sentenceBoundaries = Array.from(
     pageContent.matchAll(SENTENCE_BOUNDARY_REGEX),
     (m) => m.index
@@ -201,6 +196,11 @@ function createQueryStringRegex(query) {
 }
 
 function tokenize(input) {
+  // This is a simple regex that produces a list of words from the text
+  // it is applied to. This will be used to check the number of total words
+  // in the blurb as it is being built.
+  const WORD_REGEX = /\b(\w*)[\W|\s|\b]?/gm;
+
   const wordMatches = Array.from(input.matchAll(WORD_REGEX), (m) => m);
   return wordMatches.map((m) => ({
     word: m[0],
