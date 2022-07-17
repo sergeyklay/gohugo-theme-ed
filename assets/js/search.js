@@ -12,13 +12,26 @@ async function initSearchIndex() {
 
     // Create the lunr index for the search
     searchIndex = lunr(function () { // eslint-disable-line no-undef
-      this.use(lunr.multiLanguage('de', 'en', 'es', 'fr', 'it', 'pt', 'ru')); // eslint-disable-line no-undef
+      // Set up the pipeline for indexing content in multiple languages
+      if (Array.isArray(searchConfig.lunrLanguages)) {
+        // Lunr has full support for the indexing and searching of
+        // documents in English. So no need add 'en'.
+        let langs = searchConfig.lunrLanguages.slice();
+        langs = langs.filter(lang => lang !== 'en');
+
+        const pipeline = lunr.multiLanguage( // eslint-disable-line no-undef
+          ...langs
+        );
+
+        this.use(pipeline);
+      }
 
       this.field('objectID');
       this.field('title');
       this.field('categories');
       this.field('tags');
       this.field('content');
+
       this.ref('href');
 
       pagesIndex.forEach((page) => this.add(page));

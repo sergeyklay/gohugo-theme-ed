@@ -21,20 +21,20 @@
         {{ if .File }}
           {{- $pageData := (dict
             "objectID" $page.File.UniqueID
-            "date" $page.Date.UTC.Unix
             "publishDate" $page.PublishDate
+            "date" $page.Date.UTC.Unix
             "lastmod" $page.Lastmod.UTC.Unix
-            "expiryDate" $page.ExpiryDate.UTC.Unix
-            "lang" $page.Lang
+            "lang" ($page.Params.lang | default $page.Lang)
             "title" $page.Title
             "href" $page.Permalink
             "kind" $page.Kind
             "type" $page.Type
             "section" $page.Section
-            "tags" (delimit ($page.Params.tags | default slice) " ; ")
-            "categories" (delimit ($page.Params.categories | default slice) " ; ")
             "content" $page.Plain
+            "categories" ($page.Params.categories | default slice)
+            "tags" ($page.Params.tags | default slice)
           ) -}}
+
           {{- $.Scratch.Add "pagesIndex" $pageData -}}
           {{- $.Scratch.Add "urlsAdded" $page.Permalink -}}
         {{- end -}}

@@ -38,11 +38,18 @@
 {{- $lunrSearch := slice (resources.Get "js/vendor/lunr.js") -}}
 
 {{- /* Add lunr multilanguage support. */ -}}
-{{- $lunrSearch = $lunrSearch | append (resources.Get "js/vendor/lunr.multi.js") -}}
-{{- $lunrSearch = $lunrSearch | append (resources.Get "js/vendor/lunr.stemmer.support.js") -}}
-{{- $lunrLangs := slice "de" "es" "fr" "it" "pt" "ru" -}}
-{{- range $lunrLangs -}}
-    {{ $lunrSearch = $lunrSearch | append (resources.Get (printf "js/vendor/lunr.%s.js" .)) -}}
+{{- $lunrLanguages := site.Params.search.languages | default slice -}}
+{{- if gt (len $lunrLanguages) 0 -}}
+    {{- $lunrSearch = $lunrSearch | append (resources.Get "js/vendor/lunr.multi.js") -}}
+    {{- $lunrSearch = $lunrSearch | append (resources.Get "js/vendor/lunr.stemmer.support.js") -}}
+
+    {{- range $lunrLanguages -}}
+        {{- $lang := . -}}
+        {{- $lang = $lang | lower -}}
+        {{- if and $lang (ne $lang "en") -}}
+            {{- $lunrSearch = $lunrSearch | append (resources.Get (printf "js/vendor/lunr.%s.js" $lang)) -}}
+        {{- end -}}
+    {{- end -}}
 {{- end -}}
 
 {{- /* Build lunr. */ -}}
@@ -61,7 +68,7 @@
 
 {{- /* Configure search engine. */ -}}
 {{- $maxSummaryLength := site.Params.search.maxSummaryLength | default 100 -}}
-{{- $searchConfig := dict "indexURI" ("/index.json" | relLangURL) "maxSummaryLength" $maxSummaryLength -}}
+{{- $searchConfig := dict "indexURI" ("/index.json" | relLangURL) "maxSummaryLength" $maxSummaryLength "lunrLanguages" $lunrLanguages -}}
 {{- $searchI18n := dict "noResults" (i18n "search_no_results") -}}
 {{- $searchParams := dict "searchConfig" $searchConfig "i18n" $searchI18n -}}
 

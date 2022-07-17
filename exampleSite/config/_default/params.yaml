@@ -103,3 +103,16 @@ search:
   # Maximum length (in words) of each text blurb. You can change this
   # value if you find that 100 is too short or too long for your taste.
   maxSummaryLength: 100
+  # Lunr has full support for the indexing and searching of documents
+  # in English. If your documents are in another language, uncomment
+  # required languages below. No need add 'en' as its supported by Lunr
+  # out of box.
+  #
+  # For more see: https://lunrjs.com/guides/language_support.html
+  languages:
+    # - de
+    - es
+    # - fr
+    # - it
+    # - pt
+    # - ru
