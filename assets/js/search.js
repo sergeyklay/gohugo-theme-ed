@@ -14,13 +14,8 @@ async function initSearchIndex() {
     searchIndex = lunr(function () { // eslint-disable-line no-undef
       // Set up the pipeline for indexing content in multiple languages
       if (Array.isArray(searchConfig.lunrLanguages)) {
-        // Lunr has full support for the indexing and searching of
-        // documents in English. So no need add 'en'.
-        let langs = searchConfig.lunrLanguages.slice();
-        langs = langs.filter(lang => lang !== 'en');
-
         const pipeline = lunr.multiLanguage( // eslint-disable-line no-undef
-          ...langs
+          ...searchConfig.lunrLanguages
         );
 
         this.use(pipeline);

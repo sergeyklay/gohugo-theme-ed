@@ -105,12 +105,12 @@ search:
   maxSummaryLength: 100
   # Lunr has full support for the indexing and searching of documents
   # in English. If your documents are in another language, uncomment
-  # required languages below. No need add 'en' as its supported by Lunr
-  # out of box.
+  # required languages below.
   #
   # For more see: https://lunrjs.com/guides/language_support.html
   languages:
     # - de
+    - en
     - es
     # - fr
     # - it
