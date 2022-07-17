@@ -14,8 +14,11 @@ async function initSearchIndex() {
     searchIndex = lunr(function () { // eslint-disable-line no-undef
       // Set up the pipeline for indexing content in multiple languages
       if (Array.isArray(searchConfig.lunrLanguages)) {
+        let langs = new Set();
+        searchConfig.lunrLanguages.forEach(item => langs.add(item));
+        langs.add('en');
         const pipeline = lunr.multiLanguage( // eslint-disable-line no-undef
-          ...searchConfig.lunrLanguages
+          ...langs
         );
 
         this.use(pipeline);
