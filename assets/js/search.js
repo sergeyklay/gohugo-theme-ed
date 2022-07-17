@@ -34,15 +34,17 @@ async function initSearchIndex() {
 
       pagesIndex.forEach((page) => this.add(page));
     });
+    document.dispatchEvent(new CustomEvent('indexed'));
   } catch (e) {
     console.log(e); // eslint-disable-line no-console
   }
 }
 
-function handleSearchQuery(event) {
-  event.preventDefault();
+function handleSearchQuery(query = null) {
+  if (!query) {
+    query = document.getElementById('search').value.trim().toLowerCase();
+  }
 
-  const query = document.getElementById('search').value.trim().toLowerCase();
   if (!query) {
     hideSearchResults();
     return;
@@ -302,6 +304,14 @@ if (!String.prototype.matchAll) {
   };
 }
 
+function getQueryParam(key) {
+  const params = new Proxy(new URLSearchParams(window.location.search), {
+    get: (searchParams, prop) => searchParams.get(prop)
+  });
+
+  return params[key];
+}
+
 initSearchIndex();
 document.addEventListener('DOMContentLoaded', function () {
   const searchForm = document.getElementById('search-form');
@@ -315,10 +325,23 @@ document.addEventListener('DOMContentLoaded', function () {
     e.preventDefault();
   });
 
-  searchInput.addEventListener('keyup', (e) => handleSearchQuery(e));
+  searchInput.addEventListener('keyup', (e) => {
+    e.preventDefault();
+    handleSearchQuery(null);
+  });
+
   searchInput.addEventListener('input', (e) => {
     if (!e.currentTarget.value) {
       hideSearchResults();
     }
   });
+});
+
+document.addEventListener('indexed', () => {
+  const query = getQueryParam('q');
+
+  if (query) {
+    document.getElementById('search').value = query;
+    handleSearchQuery(query);
+  }
 });
