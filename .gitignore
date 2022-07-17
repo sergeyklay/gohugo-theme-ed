@@ -14,3 +14,6 @@
 
 # Temporary lock file while building.
 .hugo_build.lock
+
+# This file includes all tags, classes, and ids from your *.html templates.
+hugo_stats.json
