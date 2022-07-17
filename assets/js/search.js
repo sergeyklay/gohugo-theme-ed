@@ -41,16 +41,17 @@ async function initSearchIndex() {
 }
 
 function handleSearchQuery(query = null) {
-  if (!query) {
-    query = document.getElementById('search').value.trim().toLowerCase();
-  }
+  const realQuery = query ? query : document.getElementById('search')
+    .value
+    .trim()
+    .toLowerCase();
 
-  if (!query) {
+  if (!realQuery) {
     hideSearchResults();
     return;
   }
 
-  const results = searchSite(query);
+  const results = searchSite(realQuery);
   if (!results.length) {
     displayErrorMessage(i18n.noResults);
     hideSearchResults();
@@ -58,19 +59,19 @@ function handleSearchQuery(query = null) {
   }
 
   hideErrorMessage();
-  renderSearchResults(query, results);
+  renderSearchResults(realQuery, results);
 }
 
 function searchSite(query) {
   const originalQuery = query;
-  query = getLunrSearchQuery(query);
-  let results = getSearchResults(query);
+  const lunrQuery = getLunrSearchQuery(query);
+  const results = getSearchResults(lunrQuery);
 
   if (results.length > 0) {
     return results;
   }
 
-  if (query !== originalQuery) {
+  if (lunrQuery !== originalQuery) {
     return getSearchResults(originalQuery);
   }
 
@@ -93,11 +94,11 @@ function getLunrSearchQuery(query) {
   if (searchTerms.length === 1) {
     return query;
   }
-  query = '';
+  let searchQuery = '';
   for (const term of searchTerms) {
-    query += `+${term} `;
+    searchQuery += `+${term} `;
   }
-  return query.trim();
+  return searchQuery.trim();
 }
 
 function displayErrorMessage(message) {
