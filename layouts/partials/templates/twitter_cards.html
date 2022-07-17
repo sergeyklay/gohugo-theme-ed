@@ -3,17 +3,16 @@
     <meta name="twitter:description" content="{{ (partial "description.html" . ) }}">
 
     {{- /* Twitter username for the website used in the card footer */}}
-    {{- with site.Social.twitter }}
+    {{- with site.Params.social.twitter }}
     <meta name="twitter:site" content="@{{ . }}">
     {{- end }}
-
-    {{- $logo := resources.Get (site.Params.assets.logo | default "/img/open-graph-logo.png" ) -}}
 
     {{- if and .IsPage .Params.featuredImage }}
     {{- $image := .Resources.GetMatch .Params.featuredImage }}
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content="{{ $image.Permalink }}">
-    {{- else }}
+    {{- else -}}
+    {{- $logo := resources.Get (site.Params.assets.logo | default "/img/open-graph-logo.png" ) }}
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content="{{ $logo.Permalink }}">
     {{- end -}}

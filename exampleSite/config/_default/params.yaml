@@ -89,11 +89,11 @@ seo:
   anonymizeIp: true
 
 social:
-  # Facebook Page Admin ID for Domain Insights
-  facebook_admin: ''
+  # Array of Facebook Page Admin IDs for Domain Insights
+  facebookAdminIds: []
 
   # Facebook Page ID
-  facebook_id: ''
+  facebookId: ''
 
   # Twitter username for the website
   twitter: john_doe

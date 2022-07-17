@@ -23,7 +23,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Use Google Site Tag tagging/analytics framework on production mode only
 - Rename `.Params.caption` to `.Params.pageTitle` Front Matter param
 - Rename `.Params.featured_image` to `.Params.featuredImage` Front Matter param
-
+- Rename `site.Social.facebook_id` to `site.Params.social.facebookId`
+- Rename `site.Social.facebook_admin` to `site.Params.social.facebookAdminIds`
+- Rename `site.Social.twitter` to `site.Params.social.twitter`
 
 ### Removed
 
