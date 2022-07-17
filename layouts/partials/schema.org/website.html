@@ -4,28 +4,14 @@
         "@type": "WebSite",
         "name": {{ partial "title.html" . }},
         "url": {{ site.BaseURL }},
-        "keywords": {{ partial "keywords.html" . }}
+        "keywords": {{ partial "keywords.html" . }},
+        "potentialAction": {
+            "@type": "SearchAction",
+            "target": {
+                "@type": "EntryPoint",
+                "urlTemplate": {{ printf "%s?q={search_term_string}" (ref . "search") }}
+            },
+            "query-input": "required name=search_term_string"
+        }
     }
 </script>
-
-{{- /*
-TODO: Add "potentialAction" with a search entrypoint (now we have a search)
-
-For more see:
-- https://developers.google.com/search/docs/advanced/structured-data/sitelinks-searchbox
-
-Example:
-{
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "url": "https://www.example.com/",
-    "potentialAction": {
-        "@type": "SearchAction",
-        "target": {
-        "@type": "EntryPoint",
-        "urlTemplate": "https://query.example.com/search?q={search_term_string}"
-        },
-        "query-input": "required name=search_term_string"
-    }
-}
-*/ -}}
