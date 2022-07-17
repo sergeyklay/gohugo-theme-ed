@@ -1,21 +1,20 @@
-{{ if or site.Params.footer .Params.editor }}
+{{- if or site.Params.footer .Params.editor }}
     <div class="sidebar-item">
         <p>
-            {{ with site.Params.footer }}
-                {{ $footerText := replace . "{year}" now.Year }}
-                {{ $footerText | safeHTML }}
-            {{ end }}
-            {{ with .Params.editor }}
-                <p>
-                    {{ i18n "edited_by" . }},
-                    {{ if not $.Params.Lastmod.IsZero }}
-                        {{ $.Params.Lastmod.Format "2006" }}
-                    {{ else }}
-                        {{ now.Format "2006" }}
-                    {{ end }}
-                    .
-                </p>
-            {{ end }}
+            {{- with site.Params.footer -}}
+                {{- $footerText := replace . "{year}" now.Year -}}
+                {{- $footerText | safeHTML -}}
+            {{- end -}}
         </p>
+        {{- with .Params.editor }}
+        <p>
+            {{ i18n "edited_by" . }},&nbsp;
+            {{- if not $.Params.Lastmod.IsZero -}}
+                {{- $.Params.Lastmod.Format "2006" -}}
+            {{- else -}}
+                {{- now.Format "2006" -}}
+            {{- end }}.
+        </p>
+        {{- end }}
     </div>
 {{ end }}

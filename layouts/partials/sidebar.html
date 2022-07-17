@@ -9,27 +9,27 @@
     </div>
 
     <nav class="sidebar-nav">
-        {{ $current := . }}
-        {{ range site.Menus.main }}
-            {{ $active := or ($current.IsMenuCurrent "main" .) ($current.HasMenuCurrent "main" .) }}
-            {{ $active = or $active (eq .URL $current.RelPermalink) }}
-            {{ $active = or $active (eq .Name $current.Title) }}
+        {{- $current := . -}}
+        {{- range site.Menus.main -}}
+            {{- $active := or ($current.IsMenuCurrent "main" .) ($current.HasMenuCurrent "main" .) -}}
+            {{- $active = or $active (eq .URL $current.RelPermalink) -}}
+            {{- $active = or $active (eq .Name $current.Title) }}
             <a class="sidebar-nav-item{{ if $active }} active{{ end }}"
                 href="{{ .URL }}"
                 id="menu-main-{{ .Identifier }}"
                 {{- if eq .Params.external true }} target="_blank" rel="noopener noreferrer"{{ end }}>
                 {{- print .Name | safeHTML -}}
             </a>
-        {{ end }}
+        {{- end }}
 
-        {{/* TODO: Add hypothesis support */}}
+        {{- /* TODO: Add hypothesis support */ -}}
 
-        {{ with site.Menus.feeds }}
+        {{- with site.Menus.feeds }}
             <div class="sidebar-nav-item">
-                {{ range $i, $ := site.Menus.feeds }}
+                {{- range $i, $ := site.Menus.feeds }}
                     {{ if $i }}<span aria-hidden="true">|</span>{{ end }}
                     <a href="{{ .URL }}" id="menu-feeds-{{ .Identifier }}">
-                        {{  print .Name | safeHTML }}
+                        {{-  print .Name | safeHTML -}}
                     </a>
                 {{ end }}
             </div>
