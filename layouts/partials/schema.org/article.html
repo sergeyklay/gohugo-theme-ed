@@ -64,7 +64,9 @@
             "name": {{ $publisher }},
             "logo": {
                 "@type": "ImageObject",
-                "url": {{ $logo.Permalink | absURL }}
+                "url": {{ $logo.Permalink | absURL }},
+                "width": "{{ $logo.Width }}",
+                "height": "{{ $logo.Height }}"
             }
         }
     }
