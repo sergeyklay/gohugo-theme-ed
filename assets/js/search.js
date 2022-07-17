@@ -40,18 +40,13 @@ async function initSearchIndex() {
   }
 }
 
-function handleSearchQuery(query = null) {
-  const realQuery = query ? query : document.getElementById('search')
-    .value
-    .trim()
-    .toLowerCase();
-
-  if (!realQuery) {
+function handleSearchQuery(query) {
+  if (!query) {
     hideSearchResults();
     return;
   }
 
-  const results = searchSite(realQuery);
+  const results = searchSite(query);
   if (!results.length) {
     displayErrorMessage(i18n.noResults);
     hideSearchResults();
@@ -59,7 +54,7 @@ function handleSearchQuery(query = null) {
   }
 
   hideErrorMessage();
-  renderSearchResults(realQuery, results);
+  renderSearchResults(query, results);
 }
 
 function searchSite(query) {
@@ -328,7 +323,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
   searchInput.addEventListener('keyup', (e) => {
     e.preventDefault();
-    handleSearchQuery(null);
+    const query = document.getElementById('search')
+      .value
+      .trim()
+      .toLowerCase();
+    handleSearchQuery(query);
   });
 
   searchInput.addEventListener('input', (e) => {
