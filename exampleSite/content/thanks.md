@@ -6,4 +6,4 @@ private: true
 Your message will be sent within a short time.
 We'll answer as soon as possible.
 
-[&larr; Back to Home](/).
+[&larr; Back to Home]({{< ref "/" >}}).
