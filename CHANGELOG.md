@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Provide ability to specify semantic page type in Front Matter
   (will be used for Schema.org)
 - Provide ability to mark links as external using svg icon
+- Provide minimal tag cloud
 
 ### Changed
 
@@ -26,6 +27,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Rename `site.Social.facebook_id` to `site.Params.social.facebookId`
 - Rename `site.Social.facebook_admin` to `site.Params.social.facebookAdminIds`
 - Rename `site.Social.twitter` to `site.Params.social.twitter`
+- Disable categories taxonomy as not used by Ed
 
 ### Removed
 

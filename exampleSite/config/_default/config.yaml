@@ -26,6 +26,11 @@ refLinksErrorLevel: WARNING
 disableKinds:
   - RSS
 
+# We have just the default tags taxonomy, and remove the categories
+# taxonomy for site as not used.
+taxonomies:
+  tag: tags
+
 # Google Analytics Tracking ID.
 #
 # For more info, read the article

@@ -1,0 +1,29 @@
+{{ define "main" }}
+
+{{/* This template is for list of all Tags */}}
+<div class="articles">
+    <h1 class="page-title">
+        {{ with .Title }}
+            {{ i18n "tag_cloud" . }}
+        {{ end }}
+    </h1>
+
+    {{ $tags := site.Taxonomies.tags.ByCount }}
+
+    <div class="tags-wrapper">
+        <ul class="tags-cloud">
+            {{ range uniq $tags }}
+                {{ if .Term }}
+                    {{ $tagURL := printf "tags/%s" .Term | relURL }}
+                    <li class="tag">
+                        <a class="tag-link" href="{{ $tagURL }}">
+                            {{ .Term }} ({{ .Count }})
+                        </a>
+                    </li>
+                {{ end }}
+            {{ end }}
+        </ul>
+    </div>
+</div>
+
+{{ end }}

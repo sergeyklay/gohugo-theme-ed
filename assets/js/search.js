@@ -26,7 +26,6 @@ async function initSearchIndex() {
 
       this.field('objectID');
       this.field('title');
-      this.field('categories');
       this.field('tags');
       this.field('content');
 

@@ -63,3 +63,6 @@
 
 [search_results]
   other = 'Found results:'
+
+[tag_cloud]
+  other = 'Tag Cloud'

@@ -134,13 +134,14 @@ ul.pager li {
   position: relative;
 }
 
-.post-tags {
+ul.post-tags {
   margin: 0;
   padding: 0;
   position: absolute;
   right: 24px;
   bottom: -12px;
   list-style: none;
+  text-indent: unset;
 }
 
 .post-tags li,
@@ -211,6 +212,30 @@ a.external:after {
 
   @include mask-size (cover);
   @include mask-image (url("/img/external-link.svg"));
+}
+
+ul.tags-cloud {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 960px;
+  margin: auto;
+  padding: 2rem 0 1rem;
+  list-style: none;
+  border: 2px solid white;
+  border-radius: 5px;
+}
+
+ul.tags-cloud .tag {
+  display: flex;
+  align-items: center;
+  margin: 0.25rem 1rem;
+}
+
+ul.tags-cloud .tag-link {
+  padding: 5px 5px 0;
+  transition: 0.3s;
+  text-decoration: none;
 }
 
 /* Themes */

@@ -30,10 +30,6 @@
     <meta property="article:expiration_time" content="{{ .ExpiryDate.Format "2006-01-02T15:04:05" }}">
     {{- end -}}
 
-    {{- with .Params.categories -}}{{- range $v := . }}
-    <meta property="article:section" content="{{ $v }}">
-    {{- end -}}{{- end -}}
-
     {{- with .Params.tags -}}{{- range $v := . }}
     <meta property="article:tag" content="{{ $v }}">
     {{- end -}}{{- end -}}

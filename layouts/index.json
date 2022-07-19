@@ -31,7 +31,6 @@
             "type" $page.Type
             "section" $page.Section
             "content" $page.Plain
-            "categories" ($page.Params.categories | default slice)
             "tags" ($page.Params.tags | default slice)
           ) -}}
 

@@ -63,3 +63,6 @@
 
 [search_results]
   other = 'Найдено результатов:'
+
+[tag_cloud]
+  other = 'Облако тегов'
