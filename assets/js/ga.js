@@ -1,5 +1,7 @@
 import {analyticsCode, anonymizeIp} from '@params';
 
+let dataLayer;
+
 function isDoNotTrackEnabled() {
   if (typeof window === 'undefined') {
     return false;
@@ -17,6 +19,60 @@ function isDoNotTrackEnabled() {
     dnt === 1 ||
     dnt === 'yes' ||
     (typeof dnt === 'string' && dnt.charAt(0) === '1');
+}
+
+function gtag() {
+  dataLayer.push(arguments);
+}
+
+/**
+ * Function that tracks a click on an outbound link in Analytics.
+ *
+ * This function takes a valid URL string as an argument and target argument,
+ * and uses that URL string as the event label.
+ *
+ * Setting the transport method to 'beacon' lets the hit be sent using
+ * navigator.sendBeacon() in browser that support it. The navigator.sendBeacon()
+ * method asynchronously sends an HTTP POST request containing a small amount of
+ * data to a web server.
+ */
+function trackOutboundLink(url, target) {
+  gtag('event', 'click', {
+    'event_label': url,
+    'event_category': 'outbound',
+    'transport_type': 'beacon',
+    'event_callback': function () {
+      if (target !== '_blank') {
+        document.location = url;
+      }
+    }
+  });
+}
+
+function trackInternalEvent(label, category) {
+  gtag('event', 'click', {
+    'event_label': label,
+    'event_category': category
+  });
+}
+
+function onClickCallback(event) {
+  const className = event.target.getAttribute('class');
+  if (className === 'sidebar-toggle') {
+    trackInternalEvent('Sidebar Toggle', 'navigation');
+    return;
+  }
+
+  // Track only external URLs.
+  if ((event.target.tagName !== 'A') || (event.target.host === window.location.host)) {
+    return;
+  }
+
+  // Send GA event.
+  trackOutboundLink(
+    event.target,
+    event.target.getAttribute('target')
+  );
 }
 
 if (isDoNotTrackEnabled()) {
@@ -41,51 +97,7 @@ if (isDoNotTrackEnabled()) {
       document.getElementsByTagName('head')[0].appendChild(script);
     }());
 
-    let dataLayer = window.dataLayer = window.dataLayer || [];
-
-    function gtag() { // eslint-disable-line no-inner-declarations
-      dataLayer.push(arguments);
-    }
-
-    function trackOutboundLink(url, target) { // eslint-disable-line no-inner-declarations
-      gtag('event', 'click', {
-        'event_category': 'outbound',
-        'event_label': url,
-        'transport_type': 'beacon',
-        'event_callback': function () {
-          if (target !== '_blank') {
-            document.location = url;
-          }
-        }
-      });
-    }
-
-    function trackInternalEvent(label, category) { // eslint-disable-line no-inner-declarations
-      gtag('event', 'click', {
-        'event_label': label,
-        'event_category': category
-      });
-    }
-
-    function onClickCallback(event) { // eslint-disable-line no-inner-declarations
-      const className = event.target.getAttribute('class');
-      if (className === 'sidebar-toggle') {
-        trackInternalEvent('Sidebar Toggle', 'navigation');
-        return;
-      }
-
-      // Track only external URLs.
-      if ((event.target.tagName !== 'A') || (event.target.host === window.location.host)) {
-        return;
-      }
-
-      // Send GA event.
-      trackOutboundLink(
-        event.target,
-        event.target.getAttribute('target')
-      );
-    }
-
+    dataLayer = window.dataLayer = window.dataLayer || [];
     gtag('js', new Date());
 
     const month = 30 * 24 * 60 * 60; // 30 days, in seconds
