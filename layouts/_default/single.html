@@ -20,9 +20,7 @@
 
     {{/* Post tags are not allowed for drama, narratives and poems */}}
     {{ if not (in (slice "drama" "narrative" "poem") $postType) }}
-        <div class="tags-wrapper">
-            {{ partial "post-tags.html" . }}
-        </div>
+        {{ partial "post-tags.html" . }}
     {{ end }}
 </article>
 {{ end }}
