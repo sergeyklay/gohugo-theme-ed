@@ -1,0 +1,78 @@
+/* Themes */
+
+/* Red */
+.theme-base-red {
+  .post-tags a {
+    background: #ac4142;
+
+    &:before {
+      border-color: transparent #ac4142 transparent transparent;
+    }
+  }
+}
+
+/* Orange */
+.theme-base-orange {
+  .post-tags a {
+    background: #d28445;
+
+    &:before {
+      border-color: transparent #d28445 transparent transparent;
+    }
+  }
+}
+
+/* Green */
+.theme-base-green {
+  .post-tags a {
+    background: #90a959;
+
+    &:before {
+      border-color: transparent #90a959 transparent transparent;
+    }
+  }
+}
+
+/* Cyan */
+.theme-base-cyan {
+  .post-tags a {
+    background: #75b5aa;
+
+    &:before {
+      border-color: transparent #75b5aa transparent transparent;
+    }
+  }
+}
+
+/* Blue */
+.theme-base-blue {
+  .post-tags a {
+    background: #6a9fb5;
+
+    &:before {
+      border-color: transparent #6a9fb5 transparent transparent;
+    }
+  }
+}
+
+/* Magenta */
+.theme-base-magenta {
+  .post-tags a {
+    background: #aa759f;
+
+    &:before {
+      border-color: transparent #aa759f transparent transparent;
+    }
+  }
+}
+
+/* Brown */
+.theme-base-brown {
+  .post-tags a {
+    background: #8f5536;
+
+    &:before {
+      border-color: transparent #8f5536 transparent transparent;
+    }
+  }
+}
