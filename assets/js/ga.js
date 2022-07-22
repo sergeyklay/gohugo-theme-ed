@@ -28,21 +28,21 @@ function gtag() {
 /**
  * Function that tracks a click on an outbound link in Analytics.
  *
- * This function takes a valid URL string as an argument and target argument,
- * and uses that URL string as the event label.
+ * This function takes a valid URL string as an argument, optional
+ * 'isBlank' argument, and uses that URL string as the event label.
  *
  * Setting the transport method to 'beacon' lets the hit be sent using
  * navigator.sendBeacon() in browser that support it. The navigator.sendBeacon()
  * method asynchronously sends an HTTP POST request containing a small amount of
  * data to a web server.
  */
-function trackOutboundLink(url, target) {
+function trackOutboundLink(url, isBlank = false) {
   gtag('event', 'click', {
     'event_label': url,
     'event_category': 'outbound',
     'transport_type': 'beacon',
-    'event_callback': function () {
-      if (target !== '_blank') {
+    'event_callback': () => {
+      if (!isBlank) {
         document.location = url;
       }
     }
@@ -71,7 +71,7 @@ function onClickCallback(event) {
   // Send GA event.
   trackOutboundLink(
     event.target,
-    event.target.getAttribute('target')
+    event.target.getAttribute('target') !== '_blank'
   );
 }
 
