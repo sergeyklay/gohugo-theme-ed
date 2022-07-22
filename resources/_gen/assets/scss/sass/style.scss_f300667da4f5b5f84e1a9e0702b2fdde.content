@@ -1069,8 +1069,11 @@ ul.tags-cloud {
     margin: 0.25rem 1rem; }
   ul.tags-cloud .tag-link {
     padding: 5px 5px 0;
-    transition: 0.3s;
-    text-decoration: none; }
+    -webkit-transition: 0.3s;
+    -moz-transition: 0.3s;
+    -ms-transition: 0.3s;
+    -o-transition: 0.3s;
+    transition: 0.3s; }
 
 /* Themes */
 /* Red */

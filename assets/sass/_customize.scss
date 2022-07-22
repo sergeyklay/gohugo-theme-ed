@@ -235,7 +235,6 @@ ul.tags-cloud {
 
   .tag-link {
     padding: 5px 5px 0;
-    transition: 0.3s;
-    text-decoration: none;
+    @include transition(0.3s);
   }
 }
