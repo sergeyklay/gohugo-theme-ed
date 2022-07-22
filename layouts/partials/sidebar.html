@@ -28,7 +28,7 @@
             <div class="sidebar-nav-item">
                 {{- range $i, $ := site.Menus.feeds }}
                     {{ if $i }}<span aria-hidden="true">|</span>{{ end }}
-                    <a href="{{ .URL }}" id="menu-feeds-{{ .Identifier }}">
+                    <a href="{{ .URL }}" id="menu-feeds-{{ .Identifier }}" class="menu-feeds-item" data-feed-type="{{ .Identifier }}">
                         {{-  print .Name | safeHTML -}}
                     </a>
                 {{ end }}

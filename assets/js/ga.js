@@ -57,18 +57,27 @@ function trackInternalEvent(label, category) {
 }
 
 function onClickCallback(event) {
-  const className = event.target.getAttribute('class');
+  const element = event.target;
+  const className = element.getAttribute('class');
+
+  // Track menu show
   if (className === 'sidebar-toggle') {
     trackInternalEvent('Sidebar Toggle', 'navigation');
+  }
+
+  // Track feeds click
+  if (className === 'menu-feeds-item') {
+    const feedType = element.dataset.feedType;
+    trackInternalEvent(`Get ${feedType}`, 'feed');
     return;
   }
 
   // Track only external URLs.
-  if ((event.target.tagName !== 'A') || (event.target.host === window.location.host)) {
+  if ((element.tagName !== 'A') || (element.host === window.location.host)) {
     return;
   }
 
-  // Send GA event.
+  // Track outbound link click
   trackOutboundLink(
     event.target,
     event.target.getAttribute('target') !== '_blank'
