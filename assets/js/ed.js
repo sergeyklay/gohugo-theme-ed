@@ -24,4 +24,11 @@ document.addEventListener('DOMContentLoaded', function () {
       document.getElementsByTagName('head')[0].appendChild(script);
     });
   }
+
+  const hypothesisLink = document.querySelector('#hypothesis-link');
+  if (hypothesisLink !== null) {
+    hypothesisContainer.addEventListener('click', (e) => {
+      e.preventDefault();
+    });
+  }
 });
