@@ -89,11 +89,11 @@
     # (including inline scripts and event-handling HTML attributes).
     Content-Security-Policy = """
     default-src 'self';
-    script-src 'self' *.googletagmanager.com;
+    script-src 'self' www.googletagmanager.com;
     style-src 'self';
-    img-src 'self' data: *.google-analytics.com *.googletagmanager.com *.gstatic.com;
+    img-src 'self' data: www.google-analytics.com www.googletagmanager.com www.gstatic.com stats.g.doubleclick.net;
     font-src 'self';
-    connect-src 'self' *.google-analytics.com *.analytics.google.com analytics.google.com *.googletagmanager.com *.doubleclick.net;
+    connect-src 'self' www.google-analytics.com analytics.google.com www.googletagmanager.com stats.g.doubleclick.net;
     media-src 'self';
     object-src 'self';
     frame-src 'none';
