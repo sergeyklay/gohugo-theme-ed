@@ -89,7 +89,7 @@
     # (including inline scripts and event-handling HTML attributes).
     Content-Security-Policy = """
     default-src 'self';
-    script-src 'self' www.googletagmanager.com hypothes.is;
+    script-src 'self' www.googletagmanager.com hypothes.is cdn.hypothes.is;
     style-src 'self';
     img-src 'self' data: *.google-analytics.com www.googletagmanager.com www.gstatic.com stats.g.doubleclick.net;
     font-src 'self';
