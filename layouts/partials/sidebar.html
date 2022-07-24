@@ -22,11 +22,9 @@
             </a>
         {{- end }}
 
-        <span class="hypothesis-container">
-            <a class="sidebar-nav-item" id="hypothesis-link" href="#">
-                {{ i18n "annotate" }}
-            </a>
-        </span>
+        {{- if ne .Params.annotations false }}
+        {{ partial "hypothesis.html" . }}
+        {{- end }}
 
         {{- with site.Menus.feeds }}
             <div class="sidebar-nav-item">

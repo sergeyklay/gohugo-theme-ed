@@ -97,6 +97,7 @@ toc: true # Enable Table of Contents for specific page
 private: true # Hide text from search engines
 semanticType: about # Semantic type of the work (used for Schema.org)
 featuredImage: screenshot-home.png # Featured image of the text
+annotations: false # Disable annotation via hypothesis on this page
 ---
 ~~~
 

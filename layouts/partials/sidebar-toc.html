@@ -9,10 +9,20 @@
 
     {{ $toc := .Page.TableOfContents }}
     {{ $home := printf `<a class="sidebar-nav-item" href="%s">%s</a>` site.Home.RelPermalink (i18n "home") | safeHTML }}
+    {{ $annotation := "" }}
+
+    {{ if ne .Params.annotations false }}
+    {{ $annotation = (partial "hypothesis.html" .) }}
+    {{ end }}
 
     {{ $toc = $toc | replaceRE `id="TableOfContents"` `class="sidebar-nav"` | safeHTML }}
     {{ $toc = $toc | replaceRE "(<[/]?ul>|<[/]?ol>|<[/]?li>)" "" | safeHTML }}
     {{ $toc = $toc | replaceRE `<a href="(.*)">(.*)</a>` `<a class="sidebar-nav-item sidebar-nav-item-toc" href="$1">$2</a>` | safeHTML }}
+
+    {{ if ne .Params.annotations false }}
+    {{ $toc = $toc | replaceRE `<nav class="sidebar-nav">` (printf `<nav class="sidebar-nav">%s` $annotation) | safeHTML }}
+    {{ end }}
+
     {{ $toc = $toc | replaceRE `<nav class="sidebar-nav">` (printf `<nav class="sidebar-nav">%s` $home) | safeHTML }}
 
     {{ $toc }}
