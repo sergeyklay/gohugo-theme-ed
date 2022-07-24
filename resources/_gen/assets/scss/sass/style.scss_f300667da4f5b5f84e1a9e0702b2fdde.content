@@ -1075,6 +1075,56 @@ ul.tags-cloud {
     -o-transition: 0.3s;
     transition: 0.3s; }
 
+#top-of-site-anchor {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  top: 500px;
+  left: 0; }
+
+@media (max-width: 800px) {
+  #top-of-site-anchor {
+    top: 46px; } }
+
+.top-of-site-link {
+  visibility: hidden;
+  opacity: 0;
+  text-decoration: none;
+  position: fixed;
+  bottom: 1.2rem;
+  right: 1.5rem;
+  z-index: 99;
+  -webkit-transition: 0.2s;
+  -moz-transition: 0.2s;
+  -ms-transition: 0.2s;
+  -o-transition: 0.2s;
+  transition: 0.2s; }
+  .top-of-site-link:hover {
+    text-decoration: none; }
+  .top-of-site-link svg {
+    -webkit-filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.3));
+    -moz-filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.3));
+    -o-filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.3));
+    filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.3)); }
+
+.top-of-site-link[data-visible=true] {
+  opacity: 1;
+  visibility: visible; }
+
+.screen-reader-text {
+  position: absolute;
+  word-wrap: normal;
+  border: 0;
+  height: 1px;
+  width: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  -webkit-clip-path: inset(50%);
+  -moz-clip-path: inset(50%);
+  -ms-clip-path: inset(50%);
+  clip-path: inset(50%); }
+
 /* Themes */
 /* Red */
 .theme-base-red .post-tags a {

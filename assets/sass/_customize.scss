@@ -163,7 +163,7 @@ ul.pager {
     color: #fff;
     text-decoration: none;
 
-    @include border-radius (0 4px 4px 0);
+    @include border-radius(0 4px 4px 0);
 
     &:before {
       content: "";
@@ -188,8 +188,8 @@ ul.pager {
       height: 4px;
       background: #fff;
 
-      @include border-radius (2px);
-      @include box-shadow (-1px -1px 2px $text-color);
+      @include border-radius(2px);
+      @include box-shadow(-1px -1px 2px $text-color);
     }
 
     &:hover {
@@ -211,8 +211,8 @@ a.external {
     margin-left: 4px;
     width: 10px;
 
-    @include mask-size (cover);
-    @include mask-image (url("/img/external-link.svg"));
+    @include mask-size(cover);
+    @include mask-image(url("/img/external-link.svg"));
   }
 }
 
@@ -237,4 +237,56 @@ ul.tags-cloud {
     padding: 5px 5px 0;
     @include transition(0.3s);
   }
+}
+
+#top-of-site-anchor {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  top: 500px;
+  left: 0;
+}
+
+@media (max-width: 800px){
+  #top-of-site-anchor {
+    top: 46px;
+  }
+}
+
+.top-of-site-link {
+  visibility: hidden;
+  opacity: 0;
+  text-decoration: none;
+  position: fixed;
+  bottom: 1.2rem;
+  right: 1.5rem;
+  z-index: 99;
+
+  @include transition(.2s);
+
+  &:hover {
+    text-decoration: none;
+  }
+
+  svg {
+    @include filter(drop-shadow(0 2px 5px rgba(0, 0, 0, .3)));
+  }
+}
+
+.top-of-site-link[data-visible=true] {
+  opacity: 1;
+  visibility: visible;
+}
+
+.screen-reader-text {
+  position: absolute;
+  word-wrap: normal;
+  border: 0;
+  height: 1px;
+  width: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+
+  @include clip-path(inset(50%));
 }

@@ -35,6 +35,7 @@
     {{- template "partials/templates/twitter_cards.html" . }}
     {{- template "partials/templates/schema_json.html" . }}
 
-    {{- /* SEO */}}
+    {{- /* Scripts */}}
+    {{- partial "partials/scripts.html" . }}
     {{- partial "partials/seo/ga.html" . }}
 </head>

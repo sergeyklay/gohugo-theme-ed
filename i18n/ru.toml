@@ -66,3 +66,9 @@
 
 [tag_cloud]
   other = 'Облако тегов'
+
+[back_to_top]
+  other = 'Вернуться в начало'
+
+[back_to_top_label]
+  other = 'Вернуться в начало страницы'

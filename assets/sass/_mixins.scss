@@ -122,7 +122,7 @@ $break-desktop: 1600px;
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - Box Sizing
 // Sets how the total width and height of an element is calculated.
 //
-// Usage: @include box-sizing (border-box);
+// Usage: @include box-sizing(border-box);
 
 @mixin box-sizing ($value) {
   -webkit-box-sizing: $value;
@@ -133,7 +133,7 @@ $break-desktop: 1600px;
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - Box Shadow
 //
-// Usage: @include box-shadow (0 0 2px 1px #e21a23!important);
+// Usage: @include box-shadow(0 0 2px 1px #e21a23!important);
 
 @mixin box-shadow ($args...) {
   -webkit-box-shadow: $args;
@@ -143,7 +143,7 @@ $break-desktop: 1600px;
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - Border Radius
 //
-// Usage: @include border-radius (10% 30% 50% 70%);
+// Usage: @include border-radius(10% 30% 50% 70%);
 
 @mixin border-radius ($args...) {
   -webkit-border-radius: $args;
@@ -155,7 +155,7 @@ $break-desktop: 1600px;
 // Sets whether flex items are forced onto one line or can wrap onto
 // multiple lines.
 //
-// Usage: @include flex-wrap (wrap);
+// Usage: @include flex-wrap(wrap);
 
 @mixin flex-wrap ($value) {
   -webkit-flex-wrap: $value;
@@ -167,7 +167,7 @@ $break-desktop: 1600px;
 // Specifies how an element's fragments should be rendered when broken across
 // multiple lines, columns, or pages.
 //
-// Usage: @include box-decoration-break (clone);
+// Usage: @include box-decoration-break(clone);
 
 @mixin box-decoration-break ($value) {
   -webkit-box-decoration-break: $value;
@@ -178,16 +178,47 @@ $break-desktop: 1600px;
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - Mask
 
 
-// Usage: @include @include mask-image (url("/img/external-link.svg"));
+// Usage: @include mask-image(url("/img/external-link.svg"));
 
 @mixin mask-image($value) {
-  -webkit-mask-image: $value; // Chrome, iOS, Safari
-          mask-image: $value; // None yet / Non-standard
+  -webkit-mask-image: $value;
+          mask-image: $value;
 }
 
-// Usage: @include mask-size (cover);
+// Usage: @include mask-size(cover);
 
 @mixin mask-size($value) {
-  -webkit-mask-size: $value; // Chrome, iOS, Safari
-          mask-size: $value; // None yet / Non-standard
+  -webkit-mask-size: $value;
+          mask-size: $value;
+}
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - Filter
+// Applies graphical effects like blur or color shift to an element.
+//
+// Usage: @include filter(drop-shadow(0 2px 5px rgba(0, 0, 0, .3)));
+
+@mixin filter($value) {
+  -webkit-filter: $value;
+     -moz-filter: $value; // editorconfig-checker-disable-line
+       -o-filter: $value; // editorconfig-checker-disable-line
+          filter: $value;
+}
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - clip-path
+// Create a clipping region that sets what part of an element should be shown.
+//
+// Usage: @include clip-path(
+//             padding-box,
+//             circle(50px at 0 100px),
+//             // ...
+//        );
+
+@mixin clip-path($clip-list...) {
+  // combine the passed transforms into a space separated list
+  $clip-list: join($clip-list, null, space);
+
+  -webkit-clip-path: $clip-list;
+     -moz-clip-path: $clip-list;
+      -ms-clip-path: $clip-list;
+          clip-path: $clip-list;
 }

@@ -15,6 +15,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   (will be used for Schema.org)
 - Provide ability to mark links as external using svg icon
 - Provide minimal tag cloud
+- Provide 'Back to top' functionality
 
 ### Changed
 

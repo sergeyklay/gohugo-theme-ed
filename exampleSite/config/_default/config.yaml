@@ -38,7 +38,7 @@ taxonomies:
 #
 # Set `HUGO_ENV` environment variable or `site.Params.env` configuration
 # parameter to "production" to use Google Analytics.
-googleAnalytics: 'xxx'
+googleAnalytics: ''
 
 minify:
   # Do not minify XML files to avoid CDATA escape issues

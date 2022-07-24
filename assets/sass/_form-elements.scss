@@ -24,7 +24,7 @@
   }
 
   &:focus {
-    @include box-shadow (none);
+    @include box-shadow(none);
     outline: none;
     border-color: #5e5e5e;
   }
@@ -73,13 +73,13 @@ form textarea:-moz-submit-invalid,
 form input[type="text"]:-moz-submit-invalid,
 form select:-moz-submit-invalid,
 form input:-moz-ui-invalid {
-  @include box-shadow (0 0 2px 1px #D64541!important);
+  @include box-shadow(0 0 2px 1px #D64541!important);
 }
 
 .form-item-error {
   .form-input,
   .form-textarea {
-    @include box-shadow (0 0 2px 1px #D64541!important);
+    @include box-shadow(0 0 2px 1px #D64541!important);
   }
 }
 
