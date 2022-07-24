@@ -93,7 +93,7 @@
     style-src 'self' cdn.hypothes.is;
     img-src 'self' data: *.google-analytics.com www.googletagmanager.com www.gstatic.com stats.g.doubleclick.net;
     font-src 'self';
-    connect-src 'self' *.google-analytics.com analytics.google.com www.googletagmanager.com stats.g.doubleclick.net;
+    connect-src 'self' *.google-analytics.com *.analytics.google.com analytics.google.com www.googletagmanager.com stats.g.doubleclick.net;
     media-src 'self';
     object-src 'self';
     frame-src hypothes.is;
