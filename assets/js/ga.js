@@ -60,6 +60,12 @@ function onClickCallback(event) {
   const element = event.target;
   const className = element.getAttribute('class');
 
+  // Track 'Back to top' click
+  if (className === 'top-of-site-link') {
+    trackInternalEvent('Back to top', 'navigation');
+    return;
+  }
+
   // Track menu show
   if (className === 'sidebar-toggle') {
     trackInternalEvent('Sidebar Toggle', 'navigation');
