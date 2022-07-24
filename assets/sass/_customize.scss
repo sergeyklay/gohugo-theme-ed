@@ -281,3 +281,7 @@ ul.tags-cloud {
 .screen-reader-text {
   @include visually-hidden();
 }
+
+.hypothesis-container {
+  cursor: pointer;
+}

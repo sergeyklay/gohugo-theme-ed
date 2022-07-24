@@ -22,7 +22,11 @@
             </a>
         {{- end }}
 
-        {{- /* TODO: Add hypothesis support */ -}}
+        <span class="hypothesis-container">
+            <a class="sidebar-nav-item" id="hypothesis-link">
+                {{ i18n "annotate" }}
+            </a>
+        </span>
 
         {{- with site.Menus.feeds }}
             <div class="sidebar-nav-item">

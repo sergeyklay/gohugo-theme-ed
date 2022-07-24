@@ -11,4 +11,15 @@ document.addEventListener('DOMContentLoaded', function () {
   if (topAnchor !== null) {
     intersectionObserver.observe(topAnchor);
   }
+
+  // Annotation support
+  const hypothesisContainer = document.querySelector('.hypothesis-container');
+  if (hypothesisContainer !== null) {
+    hypothesisContainer.addEventListener('click', () => {
+      let script = document.createElement('script');
+      script.setAttribute('src', 'https://hypothes.is/embed.js');
+      script.type = 'text/javascript';
+      document.getElementsByTagName('head')[0].appendChild(script);
+    });
+  }
 });

@@ -69,6 +69,13 @@ function onClickCallback(event) {
   // Track menu show
   if (className === 'sidebar-toggle') {
     trackInternalEvent('Sidebar Toggle', 'navigation');
+    return;
+  }
+
+  // Track annotation usage
+  if (className === 'hypothesis-container') {
+    trackInternalEvent('Annotation open', 'navigation');
+    return;
   }
 
   // Track feeds click

@@ -69,3 +69,6 @@
 
 [back_to_top_label]
   other = 'Back to top of the page'
+
+[annotate]
+  other = 'Annotate me'

@@ -1126,6 +1126,9 @@ ul.tags-cloud {
   -ms-clip-path: inset(50%);
   clip-path: inset(50%); }
 
+.hypothesis-container {
+  cursor: pointer; }
+
 /* Themes */
 /* Red */
 .theme-base-red .post-tags a {

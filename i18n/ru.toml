@@ -69,3 +69,6 @@
 
 [back_to_top_label]
   other = 'Вернуться в начало страницы'
+
+[annotate]
+  other = 'Добавить аннотацию'
