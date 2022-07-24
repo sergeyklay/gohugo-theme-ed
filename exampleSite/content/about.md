@@ -33,7 +33,7 @@ for you, Kindle!
 
 
 - [Our sample site]({{< ref "/" >}}) is the first edition built with Ed.
-- {{< link src="https://serghei.blog/?utm_source=ed&utm_campaign=docs&utm_medium=smm" class="external" target="_blank" hreflang="ru" rel="noopener noreferrer" >}}Serghei Iakovlev's blog{{< /link >}}
+- {{< link src="https://serghei.blog/?utm_source=ed&utm_campaign=docs&utm_medium=smm" class="external" target="_blank" hreflang="ru" >}}Serghei Iakovlev's blog{{< /link >}}
 
 ## Current Features
 
@@ -47,6 +47,7 @@ for you, Kindle!
 - Metadata in OpenGraph to play nice with social media and search engines
 - Automatic table of content generation
 - Simple search functionality
+- Annotations via {{< link src="https://hypothes.is/" class="external" target="_blank" hreflang="en" rel="noopener noreferrer" >}}hypothes.is{{< /link >}}
 - Contact form
 - Custom `robots.txt` (changes values based on environment)
 - RSS/Atom/Json Feeds Discovery
@@ -55,7 +56,7 @@ for you, Kindle!
 ## Installing and using Ed
 
 To learn how to install and begin using Ed, please visit our
-[documentation page]({{< relref "/documentation" >}} "Visit the documentation").
+[documentation page]({{< relref "/documentation?utm_source=ed&utm_campaign=docs&utm_medium=smm" >}} "Visit the documentation").
 
 ---
 

@@ -1,4 +1,4 @@
-<h1 align=center>Ed | <a href="https://gohugo-theme-ed.netlify.app/" rel="nofollow">Demo</a></h1>
+<h1 align=center>Ed | <a href="https://gohugo-theme-ed.netlify.app/?utm_source=github.com&utm_campaign=docs&utm_medium=smm">Demo</a></h1>
 
 Ed is a [Hugo](http://gohugo.io) theme designed for textual editors based on
 [minimal computing](http://go-dh.github.io/mincomp/) principles, and focused
@@ -18,8 +18,8 @@ theme by [Alex Gil](https://twitter.com/elotroalex).
 
 ## Sample Ed editions
 
-- [Our sample site](https://gohugo-theme-ed.netlify.app/) is the first edition built with Ed.
-- [Serghei Iakovlev's blog](https://serghei.blog/?utm_source=ed&utm_campaign=docs&utm_medium=smm)
+- [Our sample site](https://gohugo-theme-ed.netlify.app/?utm_source=github.com&utm_campaign=docs&utm_medium=smm) is the first edition built with Ed.
+- [Serghei Iakovlev's blog](https://serghei.blog/?utm_source=github.com&utm_campaign=docs&utm_medium=smm)
 
 ## Features
 
@@ -33,9 +33,15 @@ theme by [Alex Gil](https://twitter.com/elotroalex).
 - Metadata in OpenGraph to play nice with social media and search engines
 - Automatic table of content generation
 - Simple search functionality
+- Annotations via [hypothes.is](https://hypothes.is/)
 - Contact form
 - Custom `robots.txt` (changes values based on environment)
 - RSS/Atom/Json Feeds Discovery
+
+## Installing and using Ed
+
+To learn how to install and begin using Ed, please visit our
+[documentation page](https://gohugo-theme-ed.netlify.app/documentation/?utm_source=github.com&utm_campaign=docs&utm_medium=smm).
 
 ## License
 

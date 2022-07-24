@@ -1,5 +1,5 @@
-document.addEventListener('DOMContentLoaded', function () {
-  // 'Back to top' logic
+// 'Back to top' logic
+function setupBackToTop() {
   const intersectionObserver = new IntersectionObserver(function(entries) {
     const topBtn = document.querySelector('.top-of-site-link');
     if (topBtn === null) return;
@@ -11,8 +11,10 @@ document.addEventListener('DOMContentLoaded', function () {
   if (topAnchor !== null) {
     intersectionObserver.observe(topAnchor);
   }
+}
 
-  // Annotation support
+// Annotation support
+function setupHypothes() {
   const hypothesisContainer = document.querySelector('.hypothesis-container');
   if (hypothesisContainer !== null) {
     hypothesisContainer.addEventListener('click', (e) => {
@@ -31,4 +33,9 @@ document.addEventListener('DOMContentLoaded', function () {
       e.preventDefault();
     });
   }
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+  setupBackToTop();
+  setupHypothes();
 });
