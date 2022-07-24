@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function () {
       e.preventDefault();
 
       let script = document.createElement('script');
-      script.setAttribute('src', 'https://hypothes.is/embed.js');
+      script.setAttribute('src', 'https://cdn.hypothes.is/hypothesis');
       script.type = 'text/javascript';
       document.getElementsByTagName('head')[0].appendChild(script);
     });
