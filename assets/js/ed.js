@@ -15,7 +15,9 @@ document.addEventListener('DOMContentLoaded', function () {
   // Annotation support
   const hypothesisContainer = document.querySelector('.hypothesis-container');
   if (hypothesisContainer !== null) {
-    hypothesisContainer.addEventListener('click', () => {
+    hypothesisContainer.addEventListener('click', (e) => {
+      e.preventDefault();
+
       let script = document.createElement('script');
       script.setAttribute('src', 'https://hypothes.is/embed.js');
       script.type = 'text/javascript';
