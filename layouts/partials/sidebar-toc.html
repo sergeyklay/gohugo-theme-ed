@@ -9,7 +9,6 @@
 
     {{ $toc := .Page.TableOfContents }}
     {{ $home := printf `<a class="sidebar-nav-item" href="%s">%s</a>` site.Home.RelPermalink (i18n "home") | safeHTML }}
-    {{ $top := printf `<a class="sidebar-nav-item" href="#" data-proofer-ignore>%s</a>` (i18n "top") | safeHTML }}
 
     {{ $toc = $toc | replaceRE `id="TableOfContents"` `class="sidebar-nav"` | safeHTML }}
     {{ $toc = $toc | replaceRE "(<[/]?ul>|<[/]?ol>|<[/]?li>)" "" | safeHTML }}
