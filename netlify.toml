@@ -90,7 +90,7 @@
     Content-Security-Policy = """
     default-src 'self';
     script-src 'self' www.googletagmanager.com hypothes.is cdn.hypothes.is;
-    style-src 'self';
+    style-src 'self' cdn.hypothes.is;
     img-src 'self' data: *.google-analytics.com www.googletagmanager.com www.gstatic.com stats.g.doubleclick.net;
     font-src 'self';
     connect-src 'self' *.google-analytics.com analytics.google.com www.googletagmanager.com stats.g.doubleclick.net;

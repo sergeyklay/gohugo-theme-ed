@@ -29,10 +29,10 @@ func main() {
 		repStr := "${1} ${2} blob:${3}"
 		newStr = reStr.ReplaceAllString(newStr, repStr)
 
-		// -> style-src 'self';
-		// <- style-src 'self' 'unsafe-inline';
-		reStr = regexp.MustCompile("(style-src) ('self')(;)")
-		repStr = "${1} ${2} 'unsafe-inline'${3}"
+		// -> style-src 'self' cdn.hypothes.is;
+		// <- style-src 'self' 'unsafe-inline' cdn.hypothes.is;
+		reStr = regexp.MustCompile(`(style-src) ('self') (cdn\.hypothes\.is)(;)`)
+		repStr = "${1} ${2} ${3} 'unsafe-inline'${4}"
 		newStr = reStr.ReplaceAllString(newStr, repStr)
 
 		// -> media-src 'self';
