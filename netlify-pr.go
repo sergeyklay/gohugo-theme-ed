@@ -47,9 +47,9 @@ func main() {
 		repStr = "${1} app.netlify.com${3}"
 		newStr = reStr.ReplaceAllString(newStr, repStr)
 
-		// -> script-src 'self' *.googletagmanager.com;
-		// <- script-src 'self' *.googletagmanager.com netlify-cdp-loader.netlify.app;
-		reStr = regexp.MustCompile(`(script-src) ('self' \*\.googletagmanager.com)(;)`)
+		// -> script-src 'self' www.googletagmanager.com hypothes.is;
+		// <- script-src 'self' www.googletagmanager.com hypothes.is netlify-cdp-loader.netlify.app;
+		reStr = regexp.MustCompile(`(script-src) ('self' www\.googletagmanager\.com hypothes\.is)(;)`)
 		repStr = "${1} ${2} netlify-cdp-loader.netlify.app${3}"
 		newStr = reStr.ReplaceAllString(newStr, repStr)
 
