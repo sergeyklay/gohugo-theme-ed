@@ -41,10 +41,10 @@ func main() {
 		repStr = "${1} ${2} blob: https://app.netlify.com${3}"
 		newStr = reStr.ReplaceAllString(newStr, repStr)
 
-		// -> frame-src 'none';
-		// <- frame-src app.netlify.com;
-		reStr = regexp.MustCompile("(frame-src) ('none')(;)")
-		repStr = "${1} app.netlify.com${3}"
+		// -> frame-src hypothes.is;
+		// <- frame-src hypothes.is app.netlify.com;
+		reStr = regexp.MustCompile(`(frame-src) (hypothes\.is)(;)`)
+		repStr = "${1} ${2} app.netlify.com${3}"
 		newStr = reStr.ReplaceAllString(newStr, repStr)
 
 		// -> script-src 'self' www.googletagmanager.com hypothes.is cdn.hypothes.is;

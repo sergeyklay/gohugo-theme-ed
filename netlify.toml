@@ -96,7 +96,7 @@
     connect-src 'self' *.google-analytics.com analytics.google.com www.googletagmanager.com stats.g.doubleclick.net;
     media-src 'self';
     object-src 'self';
-    frame-src 'none';
+    frame-src hypothes.is;
     worker-src 'self';
     frame-ancestors 'none';
     form-action 'self' submit-form.com;
