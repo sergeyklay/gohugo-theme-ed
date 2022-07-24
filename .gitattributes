@@ -71,3 +71,4 @@ netlify.toml    text eol=lf
 .gitmodules     export-ignore
 /.github        export-ignore
 netlify.toml    export-ignore
+netlify-pr.go   export-ignore

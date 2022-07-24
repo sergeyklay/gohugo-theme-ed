@@ -218,7 +218,7 @@ $break-desktop: 1600px;
   $clip-list: join($clip-list, null, space);
 
   -webkit-clip-path: $clip-list;
-     -moz-clip-path: $clip-list;
+     -moz-clip-path: $clip-list; // editorconfig-checker-disable-line
       -ms-clip-path: $clip-list;
           clip-path: $clip-list;
 }

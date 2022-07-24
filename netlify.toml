@@ -27,7 +27,7 @@
 # Deploy Preview context: all deploys generated from
 # a pull/merge request will inherit these settings.
 [context.deploy-preview]
-  command = './netlify-update-csp-headers.rb; hugo --source=exampleSite --buildDrafts --buildFuture --baseURL ${DEPLOY_PRIME_URL} --destination ../public'
+  command = 'go run netlify-pr.go; hugo --source=exampleSite --buildDrafts --buildFuture --baseURL ${DEPLOY_PRIME_URL} --destination ../public'
 
 [context.deploy-preview.environment]
   HUGO_ENV = 'development'
