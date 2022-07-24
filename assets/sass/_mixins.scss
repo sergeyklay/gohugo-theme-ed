@@ -222,3 +222,32 @@ $break-desktop: 1600px;
       -ms-clip-path: $clip-list;
           clip-path: $clip-list;
 }
+
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - visually-hidden
+// Visually hides text content for accessibility. This text should
+// only be visible to screen reader users.
+//
+// Usage: @include visually-hidden();
+
+@mixin visually-hidden {
+  // Outside the DOM flow
+  position: absolute !important;
+  // Do not wrap content
+  white-space: nowrap;
+  // Hide borders
+  border: 0;
+  // Nearly collapsed
+  height: 1px;
+  width: 1px;
+  // Remove padding / margin
+  padding: 0;
+  margin: -1px;
+  // Do not allow overflow
+  overflow: hidden;
+  // Hide the 1px x 1px element completely
+  // - clip: old browsers
+  // - clip-path: modern browsers
+  clip: rect(1px, 1px, 1px, 1px);
+  @include clip-path(inset(50%));
+}

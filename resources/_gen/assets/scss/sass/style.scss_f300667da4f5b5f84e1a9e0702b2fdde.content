@@ -1112,14 +1112,15 @@ ul.tags-cloud {
   visibility: visible; }
 
 .screen-reader-text {
-  position: absolute;
-  word-wrap: normal;
+  position: absolute !important;
+  white-space: nowrap;
   border: 0;
   height: 1px;
   width: 1px;
   padding: 0;
   margin: -1px;
   overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
   -webkit-clip-path: inset(50%);
   -moz-clip-path: inset(50%);
   -ms-clip-path: inset(50%);
