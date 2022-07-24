@@ -86,7 +86,7 @@ function onClickCallback(event) {
   // Track outbound link click
   trackOutboundLink(
     event.target,
-    event.target.getAttribute('target') !== '_blank'
+    event.target.getAttribute('target') === '_blank'
   );
 }
 

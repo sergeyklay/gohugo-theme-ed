@@ -7,7 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased](https://github.com/sergeyklay/gohugo-theme-ed/compare/v0.5.0...HEAD)
 
-### Todo
+### Fixed
+
+- Fix opening external links in new tab/window when use
+  Google Site Tag tagging/analytics framework 
 
 ## [v0.5.0](https://github.com/sergeyklay/gohugo-theme-ed/compare/v0.4.0...v0.5.0)
 
