@@ -1,10 +1,14 @@
-name: "CodeQL"
+name: CodeQL
 
 on:
   push:
-    branches: [ master ]
+    branches:
+      - master
+  # The branches below must be a subset of the branches above
   pull_request:
-    branches: [ master ]
+    branches:
+      - master
+
   schedule:
     - cron: '0 11 * * *'
       #      | | | | |
@@ -16,13 +20,25 @@ on:
 
 jobs:
   analyze:
+    runs-on: ubuntu-20.04
     name: Analyze
-    runs-on: ubuntu-latest
+
+    # The maximum number of minutes to let a workflow run
+    # before GitHub automatically cancels it. Default: 360
+    timeout-minutes: 30
 
     strategy:
+      # When set to true, GitHub cancels
+      # all in-progress jobs if any matrix job fails.
       fail-fast: false
+
       matrix:
-        language: [ 'javascript' ]
+        language:
+          - javascript
+
+    permissions:
+      # required for all workflows
+      security-events: write
 
     steps:
       - name: Checkout code
