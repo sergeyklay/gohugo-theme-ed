@@ -44,20 +44,42 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-    - name: Initialize CodeQL
-      uses: github/codeql-action/init@v2
-      with:
-        languages: ${{ matrix.language }}
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@v2
+        with:
+          languages: ${{ matrix.language }}
 
-    - name: Autobuild
-      uses: github/codeql-action/autobuild@v2
+      - name: Autobuild
+        uses: github/codeql-action/autobuild@v2
 
-    - name: Build site
-      run: |
-        hugo --verbose --source=exampleSite --buildDrafts --buildFuture
-      env:
-        HUGO_RESOURCEDIR: '../resources'
-        HUGO_ENV: development
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: '0.101.0'
+          extended: true
 
-    - name: Perform CodeQL Analysis
-      uses: github/codeql-action/analyze@v2
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: '14'
+
+      - name: Cache dependencies
+        uses: actions/cache@v2
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - name: Install a project with a clean slate
+        run: npm ci
+
+      - name: Build site
+        run: |
+          hugo --verbose --source=exampleSite --buildDrafts --buildFuture
+        env:
+          HUGO_RESOURCEDIR: '../resources'
+          HUGO_ENV: development
+
+      - name: Perform CodeQL Analysis
+        uses: github/codeql-action/analyze@v2
