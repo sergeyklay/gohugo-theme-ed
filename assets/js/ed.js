@@ -29,13 +29,11 @@ function setupHypothes() {
 
   const hypothesisLink = document.querySelector('#hypothesis-link');
   if (hypothesisLink !== null) {
-    hypothesisContainer.addEventListener('click', (e) => {
-      e.preventDefault();
-    });
+    hypothesisContainer.addEventListener('click', e => e.preventDefault());
   }
 }
 
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', () => {
   setupBackToTop();
   setupHypothes();
 });

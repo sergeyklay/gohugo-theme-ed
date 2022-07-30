@@ -317,7 +317,7 @@ function getQueryParam(key) {
 }
 
 initSearchIndex();
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', () => {
   const searchForm = document.getElementById('search-form');
   const searchInput = document.getElementById('search');
 
@@ -325,10 +325,7 @@ document.addEventListener('DOMContentLoaded', function () {
     return;
   }
 
-  searchForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-  });
-
+  searchForm.addEventListener('submit', e => e.preventDefault());
   searchInput.addEventListener('keyup', (e) => {
     e.preventDefault();
     const query = document.getElementById('search')
