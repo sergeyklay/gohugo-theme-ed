@@ -14,7 +14,7 @@
     {{ $toc = $toc | replaceRE `<a href="(.*)">(.*)</a>` `<a class="sidebar-nav-item sidebar-nav-item-toc" href="$1">$2</a>` | safeHTML }}
 
     {{ if ne .Params.annotations false }}
-    {{ $annotation = (partial "hypothesis.html" .) }}
+    {{ $annotation := (partial "hypothesis.html" .) }}
     {{ $toc = $toc | replaceRE `<nav class="sidebar-nav">` (printf `<nav class="sidebar-nav">%s` $annotation) | safeHTML }}
     {{ end }}
 
