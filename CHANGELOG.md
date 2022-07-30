@@ -18,7 +18,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 
 - Fix opening external links in new tab/window when use
-  Google Site Tag tagging/analytics framework 
+  Google Site Tag tagging/analytics framework
+- Correct Regex to match sentence boundary when render search result
 
 ## [v0.5.0](https://github.com/sergeyklay/gohugo-theme-ed/compare/v0.4.0...v0.5.0)
 
