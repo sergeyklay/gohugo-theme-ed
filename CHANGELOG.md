@@ -11,6 +11,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Provide annotation support via https://hypothes.is
 
+### Changed
+
+- Set the language target to `es2015` when build JavaScript.
+
 ### Fixed
 
 - Fix opening external links in new tab/window when use

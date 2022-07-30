@@ -76,11 +76,7 @@
 {{- $siteSearch = $siteSearch | append (resources.Get "js/search.js") -}}
 {{- $siteSearch = $siteSearch | resources.Concat "js/search-bundle.js" -}}
 
-{{- if $isProduction -}}
-    {{- $siteSearch = $siteSearch | js.Build (dict "format" "iife" "params" $searchParams) | minify -}}
-{{ else }}
-    {{- $siteSearch = $siteSearch | js.Build (dict "format" "iife" "sourceMap" "inline" "params" $searchParams) -}}
-{{- end -}}
+{{- $siteSearch = $siteSearch | js.Build (dict "format" "iife" "minify" $isProduction "target" "es2015" "params" $searchParams) -}}
 
 {{- if or (site.Params.assets.disable_fingerprinting) (not $isProduction) }}
     <script src="{{ $siteSearch.RelPermalink }}"></script>

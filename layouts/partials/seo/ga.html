@@ -6,7 +6,7 @@
         {{- $gaScript = $gaScript | append (resources.Get "js/ga.js") -}}
         {{- $gaScript = $gaScript | resources.Concat "js/analytics-bundle.js" -}}
 
-        {{- $gaScript = $gaScript | js.Build (dict "format" "iife" "minify" true "params" $gaParams) -}}
+        {{- $gaScript = $gaScript | js.Build (dict "format" "iife" "target" "es2015" "minify" true "params" $gaParams) -}}
 
         {{- if site.Params.assets.disable_fingerprinting }}
             <script src="{{ $gaScript.RelPermalink }}"></script>
