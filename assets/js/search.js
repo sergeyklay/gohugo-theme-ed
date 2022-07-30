@@ -143,8 +143,7 @@ function updateSearchResults(query, results) {
     )
     .join('');
 
-  const searchResultListItems = document.querySelectorAll('#search-results-body article');
-  document.getElementById('results-count').innerHTML = searchResultListItems.length;
+  document.getElementById('results-count').innerHTML = results.length;
 }
 
 function createSearchResultBlurb(query, pageContent) {
