@@ -156,7 +156,7 @@ function createSearchResultBlurb(query, pageContent) {
   // term, we need a way to identify where each sentence begins/ends. This
   // regex will be used to produce a list of all sentences from the page
   // content.
-  const sentenceBoundaryRegex = /\b\.\s/gm;
+  const sentenceBoundaryRegex = new RegExp('\\b\\.\\s', 'gm');
 
   const searchQueryHits = Array.from(
     pageContent.matchAll(searchQueryRegex),
