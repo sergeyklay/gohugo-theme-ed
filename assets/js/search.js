@@ -198,7 +198,7 @@ function createSearchResultBlurb(query, pageContent) {
 }
 
 function createQueryStringRegex(query) {
-  let escaped = RegExp.escape(query);
+  const escaped = RegExp.escape(query);
   return escaped.split(' ').length === 1 ? `(${escaped})` : `(${escaped.split(' ').join('|')})`;
 }
 
