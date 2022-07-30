@@ -35,10 +35,12 @@
 <template>
     <article class="post" data-score="">
         <header>
-          <h2 class="post-title"><a href="#" class="search-result-page-title"></a></h2>
+            <h2 class="post-title">
+                <a href="#" class="search-result-page-title"></a>
+            </h2>
         </header>
         <p class="post-content"></p>
-      </article>
+    </article>
 </template>
 
 {{- $isProduction := (or (eq (getenv "HUGO_ENV") "production") (eq site.Params.env "production")) -}}
