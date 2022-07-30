@@ -12,7 +12,7 @@ source: "Bartleby.com"
 - {{< indent 2 >}}Her loving bosom lay.
 - An hour behind the fleeting breath,
 - Later by just an hour than death,—
-- {{< indent 2 >}}}Oh, lagging yesterday!
+- {{< indent 2 >}}Oh, lagging yesterday!
 
 
 - Could she have guessed that it would be;
