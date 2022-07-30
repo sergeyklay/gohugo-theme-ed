@@ -1,5 +1,10 @@
 @import "_mixins";
 
+template {
+  // IE support for HTML5 <template> tag
+  display: none;
+}
+
 .masthead-title small {
   font-size: .78rem;
 }

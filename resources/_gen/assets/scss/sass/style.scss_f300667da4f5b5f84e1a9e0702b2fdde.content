@@ -875,6 +875,9 @@ form input:-moz-ui-invalid {
   -o-transition: all 0.5s ease-out;
   transition: all 0.5s ease-out; }
 
+template {
+  display: none; }
+
 .masthead-title small {
   font-size: .78rem; }
 

@@ -13,7 +13,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
-- Set the language target to `es2015` when build JavaScript.
+- Set the language target to `es2015` when build JavaScript
+- Use HTML5 `<template>` tag to render search results
 
 ### Fixed
 

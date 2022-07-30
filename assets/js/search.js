@@ -129,21 +129,32 @@ function clearSearchResults() {
 }
 
 function updateSearchResults(query, results) {
-  document.getElementById('search-results-body').innerHTML = results
-    .map((hit) => `
-    <article class="post" data-score="${hit.score.toFixed(2)}">
-      <header>
-        <h2 class="post-title">
-        <a href="${hit.href}?utm_source=search" class="search-result-page-title">${hit.title}</a>
-        </h2>
-      </header>
-      <p class="post-content">${createSearchResultBlurb(query, hit.content)}</p>
-    </article>
-    `
-    )
-    .join('');
+  const template = document.querySelector('template').content;
+  const fragment = document.createDocumentFragment();
 
-  document.getElementById('results-count').innerHTML = results.length;
+  const resultsBody = document.getElementById('search-results-body');
+  resultsBody.textContent = '';
+
+  for (const id in results) {
+    const item = results[id];
+    const result = template.cloneNode(true);
+
+    const article = result.querySelector('article');
+    article.dataset.score = item.score.toFixed(2);
+
+    const a = result.querySelector('a');
+    a.innerHTML = item.title;
+    a.href = `${item.href}?utm_source=search`;
+
+    const content = result.querySelector('.post-content');
+    content.innerHTML = createSearchResultBlurb(query, item.content);
+
+    fragment.appendChild(result);
+  }
+
+  resultsBody.appendChild(fragment);
+
+  document.getElementById('results-count').textContent = results.length;
 }
 
 function createSearchResultBlurb(query, pageContent) {
