@@ -5,18 +5,14 @@ extends:
   - eslint:recommended
 
 env:
-  # ECMAScript 2017 globals
-  es2017: true
+  # ECMAScript 2022 globals
+  es2022: true
 
   # Browser global variables
   browser: true
 
   # jQuery global variables
   jquery: true
-
-parserOptions:
-  # ECMAScript 2017
-  ecmaVersion: 8
 
 rules:
   # ===============
