@@ -1,6 +1,6 @@
 ---
 title: "Narrative of the Life of Frederick Douglass"
-date: 2016
+date: 2016-01-18
 draft: false
 author: Frederick Douglass
 editor: Alex Gil
