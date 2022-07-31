@@ -26,8 +26,14 @@ async function initSearchIndex() {
 
       this.field('objectID');
       this.field('title');
+      this.field('lang');
       this.field('tags');
+      this.field('kind');
+      this.field('type');
+      this.field('section');
       this.field('content');
+      this.field('publishDate');
+      this.field('lastmod');
 
       this.ref('href');
 
@@ -167,7 +173,7 @@ function createSearchResultBlurb(query, pageContent) {
   // term, we need a way to identify where each sentence begins/ends. This
   // regex will be used to produce a list of all sentences from the page
   // content.
-  const sentenceBoundaryRegex = new RegExp(/(?=[^])(?:\P{Sentence_Terminal}|\p{Sentence_Terminal}(?!['"`\p{Close_Punctuation}\p{Final_Punctuation}\s]))*(?:\p{Sentence_Terminal}+['"`\p{Close_Punctuation}\p{Final_Punctuation}]*|$)/, 'gum');
+  const sentenceBoundaryRegex = new RegExp(/(?=[^])(?:\P{Sentence_Terminal}|\p{Sentence_Terminal}(?!['"`\p{Close_Punctuation}\p{Final_Punctuation}\s]))*(?:\p{Sentence_Terminal}+['"`\p{Close_Punctuation}\p{Final_Punctuation}]*|$)/, 'guy');
   const searchQueryHits = Array.from(
     pageContent.matchAll(searchQueryRegex),
     (m) => m.index
