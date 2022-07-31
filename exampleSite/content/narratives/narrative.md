@@ -17,20 +17,28 @@ This version of *Narrative of the Life of Frederick Douglass* was adapted from *
 
 ---
 
-{{< raw-html >}}<a id="title-page"></a>
-
-<p class="centered large">NARRATIVE<br>OF THE<br>LIFE<br>OF</p>
+{{< raw-html >}}
+<p class="text-center text-uppercase fs-5">Narrative<br>of the<br>Life<br>of</p>
 <p><br></p>
-<p class="centered larger">FREDERICK DOUGLASS</p>
-
-<p class="centered large">AN<br>AMERICAN SLAVE.<br>WRITTEN BY HIMSELF.</p>
+<p class="text-center text-uppercase fs-4">Frederick Douglass</p>
+<p class="text-center text-uppercase fs-5">an<br>American Slave.<br>Written by himself.</p>
 <p><br></p>
 
-<p class="centered">BOSTON</p>
+<p class="text-center text-uppercase">Boston</p>
+<p class="text-center text-uppercase">
+    Published at the Anti-slavery Office,<br>
+    No. 25 Cornhill<br>
+    1845
+</p>
 
-<p class="centered">PUBLISHED AT THE ANTI-SLAVERY OFFICE,<br>NO. 25 CORNHILL<br>1845</p>
-
-<p class="centered small">ENTERED, ACCORDING TO ACT OF CONGRESS,<br>IN THE YEAR 1845<br>BY FREDERICK DOUGLASS,<br>IN THE CLERK'S OFFICE OF THE DISTRICT COURT<br>OF MASSACHUSETTS.</p>{{< /raw-html >}}
+<p class="text-center text-uppercase fs-7">
+  Entered, according to Act of Congress,<br>
+  in the year 1845<br>
+  by Frederick Douglass,<br>
+  in the Clerk's Office of the District Court<br>
+  of Massachusetts.
+</p>
+{{< /raw-html >}}
 
 ---
 

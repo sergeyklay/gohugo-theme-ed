@@ -15,6 +15,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Set the language target to `es2015` when build JavaScript
 - Use HTML5 `<template>` tag to render search results
+- Changed generic CSS classes for common text purposes:
+  - Renamed `p.centered` to `.text-center`
+  - Renamed `p.larger` to `.fs-4`
+  - Renamed `p.large` to `.fs-5`
+  - Renamed `p.small` to `.fs-7`
+  - Removed `li.centered` in favour of `.text-center`
 
 ### Fixed
 

@@ -438,17 +438,20 @@ a.sidebar-nav-item:focus {
 /*
   ED special layouts
 */
-p.centered {
-  text-align: center; }
+.text-center {
+  text-align: center !important; }
 
-p.larger {
-  font-size: 1.6rem; }
+.text-uppercase {
+  text-transform: uppercase !important; }
 
-p.large {
-  font-size: 1.4rem; }
+.fs-4 {
+  font-size: 1.6rem !important; }
 
-p.small {
-  font-size: 0.8rem; }
+.fs-5 {
+  font-size: 1.4rem !important; }
+
+.fs-7 {
+  font-size: 0.8rem !important; }
 
 div.poem,
 .poem,
@@ -571,11 +574,7 @@ u,
   Line layouts for prose-poetry and theater
 
   To use these layouts you need to add the classes to your markdown or HTML lines.
-  (ex. "- {.centered} hello!")
 */
-li.centered {
-  text-align: center; }
-
 li.speaker,
 li.speakerGroup {
   text-align: center;
