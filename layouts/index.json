@@ -19,19 +19,29 @@
 
         {{/* Exclude virtual pages which aren't backed by a file */}}
         {{ if .File }}
+
+          {{- $publishDate := $page.PublishDate -}}
+          {{- if $publishDate.IsZero -}}
+            {{ $publishDate = now -}}
+          {{- end -}}
+
+          {{- $modifiedDate := $page.Lastmod -}}
+          {{- if $modifiedDate.IsZero -}}
+            {{ $modifiedDate = $publishDate -}}
+          {{- end -}}
+
           {{- $pageData := (dict
             "objectID" $page.File.UniqueID
-            "publishDate" $page.PublishDate
-            "date" $page.Date.UTC.Unix
-            "lastmod" $page.Lastmod.UTC.Unix
-            "lang" ($page.Params.lang | default $page.Lang)
             "title" $page.Title
             "href" $page.Permalink
+            "lang" ($page.Params.lang | default $page.Lang)
+            "tags" ($page.Params.tags | default slice)
             "kind" $page.Kind
             "type" $page.Type
             "section" $page.Section
-            "content" $page.Plain
-            "tags" ($page.Params.tags | default slice)
+            "content" (trim $page.Plain "\n ")
+            "publishDate" $publishDate
+            "lastmod" $modifiedDate
           ) -}}
 
           {{- $.Scratch.Add "pagesIndex" $pageData -}}
