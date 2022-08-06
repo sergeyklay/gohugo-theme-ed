@@ -43,6 +43,9 @@ googleAnalytics: ''
 minify:
   # Do not minify XML files to avoid CDATA escape issues
   disableXML: true
+  tdewolff:
+    html:
+      keepQuotes: true
 
 outputs:
   home: [HTML, Atom, FEED, JSONFEED, JSON, MANIFEST, humanstxt]
