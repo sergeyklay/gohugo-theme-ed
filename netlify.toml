@@ -79,8 +79,7 @@
     magnetometer=(),
     microphone=(),
     payment=(),
-    usb=(),
-    interest-cohort=()'''
+    usb=()'''
     # CSP makes it possible for server administrators to reduce or eliminate
     # the vectors by which XSS can occur by specifying the domains that the
     # browser should consider to be valid sources of executable scripts.
