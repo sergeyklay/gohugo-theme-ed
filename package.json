@@ -28,6 +28,6 @@
   "dependencies": {},
   "devDependencies": {
     "editorconfig-checker": "^4.0.2",
-    "eslint": "^8.22.0"
+    "eslint": "^8.23.0"
   }
 }
