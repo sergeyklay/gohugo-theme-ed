@@ -14,4 +14,4 @@
     Language: {{ range $i, $l := site.Languages }}{{ if $i }}, {{ end }}{{ .LanguageName }}{{ end }}
     Doctype: HTML5
     Standards: HTML5, CSS3, Open Graph protocol, Schema.org
-    Components: Hugo, jQuery, Ed Theme
+    Components: Hugo, Ed Theme, Lunr.js
