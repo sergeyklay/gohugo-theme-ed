@@ -1,4 +1,4 @@
-github.com/MihaiValentin/lunr-languages v0.0.0-20210901090106-177653fb5670 h1:Miq24L5MyB5ppgW+Rhu39F2LAi+UERKRZEypmtb5SrM=
-github.com/MihaiValentin/lunr-languages v0.0.0-20210901090106-177653fb5670/go.mod h1:9u5XeCq3kYXZEJvSRP8Pz2qBAsNsmIM9ssN2fE1MnPw=
+github.com/MihaiValentin/lunr-languages v0.0.0-20220731202355-707574c524a6 h1:zneQRMcYb0EA5ZT4W6EOcs9CxZtDZhAFEq0lIk0GYUM=
+github.com/MihaiValentin/lunr-languages v0.0.0-20220731202355-707574c524a6/go.mod h1:9u5XeCq3kYXZEJvSRP8Pz2qBAsNsmIM9ssN2fE1MnPw=
 github.com/olivernn/lunr.js v2.3.9+incompatible h1:eH8iBnjlR4mwlYDdNuqy9PCNLjp2bEs6aoNnTSaccx0=
 github.com/olivernn/lunr.js v2.3.9+incompatible/go.mod h1:yEkQ1DUSMtNsn8n2CqvQXZd0ErWPEG8g9QRmblR+KS8=
