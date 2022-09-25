@@ -332,7 +332,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   searchForm.addEventListener('submit', e => e.preventDefault());
-  searchInput.addEventListener('keyup', (e) => {
+  searchInput.addEventListener('keyup', e => {
     e.preventDefault();
     const query = document.getElementById('search')
       .value
@@ -341,7 +341,7 @@ document.addEventListener('DOMContentLoaded', () => {
     handleSearchQuery(query);
   });
 
-  searchInput.addEventListener('input', (e) => {
+  searchInput.addEventListener('input', e => {
     if (!e.currentTarget.value) {
       hideSearchResults();
     }

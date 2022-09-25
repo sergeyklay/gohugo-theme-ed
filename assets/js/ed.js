@@ -17,7 +17,7 @@ function setupBackToTop() {
 function setupHypothes() {
   const hypothesisContainer = document.querySelector('.hypothesis-container');
   if (hypothesisContainer !== null) {
-    hypothesisContainer.addEventListener('click', (e) => {
+    hypothesisContainer.addEventListener('click', e => {
       e.preventDefault();
 
       let script = document.createElement('script');
