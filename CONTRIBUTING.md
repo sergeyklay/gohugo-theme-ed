@@ -1,16 +1,20 @@
 # Contributing to Ed
 
-**Ed** welcomes contributions and corrections. Before contributing,
-please make sure you have read the guidelines below. If you're a
-newcomer to open source and you haven't contributed to other projects
-or used [Git](https://git-scm.com/) before, you should make yourself
-familiar before proceeding.
+**Ed** welcomes contributions and corrections. Before contributing, please make
+sure you have read the guidelines below. If you're a newcomer to open source,
+and you haven't contributed to other projects or used [Git](https://git-scm.com/)
+before, you should make yourself familiar before proceeding.
+
+If you would like to contribute to Ed, please take a look at the
+[current issues](https://github.com/sergeyklay/gohugo-theme-ed/issues).
+If there is a bug or feature that you want, but it isn't listed, make an issue
+and work on it.
 
 ## Issues
 
 The [issue tracker](https://github.com/sergeyklay/gohugo-theme-ed/)
-is the preferred channel for bug reports and features requests,
-but please respect the following restrictions:
+is the preferred channel for bug reports and features requests, but please
+respect the following restrictions:
 
 ### General requirements
 
@@ -61,7 +65,7 @@ spending a lot of time working on something that the project maintainer
 might not want to merge into the project.
 
 Please respect our Pull Request Acceptance Criteria. For larger changes,
-you will likely receive multiple rounds of comments and it may take some
+you will likely receive multiple rounds of comments, and it may take some
 time to complete.
 
 ### Pull Request Acceptance Criteria
@@ -87,7 +91,7 @@ time to complete.
   - Compatible with [MIT License](https://raw.githubusercontent.com/sergeyklay/gohugo-theme-ed/master/LICENSE)
 - Maintain clean commit history and use meaningful commit messages.
   Pull Requests with messy commit history (with commit messages
-  like "update", "another update", etc) are difficult to review and won't
+  like "update", "another update", etc.) are difficult to review and won't
   be merged, even if the changes are good enough
 - Be prepared to answer questions and make code changes. The project
   maintainer expect you to be reasonably responsive to those feedback,
@@ -102,16 +106,16 @@ time to complete.
 ### Pull Request Process
 
 1. Fork the repository
-1. Clone down the repository to your local system
-1. Run `npm i` in the repository root
-1. Create a new *dedicated branch* with descriptive name from `master`
-1. Make your change and commit to the new branch from the previous step
+2. Clone down the repository to your local system
+3. Run `npm i` in the repository root
+4. Create a new *dedicated branch* with descriptive name from `master`
+5. Make your change and commit to the new branch from the previous step
     1. Write a clear commit message
-    1. If you've added code that need documentation, update
+    2. If you've added code that need documentation, update
       `exampleSite/content/documentation/index.md` file.
-1. Make sure your code lints (`npm run lint`)
-1. Push to your fork
-1. Submit a Pull Request (PR) to the upstream
+6. Make sure your code lints (`npm run lint`)
+7. Push to your fork
+8. Submit a Pull Request (PR) to the upstream
 
 ---
 
