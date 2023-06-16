@@ -27,7 +27,7 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "editorconfig-checker": "^5.0.1",
+    "editorconfig-checker": "^5.1.0",
     "eslint": "^8.40.0"
   }
 }
