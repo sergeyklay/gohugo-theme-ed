@@ -1,4 +1,4 @@
-name: CS
+name: Code Style
 
 on:
   push:
@@ -14,7 +14,7 @@ on:
 
 jobs:
   lint:
-    name: Code linting
+    name: Run linters
     runs-on: ubuntu-latest
 
     steps:

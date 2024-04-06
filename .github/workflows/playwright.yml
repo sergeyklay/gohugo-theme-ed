@@ -1,4 +1,4 @@
-name: Playwright Tests
+name: Playwright
 
 on:
   push:
@@ -14,7 +14,7 @@ on:
 
 jobs:
   test:
-    name: Run Playwright tests
+    name: Run tests
     runs-on: ubuntu-latest
 
     # The maximum number of minutes to let a workflow run
