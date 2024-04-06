@@ -99,9 +99,18 @@ module.exports = [
     }
   },
   {
-    files: ['eslint.config.js'],
+    files: ['eslint.config.js', 'playwright.config.js'],
     languageOptions: {
       'sourceType': 'commonjs'
+    }
+  },
+  {
+    files: ['playwright.config.js'],
+    languageOptions: {
+      globals: {
+        // Browser global variables
+        ...globals.node
+      }
     }
   }
 ];
