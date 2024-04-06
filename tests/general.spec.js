@@ -8,12 +8,12 @@ test('has title', async ({ page }) => {
   await expect(page).toHaveTitle(/Ed./);
 });
 
-// test('get started link', async ({ page }) => {
-//   await page.goto('https://127.0.0.1:1313/');
+test('our documentation link', async ({ page }) => {
+  await page.goto('/');
 
-//   // Click the get started link.
-//   await page.getByRole('link', { name: 'Get started' }).click();
+  // Click the "our documentation" link.
+  await page.getByText('our documentation').click();
 
-//   // Expects page to have a heading with the name of Installation.
-//   await expect(page.getByRole('heading', { name: 'Installation' })).toBeVisible();
-// });
+  // Expects page to have a heading with the name of Documentation.
+  await expect(page.getByRole('heading', { name: 'Documentation' })).toBeVisible();
+});
