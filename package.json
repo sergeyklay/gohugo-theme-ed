@@ -23,11 +23,10 @@
     "server": "HUGO_RESOURCEDIR='../resources' HUGO_ENV=development hugo server --verbose --source=exampleSite --buildDrafts --buildFuture --ignoreCache --disableFastRender",
     "lint": "npm run lint:js && npm run lint:editorconfig",
     "lint:editorconfig": "editorconfig-checker",
-    "lint:js": "eslint static/js/* assets/js/*"
+    "lint:js": "eslint static/js/* assets/js/* eslint.config.js"
   },
-  "dependencies": {},
   "devDependencies": {
     "editorconfig-checker": "^5.1.2",
-    "eslint": "^8.57.0"
+    "eslint": "^9.0.0"
   }
 }
