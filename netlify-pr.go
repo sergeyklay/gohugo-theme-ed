@@ -5,8 +5,8 @@ package main
 
 import (
 	"fmt"
-	"io/ioutil"
 	"log"
+	"os"
 	"regexp"
 	"strings"
 )
@@ -14,7 +14,7 @@ import (
 const netlifyConfig = "netlify.toml"
 
 func main() {
-	input, err := ioutil.ReadFile(netlifyConfig)
+	input, err := os.ReadFile(netlifyConfig)
 	if err != nil {
 		log.Fatalln(err)
 	}
@@ -57,7 +57,7 @@ func main() {
 	}
 
 	output := strings.Join(lines, "\n")
-	err = ioutil.WriteFile(netlifyConfig, []byte(output), 0644)
+	err = os.WriteFile(netlifyConfig, []byte(output), 0644)
 	if err != nil {
 		log.Fatalln(err)
 	}
