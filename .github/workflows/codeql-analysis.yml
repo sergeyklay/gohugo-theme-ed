@@ -81,5 +81,8 @@ jobs:
           HUGO_RESOURCEDIR: '../resources'
           HUGO_ENV: development
 
+      - name: Audit packages
+        run: npm audit --audit-level=high
+
       - name: Perform CodeQL Analysis
         uses: github/codeql-action/analyze@v3
