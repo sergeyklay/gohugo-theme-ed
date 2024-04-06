@@ -20,8 +20,8 @@ on:
 
 jobs:
   analyze:
-    runs-on: ubuntu-20.04
     name: Analyze
+    runs-on: ubuntu-latest
 
     # The maximum number of minutes to let a workflow run
     # before GitHub automatically cancels it. Default: 360
@@ -72,7 +72,7 @@ jobs:
             ${{ runner.os }}-node-
 
       - name: Install a project with a clean slate
-        run: npm ci
+        run: npm ci --ignore-scripts
 
       - name: Build site
         run: |
