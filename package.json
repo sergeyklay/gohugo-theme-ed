@@ -23,9 +23,11 @@
     "server": "HUGO_RESOURCEDIR='../resources' HUGO_ENV=development hugo server --verbose --source=exampleSite --buildDrafts --buildFuture --ignoreCache --disableFastRender",
     "lint": "npm run lint:js && npm run lint:editorconfig",
     "lint:editorconfig": "editorconfig-checker",
-    "lint:js": "eslint static/js/* assets/js/* eslint.config.js"
+    "lint:js": "eslint static/js/* assets/js/* eslint.config.js playwright.config.js"
   },
   "devDependencies": {
+    "@playwright/test": "^1.43.0",
+    "@types/node": "^20.12.5",
     "editorconfig-checker": "^5.1.5",
     "eslint": "^9.0.0"
   }

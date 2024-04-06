@@ -5,12 +5,22 @@
 #
 # https://help.github.com/articles/ignoring-files/#create-a-global-gitignore
 
-# Directories to ignore (do not add trailing '/'s, they skip symlinks).
+# Directories to ignore (do not add trailing '/'s, they skip symlinks):
 
 # Generated files from NPM.
 /node_modules
 # Generated files by hugo.
 /public
+# Playwright test results
+/test-results
+# Playwright report.
+/playwright-report
+# Playwright blob report.
+/blob-report
+# Playwright cache.
+/playwright/.cache
+
+# Files to ignore:
 
 # Temporary lock file while building.
 .hugo_build.lock
