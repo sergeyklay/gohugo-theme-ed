@@ -1,6 +1,6 @@
 name = "Ed"
 license = "MIT"
-licenselink = "https://github.com/sergeyklay/gohugo-theme-ed/blob/master/LICENSE"
+licenselink = "https://github.com/sergeyklay/gohugo-theme-ed/blob/main/LICENSE"
 description = "Ed theme for minimal editions, based on Alex Gil theme"
 
 # The home page of the theme, where the source can be found.
