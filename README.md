@@ -7,7 +7,7 @@ on legibility, durability, ease and flexibility.
 ---
 
 <p align="center">
-  <kbd><img src="https://raw.githubusercontent.com/sergeyklay/gohugo-theme-ed/master/exampleSite/content/documentation/screenshot-home.png" alt="Mockup image" title="Mockup"/></kbd>
+  <kbd><img src="https://raw.githubusercontent.com/sergeyklay/gohugo-theme-ed/main/exampleSite/content/documentation/screenshot-home.png" alt="Mockup image" title="Mockup"/></kbd>
 </p>
 
 ---
@@ -45,4 +45,4 @@ To learn how to install and begin using Ed, please visit our
 
 ## License
 
-Ed licensed under the MIT License. See the [LICENSE](https://raw.githubusercontent.com/sergeyklay/gohugo-theme-ed/master/LICENSE) file for more information.
+Ed licensed under the MIT License. See the [LICENSE](https://raw.githubusercontent.com/sergeyklay/gohugo-theme-ed/main/LICENSE) file for more information.

@@ -88,7 +88,7 @@ time to complete.
   - Be minified to a single line with no formatting
   - Not contain any JS or CSS section inside it
   - Not contain any additional transformations (matrix, translate, scale)
-  - Compatible with [MIT License](https://raw.githubusercontent.com/sergeyklay/gohugo-theme-ed/master/LICENSE)
+  - Compatible with [MIT License](https://raw.githubusercontent.com/sergeyklay/gohugo-theme-ed/main/LICENSE)
 - Maintain clean commit history and use meaningful commit messages.
   Pull Requests with messy commit history (with commit messages
   like "update", "another update", etc.) are difficult to review and won't
@@ -108,7 +108,7 @@ time to complete.
 1. Fork the repository
 2. Clone down the repository to your local system
 3. Run `npm i` in the repository root
-4. Create a new *dedicated branch* with descriptive name from `master`
+4. Create a new *dedicated branch* with descriptive name from `main`
 5. Make your change and commit to the new branch from the previous step
     1. Write a clear commit message
     2. If you've added code that need documentation, update
@@ -124,4 +124,4 @@ time to complete.
 ## License
 
 By contributing to Ed, you agree that your contributions will be licensed under
-[MIT License](https://raw.githubusercontent.com/sergeyklay/gohugo-theme-ed/master/LICENSE).
+[MIT License](https://raw.githubusercontent.com/sergeyklay/gohugo-theme-ed/main/LICENSE).
