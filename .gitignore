@@ -17,3 +17,6 @@
 
 # This file includes all tags, classes, and ids from your *.html templates.
 hugo_stats.json
+
+# Ignore the .npmrc file.
+.npmrc
