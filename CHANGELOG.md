@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased](https://github.com/sergeyklay/gohugo-theme-ed/compare/v0.7.0...HEAD)
 
+### Changed
+
+- Updated the minimum required Hugo version for this theme to 0.114.0.
+
 ## [v0.7.0](https://github.com/sergeyklay/gohugo-theme-ed/compare/v0.6.0...v0.7.0)
 
 ### Added
