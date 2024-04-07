@@ -27,7 +27,7 @@ respect the following restrictions:
 - Please **do not** use the issue tracker for personal support requests.
 - Please **do not** post comments consisting solely of "+1" or emoji.
   The project maintainer reserve the right to delete such comments. Use
-  [GitHub's reactions feature](https://github.com/blog/2119-add-reactions-to-pull-requests-issues-and-comments)
+  [GitHub's reactions feature](https://github.blog/2016-03-10-add-reactions-to-pull-requests-issues-and-comments/)
   instead.
 - Search first before filing a new issue. Please check existing open
   or recently closed issues to make sure somebody else hasn't already
