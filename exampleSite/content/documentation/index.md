@@ -303,7 +303,7 @@ That should do it. If you have suggestions on how to improve Ed, make sure to le
 Happy editing!
 
 Serghei Iakovlev
-April 2022
+April 2024
 
 Alex Gil
 April 2016
