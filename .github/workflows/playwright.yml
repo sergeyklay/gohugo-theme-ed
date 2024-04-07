@@ -51,7 +51,7 @@ jobs:
         extended: true
 
     - name: Run Playwright tests
-      run: npx playwright test
+      run: npm run test
 
     - name: Upload tests artifact
       uses: actions/upload-artifact@v4
