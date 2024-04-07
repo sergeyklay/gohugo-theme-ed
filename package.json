@@ -20,7 +20,7 @@
   "author": "Serghei Iakovlev <egrep@protonmail.ch>",
   "main": "index.js",
   "scripts": {
-    "server": "HUGO_RESOURCEDIR='../resources' HUGO_ENV=development hugo server --verbose --source=exampleSite --buildDrafts --buildFuture --ignoreCache --disableFastRender",
+    "server": "HUGO_RESOURCEDIR='../resources' HUGO_ENV=development hugo server --logLevel info --source=exampleSite --buildDrafts --buildFuture --ignoreCache --disableFastRender",
     "test": "playwright test",
     "lint": "npm run lint:js && npm run lint:editorconfig",
     "lint:editorconfig": "editorconfig-checker",

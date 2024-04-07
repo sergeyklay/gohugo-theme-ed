@@ -15,6 +15,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   repository path is now specified under the `imports` section in the `module`
   block. This change improves clarity and aligns with Hugo's recommended practices
   for managing theme dependencies.
+- Replaced the deprecated `--verbose` flag with `--logLevel info` in the npm
+  script for `server` in `package.json`. This change addresses a deprecation
+  warning introduced in Hugo v0.114.0, ensuring compatibility with future versions
+  of Hugo.
 
 ## [v0.7.0](https://github.com/sergeyklay/gohugo-theme-ed/compare/v0.6.0...v0.7.0)
 
