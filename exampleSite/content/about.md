@@ -23,7 +23,7 @@ useful type of editions for editors and readers. An edition produced with Ed con
 pages whose rate of decay is substantially lower than database-driven systems. As an added bonus,
 these static pages require less bandwidth. Our hope is that our approach can help beginners and
 veterans deploy beautiful editions with less effort, and that it can help us teach a 'full stack'
-{{< link src="https://github.com/susannalles/MinimalEditions/blob/main/README.md" class="external" target="_blank" hreflang="en" rel="noopener noreferrer" >}}in one academic semester{{< /link >}},
+{{< link src="https://github.com/susannalles/MinimalEditions/blob/master/README.md" class="external" target="_blank" hreflang="en" rel="noopener noreferrer" >}}in one academic semester{{< /link >}},
 while allowing us to care for our projects at less cost, and perhaps, just perhaps, to generate
 high-quality editions on github.io in large quantities based on the
 {{< link src="http://jonreeve.com/2015/09/introducing-git-lit/" class="external" target="_blank" hreflang="en" rel="noopener noreferrer" >}}git-lit{{< /link >}} model by Jonathan Reeve. We're coming

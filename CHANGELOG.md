@@ -20,6 +20,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   warning introduced in Hugo v0.114.0, ensuring compatibility with future versions
   of Hugo.
 
+### Fixed
+
+- Fixed broken link in documentation.
+
 ## [v0.7.0](https://github.com/sergeyklay/gohugo-theme-ed/compare/v0.6.0...v0.7.0)
 
 ### Added
