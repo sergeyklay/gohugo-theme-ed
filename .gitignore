@@ -19,6 +19,8 @@
 /blob-report
 # Playwright cache.
 /playwright/.cache
+# Ignore generated content
+/exampleSite/public
 
 # Files to ignore:
 
