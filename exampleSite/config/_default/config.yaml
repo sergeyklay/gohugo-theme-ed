@@ -12,10 +12,6 @@ defaultContentLanguage: en
 #     title of the page. Eg. "Contacts - Ed."
 title: Ed.
 
-# Use full path to theme's repository in case of using Hugo Modules.
-# This is replaced in go.mod for exampleSite to point to the directory above.
-theme: github.com/sergeyklay/gohugo-theme-ed
-
 enableRobotsTXT: true
 
 # When using ref or relref to resolve page links and a link cannot
@@ -170,3 +166,7 @@ module:
   hugoVersion:
     extended: true
     min: '0.114.0'
+  imports:
+    # Use full path to theme's repository. This is replaced in go.mod for
+    # exampleSite to point to the directory above.
+    - path: github.com/sergeyklay/gohugo-theme-ed
