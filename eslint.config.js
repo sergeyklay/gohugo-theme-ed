@@ -112,5 +112,19 @@ module.exports = [
         ...globals.node
       }
     }
+  },
+  {
+    files: ['netlify-preview.js'],
+    rules: {
+      // allow use of console
+      'no-console': 'off'
+    },
+    languageOptions: {
+      'sourceType': 'commonjs',
+      globals: {
+        // Browser global variables
+        ...globals.node
+      }
+    }
   }
 ];

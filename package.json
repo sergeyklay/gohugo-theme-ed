@@ -24,7 +24,8 @@
     "test": "playwright test",
     "lint": "npm run lint:js && npm run lint:editorconfig",
     "lint:editorconfig": "editorconfig-checker",
-    "lint:js": "eslint static/js/* assets/js/* tests/*.spec.js eslint.config.js playwright.config.js"
+    "lint:js": "eslint static/js/* assets/js/* tests/*.spec.js eslint.config.js playwright.config.js netlify-preview.js",
+    "netlify-preview": "node netlify-preview.js"
   },
   "devDependencies": {
     "@playwright/test": "^1.43.0",
