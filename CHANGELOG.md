@@ -19,6 +19,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   script for `server` in `package.json`. This change addresses a deprecation
   warning introduced in Hugo v0.114.0, ensuring compatibility with future versions
   of Hugo.
+- Replace Go script with Node.js implementation for Netlify redirects patching
+  for Deploy Preview context. This change aims to eliminate the dependency on Go
+  for the theme's development environment, and streamline the project's technology
+  stack.
 
 ### Fixed
 
