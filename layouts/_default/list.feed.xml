@@ -14,6 +14,8 @@
 {{- $limit := site.Params.feedSize | default 25 -}}
 {{- $pages = $pages | first $limit -}}
 
+{{- $siteLastMod := partial "site-last-mod.html" . -}}
+
 {{- printf "<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"yes\" ?>" | safeHTML }}
 <rss version="2.0"
     xmlns:content="http://purl.org/rss/1.0/modules/content/"
@@ -48,8 +50,8 @@
     <generator>Hugo {{ hugo.Version }}</generator>{{ with site.Author.name }}
     {{ printf `<dc:creator type="html"><![CDATA[%s]]></dc:creator>` . | safeHTML }}{{ end }}{{ with site.LanguageCode }}
     <language>{{ . }}</language>{{ end }}{{ with site.Params.Copyright }}{{ $copyright := replace . "{year}" now.Year }}{{ $copyright = replace $copyright "&copy;" "©" }}
-    <copyright>{{ $copyright | plainify }}</copyright>{{ end }}{{ if not site.LastChange.IsZero }}
-    <lastBuildDate>{{ site.LastChange.Format "Mon, 02 Jan 2006 15:04:05 -0700" | safeHTML }}</lastBuildDate>{{ end }}{{- range $pages }}
+    <copyright>{{ $copyright | plainify }}</copyright>{{ end }}{{ if ne $siteLastMod "" }}
+    <lastBuildDate>{{ $siteLastMod.Format "Mon, 02 Jan 2006 15:04:05 -0700" | safeHTML }}</lastBuildDate>{{ end }}{{- range $pages }}
     <item>
         {{ printf `<title type="html"><![CDATA[%s]]></title>` .Title | safeHTML }}
         <link>{{ .Permalink | absURL }}?utm_source=rss_feed</link>

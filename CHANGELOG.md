@@ -7,6 +7,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased](https://github.com/sergeyklay/gohugo-theme-ed/compare/v0.7.0...HEAD)
 
+### Added
+
+- Introduced a new partial template `site-last-mod.html` to handle site last
+  modification date more robustly across Hugo versions. This change accommodates
+  the deprecation of `.Site.LastChange` in favour of `.Site.Lastmod` for Hugo
+  versions equal to or greater than 0.123.0. Usage:
+  ```
+  {{ $siteLastMod := partial "site-last-mod.html" . }}
+  ```
+
 ### Changed
 
 - Updated the minimum required Hugo version for this theme to 0.114.0.
@@ -20,9 +30,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   warning introduced in Hugo v0.114.0, ensuring compatibility with future versions
   of Hugo.
 - Replace Go script with Node.js implementation for Netlify redirects patching
-  for Deploy Preview context. This change aims to eliminate the dependency on Go
-  for the theme's development environment, and streamline the project's technology
-  stack.
+  for Deploy Preview context.
+- Updated Atom and RSS feed templates to use the `site-last-mod.html` partial for
+  dynamically setting the site's last modification date.
+  - In `list.atom.xml`, replaced `site.LastChange` with `$siteLastMod` in the
+    `<updated>` tag.
+  - In `list.feed.xml`, replaced `site.LastChange` with `$siteLastMod` in the
+    `<lastBuildDate>` tag.
 
 ### Fixed
 

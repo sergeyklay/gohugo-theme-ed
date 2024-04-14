@@ -1,0 +1,21 @@
+{{- /* The .Site.LastChange was deprecated in Hugo v0.123.0 */ -}}
+{{- /* Use .Site.Lastmod if .Site.Hugo.Version greater than or equal to v0.123.0 */ -}}
+{{- /* Otherwise, use .Site.LastChange */ -}}
+
+{{- /* For more see: https://github.com/gohugoio/hugo/releases/tag/v0.123.0 */ -}}
+
+{{- /* Usage: {{ $siteLastMod := partial "site-last-mod.html" . }} */ -}}
+
+{{- $siteLastMod := "" -}}
+
+{{- if ge site.Hugo.Version "0.123.0" -}}
+  {{- if not site.Lastmod.IsZero -}}
+    {{- $siteLastMod = site.Lastmod -}}
+  {{- end -}}
+{{- else -}}
+  {{- if not site.LastChange.IsZero -}}
+    {{- $siteLastMod = site.LastChange -}}
+  {{- end -}}
+{{- end -}}
+
+{{- return $siteLastMod -}}
