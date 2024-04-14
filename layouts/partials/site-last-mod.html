@@ -9,13 +9,13 @@
 {{- $siteLastMod := "" -}}
 
 {{- if ge site.Hugo.Version "0.123.0" -}}
-  {{- if not site.Lastmod.IsZero -}}
-    {{- $siteLastMod = site.Lastmod -}}
-  {{- end -}}
+    {{- if not site.Lastmod.IsZero -}}
+        {{- $siteLastMod = site.Lastmod -}}
+    {{- end -}}
 {{- else -}}
-  {{- if not site.LastChange.IsZero -}}
-    {{- $siteLastMod = site.LastChange -}}
-  {{- end -}}
+    {{- if not site.LastChange.IsZero -}}
+        {{- $siteLastMod = site.LastChange -}}
+    {{- end -}}
 {{- end -}}
 
 {{- return $siteLastMod -}}
