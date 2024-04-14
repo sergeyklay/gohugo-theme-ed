@@ -21,22 +21,22 @@ fs.readFile(path.resolve(__dirname, netlifyConfig), 'utf8', (err, data) => {
     // <- default-src 'self' blob:;
     line = line.replace(/(default-src) ('self')(;)/, '$1 $2 blob:$3');
 
-    // -> style-src 'self' cdn.hypothes.is;
-    // <- style-src 'self' 'unsafe-inline' cdn.hypothes.is;
-    line = line.replace(/(style-src) ('self') (cdn\.hypothes\.is)(;)/, '$1 $2 $3 \'unsafe-inline\'$4');
+    // -> style-src 'self' cdn.hypothes.is giscus.app;
+    // <- style-src 'self' 'unsafe-inline' cdn.hypothes.is giscus.app;
+    line = line.replace(/(style-src) ('self') (cdn\.hypothes\.is giscus\.app)(;)/, '$1 $2 $3 \'unsafe-inline\'$4');
 
     // -> media-src 'self';
     // <- media-src 'self' blob: https://app.netlify.com;
     line = line.replace(/(media-src) ('self')(;)/, '$1 $2 blob: https://app.netlify.com$3');
 
-    // -> frame-src hypothes.is;
-    // <- frame-src hypothes.is app.netlify.com;
-    line = line.replace(/(frame-src) (hypothes\.is)(;)/, '$1 $2 app.netlify.com$3');
+    // -> frame-src hypothes.is giscus.app;
+    // <- frame-src hypothes.is giscus.app app.netlify.com;
+    line = line.replace(/(frame-src) (hypothes\.is giscus\.app)(;)/, '$1 $2 app.netlify.com$3');
 
-    // -> script-src 'self' www.googletagmanager.com hypothes.is cdn.hypothes.is;
-    // <- script-src 'self' www.googletagmanager.com hypothes.is cdn.hypothes.is netlify-cdp-loader.netlify.app;
+    // -> script-src 'self' www.googletagmanager.com hypothes.is cdn.hypothes.is giscus.app;
+    // <- script-src 'self' www.googletagmanager.com hypothes.is cdn.hypothes.is giscus.app netlify-cdp-loader.netlify.app;
     line = line.replace(
-      /(script-src) ('self' www\.googletagmanager\.com hypothes\.is cdn\.hypothes\.is)(;)/,
+      /(script-src) ('self' www\.googletagmanager\.com hypothes\.is cdn\.hypothes\.is giscus\.app)(;)/,
       '$1 $2 netlify-cdp-loader.netlify.app$3'
     );
 
