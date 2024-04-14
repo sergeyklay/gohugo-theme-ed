@@ -31,8 +31,8 @@ test('atom feed has correct updated field', async ({ page }) => {
   expect(updatedField.textContent).toMatch(dateRegex);
 });
 
-test('rss feed has correct lastBuildDate field', async ({ page }) => {
-  await page.goto('/feeds/feed.rss.xml');
+test('atom feed has correct author information', async ({ page }) => {
+  await page.goto('/feeds/feed.atom.xml');
 
   // Get the content of the page
   const content = await page.content();
@@ -43,16 +43,32 @@ test('rss feed has correct lastBuildDate field', async ({ page }) => {
   // Get the global window object
   const { window } = dom;
 
-  // Get the lastBuildDate field
-  const lastBuildDateField = window.document.querySelector('rss > lastBuildDate');
+  // Get the author element
+  const authorElement = window.document.querySelector('feed > author');
 
-  // Check if the lastBuildDate field exists
-  expect(lastBuildDateField).not.toBeNull();
+  // Check if the author element exists
+  expect(authorElement).not.toBeNull();
 
-  // Check if the lastBuildDate field is not empty
-  expect(lastBuildDateField.textContent.trim()).not.toBe('');
+  // Get the name element
+  const nameElement = authorElement.querySelector('name');
 
-  // Check if the lastBuildDate field has the correct format
-  const dateRegex = /^[A-Za-z]{3}, \d{2} [A-Za-z]{3} \d{4} \d{2}:\d{2}:\d{2} [+-]\d{4}$/;
-  expect(lastBuildDateField.textContent).toMatch(dateRegex);
+  // Check if the name element exists
+  expect(nameElement).not.toBeNull();
+
+  // Check if the name element has the correct type attribute
+  expect(nameElement.getAttribute('type')).toBe('html');
+
+  // Check if the name element has the correct text content
+  expect(nameElement.textContent).not.toBeNull();
+  expect(nameElement.textContent.trim()).not.toBe('');
+
+  // Get the email element
+  const emailElement = authorElement.querySelector('email');
+
+  // Check if the email element exists
+  expect(emailElement).not.toBeNull();
+
+  // Check if the email element has the correct text content
+  expect(emailElement.textContent).not.toBeNull();
+  expect(emailElement.textContent.trim()).not.toBe('');
 });

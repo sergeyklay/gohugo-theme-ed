@@ -14,6 +14,8 @@
 {{- $limit := site.Params.feedSize | default 25 -}}
 {{- $pages = $pages | first $limit -}}
 
+{{- $siteAuthor := partial "site-author.html" . -}}
+
 {
   "version": "https://jsonfeed.org/version/1.1",
   "title": {{ (partial "title.html" .) | htmlUnescape | jsonify }},
@@ -23,9 +25,9 @@
   {{- $logo := resources.Get (site.Params.assets.logo | default "/img/open-graph-logo.png") }}{{ $logo = $logo.Resize "96x96" }}
   "icon": {{ $logo.Permalink | jsonify }},
   "favicon": {{ $logo.Permalink | jsonify }},
-  {{ with site.Author.name }}"authors": [
+  {{ with $siteAuthor.name }}"authors": [
     {
-      "name": {{ . | jsonify }}{{ with site.Author.twitter }},
+      "name": {{ . | jsonify }}{{ with $siteAuthor.twitter }},
       "url": {{ (printf "https://twitter.com/%s" . ) | jsonify }}{{ end }}
     }
   ],{{ end }}
