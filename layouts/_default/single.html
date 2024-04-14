@@ -22,5 +22,7 @@
     {{ if not (in (slice "drama" "narrative" "poem") $postType) }}
         {{ partial "post-tags.html" . }}
     {{ end }}
+
+    {{ partial "comments.html" . }}
 </article>
 {{ end }}
