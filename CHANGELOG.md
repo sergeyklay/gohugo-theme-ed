@@ -29,6 +29,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   {{ with $siteAuthor.twitter }} {{ . }} {{ end }}
   {{ with $siteAuthor.location }} {{ . }} {{ end }}
   ```
+- Provided support for giscus comments, enabling interactive discussions on site
+  pages. This includes:
+  - A new JavaScript file (`giscus.js`) handling the dynamic loading of giscus
+    scripts based on site configuration.
+  - Configuration settings for giscus in the `exampleSite/config/_default/params.yaml`
+    to allow users to easily enable and configure giscus comments from the site's
+    parameters.
 
 ### Changed
 
