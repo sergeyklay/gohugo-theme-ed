@@ -303,30 +303,38 @@ Ed theme now supports adding a comments system to your site, enhancing interacti
 
 {{< link src="https://giscus.app/" class="external" target="_blank" hreflang="en" rel="noopener noreferrer" >}}giscus{{< /link >}} is a comments system powered by {{< link src="https://docs.github.com/en/discussions/" class="external" target="_blank" hreflang="en" rel="noopener noreferrer" >}}GitHub Discussions{{< /link >}}. It leverages GitHub's infrastructure to provide a free, open source platform for comments.
 
-To enable Giscus in your Hugo site, you must first add configuration settings in the site's YAML configuration file (`config/_default/params.yaml`). Below is a template for setting up giscus, which includes enabling the system and specifying necessary identifiers that link your site with the Giscus service:
+giscus operates by linking your website's comment section directly to GitHub Discussions. Here’s an overview of the process:
+- When a page with giscus integration loads, it uses the {{< link src="https://docs.github.com/en/graphql/guides/using-the-graphql-api-for-discussions#search" class="external" target="_blank" hreflang="en" rel="noopener noreferrer" >}}GitHub Discussions search API{{< /link >}} to locate a discussion that matches the page. The association is determined based on a chosen mapping strategy such as URL, pathname, or the page's `<title>`.
+- If no existing discussion matches the page, giscus is configured to automatically create a new discussion when a visitor posts the first comment or reaction. This ensures that each page can have its own dedicated discussion thread, even if one was not previously set up manually.
+- To post a comment, visitors must authorize the giscus application via the GitHub OAuth flow, which grants the app permission to {{< link src="https://docs.github.com/en/apps/creating-github-apps/authenticating-with-a-github-app/authenticating-with-a-github-app-on-behalf-of-a-user" class="external" target="_blank" hreflang="en" rel="noopener noreferrer" >}}post comments on their behalf{{< /link >}}. This authorization is a straightforward process, typically requiring just a few clicks to connect a GitHub account.
+- Alternatively, visitors can choose to comment directly within the GitHub Discussions platform. This flexibility allows users familiar with GitHub to engage in the discussion using an interface they are comfortable with.
+- All comments posted through giscus are hosted and moderated on GitHub, leveraging GitHub's native tools for managing discussions. This integration allows site owners to manage comments using the same workflows they use for other GitHub activities, providing a seamless moderation experience.
+
+Integrating giscus not only activates the dynamic interaction capabilities of GitHub Discussions on your Hugo site but also simplifies the management of user comments and engagements.
+
+To enable giscus in your Hugo site, you must first add configuration settings in the site's YAML configuration file (`config/_default/params.yaml`). Below is a template for setting up giscus, which includes enabling the system and specifying necessary identifiers that link your site with the giscus service:
 
 To enable giscus, you need to add the following to the site configuration file:
 
 ~~~ yaml
-params:
-  comments:
-    enable: true  # Set to false to disable comments globally
-    type: giscus
+comments:
+  enable: true  # Set to false to disable comments globally
+  type: giscus
 
-    giscus:
-      # Required parameters:
-      # Replace with your repository
-      repo: 'your-github-username/repository-name'
-      # Repository ID from Giscus setup
-      repoId: 'repository-ID'
-      # Discussion category
-      category: 'Announcements'
-      # Category ID from Giscus setup
-      categoryId: 'category-ID'
+  giscus:
+    # Required parameters:
+    # Replace with your repository
+    repo: 'your-github-username/repository-name'
+    # Repository ID from giscus setup
+    repoId: 'repository-ID'
+    # Discussion category
+    category: 'Announcements'
+    # Category ID from giscus setup
+    categoryId: 'category-ID'
 
-      # Optional parameters:
-      #
-      # ...
+    # Optional parameters:
+    #
+    # ...
 ~~~
 
 You can obtain the `repoId` and `categoryId` by configuring your repository on the {{< link src="https://giscus.app/" class="external" target="_blank" hreflang="en" rel="noopener noreferrer" >}}giscus setup page{{< /link >}}. More details can also be found there.
@@ -347,16 +355,20 @@ comments: true
 By default, giscus will inherit the styling from your GitHub discussion forum. However, you can customize the appearance to better fit your site's design by specifying a `theme` parameter in the giscus configuration block:
 
 ~~~ yaml
-params:
-  comments:
-    giscus:
-      # Required parameters:
-      #
-      # ...
+comments:
+  # ...
 
-      # Optional parameters:
-      theme: dark
+  giscus:
+    # Required parameters:
+    #
+    # ...
+
+    # Optional parameters:
+    # Available themes: cobalt, dark, light, dark, purge, etc.
+    theme: dark_dimmed
 ~~~
+
+Refer to the {{< link src="https://github.com/giscus/giscus/blob/main/ADVANCED-USAGE.md#data-theme" class="external" target="_blank" hreflang="en" rel="noopener noreferrer" >}}giscus theme documentation{{< /link >}} for more details on available themes.
 
 #### Localization
 
@@ -364,15 +376,17 @@ giscus supports multiple languages, and you can set the desired language for you
 
 
 ~~~ yaml
-params:
-  comments:
-    giscus:
-      # Required parameters:
-      #
-      # ...
+comments:
+  # ...
 
-      # Optional parameters:
-      lang: fr
+  giscus:
+    # Required parameters:
+    #
+    # ...
+
+    # Optional parameters:
+    # Use language codes like 'en' for English, 'es' for Spanish, etc.
+    lang: fr
 ~~~
 
 ---
