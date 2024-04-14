@@ -13,6 +13,8 @@
 {{- $logo := resources.Get (site.Params.assets.logo | default "/img/open-graph-logo.png") -}}
 {{- $logo = $logo.Resize "96x96" }}
 
+{{- $siteAuthor := partial "site-author.html" . }}
+
 <script type="application/ld+json" id="schema-data">
     {
         "@context": "https://schema.org",
@@ -51,10 +53,10 @@
             ],
             {{- end }}
         {{- else }}
-            {{- with site.Author.name }}
+            {{- with $siteAuthor.name }}
             "author": {
                 "@type": "Person",
-                "name": {{ . }}{{ with site.Author.twitter }},
+                "name": {{ . }}{{ with $siteAuthor.twitter }},
                 "url": "https://twitter.com/{{ . }}"{{ end }}
             },
             {{- end }}

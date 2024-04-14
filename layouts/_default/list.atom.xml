@@ -15,6 +15,7 @@
 {{- $pages = $pages | first $limit -}}
 
 {{- $siteLastMod := partial "site-last-mod.html" . -}}
+{{- $siteAuthor := partial "site-author.html" . -}}
 
 {{- safeHTML "<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"yes\" ?>" }}
 <feed xmlns="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" xml:lang="{{ site.LanguageCode }}" xml:base="{{ site.BaseURL }}">
@@ -28,10 +29,10 @@
     {{- end -}}
     {{- end }}
     {{ $logo := resources.Get (site.Params.assets.logo | default "/img/open-graph-logo.png") }}{{ $logo = $logo.Resize "96x96" }}<icon>{{ $logo.Permalink | absURL }}</icon>
-    <logo>{{ $logo.Permalink | absURL }}</logo>{{ with site.Author.name }}
+    <logo>{{ $logo.Permalink | absURL }}</logo>{{ with $siteAuthor.name }}
     <author>
         {{ printf `<name type="html"><![CDATA[%s]]></name>` . | safeHTML }}
-        {{ with site.Author.email }}<email>{{ . | html }}</email>{{ end }}
+        {{ with $siteAuthor.email }}<email>{{ . | html }}</email>{{ end }}
     </author>{{ end }}{{ with site.Params.Copyright }}{{ $copyright := replace . "{year}" now.Year }}{{ $copyright = replace $copyright "&copy;" "©" }}
     <rights>{{ $copyright | plainify }}</rights>{{ end }}
     <generator uri="https://gohugo.io" version="{{ hugo.Version }}">Hugo</generator>{{ if ne $siteLastMod "" }}

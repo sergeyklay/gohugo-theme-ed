@@ -16,6 +16,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   ```
   {{ $siteLastMod := partial "site-last-mod.html" . }}
   ```
+- Introduced a new partial template `site-author.html` to handle site author
+  information more consistently across Hugo versions. This change accommodates
+  the deprecation of `site.Author` in favour of `site.Params.author` for Hugo
+  versions equal to or greater than 0.124.0. Usage:
+  ```
+  {{ $siteAuthor := partial "site-author.html" . }}
+
+  {{ with $siteAuthor.name }} {{ . }} {{ end }}
+  {{ with $siteAuthor.email }} {{ . }} {{ end }}
+  {{ with $siteAuthor.github }} {{ . }} {{ end }}
+  {{ with $siteAuthor.twitter }} {{ . }} {{ end }}
+  {{ with $siteAuthor.location }} {{ . }} {{ end }}
+  ```
 
 ### Changed
 
@@ -37,6 +50,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
     `<updated>` tag.
   - In `list.feed.xml`, replaced `site.LastChange` with `$siteLastMod` in the
     `<lastBuildDate>` tag.
+- Updated `humans.txt`, Atom feed, RSS feed, JSON feed, author partial, and
+  schema.org Article template to use the `site-author.html` partial for
+  retrieving site author information.
+- Moved site author configuration from `config.yaml` to `params.yaml` to align
+  with the recommended usage of `site.Params.author`.
 
 ### Fixed
 

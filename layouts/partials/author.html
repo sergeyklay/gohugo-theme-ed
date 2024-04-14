@@ -1,3 +1,5 @@
+{{- $siteAuthor := partial "site-author.html" . -}}
+
 {{- /* First, check for current page author(s) */}}
 {{- if .Params.author }}
     {{- $author_type := (printf "%T" .Params.author) }}
@@ -7,6 +9,6 @@
         {{- .Params.author }}
     {{- end }}
 {{- /* Otherwise, get site authors */}}
-{{- else if site.Author.name }}
-    {{- site.Author.name }}
+{{- else if $siteAuthor.name }}
+    {{- $siteAuthor.name }}
 {{- end -}}

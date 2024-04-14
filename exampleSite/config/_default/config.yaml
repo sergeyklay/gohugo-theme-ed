@@ -133,13 +133,6 @@ sitemap:
   filename: sitemap.xml
   priority: 0.5
 
-author:
-  name: John Doe
-  email: john@example.com
-  github: john_doe
-  twitter: john_doe
-  location: 'Kyiv, Ukraine'
-
 # For more see https://gohugo.io/getting-started/configuration-markup/
 markup:
   defaultMarkdownHandler: goldmark

@@ -15,7 +15,7 @@ keywords:
 
 # A "copyright"-line to be added to RSS/Atom files.
 # "&copy;" and "{year}" will be replaced by © and the current year.
-copyright: 'Copyright &copy; 2019-{year} John Doe'
+copyright: 'Copyright &copy; 2019-{year} Serghei Iakovlev'
 
 # Colour scheme. Options: red, orange, magenta, cyan, blue, brown
 colorScheme: ''
@@ -88,6 +88,13 @@ seo:
   # you have to set `googleAnalytics` param in config.yaml file.
   anonymizeIp: true
 
+author:
+  name: Serghei Iakovlev
+  email: egrep@protonmail.ch
+  github: sergeyklay
+  twitter: egreps
+  location: 'Wrocław, Poland'
+
 social:
   # Array of Facebook Page Admin IDs for Domain Insights
   facebookAdminIds: []
@@ -96,7 +103,7 @@ social:
   facebookId: ''
 
   # Twitter username for the website
-  twitter: john_doe
+  twitter: egreps
 
 # Configure search engine
 search:

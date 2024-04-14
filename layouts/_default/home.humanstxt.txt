@@ -1,11 +1,12 @@
-{{- with site.Author.name }}
+{{- $siteAuthor := partial "site-author.html" . -}}
+{{- with $siteAuthor.name }}
     /* TEAM */
 
     Author: {{ . }}
-{{- with site.Author.email }}{{ printf "\n    Contact: %s" . }}{{ end }}
-{{- with site.Author.github }}{{ printf "\n    GitHub: @%s" . }}{{ end }}
-{{- with site.Author.twitter }}{{ printf "\n    Twitter: @%s" . }}{{ end }}
-{{- with site.Author.location }}{{ printf "\n    From: %s" . }}{{ end }}
+{{- with $siteAuthor.email }}{{ printf "\n    Contact: %s" . }}{{ end }}
+{{- with $siteAuthor.github }}{{ printf "\n    GitHub: @%s" . }}{{ end }}
+{{- with $siteAuthor.twitter }}{{ printf "\n    Twitter: @%s" . }}{{ end }}
+{{- with $siteAuthor.location }}{{ printf "\n    From: %s" . }}{{ end }}
 {{- end }}
 
     /* SITE */
@@ -15,3 +16,4 @@
     Doctype: HTML5
     Standards: HTML5, CSS3, Open Graph protocol, Schema.org
     Components: Hugo, Ed Theme, Lunr.js
+    Hugo version: {{ site.Hugo.Version }}
