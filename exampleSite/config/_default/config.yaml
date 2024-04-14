@@ -142,7 +142,7 @@ markup:
   goldmark:
     parser:
       attribute:
-      # Enable custom attribute support for blocks
+        # Enable custom attribute support for blocks
         block: true
 
 # If enableGitInfo is true, it will override any lastmod dates in our

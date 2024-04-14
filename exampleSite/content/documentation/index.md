@@ -115,7 +115,7 @@ By default Hugo uses a special Markdown processor called Goldmark. The processor
 
 ## Genres
 
-Ed offers three different layouts: poem, narrative and drama. To create content of a certain genre, create a file in the appropriate folder. For example, if you want to create a poem, create a file in the `content/poem` folder. Another way is to indicated genre in the YAML front matter on your texts. The templates that govern how these genres are displayed can be found in the Ed's `layouts` folder. Redefining these layouts in project wide level will allow you to tweak the stylesheets according to your different needs. Out of the box, Ed contains some special instructions for poetry in its stylesheets that allow you to deal with some of the peculiarities of poetry layouts.
+Ed offers four different layouts: poem, narrative, drama and simple post. To create content of a certain genre, create a file in the appropriate folder. For example, if you want to create a poem, create a file in the `content/poems` folder. Another way is to indicated genre in the YAML front matter on your texts. The templates that govern how these genres are displayed can be found in the Ed's `layouts` folder. Redefining these layouts in project wide level will allow you to tweak the stylesheets according to your different needs. Out of the box, Ed contains some special instructions for poetry in its stylesheets that allow you to deal with some of the peculiarities of poetry layouts.
 
 To indicate lines in poetry we use the line syntax from Markdown:
 
@@ -404,8 +404,8 @@ That should do it. If you have suggestions on how to improve Ed, make sure to le
 
 Happy editing!
 
-Serghei Iakovlev
+Serghei Iakovlev\
 April 2024
 
-Alex Gil
+Alex Gil\
 April 2016
