@@ -1,0 +1,39 @@
+{{- $enableComments := site.Params.comments.enable | default false -}}
+
+{{ if not (eq .Params.comments nil) }}
+    {{ $enableComments = .Params.comments }}
+{{ end }}
+
+{{- if $enableComments -}}
+    {{- if eq site.Params.comments.type "giscus" -}}
+        {{- $isProduction := (or (eq (getenv "HUGO_ENV") "production") (eq site.Params.env "production")) -}}
+
+        {{- $repo := site.Params.comments.giscus.repo -}}
+        {{- $repoId := site.Params.comments.giscus.repoId -}}
+        {{- $category := site.Params.comments.giscus.category -}}
+        {{- $categoryId := site.Params.comments.giscus.categoryId -}}
+        {{- $theme := site.Params.comments.giscus.theme | default "light" -}}
+        {{- $emitMetadata := site.Params.comments.giscus.emitMetadata | default 0 -}}
+        {{- $inputPosition := site.Params.comments.giscus.inputPosition | default "bottom" -}}
+        {{- $lang := site.Params.comments.giscus.lang | default "en" -}}
+        {{- $mapping := site.Params.comments.giscus.mapping | default "pathname" -}}
+        {{- $reactionsEnabled := site.Params.comments.giscus.reactionsEnabled | default 1 -}}
+        {{- $strict := site.Params.comments.giscus.strict | default 0 -}}
+        {{- $commentsParams := dict "repo" $repo "repoId" $repoId "category" $category "categoryId" $categoryId "theme" $theme "emitMetadata" $emitMetadata "inputPosition" $inputPosition "lang" $lang "mapping" $mapping "reactionsEnabled" $reactionsEnabled "strict" $strict -}}
+
+        {{- $siteComments := slice -}}
+        {{- $siteComments = $siteComments | append (resources.Get "js/giscus.js") -}}
+        {{- $siteComments = $siteComments | resources.Concat "js/giscus-bundle.js" -}}
+
+        {{- $siteComments = $siteComments | js.Build (dict "format" "iife" "minify" $isProduction "target" "es2015" "params" $commentsParams) -}}
+
+        {{- if or (site.Params.assets.disable_fingerprinting) (not $isProduction) }}
+            <script src="{{ $siteComments.RelPermalink }}"></script>
+        {{- else -}}
+            {{- $siteComments = $siteComments | fingerprint }}
+            <script src="{{ $siteComments.RelPermalink }}" integrity="{{ $siteComments.Data.Integrity }}"></script>
+        {{- end -}}
+
+        <div id="giscus"></div>
+    {{- end -}}
+{{- end -}}

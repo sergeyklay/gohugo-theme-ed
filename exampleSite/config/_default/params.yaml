@@ -123,3 +123,27 @@ search:
     # - it
     # - pt
     # - ru
+
+comments:
+  enable: false
+  type: giscus
+
+  # Configure giscus comments.
+  #
+  # For more see: https://giscus.app/
+  giscus:
+    # Required parameters:
+    repo: sergeyklay/gohugo-theme-ed
+    repoId: R_kgDOHEYacw
+    category: General
+    categoryId: DIC_kwDOHEYac84Cerse
+
+    # Optional parameters:
+    #
+    # theme: light
+    # mapping: pathname
+    # strict: 0
+    # reactionsEnabled: 1
+    # emitMetadata: 0
+    # inputPosition: bottom
+    # lang: en
