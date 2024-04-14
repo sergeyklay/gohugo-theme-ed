@@ -14,29 +14,36 @@ on:
 
 jobs:
   test:
-    name: Run tests
+    name: Run tests for Hugo ${{ matrix.hugo-version }}
     runs-on: ubuntu-latest
 
     # The maximum number of minutes to let a workflow run
     # before GitHub automatically cancels it. Default: 360
     timeout-minutes: 30
 
+    strategy:
+      # When set to true, GitHub cancels
+      # all in-progress jobs if any matrix job fails.
+      fail-fast: false
+
+      matrix:
+        hugo-version:
+          - '0.114.0'
+          - latest
+
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
+      with:
+        # Fetch all history for .GitInfo and .Lastmod
+        fetch-depth: 0
 
     - name: Set up Node 20.x
       uses: actions/setup-node@v4
       with:
         node-version: '20.x'
-
-    - name: Setup npm cache
-      uses: actions/cache@v4
-      with:
-        path: ~/.npm
-        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-        restore-keys: |
-          ${{ runner.os }}-node-
+        cache: 'npm'
+        cache-dependency-path: '**/package-lock.json'
 
     - name: Install npm dependencies
       run: npm ci --ignore-scripts
@@ -47,7 +54,7 @@ jobs:
     - name: Setup Hugo
       uses: peaceiris/actions-hugo@v3
       with:
-        hugo-version: '0.114.0'
+        hugo-version: ${{ matrix.hugo-version }}
         extended: true
 
     - name: Run Playwright tests
