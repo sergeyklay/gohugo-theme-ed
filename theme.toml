@@ -27,6 +27,7 @@ tags = [
 features = [
   "blog",
   "clean",
+  "comments form",
   "contact form",
   "favicon",
   "jsonfeed",

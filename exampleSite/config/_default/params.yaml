@@ -139,11 +139,10 @@ comments:
     categoryId: DIC_kwDOHEYac84Cerse
 
     # Optional parameters:
-    #
-    # theme: light
-    # mapping: pathname
-    # strict: 0
-    # reactionsEnabled: 1
-    # emitMetadata: 0
-    # inputPosition: bottom
-    # lang: en
+    theme: light
+    mapping: pathname
+    strict: 0
+    reactionsEnabled: 1
+    emitMetadata: 0
+    inputPosition: bottom
+    lang: en

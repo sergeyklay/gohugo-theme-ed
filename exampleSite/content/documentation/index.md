@@ -295,6 +295,94 @@ The internal links pointing to the right sections in your document are generated
 
 ---
 
+## Comments
+
+Ed theme now supports adding a comments system to your site, enhancing interactive engagement. Currently, the theme supports integration with {{< link src="https://giscus.app/" class="external" target="_blank" hreflang="en" rel="noopener noreferrer" >}}giscus{{< /link >}}.
+
+### giscus
+
+{{< link src="https://giscus.app/" class="external" target="_blank" hreflang="en" rel="noopener noreferrer" >}}giscus{{< /link >}} is a comments system powered by {{< link src="https://docs.github.com/en/discussions/" class="external" target="_blank" hreflang="en" rel="noopener noreferrer" >}}GitHub Discussions{{< /link >}}. It leverages GitHub's infrastructure to provide a free, open source platform for comments.
+
+To enable Giscus in your Hugo site, you must first add configuration settings in the site's YAML configuration file (`config/_default/params.yaml`). Below is a template for setting up giscus, which includes enabling the system and specifying necessary identifiers that link your site with the Giscus service:
+
+To enable giscus, you need to add the following to the site configuration file:
+
+~~~ yaml
+params:
+  comments:
+    enable: true  # Set to false to disable comments globally
+    type: giscus
+
+    giscus:
+      # Required parameters:
+      # Replace with your repository
+      repo: 'your-github-username/repository-name'
+      # Repository ID from Giscus setup
+      repoId: 'repository-ID'
+      # Discussion category
+      category: 'Announcements'
+      # Category ID from Giscus setup
+      categoryId: 'category-ID'
+
+      # Optional parameters:
+      #
+      # ...
+~~~
+
+You can obtain the `repoId` and `categoryId` by configuring your repository on the {{< link src="https://giscus.app/" class="external" target="_blank" hreflang="en" rel="noopener noreferrer" >}}giscus setup page{{< /link >}}. More details can also be found there.
+
+#### Enabling/Disabling Comments on Individual Pages
+
+Comments can be enabled or disabled on a per-page basis using the front matter of individual pages. Here's how you can enable comments for a specific page:
+
+~~~ yaml
+---
+title: About
+comments: true
+---
+~~~
+
+#### Styling Comments
+
+By default, giscus will inherit the styling from your GitHub discussion forum. However, you can customize the appearance to better fit your site's design by specifying a `theme` parameter in the giscus configuration block:
+
+~~~ yaml
+params:
+  comments:
+    giscus:
+      # Required parameters:
+      #
+      # ...
+
+      # Optional parameters:
+      theme: dark
+~~~
+
+#### Localization
+
+giscus supports multiple languages, and you can set the desired language for your comments section through the `lang` parameter:
+
+
+~~~ yaml
+params:
+  comments:
+    giscus:
+      # Required parameters:
+      #
+      # ...
+
+      # Optional parameters:
+      lang: fr
+~~~
+
+---
+
+This enhancement to the Ed theme allows you to leverage the power of community discussions directly on your site, making it more dynamic and engaging for visitors.
+
+For more information on giscus, visit the {{< link src="https://giscus.app/" class="external" target="_blank" hreflang="en" rel="noopener noreferrer" >}}giscus website{{< /link >}}.
+
+---
+
 ## Getting help
 
 That should do it. If you have suggestions on how to improve Ed, make sure to leave us a line on {{< link src="https://github.com/sergeyklay/gohugo-theme-ed/issues" class="external" target="_blank" hreflang="en" rel="noopener noreferrer" >}}our issues page{{< /link >}}, or send us a pull request. If you run into an issue that isn't answered by this documentation or the `{{< link src="https://github.com/sergeyklay/gohugo-theme-ed/tree/main/exampleSite" class="external" target="_blank" hreflang="en" rel="noopener noreferrer" >}}exampleSite{{< /link >}}`, then visit the {{< link src="https://discourse.gohugo.io/" class="external" target="_blank" hreflang="en" rel="noopener noreferrer" >}}Hugo forum{{< /link >}}. The folks there are helpful and friendly. **Before** asking your question, be sure to read the {{< link src="https://discourse.gohugo.io/t/requesting-help/9132" class="external" target="_blank" hreflang="en" rel="noopener noreferrer" >}}requesting help guidelines{{< /link >}}. Feel free to tag me in your question, my forum username is {{< link src="https://discourse.gohugo.io/u/egrep/summary" class="external" target="_blank" hreflang="en" rel="noopener noreferrer" >}}@egrep{{< /link >}}.
