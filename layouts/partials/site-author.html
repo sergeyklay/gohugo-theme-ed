@@ -29,6 +29,7 @@ For more information, see: https://github.com/gohugoio/hugo/releases/tag/v0.124.
     {{- $siteAuthor = merge $siteAuthor site.Params.author -}}
 {{- else if site.Author -}}
     {{- $siteAuthor = merge $siteAuthor site.Author -}}
+    {{- warnf "The author key in site configuration is deprecated. Use site.params.author instead." }}
 {{- end -}}
 
 {{- return $siteAuthor -}}
