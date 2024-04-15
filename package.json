@@ -28,7 +28,7 @@
     "netlify-preview": "node netlify-preview.js"
   },
   "devDependencies": {
-    "@playwright/test": "^1.43.0",
+    "@playwright/test": "^1.43.1",
     "@types/node": "^20.12.7",
     "editorconfig-checker": "^5.1.5",
     "eslint": "^9.0.0",
