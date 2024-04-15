@@ -299,8 +299,6 @@ The internal links pointing to the right sections in your document are generated
 
 Ed theme now supports adding a comments system to your site, enhancing interactive engagement. Currently, the theme supports integration with {{< link src="https://giscus.app/" class="external" target="_blank" hreflang="en" rel="noopener noreferrer" >}}giscus{{< /link >}}.
 
-### giscus
-
 {{< link src="https://giscus.app/" class="external" target="_blank" hreflang="en" rel="noopener noreferrer" >}}giscus{{< /link >}} is a comments system powered by {{< link src="https://docs.github.com/en/discussions/" class="external" target="_blank" hreflang="en" rel="noopener noreferrer" >}}GitHub Discussions{{< /link >}}. It leverages GitHub's infrastructure to provide a free, open source platform for comments.
 
 giscus operates by linking your website's comment section directly to GitHub Discussions. Here’s an overview of the process:
@@ -318,7 +316,7 @@ To enable giscus, you need to add the following to the site configuration file:
 
 ~~~ yaml
 comments:
-  enable: true  # Set to false to disable comments globally
+  enable: false  # Set to true to enable comments globally
   type: giscus
 
   giscus:
@@ -339,18 +337,41 @@ comments:
 
 You can obtain the `repoId` and `categoryId` by configuring your repository on the {{< link src="https://giscus.app/" class="external" target="_blank" hreflang="en" rel="noopener noreferrer" >}}giscus setup page{{< /link >}}. More details can also be found there.
 
-#### Enabling/Disabling Comments on Individual Pages
+### Comment Configuration for Content Types
 
-Comments can be enabled or disabled on a per-page basis using the front matter of individual pages. Here's how you can enable comments for a specific page:
+In the Ed theme, comments are disabled by default for all content types to maintain simplicity and focus for users. This includes all posts (poems, narratives, dramas, and blog posts) and pages. This setting helps ensure that comments are only enabled where they are explicitly needed, allowing for more granular control over site interactions.
 
 ~~~ yaml
+# Default configuration in params.yaml to disable comments globally
+comments:
+  enable: false
+  # ...
+~~~
+
+If you wish to enable comments on specific posts to encourage community interaction, you can override the default setting in the front matter of each post:
+
+~~~ yaml
+# Example of enabling comments in the front matter of a post
 ---
-title: About
+title: Exploring Narratives
 comments: true
 ---
 ~~~
 
-#### Styling Comments
+This allows you to selectively activate comments on content that benefits from user engagement, such as articles, stories, and discussions.
+
+For sites where community feedback is integral across all posts, comments can be enabled globally through the site's configuration file:
+
+~~~ yaml
+# Enable comments globally in params.yaml
+comments:
+  enable: true
+  # ...
+~~~
+
+This setting will activate comments for all posts but will not affect pages, as comments on pages are not supported. This approach is consistent with the theme’s design to keep static pages like "About" and "Contact" free from comments, ensuring these pages remain streamlined and professional.
+
+### Styling Comments
 
 By default, giscus will inherit the styling from your GitHub discussion forum. However, you can customize the appearance to better fit your site's design by specifying a `theme` parameter in the giscus configuration block:
 
@@ -370,7 +391,7 @@ comments:
 
 Refer to the {{< link src="https://github.com/giscus/giscus/blob/main/ADVANCED-USAGE.md#data-theme" class="external" target="_blank" hreflang="en" rel="noopener noreferrer" >}}giscus theme documentation{{< /link >}} for more details on available themes.
 
-#### Localization
+### Localization
 
 giscus supports multiple languages, and you can set the desired language for your comments section through the `lang` parameter:
 
