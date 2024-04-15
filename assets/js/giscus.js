@@ -12,6 +12,8 @@ import {
   theme
 } from '@params';
 
+// The article I found interesting and might be used as a reference
+// for comments theming in the future: https://www.brycewray.com/posts/2023/08/making-giscus-less-gabby/
 document.addEventListener('DOMContentLoaded', function () {
   const giscusAttributes = {
     'src': 'https://giscus.app/client.js',
