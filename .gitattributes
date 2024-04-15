@@ -18,57 +18,30 @@ resources/_gen/** linguist-generated
 
 .ecrc             linguist-language=JSON
 .editorconfig     linguist-language=INI
-.eslintrc.yml     linguist-detectable=true
-*.asc             linguist-language=Public Key
-*.md              linguist-detectable=true linguist-documentation=false
+*.md              linguist-documentation=true
 *.webmanifest     linguist-language=JSON
-*.yaml            linguist-detectable=true
-
-CHANGELOG.md      linguist-detectable=false linguist-documentation=true
-CONTRIBUTING.md   linguist-detectable=false linguist-documentation=true
-README.md         linguist-detectable=false linguist-documentation=true
-SECURITY.md       linguist-detectable=false linguist-documentation=true
 
 /layouts/index.json        linguist-language=HTML
 /layouts/_default/list.*.* linguist-language=HTML
 /layouts/_default/home.*.* linguist-language=HTML
 
 #
-# Text files.
-# Set files to be explicitly interpreted as text,
-# plus any specific settings
-#
-
-CHANGELOG.md     text eol=lf
-CONTRIBUTING.md  text eol=lf
-LICENSE          text eol=lf
-README.md        text eol=lf
-SECURITY.md      text eol=lf
-
-#
 # Configuration and some text files.
 #
 
-.ecrc           text eol=lf diff=json
-.editorconfig   text eol=lf
-.gitattributes  text eol=lf
-.gitignore      text eol=lf
-.gitmodules     text eol=lf
-*.webmanifest   text eol=lf diff=json
-netlify.toml    text eol=lf
+.ecrc           diff=json
+*.webmanifest   diff=json
 
 #
 # Exclude files from exporting
 # (used by the "download ZIP archive" option, for example).
 #
 
-.ecrc           export-ignore
-.editorconfig   export-ignore
-.eslintrc       export-ignore
-.eslintrc.yml   export-ignore
-.gitattributes  export-ignore
-.gitignore      export-ignore
-.gitmodules     export-ignore
-/.github        export-ignore
-netlify.toml    export-ignore
-netlify-pr.go   export-ignore
+/.github           export-ignore
+.ecrc              export-ignore
+.editorconfig      export-ignore
+.gitattributes     export-ignore
+.gitignore         export-ignore
+eslint.config.js   export-ignore
+netlify-preview.js export-ignore
+netlify.toml       export-ignore
