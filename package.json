@@ -31,7 +31,7 @@
     "@playwright/test": "^1.43.1",
     "@types/node": "^20.12.7",
     "editorconfig-checker": "^5.1.5",
-    "eslint": "^9.0.0",
+    "eslint": "^9.1.0",
     "jsdom": "^24.0.0"
   }
 }
