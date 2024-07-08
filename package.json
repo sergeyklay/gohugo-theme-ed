@@ -32,6 +32,6 @@
     "@types/node": "^20.12.12",
     "editorconfig-checker": "^5.1.8",
     "eslint": "^9.0.0",
-    "jsdom": "^24.0.0"
+    "jsdom": "^24.1.0"
   }
 }
