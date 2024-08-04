@@ -44,7 +44,7 @@ test('rss feed has correct author information', async ({ page }) => {
   const { window } = dom;
 
   // Get the dc:creator element
-  const creatorElement = window.document.querySelector('rss > dc\\:creator');
+  const creatorElement = window.document.getElementsByTagName('dc:creator')[0];
 
   // Check if the dc:creator element exists
   expect(creatorElement).not.toBeNull();
