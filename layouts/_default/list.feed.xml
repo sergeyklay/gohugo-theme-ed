@@ -29,38 +29,31 @@
     xml:lang="{{ site.LanguageCode }}"
     xml:base="{{ site.BaseURL }}">
     <channel>
-        {{ printf `<title type="html"><![CDATA[%s]]></title>` (partial "title.html" .) | safeHTML }}
-    </channel>
-    <link type="text/html">{{ site.BaseURL | absURL }}</link>
-    {{ $logo := resources.Get (site.Params.assets.logo | default "/img/open-graph-logo.png") }}{{ $logo = $logo.Resize "96x96" }}
-    <image>
-        <url>{{ $logo.Permalink | absURL }}</url>
-        {{ printf `<title type="html"><![CDATA[%s]]></title>` (partial "title.html" .) | safeHTML }}
-        <link>{{ site.BaseURL | absURL }}</link>
-        <width>{{ $logo.Width }}</width>
-        <height>{{ $logo.Height }}</height>
-    </image>
+        <title>{{ partial "title.html" . }}</title>
+        <link>{{ .Permalink }}</link>
+        <description>{{ partial "description.html" . }}</description>
+        <generator>Hugo {{ hugo.Version }}</generator>
+        <language>{{ site.Language.LanguageCode }}</language>{{ with site.Params.Copyright -}}
+        {{ $copyright := replace . "{year}" now.Year }}{{ $copyright = replace $copyright "&copy;" "©" }}
+        <copyright>{{ $copyright | plainify }}</copyright>{{ end }}
+        <lastBuildDate>{{ $siteLastMod.Format "Mon, 02 Jan 2006 15:04:05 -0700" | safeHTML }}</lastBuildDate>
     {{- $output_formats := .OutputFormats }}
     {{- range $output_formats -}}
     {{- $rel := (or (and (eq "feed" (.Name | lower)) "self") "alternate") -}}
     {{- with $output_formats.Get .Name }}
-    {{ printf `<atom:link href=%q rel=%q type=%q title=%q />` .RelPermalink $rel .MediaType.Type .Name | safeHTML }}
+        {{ printf `<atom:link href=%q rel=%q type=%q title=%q />` .RelPermalink $rel .MediaType.Type .Name | safeHTML }}
     {{- end -}}
     {{- end }}
-    {{ with site.Params.description }}{{ printf `<description type="html"><![CDATA[%s]]></description>` . | safeHTML }}{{ end }}
-    <generator>Hugo {{ hugo.Version }}</generator>{{ with $siteAuthor.name }}
-    {{ printf `<dc:creator type="html"><![CDATA[%s]]></dc:creator>` . | safeHTML }}{{ end }}{{ with site.LanguageCode }}
-    <language>{{ . }}</language>{{ end }}{{ with site.Params.Copyright }}{{ $copyright := replace . "{year}" now.Year }}{{ $copyright = replace $copyright "&copy;" "©" }}
-    <copyright>{{ $copyright | plainify }}</copyright>{{ end }}{{ if ne $siteLastMod "" }}
-    <lastBuildDate>{{ $siteLastMod.Format "Mon, 02 Jan 2006 15:04:05 -0700" | safeHTML }}</lastBuildDate>{{ end }}{{- range $pages }}
-    <item>
-        {{ printf `<title type="html"><![CDATA[%s]]></title>` .Title | safeHTML }}
-        <link>{{ .Permalink | absURL }}?utm_source=rss_feed</link>
-        <pubDate>{{ .Date.Format "Mon, 02 Jan 2006 15:04:05 -0700" | safeHTML }}</pubDate>
-        <category>{{ .Section }}</category>{{ range (.GetTerms "tags") }}
-        <category>{{ .LinkTitle }}</category>{{end}}
-        <guid isPermaLink="false">{{ md5 .Permalink }}</guid>
-        {{ printf `<description type="html"><![CDATA[%s]]></description>` .Summary | safeHTML }}
-    </item>
+    {{- range $pages }}
+        <item>
+            <title>{{ .Title }}</title>
+            <link>{{ .Permalink | absURL }}?utm_source=rss_feed</link>
+            <pubDate>{{ .Date.Format "Mon, 02 Jan 2006 15:04:05 -0700" | safeHTML }}</pubDate>
+            <category>{{ .Section }}</category>{{ range (.GetTerms "tags") }}
+            <category>{{ .LinkTitle }}</category>{{end}}
+            <guid isPermaLink="false">{{ md5 .Permalink }}</guid>
+            <description>{{ .Summary | transform.XMLEscape | safeHTML }}</description>
+        </item>
     {{ end }}
+    </channel>
 </rss>
