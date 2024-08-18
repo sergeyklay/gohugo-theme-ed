@@ -44,7 +44,7 @@ features = [
   "simple"
 ]
 
-min_version = "0.114.0"
+min_version = "0.121.0"
 
 # If the theme has a single author.
 [author]

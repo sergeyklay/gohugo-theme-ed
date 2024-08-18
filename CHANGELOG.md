@@ -39,7 +39,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
-- Updated the minimum required Hugo version for this theme to 0.114.0.
+- Updated the minimum required Hugo version for this theme to 0.121.0.
 - Refactored the theme configuration in `exampleSite/config/_default/config.yaml`
   to use Hugo's module imports instead of the `theme` variable. The theme's
   repository path is now specified under the `imports` section in the `module`

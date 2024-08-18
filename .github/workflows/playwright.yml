@@ -27,7 +27,7 @@ jobs:
 
       matrix:
         hugo-version:
-          - '0.114.0'
+          - '0.121.0'
           - latest
 
     steps:
