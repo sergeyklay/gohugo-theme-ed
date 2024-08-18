@@ -65,6 +65,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
+- Fix Atom / RSS feed formats to meet the standard
 - Fixed broken link in documentation.
 
 ## [v0.7.0](https://github.com/sergeyklay/gohugo-theme-ed/compare/v0.6.0...v0.7.0)
