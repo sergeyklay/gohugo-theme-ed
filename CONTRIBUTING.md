@@ -100,7 +100,7 @@ time to complete.
 ### Pull Request Contribution Prerequisites
 
 - You have Node & npm installed
-- You have Hugo installed at v0.114.0+
+- You have Hugo installed at v0.121.0+
 - You are familiar with Git
 
 ### Pull Request Process

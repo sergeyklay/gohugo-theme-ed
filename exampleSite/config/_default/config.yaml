@@ -158,7 +158,7 @@ frontmatter:
 module:
   hugoVersion:
     extended: true
-    min: '0.114.0'
+    min: '0.121.0'
   imports:
     # Use full path to theme's repository. This is replaced in go.mod for
     # exampleSite to point to the directory above.
