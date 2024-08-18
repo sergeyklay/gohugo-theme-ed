@@ -49,6 +49,7 @@
             <title>{{ .Title }}</title>
             <link>{{ .Permalink | absURL }}?utm_source=rss_feed</link>
             <pubDate>{{ .Date.Format "Mon, 02 Jan 2006 15:04:05 -0700" | safeHTML }}</pubDate>
+            {{ with $siteAuthor.email }}<author>{{ . }}{{ with $siteAuthor.name }} ({{ . }}){{ end }}</author>{{ end }}
             <category>{{ .Section }}</category>{{ range (.GetTerms "tags") }}
             <category>{{ .LinkTitle }}</category>{{end}}
             <guid isPermaLink="false">{{ md5 .Permalink }}</guid>
