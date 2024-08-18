@@ -18,7 +18,7 @@ test('rss feed has correct lastBuildDate field', async ({ page }) => {
   const { window } = dom;
 
   // Get the lastBuildDate field
-  const lastBuildDateField = window.document.querySelector('rss > lastBuildDate');
+  const lastBuildDateField = window.document.querySelector('rss > channel > lastBuildDate');
 
   // Check if the lastBuildDate field exists
   expect(lastBuildDateField).not.toBeNull();
@@ -31,7 +31,7 @@ test('rss feed has correct lastBuildDate field', async ({ page }) => {
   expect(lastBuildDateField.textContent).toMatch(dateRegex);
 });
 
-test('rss feed has correct author information', async ({ page }) => {
+test('rss feed items have correct fields', async ({ page }) => {
   await page.goto('/feeds/feed.rss.xml');
 
   // Get the content of the page
@@ -43,16 +43,47 @@ test('rss feed has correct author information', async ({ page }) => {
   // Get the global window object
   const { window } = dom;
 
-  // Get the dc:creator element
-  const creatorElement = window.document.getElementsByTagName('dc:creator')[0];
+  // Get all item elements
+  const items = window.document.querySelectorAll('rss > channel > item');
 
-  // Check if the dc:creator element exists
-  expect(creatorElement).not.toBeNull();
+  // Regex to match RFC 822 date-time format
+  const rfc822Regex = /^[A-Za-z]{3}, \d{2} [A-Za-z]{3} \d{4} \d{2}:\d{2}:\d{2} [+-]\d{4}$/;
 
-  // Check if the dc:creator element has the correct type attribute
-  expect(creatorElement.getAttribute('type')).toBe('html');
+  items.forEach(item => {
+    // Check for title element
+    const titleElement = item.querySelector('title');
+    expect(titleElement).not.toBeNull();
+    expect(titleElement.textContent.trim()).not.toBe('');
 
-  // Check if the dc:creator element has the correct text content
-  expect(creatorElement.textContent).not.toBeNull();
-  expect(creatorElement.textContent.trim()).not.toBe('');
+    // Check for link element
+    const linkElement = item.querySelector('link');
+    expect(linkElement).not.toBeNull();
+    expect(linkElement.textContent.trim()).not.toBe('');
+
+    // Check for pubDate element
+    const pubDateElement = item.querySelector('pubDate');
+    expect(pubDateElement).not.toBeNull();
+    expect(pubDateElement.textContent.trim()).not.toBe('');
+    expect(pubDateElement.textContent).toMatch(rfc822Regex);
+
+    // Check for author element
+    const authorElement = item.querySelector('author');
+    expect(authorElement).not.toBeNull();
+    expect(authorElement.textContent.trim()).not.toBe('');
+
+    // Check for category element
+    const categoryElement = item.querySelector('category');
+    expect(categoryElement).not.toBeNull();
+    expect(categoryElement.textContent.trim()).not.toBe('');
+
+    // Check for guid element
+    const guidElement = item.querySelector('guid');
+    expect(guidElement).not.toBeNull();
+    expect(guidElement.textContent.trim()).not.toBe('');
+
+    // Check for description element
+    const descriptionElement = item.querySelector('description');
+    expect(descriptionElement).not.toBeNull();
+    expect(descriptionElement.textContent.trim()).not.toBe('');
+  });
 });
