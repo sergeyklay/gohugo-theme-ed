@@ -19,7 +19,7 @@
 
 {{- safeHTML "<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"yes\" ?>" }}
 <feed xmlns="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" xml:lang="{{ site.LanguageCode }}" xml:base="{{ site.BaseURL }}">
-    {{ printf `<title type="html"><![CDATA[%s]]></title>` (partial "title.html" .) | safeHTML }}
+    <title>{{ partial "title.html" . }}</title>
     {{ with site.Params.description }}{{ printf `<subtitle type="html"><![CDATA[%s]]></subtitle>` . | safeHTML }}{{ end }}
     {{- $output_formats := .OutputFormats }}
     {{- range $output_formats -}}
@@ -31,7 +31,7 @@
     {{ $logo := resources.Get (site.Params.assets.logo | default "/img/open-graph-logo.png") }}{{ $logo = $logo.Resize "96x96" }}<icon>{{ $logo.Permalink | absURL }}</icon>
     <logo>{{ $logo.Permalink | absURL }}</logo>{{ with $siteAuthor.name }}
     <author>
-        {{ printf `<name type="html"><![CDATA[%s]]></name>` . | safeHTML }}
+        <name>{{ . }}</name>
         {{ with $siteAuthor.email }}<email>{{ . | html }}</email>{{ end }}
     </author>{{ end }}{{ with site.Params.Copyright }}{{ $copyright := replace . "{year}" now.Year }}{{ $copyright = replace $copyright "&copy;" "©" }}
     <rights>{{ $copyright | plainify }}</rights>{{ end }}
@@ -54,8 +54,8 @@
         {{ range $related }}
             <link href="{{ .Permalink }}?utm_source=atom_feed" rel="related" type="text/html" title="{{ .Title }}" />
         {{ end }}
-        <published>{{ .Date.Format "2006-01-02T15:04:05Z07:00" | safeHTML }}</published>{{ if ne .Date .Lastmod }}
-        <updated>{{ .Lastmod.Format "2006-01-02T15:04:05Z07:00" | safeHTML  }}</updated>{{ end }}
+        <published>{{ .Date.Format "2006-01-02T15:04:05Z07:00" | safeHTML }}</published>
+        <updated>{{ .Lastmod.Format "2006-01-02T15:04:05Z07:00" | safeHTML  }}</updated>
         <id>urn:uuid:{{ substr $uuid 0 8 }}-{{ substr $uuid 8 4 }}-5{{ substr $uuid 13 3 }}-{{ substr $uuid 16 1 }}9{{ substr $uuid 17 2 }}-{{ substr $uuid 21 12 }}</id>
         {{ if .Params.author }}
             {{- $author_type := (printf "%T" .Params.author) }}
