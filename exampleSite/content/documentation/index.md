@@ -75,8 +75,8 @@ Your terminal output should look similar to the following:
 
 ```
 go: no module dependencies to download
-go: downloading github.com/sergeyklay/gohugo-theme-ed v0.7.0
-go: added github.com/sergeyklay/gohugo-theme-ed v0.7.0
+go: downloading github.com/sergeyklay/gohugo-theme-ed v0.8.0
+go: added github.com/sergeyklay/gohugo-theme-ed v0.8.0
 hugo: downloading modules …
 hugo: collected modules in 5342 ms
 ```
