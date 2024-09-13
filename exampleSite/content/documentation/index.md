@@ -28,13 +28,43 @@ $ go version
 
 If you don't get an error, you're good to go. Using the `cd` command on your terminal, navigate to the folder where you keep your web projects. Once you're in the folder where project live, initialize the {{< link src="https://gohugo.io/hugo-modules" class="external" target="_blank" hreflang="en" rel="noopener noreferrer" >}}Hugo Modules{{< /link >}} system using the following line (replace `<your_user>` and `<your_project>` by real names):
 
+*Note: If you have already initialized Hugo Modules for your site, you can skip this step.*
+
 ~~~ bash
 $ hugo mod init github.com/<your_user>/<your_project>
 ~~~
 
-Take a look inside the `{{< link src="https://github.com/sergeyklay/gohugo-theme-ed/tree/main/exampleSite" class="external" target="_blank" hreflang="en" rel="noopener noreferrer" >}}exampleSite{{< /link >}}` folder of this theme. You'll find a folder called `{{< link src="https://github.com/sergeyklay/gohugo-theme-ed/blob/main/exampleSite/config" class="external" target="_blank" hreflang="en" rel="noopener noreferrer" >}}config{{< /link >}}`. Copy the `config` folder in the project root of your Hugo site. Check the contents of the `config` folder and configure it.
+If you haven't run this command before, your terminal output should
+look similar to the following:
 
-After that, import the theme adding the following lines to `config/_default/config.yaml`:
+~~~
+go: creating new go.mod: module github.com/<your_user>/<your_project>
+go: to add module requirements and sums:
+    go mod tidy
+~~~
+
+Take a look inside the `{{< link src="https://github.com/sergeyklay/gohugo-theme-ed/tree/main/exampleSite"
+class="external" target="_blank" hreflang="en" rel="noopener noreferrer" >}}exampleSite{{< /link >}}` folder of the Ed
+theme. You'll find a folder called `{{< link
+src="https://github.com/sergeyklay/gohugo-theme-ed/blob/main/exampleSite/config"
+class="external" target="_blank" hreflang="en" rel="noopener noreferrer" >}}config{{< /link >}}`. Copy the `config` folder in the
+root directory of your Hugo site. After copying, review the contents of the `config` folder and adjust the settings according to your project's needs.
+
+By default, when you copy the `config` folder to the root of your Hugo
+site, the file `config/_default/config.yaml` should contain the
+following lines:
+
+``` yaml
+module:
+  # ...
+  # there might be additional settings here
+  # that are not relevant at the moment
+  # ...
+  imports:
+    - path: github.com/sergeyklay/gohugo-theme-ed
+```
+
+If these lines are missing for some reason, make sure to add them:
 
 ~~~ yaml
 module:
@@ -47,6 +77,17 @@ Finally, install Hugo Modules using the following command (remember you can copy
 ~~~ bash
 $ hugo mod get
 ~~~
+
+Your terminal output should look similar to the following:
+
+```
+hugo mod get
+go: no module dependencies to download
+go: downloading github.com/sergeyklay/gohugo-theme-ed v0.7.0
+go: added github.com/sergeyklay/gohugo-theme-ed v0.7.0
+hugo: downloading modules …
+hugo: collected modules in 5342 ms
+```
 
 ---
 
@@ -289,7 +330,7 @@ The third way is simple as the previous one, but very useful for long texts. If 
 toc: true
 ~~~
 
-Ed will activate the optional table of content sidebar (`layouts/partials/sidebar-toc.html` in Ed) and move the table of contents to a special sidebar for that page. *Narrative of the Life* uses this method for its table of content. 
+Ed will activate the optional table of content sidebar (`layouts/partials/sidebar-toc.html` in Ed) and move the table of contents to a special sidebar for that page. *Narrative of the Life* uses this method for its table of content.
 
 The internal links pointing to the right sections in your document are generated from the title names automatically. If you can figure out how Ed accomplishes this trick, you have graduated from the Ed school of minimal editions.
 
