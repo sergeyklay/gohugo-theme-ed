@@ -43,12 +43,7 @@ go: to add module requirements and sums:
     go mod tidy
 ~~~
 
-Take a look inside the `{{< link src="https://github.com/sergeyklay/gohugo-theme-ed/tree/main/exampleSite"
-class="external" target="_blank" hreflang="en" rel="noopener noreferrer" >}}exampleSite{{< /link >}}` folder of the Ed
-theme. You'll find a folder called `{{< link
-src="https://github.com/sergeyklay/gohugo-theme-ed/blob/main/exampleSite/config"
-class="external" target="_blank" hreflang="en" rel="noopener noreferrer" >}}config{{< /link >}}`. Copy the `config` folder in the
-root directory of your Hugo site. After copying, review the contents of the `config` folder and adjust the settings according to your project's needs.
+Take a look inside the `{{< link src="https://github.com/sergeyklay/gohugo-theme-ed/tree/main/exampleSite" class="external" target="_blank" hreflang="en" rel="noopener noreferrer" >}}exampleSite{{< /link >}}` folder of the Ed theme. You'll find a folder called `{{< link src="https://github.com/sergeyklay/gohugo-theme-ed/blob/main/exampleSite/config" class="external" target="_blank" hreflang="en" rel="noopener noreferrer" >}}config{{< /link >}}`. Copy the `config` folder in the root directory of your Hugo site. After copying, review the contents of the `config` folder and adjust the settings according to your project's needs.
 
 By default, when you copy the `config` folder to the root of your Hugo
 site, the file `config/_default/config.yaml` should contain the
