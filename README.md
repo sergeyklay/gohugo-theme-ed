@@ -7,7 +7,7 @@ on legibility, durability, ease and flexibility.
 ---
 
 <p align="center">
-  <kbd><img src="https://raw.githubusercontent.com/sergeyklay/gohugo-theme-ed/main/exampleSite/content/documentation/screenshot-home.png" alt="Mockup image" title="Mockup"/></kbd>
+  <img src="https://raw.githubusercontent.com/sergeyklay/gohugo-theme-ed/main/exampleSite/content/documentation/screenshot-home.png" alt="Mockup image" title="Mockup"/>
 </p>
 
 ---
@@ -19,7 +19,6 @@ theme by [Alex Gil](https://twitter.com/elotroalex).
 ## Sample Ed editions
 
 - [Our sample site](https://gohugo-theme-ed.netlify.app/?utm_source=github.com&utm_campaign=docs&utm_medium=smm) is the first edition built with Ed.
-- [Serghei Iakovlev's blog](https://serghei.blog/?utm_source=github.com&utm_campaign=docs&utm_medium=smm)
 
 ## Features
 
