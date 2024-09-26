@@ -29,7 +29,7 @@
   },
   "devDependencies": {
     "@playwright/test": "^1.47.2",
-    "@types/node": "^22.5.4",
+    "@types/node": "^22.7.2",
     "editorconfig-checker": "^6.0.0",
     "eslint": "^9.10.0",
     "jsdom": "^25.0.1"
