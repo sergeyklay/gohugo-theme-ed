@@ -328,6 +328,39 @@ The internal links pointing to the right sections in your document are generated
 
 ---
 
+## Styling Theme
+
+To change the main color accents of the theme, such as the headers, links, and text logo, you can use the `colorScheme` configuration parameter, as shown below:
+
+~~~ yaml
+params:
+  colorScheme: magenta
+~~~
+
+The demo site uses a feature that splits configuration into separate files, so if your project follows the same structure, the `colorScheme` parameter should be located in the `params.yaml` file, simply at the root, like this:
+
+~~~ yaml
+colorScheme: blue
+~~~
+
+The currently supported colors are: red, orange, magenta, cyan, blue, and brown.
+
+If no value is provided, or if you remove the `colorScheme` parameter altogether, the theme defaults to red.
+
+At the moment, the theme does not support arbitrary changes to fonts, custom colors, or other visual elements beyond those predefined by the theme. However, the theme provides a way for you to add your own custom styles to your project.
+
+To do this, create a `layouts/partials` directory in your project, and inside it, add a file named `custom-head.html`. You can now define any custom styles within this file. For example:
+
+~~~ html
+<style>
+    html {
+        font-family: "PT Sans", Helvetica, Arial, sans-serif;
+    }
+</style>
+~~~
+
+This allows you to override or extend the theme’s default styles with your own customizations.
+
 ## Comments
 
 Ed theme now supports adding a comments system to your site, enhancing interactive engagement. Currently, the theme supports integration with {{< link src="https://giscus.app/" class="external" target="_blank" hreflang="en" rel="noopener noreferrer" >}}giscus{{< /link >}}.
