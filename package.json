@@ -22,15 +22,12 @@
   "scripts": {
     "server": "HUGO_RESOURCEDIR='../resources' HUGO_ENV=development hugo server --logLevel info --source=exampleSite --buildDrafts --buildFuture --ignoreCache --disableFastRender",
     "test": "playwright test",
-    "lint": "npm run lint:js && npm run lint:editorconfig",
-    "lint:editorconfig": "editorconfig-checker",
-    "lint:js": "eslint static/js/* assets/js/* tests/*.spec.js eslint.config.js playwright.config.js netlify-preview.js",
+    "lint": "eslint static/js/* assets/js/* tests/*.spec.js eslint.config.js playwright.config.js netlify-preview.js",
     "netlify-preview": "node netlify-preview.js"
   },
   "devDependencies": {
     "@playwright/test": "^1.47.2",
     "@types/node": "^22.7.3",
-    "editorconfig-checker": "^6.0.0",
     "eslint": "^9.11.1",
     "jsdom": "^25.0.1"
   }

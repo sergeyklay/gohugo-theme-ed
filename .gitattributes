@@ -17,7 +17,6 @@ resources/_gen/** linguist-generated
 #
 
 .ecrc             linguist-language=JSON
-.editorconfig     linguist-language=INI
 *.md              linguist-documentation=true
 *.webmanifest     linguist-language=JSON
 
@@ -39,7 +38,6 @@ resources/_gen/** linguist-generated
 
 /.github           export-ignore
 .ecrc              export-ignore
-.editorconfig      export-ignore
 .gitattributes     export-ignore
 .gitignore         export-ignore
 eslint.config.js   export-ignore
