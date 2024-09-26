@@ -1,4 +1,5 @@
 en:
-  weight: 1
+  languageCode: en
   languageDirection: ltr
   languageName: English
+  weight: 1

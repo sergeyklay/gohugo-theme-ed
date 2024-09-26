@@ -1,5 +1,10 @@
-<!DOCTYPE html>
-<html lang="{{ site.LanguageCode | default site.Language.Lang }}" {{- with partialCached "func/GetLanguageDirection" "GetLanguageDirection" }} dir="{{ . }}" {{- end }} prefix="og: http://ogp.me/ns#" id="top-of-site">
+<!doctype html>
+<html lang="{{ site.Language.LanguageCode }}"
+      dir="{{ or site.Language.LanguageDirection `ltr` }}"
+      prefix="og: http://ogp.me/ns#"
+      itemscope
+      itemtype="https://schema.org/WebPage"
+      id="top-of-site">
     {{ partial "head.html" . }}
     <body class="theme-base-{{ site.Params.colorScheme }}">
         <div id="top-of-site-anchor"></div>
