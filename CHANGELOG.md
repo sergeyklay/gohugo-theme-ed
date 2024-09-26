@@ -7,6 +7,26 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased](https://github.com/sergeyklay/gohugo-theme-ed/compare/v0.8.0...HEAD)
 
+### Added
+
+- Added `https://schema.org/WebPage` itemtype to base HTML layout to improve
+  the site's SEO and accessibility.
+
+### Changed
+
+- Simplified setting of language and direction for the site by using the
+  `site.Language.LanguageCode` and `site.Language.LanguageDirection` variables.
+  This change simplifies the theme's configuration and aligns with Hugo's best practices.
+
+### Removed
+
+- Removed `GetLanguageDirection` function as it is no longer needed.
+- Removed explicit setting of the `defaultContentLanguage` for the example site
+  as it doesn't add any value. The default content language is set to `en` by default.
+- Removed explicit setting of the `languageCode` for the example site to force Hugo use
+  `site.Language.LanguageCode` as the default language code for the site. See
+  `exampleSite/config/_default/languages.yaml` for more details.
+
 ## [v0.8.0](https://github.com/sergeyklay/gohugo-theme-ed/compare/v0.7.0...v0.8.0)
 
 ### Added
