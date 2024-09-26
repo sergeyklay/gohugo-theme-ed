@@ -1,9 +1,6 @@
 # You may need to change this line for your real project.
 baseURL: /
 
-languageCode: en-us
-defaultContentLanguage: en
-
 # Keep title short to prevent overflow.
 # There’s no official guidance on this, but 40 characters for
 # mobile and 60 for desktop is roughly the sweet spot.
@@ -15,7 +12,7 @@ title: Ed.
 enableRobotsTXT: true
 
 # When using ref or relref to resolve page links and a link cannot
-# resolved, it will be logged with this log level.
+# resolve, it will be logged with this log level.
 refLinksErrorLevel: WARNING
 
 # Kick out RSS, we'll use Atom and FEED bellow.
