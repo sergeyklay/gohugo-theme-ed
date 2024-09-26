@@ -2,9 +2,6 @@
 // Mixins
 // - - - - - - - - - - - - - - - - - -
 
-// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - Responsive
-// Usage: @include mq(tabletp) {}
-
 // iPhone min device width cheat sheet:
 //
 // iPhone 4 and 4S: 320px
@@ -19,6 +16,8 @@ $break-tabletl: 1024px;
 $break-laptop: 1220px;
 $break-desktop: 1600px;
 
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - Responsive
+// Usage: @include mq(tabletp) {}
 @mixin mq($media) {
   @if $media == phonem {
     @media only screen and (min-width: $break-phonem) { @content; }
@@ -48,7 +47,7 @@ $break-desktop: 1600px;
 
 @mixin text-size-adjust($value) {
   -webkit-text-size-adjust: $value;
-     -moz-text-size-adjust: $value; // editorconfig-checker-disable-line
+     -moz-text-size-adjust: $value;
       -ms-text-size-adjust: $value;
           text-size-adjust: $value;
 }
@@ -67,9 +66,9 @@ $break-desktop: 1600px;
 
   // print out the transforms
   -webkit-transform: $transform-list;
-     -moz-transform: $transform-list; // editorconfig-checker-disable-line
+     -moz-transform: $transform-list;
       -ms-transform: $transform-list;
-       -o-transform: $transform-list; // editorconfig-checker-disable-line
+       -o-transform: $transform-list;
           transform: $transform-list;
 }
 
@@ -78,9 +77,9 @@ $break-desktop: 1600px;
 
 @mixin transition($args...) {
   -webkit-transition: $args;
-     -moz-transition: $args; // editorconfig-checker-disable-line
+     -moz-transition: $args;
       -ms-transition: $args;
-       -o-transition: $args; // editorconfig-checker-disable-line
+       -o-transition: $args;
           transition: $args;
 }
 
@@ -92,7 +91,7 @@ $break-desktop: 1600px;
 
 @mixin appearance($value) {
   -webkit-appearance: $value;
-     -moz-appearance: $value; // editorconfig-checker-disable-line
+     -moz-appearance: $value;
           appearance: $value;
 }
 
@@ -126,7 +125,7 @@ $break-desktop: 1600px;
 
 @mixin box-sizing ($value) {
   -webkit-box-sizing: $value;
-     -moz-box-sizing: $value; // editorconfig-checker-disable-line
+     -moz-box-sizing: $value;
           box-sizing: $value;
 }
 
@@ -137,7 +136,7 @@ $break-desktop: 1600px;
 
 @mixin box-shadow ($args...) {
   -webkit-box-shadow: $args;
-     -moz-box-shadow: $args; // editorconfig-checker-disable-line
+     -moz-box-shadow: $args;
           box-shadow: $args;
 }
 
@@ -147,7 +146,7 @@ $break-desktop: 1600px;
 
 @mixin border-radius ($args...) {
   -webkit-border-radius: $args;
-     -moz-border-radius: $args; // editorconfig-checker-disable-line
+     -moz-border-radius: $args;
           border-radius: $args;
 }
 
@@ -199,8 +198,8 @@ $break-desktop: 1600px;
 
 @mixin filter($value) {
   -webkit-filter: $value;
-     -moz-filter: $value; // editorconfig-checker-disable-line
-       -o-filter: $value; // editorconfig-checker-disable-line
+     -moz-filter: $value;
+       -o-filter: $value;
           filter: $value;
 }
 
@@ -218,7 +217,7 @@ $break-desktop: 1600px;
   $clip-list: join($clip-list, null, space);
 
   -webkit-clip-path: $clip-list;
-     -moz-clip-path: $clip-list; // editorconfig-checker-disable-line
+     -moz-clip-path: $clip-list;
       -ms-clip-path: $clip-list;
           clip-path: $clip-list;
 }
