@@ -1,5 +1,5 @@
 {{- /* Styles */}}
-{{- $theme := resources.Get "sass/style.scss" | resources.ToCSS }}
+{{- $theme := resources.Get "sass/style.scss" | css.Sass }}
 
 {{- /* order is important */}}
 {{- /* to ass more styles use the following format: slice $theme $style1 $style2 $style3 ... */}}

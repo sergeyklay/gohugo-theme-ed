@@ -16,16 +16,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Simplified setting of language and direction for the site by using the
   `site.Language.LanguageCode` and `site.Language.LanguageDirection` variables.
-  This change simplifies the theme's configuration and aligns with Hugo's best practices.
+  This change simplifies the theme's configuration and aligns with Hugo's best
+  practices.
+- Replace deprecated `resource.ToCss` with `css.Sass` to ensure compatibility
+  with future versions of Hugo.
 
 ### Removed
 
 - Removed `GetLanguageDirection` function as it is no longer needed.
 - Removed explicit setting of the `defaultContentLanguage` for the example site
-  as it doesn't add any value. The default content language is set to `en` by default.
-- Removed explicit setting of the `languageCode` for the example site to force Hugo use
-  `site.Language.LanguageCode` as the default language code for the site. See
-  `exampleSite/config/_default/languages.yaml` for more details.
+  as it doesn't add any value. The default content language is set to `en` by
+  default.
+- Removed explicit setting of the `languageCode` for the example site to force
+  Hugo use `site.Language.LanguageCode` as the default language code for the
+  site. See `exampleSite/config/_default/languages.yaml` for more details.
 
 ## [v0.8.0](https://github.com/sergeyklay/gohugo-theme-ed/compare/v0.7.0...v0.8.0)
 
