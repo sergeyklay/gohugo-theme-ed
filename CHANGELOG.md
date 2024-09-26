@@ -18,8 +18,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   `site.Language.LanguageCode` and `site.Language.LanguageDirection` variables.
   This change simplifies the theme's configuration and aligns with Hugo's best
   practices.
-- Replace deprecated `resource.ToCss` with `css.Sass` to ensure compatibility
-  with future versions of Hugo.
+- Use new `css.Sass` for new Hugo versions instead of `resource.ToCss` to ensure
+  compatibility with future  versions of Hugo.
 
 ### Removed
 
