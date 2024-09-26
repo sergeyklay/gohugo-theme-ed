@@ -1,5 +1,12 @@
 {{- /* Styles */}}
-{{- $theme := resources.Get "sass/style.scss" | css.Sass }}
+{{- $theme := resources.Get "sass/style.scss" }}
+
+{{- /* resources.ToCSS was deprecated in Hugo v0.128.0 and will be removed in a future release */}}
+{{- if ge site.Hugo.Version "0.128.0" -}}
+    {{- $theme = $theme | css.Sass }}
+{{- else -}}
+    {{- $theme = $theme | resources.ToCSS }}
+{{- end -}}
 
 {{- /* order is important */}}
 {{- /* to ass more styles use the following format: slice $theme $style1 $style2 $style3 ... */}}
