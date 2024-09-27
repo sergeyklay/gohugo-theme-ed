@@ -1,6 +1,6 @@
 {{- if (or (eq (getenv "HUGO_ENV") "production") (eq site.Params.env "production")) -}}
     {{- with site.GoogleAnalytics -}}
-        {{- $gaParams := dict "analyticsCode" (site.GoogleAnalytics | default "") "anonymizeIp" (site.Params.anonymizeIp | default true) -}}
+        {{- $gaParams := dict "analyticsCode" (site.GoogleAnalytics | default "") -}}
 
         {{- $gaScript := slice -}}
         {{- $gaScript = $gaScript | append (resources.Get "js/ga.js") -}}

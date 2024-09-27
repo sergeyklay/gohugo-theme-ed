@@ -1,4 +1,4 @@
-import {analyticsCode, anonymizeIp} from '@params';
+import {analyticsCode} from '@params';
 
 let dataLayer;
 
@@ -126,7 +126,6 @@ if (isDoNotTrackEnabled()) {
 
     // Setup the project analytics code and send a pageview
     gtag('config', analyticsCode, {
-      'anonymize_ip': anonymizeIp,
       'cookie_expires': month
     });
 
