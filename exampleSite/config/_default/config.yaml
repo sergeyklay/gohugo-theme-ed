@@ -24,15 +24,6 @@ disableKinds:
 taxonomies:
   tag: tags
 
-# Google Analytics Tracking ID.
-#
-# For more info, read the article
-# https://support.google.com/analytics/answer/10089681
-#
-# Set `HUGO_ENV` environment variable or `site.Params.env` configuration
-# parameter to "production" to use Google Analytics.
-googleAnalytics: ''
-
 minify:
   # Do not minify XML files to avoid CDATA escape issues
   disableXML: true
