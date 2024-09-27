@@ -141,3 +141,12 @@ comments:
     emitMetadata: 0
     inputPosition: bottom
     lang: en
+
+privacy:
+  googleTagManager:
+    disable: true
+    respectDoNotTrack: true
+
+services:
+  googleTagManager:
+      id: ''

@@ -23,12 +23,15 @@
     "server": "HUGO_RESOURCEDIR='../resources' HUGO_ENV=development hugo server --logLevel info --source=exampleSite --buildDrafts --buildFuture --ignoreCache --disableFastRender",
     "test": "playwright test",
     "lint": "eslint static/js/* assets/js/* tests/*.spec.js eslint.config.js playwright.config.js netlify-preview.js",
+    "netlify-production": "node netlify-production.js",
     "netlify-preview": "node netlify-preview.js"
   },
   "devDependencies": {
     "@playwright/test": "^1.47.2",
     "@types/node": "^22.7.3",
     "eslint": "^9.11.1",
-    "jsdom": "^25.0.1"
+    "fs": "^0.0.1-security",
+    "jsdom": "^25.0.1",
+    "yaml": "^2.5.1"
   }
 }

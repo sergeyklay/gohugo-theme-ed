@@ -1,0 +1,22 @@
+{{- if eq hugo.Environment "production" }}
+    {{- if not site.Params.Privacy.GoogleTagManager.Disable }}{{/* First check GTM */}}
+        {{- with site.Params.Services.GoogleTagManager }}
+            {{- $gtmParams := dict "gtmCode" (.ID) -}}
+            {{- $gtmParams = merge $gtmParams (dict "respectDoNotTrack" site.Params.Privacy.GoogleTagManager.RespectDoNotTrack | default true) }}
+
+            {{- $gtmScript := slice -}}
+            {{- $gtmScript = $gtmScript | append (resources.Get "js/gtm.js") -}}
+            {{- $gtmScript = $gtmScript | resources.Concat "js/analytics.js" -}}
+            {{- $gtmScript = $gtmScript | js.Build (dict "format" "iife" "target" "es2015" "minify" true "params" $gtmParams) -}}
+
+            {{- if site.Params.assets.disable_fingerprinting }}
+                <script src="{{ $gtmScript.RelPermalink }}"></script>
+            {{- else -}}
+                {{- $gtmScript = $gtmScript | fingerprint -}}
+                <script src="{{ $gtmScript.RelPermalink }}" integrity="{{ $gtmScript.Data.Integrity }}" crossorigin="anonymous"></script>
+            {{- end -}}
+        {{- end -}}
+    {{ else }}{{/* If GTM is disabled delegate the rest to Hugo */}}
+        {{ template "_internal/google_analytics.html" . }}
+    {{ end }}
+{{ end }}
