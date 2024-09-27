@@ -22,7 +22,6 @@
 
 [context.production.environment]
   HUGO_ENV = 'production'
-  HUGO_PARAMS_SERVICES_GOOGLETAGMANAGER_ID = 'GTM-W8D5W642'
   HUGO_ENABLEGITINFO = 'true'
 
 # Deploy Preview context: all deploys generated from

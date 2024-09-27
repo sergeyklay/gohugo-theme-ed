@@ -13,7 +13,7 @@ chmod +x ./yq
 
 echo "Patch config file for demo site"
 
-yq -i '.privacy.googleTagManager.disable = false' exampleSite/config/_default/params.yaml
-yq -i '.services.googleTagManager.id = "GTM-W8D5W642"' exampleSite/config/_default/params.yaml
+./yq -i '.privacy.googleTagManager.disable = false' exampleSite/config/_default/params.yaml
+./yq -i '.services.googleTagManager.id = "GTM-W8D5W642"' exampleSite/config/_default/params.yaml
 
 cat exampleSite/config/_default/params.yaml
