@@ -34,7 +34,7 @@
 [context.deploy-preview.environment]
   # HUGO_ENV = 'development'
   HUGO_ENV = 'production'
-  HUGO_PARAMS_PRIVACY_GOOGLETAGMANAGER_DISABLED = false
+  HUGO_PARAMS_PRIVACY_GOOGLETAGMANAGER_DISABLED = "false"
   HUGO_PARAMS_SERVICES_GOOGLETAGMANAGER_ID = 'GTM-W8D5W642'
 
 # Branch Deploy context: all deploys that are not from
