@@ -1,6 +1,6 @@
 #!/bin/bash
 
-npm ./netlify-build.js
+node ./netlify-build.js
 cat exampleSite/config/_default/params.yaml
 
 #echo "Installing yq"
