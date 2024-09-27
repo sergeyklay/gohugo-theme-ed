@@ -29,7 +29,7 @@
 # a pull/merge request will inherit these settings.
 [context.deploy-preview]
   # command = 'npm run netlify-preview; hugo --source=exampleSite --buildDrafts --buildFuture --baseURL ${DEPLOY_PRIME_URL} --destination ../public --minify'
-  command = 'npm run netlify-preview; hugo --source=exampleSite --buildDrafts --buildFuture --baseURL ${DEPLOY_PRIME_URL} --destination ../public; cat ../public/index.html'
+  command = 'npm run netlify-preview; hugo --source=exampleSite --buildDrafts --buildFuture --baseURL ${DEPLOY_PRIME_URL} --destination ../public; cat ./public/index.html'
 
 [context.deploy-preview.environment]
   # HUGO_ENV = 'development'
