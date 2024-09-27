@@ -19,7 +19,7 @@
 # here, but we recommend using the Netlify UI for sensitive
 # values to keep them out of your source repository.
 [context.production]
-  command = 'hugo --source=exampleSite --baseURL ${URL} --destination ../public --minify'
+  command = 'npm run netlify-production; hugo --source=exampleSite --baseURL ${URL} --destination ../public --minify'
 
 [context.production.environment]
   HUGO_ENV = 'production'
@@ -28,12 +28,10 @@
 # Deploy Preview context: all deploys generated from
 # a pull/merge request will inherit these settings.
 [context.deploy-preview]
-  # command = 'npm run netlify-preview; hugo --source=exampleSite --buildDrafts --buildFuture --baseURL ${DEPLOY_PRIME_URL} --destination ../public --minify'
-  command = 'npm run netlify-production; npm run netlify-preview; hugo --source=exampleSite --buildDrafts --buildFuture --baseURL ${DEPLOY_PRIME_URL} --destination ../public; cat ./public/index.html'
+  command = 'npm run netlify-preview; hugo --source=exampleSite --buildDrafts --buildFuture --baseURL ${DEPLOY_PRIME_URL} --destination ../public --minify'
 
 [context.deploy-preview.environment]
-  # HUGO_ENV = 'development'
-  HUGO_ENV = 'production'
+  HUGO_ENV = 'development'
 
 # Branch Deploy context: all deploys that are not from
 # a pull/merge request or from the Production branch
