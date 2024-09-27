@@ -83,11 +83,6 @@ seo:
   # The site.Title  will be used if empty.
   publisher: Serghei Iakovlev
 
-  # To anonymize the IP addresses of hits sent to Google Analytics
-  # set this param to true. Please note, to enable Google Analytics
-  # you have to set `googleAnalytics` param in config.yaml file.
-  anonymizeIp: true
-
 author:
   name: Serghei Iakovlev
   email: egrep@protonmail.ch

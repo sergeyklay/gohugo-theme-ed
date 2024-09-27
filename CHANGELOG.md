@@ -30,6 +30,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Removed explicit setting of the `languageCode` for the example site to force
   Hugo use `site.Language.LanguageCode` as the default language code for the
   site. See `exampleSite/config/_default/languages.yaml` for more details.
+- Drop support of AnonymizeIp configuration parameter for Google Analytics as
+  it is no longer relevant in Google Analytics >= v4.
 
 ## [v0.8.0](https://github.com/sergeyklay/gohugo-theme-ed/compare/v0.7.0...v0.8.0)
 
