@@ -29,6 +29,8 @@
     "@playwright/test": "^1.47.2",
     "@types/node": "^22.7.3",
     "eslint": "^9.11.1",
-    "jsdom": "^25.0.1"
+    "fs": "^0.0.1-security",
+    "jsdom": "^25.0.1",
+    "yaml": "^2.5.1"
   }
 }
