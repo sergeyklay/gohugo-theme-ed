@@ -1,0 +1,4 @@
+[outputFormats]
+  [outputFormats.rss]
+    baseName = 'rss'
+    mediaType = 'application/rss+xml'
