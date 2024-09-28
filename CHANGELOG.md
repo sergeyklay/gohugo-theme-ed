@@ -34,6 +34,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Removed `GetLanguageDirection` function as it is no longer needed.
 - Drop support of AnonymizeIp configuration parameter for Google Analytics as
   it is no longer relevant in Google Analytics >= v4.
+- Removed custom RSS template (`layouts/_default/list.feed.xml`), relying
+  entirely on Hugo's built-in rendering.
+- Removed `layouts/partials/alternate-outputs.html` partial. Alternate outputs
+  (e.g., RSS, Atom feeds, etc.) are now handled in `layouts/partials/head.html`.
 
 ## [v0.8.0](https://github.com/sergeyklay/gohugo-theme-ed/compare/v0.7.0...v0.8.0)
 

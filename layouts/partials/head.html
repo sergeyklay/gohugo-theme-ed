@@ -18,8 +18,12 @@
     <link rel="icon" href="{{ site.Params.assets.svgicon | default "icon.svg" | relURL }}" type="image/svg+xml">
     <link rel="apple-touch-icon" href="{{ site.Params.assets.apple_touch_icon | default "apple-touch-icon.png" | relURL }}"><!-- 180×180 -->
 
-    {{- /* Feed, sitemap and manifest */}}
-    {{ partial "alternate-outputs.html" . }}
+    {{- range .AlternativeOutputFormats }}
+    <link rel="{{ .Rel }}" type="{{ .MediaType.Type }}" href="{{ .Permalink | safeURL }}" title="{{ .Name }}">
+    {{- end }}
+
+    <link rel="sitemap" type="application/xml" href="{{ "sitemap.xml" | relURL }}" title="Sitemap">
+    <link rel="author" type="text/plain" href="{{ "humans.txt" | relURL }}" title="Humans">
 
     {{- range .AllTranslations -}}
     <link rel="alternate" hreflang="{{ .Lang }}" href="{{ .Permalink }}">

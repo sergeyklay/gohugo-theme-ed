@@ -15,10 +15,6 @@ enableRobotsTXT: true
 # resolve, it will be logged with this log level.
 refLinksErrorLevel: WARNING
 
-# Kick out RSS, we'll use Atom and FEED bellow.
-disableKinds:
-  - RSS
-
 # We have just the default tags taxonomy, and remove the categories
 # taxonomy for site as not used.
 taxonomies:
@@ -32,11 +28,12 @@ minify:
       keepQuotes: true
 
 outputs:
-  home: [HTML, Atom, FEED, JSONFEED, JSON, MANIFEST, humanstxt]
-  section: [HTML, Atom, FEED, JSONFEED]
+  home: [HTML, RSS, MANIFEST, Atom, JSONFEED, JSON, humanstxt]
   page: [HTML]
-  taxonomy: [HTML]
-  term: [HTML]
+  rss: [RSS]
+  section: [HTML, RSS, Atom, JSONFEED]
+  taxonomy: [HTML, RSS]
+  term: [HTML, RSS]
 
 outputFormats:
   # For more see: https://validator.w3.org/feed/docs/atom.html#whatIsAtom
@@ -52,16 +49,6 @@ outputFormats:
     mediaType: text/xml
     # generated file = <baseName>.<mediaType.'text/xml'.suffixes[0]> = feeds/feed.atom.xml
     baseName: feeds/feed.atom
-    rel: alternate
-    isPlainText: false
-    isHTML: false
-    noUgly: true
-    permalinkable: false
-
-  FEED:
-    name: Feed
-    mediaType: text/xml
-    baseName: feeds/feed.rss
     rel: alternate
     isPlainText: false
     isHTML: false
@@ -91,7 +78,7 @@ outputFormats:
     isPlainText: true
     isHTML: false
     noUgly: false
-    notAlternative: true
+    notAlternative: false
 
   # For more see: https://gohugo.io/templates/output-formats/
   humanstxt:
@@ -117,7 +104,7 @@ mediaTypes:
 
 # Sitemap config
 sitemap:
-  changefreq: weekly
+  changefreq: monthly
   filename: sitemap.xml
   priority: 0.5
 
