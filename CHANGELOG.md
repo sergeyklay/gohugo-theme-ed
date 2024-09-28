@@ -32,12 +32,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Removed
 
 - Removed `GetLanguageDirection` function as it is no longer needed.
-- Removed explicit setting of the `defaultContentLanguage` for the example site
-  as it doesn't add any value. The default content language is set to `en` by
-  default.
-- Removed explicit setting of the `languageCode` for the example site to force
-  Hugo use `site.Language.LanguageCode` as the default language code for the
-  site. See `exampleSite/config/_default/languages.yaml` for more details.
 - Drop support of AnonymizeIp configuration parameter for Google Analytics as
   it is no longer relevant in Google Analytics >= v4.
 
