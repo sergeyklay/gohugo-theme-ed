@@ -144,9 +144,9 @@ comments:
 
 privacy:
   googleTagManager:
-    disable: true
+    disable: false
     respectDoNotTrack: true
 
 services:
   googleTagManager:
-      id: ''
+      id: 'GTM-W8D5W642'
