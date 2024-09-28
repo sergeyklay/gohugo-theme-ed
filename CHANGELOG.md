@@ -11,6 +11,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Added `https://schema.org/WebPage` itemtype to base HTML layout to improve
   the site's SEO and accessibility.
+- Added support for Google Tag Manager. The theme now checks if Google Tag
+  Manager is enabled and disables Google Analytics accordingly.
+  [See the documentation for details](https://gohugo-theme-ed.netlify.app/documentation/#integrating-analytics-with-ed).
 
 ### Changed
 
@@ -20,6 +23,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   practices.
 - Use new `css.Sass` for new Hugo versions instead of `resource.ToCss` to ensure
   compatibility with future  versions of Hugo.
+- The default location of Google Analytics configuration was changed to
+  `config.services.googleAnalytics` and `privacy.googleAnalytics` to align with
+  Hugo's standard configuration.
+  [See the documentation for details](https://gohugo-theme-ed.netlify.app/documentation/#integrating-analytics-with-ed).
+  
 
 ### Removed
 
