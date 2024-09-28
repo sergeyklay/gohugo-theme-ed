@@ -47,8 +47,8 @@ outputFormats:
     # will cause the feed to be parsed correctly by most clients.
     # Note that you should be encoding your feed in UTF-8.
     mediaType: text/xml
-    # generated file = <baseName>.<mediaType.'text/xml'.suffixes[0]> = feeds/feed.atom.xml
-    baseName: feeds/feed.atom
+    # generated file = <baseName>.<mediaType.'text/xml'.suffixes[0]> = atom.xml
+    baseName: atom
     rel: alternate
     isPlainText: false
     isHTML: false
@@ -59,7 +59,7 @@ outputFormats:
   JSONFEED:
     name: JsonFeed
     mediaType: application/feed+json
-    baseName: feeds/feed
+    baseName: feed
     rel: alternate
     isPlainText: true
     isHTML: false
@@ -98,9 +98,6 @@ mediaTypes:
   application/feed+json:
     suffixes:
       - json
-  application/manifest+json:
-    suffixes:
-      - webmanifest
 
 # Sitemap config
 sitemap:

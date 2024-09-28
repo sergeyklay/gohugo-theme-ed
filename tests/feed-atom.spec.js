@@ -6,7 +6,7 @@ const jsdom = require('jsdom');
 const { JSDOM } = jsdom;
 
 test('atom feed has correct updated field', async ({ page }) => {
-  await page.goto('/feeds/feed.atom.xml');
+  await page.goto('/atom.xml');
 
   // Get the content of the page
   const content = await page.content();
@@ -32,7 +32,7 @@ test('atom feed has correct updated field', async ({ page }) => {
 });
 
 test('atom feed has correct author information', async ({ page }) => {
-  await page.goto('/feeds/feed.atom.xml');
+  await page.goto('/atom.xml');
 
   // Get the content of the page
   const content = await page.content();
@@ -71,7 +71,7 @@ test('atom feed has correct author information', async ({ page }) => {
 });
 
 test('atom feed entries have correct published and updated fields', async ({ page }) => {
-  await page.goto('/feeds/feed.atom.xml');
+  await page.goto('/atom.xml');
 
   // Get the content of the page
   const content = await page.content();

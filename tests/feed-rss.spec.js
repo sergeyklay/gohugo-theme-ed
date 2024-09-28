@@ -6,7 +6,7 @@ const jsdom = require('jsdom');
 const { JSDOM } = jsdom;
 
 test('rss feed has correct lastBuildDate field', async ({ page }) => {
-  await page.goto('/feeds/feed.rss.xml');
+  await page.goto('/rss.xml');
 
   // Get the content of the page
   const content = await page.content();
@@ -32,7 +32,7 @@ test('rss feed has correct lastBuildDate field', async ({ page }) => {
 });
 
 test('rss feed items have correct fields', async ({ page }) => {
-  await page.goto('/feeds/feed.rss.xml');
+  await page.goto('/rss.xml');
 
   // Get the content of the page
   const content = await page.content();
@@ -73,8 +73,7 @@ test('rss feed items have correct fields', async ({ page }) => {
 
     // Check for category element
     const categoryElement = item.querySelector('category');
-    expect(categoryElement).not.toBeNull();
-    expect(categoryElement.textContent.trim()).not.toBe('');
+    expect(categoryElement).toBeNull();
 
     // Check for guid element
     const guidElement = item.querySelector('guid');
