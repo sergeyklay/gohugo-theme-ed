@@ -175,7 +175,7 @@ refLinksErrorLevel = 'WARNING'
     weight = 4
   [[menus.main]]
     identifier = 'search'
-    name = 'Dearch'
+    name = 'Search'
     pageRef = '/search'
     weight = 5
   [[menus.main]]
