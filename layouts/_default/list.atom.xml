@@ -33,8 +33,8 @@
     <author>
         <name>{{ . }}</name>
         {{ with $siteAuthor.email }}<email>{{ . | html }}</email>{{ end }}
-    </author>{{ end }}{{ with site.Params.Copyright }}{{ $copyright := replace . "{year}" now.Year }}{{ $copyright = replace $copyright "&copy;" "©" }}
-    <rights>{{ $copyright | plainify }}</rights>{{ end }}
+    </author>{{ end }}{{ with site.Params.Copyright }}
+    <rights>{{ . | plainify }}</rights>{{ end }}
     <generator uri="https://gohugo.io" version="{{ hugo.Version }}">Hugo</generator>{{ if ne $siteLastMod "" }}
     <updated>{{ $siteLastMod.Format "2006-01-02T15:04:05Z07:00" | safeHTML }}</updated>{{ end }}{{ $uuid := sha1 (site.BaseURL | absURL) }}
     <id>urn:uuid:{{ substr $uuid 0 8 }}-{{ substr $uuid 8 4 }}-5{{ substr $uuid 13 3 }}-{{ substr $uuid 16 1 }}9{{ substr $uuid 17 2 }}-{{ substr $uuid 21 12 }}</id>{{- range $pages }}
