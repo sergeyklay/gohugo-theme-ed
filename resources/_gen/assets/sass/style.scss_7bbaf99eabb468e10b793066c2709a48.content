@@ -8,7 +8,7 @@
 /*
   Color
 
-  Make sure to leave colorScheme in `config.toml` file empty for granular control
+  Make sure to leave `colorScheme` in `params.yaml` file empty for granular control
 */
 /* Ed: the minimal edition theme.
  * ___________________
@@ -67,7 +67,7 @@ body {
   Wrapper
 
   The wrapper is used to position site content when the sidebar is toggled. We use an outter wrap to
-  position the sidebar without interferring with the regular page content.
+  position the sidebar without interfering with the regular page content.
 */
 .wrap {
   position: relative;
