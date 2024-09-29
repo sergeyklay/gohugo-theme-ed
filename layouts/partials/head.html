@@ -8,9 +8,7 @@
     <meta name="description" content="{{ partial "description.html" . }}">
     <meta name="keywords" content="{{ delimit (partial "keywords.html" .) ", " }}">
 
-    {{ $showAuthor := .Site.Params.showAuthor | default false }}
-    {{- $author := partial "head/author.html" . }}
-    {{ if (and $showAuthor (ne $author ""))}}
+    {{ with partial "head/author.html" . }}
         <meta name="author" content="{{ $author }}">
     {{- end }}
 
