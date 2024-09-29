@@ -14,6 +14,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added support for Google Tag Manager. The theme now checks if Google Tag
   Manager is enabled and disables Google Analytics accordingly.
   [See the documentation for details](https://gohugo-theme-ed.netlify.app/documentation/#integrating-analytics-with-ed).
+- Added `layouts/partials/head/author.html` and `showAuthor` configuration parameter
+  to allow users to display the author's name on the site's pages.
+  [See the documentation for details](https://gohugo-theme-ed.netlify.app/documentation/#configuring-author-selection).
 
 ### Changed
 
@@ -27,7 +30,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   `config.services.googleAnalytics` and `privacy.googleAnalytics` to align with
   Hugo's standard configuration.
   [See the documentation for details](https://gohugo-theme-ed.netlify.app/documentation/#integrating-analytics-with-ed).
-  
 
 ### Removed
 
@@ -38,7 +40,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   entirely on Hugo's built-in rendering.
 - Removed `layouts/partials/alternate-outputs.html` partial. Alternate outputs
   (e.g., RSS, Atom feeds, etc.) are now handled in `layouts/partials/head.html`.
-
+- Removed the following partials:
+  - `layouts/partials/author.html`
+  - `layouts/partials/post-meta/author.html`
+  - `layouts/partials/site-author.html`
+  These partials are no longer used in the theme.
+  [See the documentation for details](https://gohugo-theme-ed.netlify.app/documentation/#configuring-author-selection).
+    
 ## [v0.8.0](https://github.com/sergeyklay/gohugo-theme-ed/compare/v0.7.0...v0.8.0)
 
 ### Added
