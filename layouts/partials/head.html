@@ -9,7 +9,7 @@
     <meta name="keywords" content="{{ delimit (partial "keywords.html" .) ", " }}">
 
     {{ with partial "head/author.html" . }}
-        <meta name="author" content="{{ $author }}">
+        <meta name="author" content="{{ . }}">
     {{- end }}
 
     {{ hugo.Generator }}
