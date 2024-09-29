@@ -13,7 +13,20 @@
 {{- $logo := resources.Get (site.Params.assets.logo | default "/img/open-graph-logo.png") -}}
 {{- $logo = $logo.Resize "96x96" }}
 
-{{- $siteAuthor := partial "site-author.html" . }}
+{{- $siteAuthorName := "" }}
+{{- $siteAuthorTwitter := "" }}
+{{- with site.Params.author }}
+    {{- if reflect.IsMap . }}
+        {{- with .name }}
+            {{- $siteAuthorName = . }}
+        {{- end -}}
+        {{- with .twitter }}
+            {{- $siteAuthorTwitter = . }}
+        {{- end }}
+    {{- else }}
+        {{- $siteAuthorName  = . }}
+    {{- end }}
+{{- end }}
 
 <script type="application/ld+json" id="schema-data">
     {
@@ -53,10 +66,10 @@
             ],
             {{- end }}
         {{- else }}
-            {{- with $siteAuthor.name }}
+            {{- with $siteAuthorName }}
             "author": {
                 "@type": "Person",
-                "name": {{ . }}{{ with $siteAuthor.twitter }},
+                "name": {{ . }}{{ with $siteAuthorTwitter }},
                 "url": "https://twitter.com/{{ . }}"{{ end }}
             },
             {{- end }}

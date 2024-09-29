@@ -15,7 +15,21 @@
 {{- $pages = $pages | first $limit -}}
 
 {{- $siteLastMod := partial "site-last-mod.html" . -}}
-{{- $siteAuthor := partial "site-author.html" . -}}
+
+{{- $authorEmail := "" }}
+{{- $authorName := "" }}
+{{- with site.Params.author }}
+    {{- if reflect.IsMap . }}
+        {{- with .email }}
+            {{- $authorEmail = . }}
+        {{- end -}}
+        {{- with .name }}
+            {{- $authorName = . }}
+        {{- end }}
+    {{- else }}
+        {{- $authorName  = . }}
+    {{- end }}
+{{- end }}
 
 {{- safeHTML "<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"yes\" ?>" }}
 <feed xmlns="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" xml:lang="{{ site.LanguageCode }}" xml:base="{{ site.BaseURL }}">
@@ -29,10 +43,10 @@
     {{- end -}}
     {{- end }}
     {{ $logo := resources.Get (site.Params.assets.logo | default "/img/open-graph-logo.png") }}{{ $logo = $logo.Resize "96x96" }}<icon>{{ $logo.Permalink | absURL }}</icon>
-    <logo>{{ $logo.Permalink | absURL }}</logo>{{ with $siteAuthor.name }}
+    <logo>{{ $logo.Permalink | absURL }}</logo>{{ if or (not (eq $authorEmail "")) (not (eq $authorName "")) }}
     <author>
-        <name>{{ . }}</name>
-        {{ with $siteAuthor.email }}<email>{{ . | html }}</email>{{ end }}
+        {{ with $authorName }}<name>{{ . }}</name>{{ end }}
+        {{ with $authorEmail }}<email>{{ . | html }}</email>{{ end }}
     </author>{{ end }}{{ with site.Params.Copyright }}
     <rights>{{ . | plainify }}</rights>{{ end }}
     <generator uri="https://gohugo.io" version="{{ hugo.Version }}">Hugo</generator>{{ if ne $siteLastMod "" }}

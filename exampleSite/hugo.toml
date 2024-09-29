@@ -85,6 +85,7 @@ refLinksErrorLevel = 'WARNING'
     # The site.Title  will be used if empty.
     publisher = 'Serghei Iakovlev'
 
+  showAuthor = true
   [params.author]
     name = 'Serghei Iakovlev'
     email = 'contact@serghei.pl'

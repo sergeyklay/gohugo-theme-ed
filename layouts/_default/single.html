@@ -7,7 +7,11 @@
         </h1>
         <p class="byline">
             {{ if in (slice "drama" "narrative" "poem") $postType }}
-                {{ partial "post-meta/author.html" . }}
+                {{ $showAuthor := .Site.Params.showAuthor | default false }}
+                {{ $author := partial "head/author.html" . }}
+                {{ if (and $showAuthor (ne $author ""))}}
+                    <span class="author">{{ i18n "by" . }}</span>
+                {{ end }}
             {{ else }}
                 {{ partial "post-meta/date.html" . }}
             {{ end }}
