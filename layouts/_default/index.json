@@ -1,7 +1,7 @@
 {{- /* Generate the search index. */ -}}
 {{- $pages := slice -}}
 
-{{- $mainSections := site.Params.mainSections | default (slice "posts") }}
+{{- $mainSections := site.Params.mainSections | default (slice "posts") -}}
 {{- $pages = where site.RegularPages.ByDate.Reverse "Type" "in" $mainSections -}}
 
 {{- $.Scratch.Add "pagesIndex" slice -}}
@@ -17,8 +17,8 @@
       {{- /* Add page to index. */ -}}
       {{- if not (in ($.Scratch.Get "urlsAdded") $page.Permalink) -}}
 
-        {{/* Exclude virtual pages which aren't backed by a file */}}
-        {{ if .File }}
+        {{- /* Exclude virtual pages which aren't backed by a file */ -}}
+        {{ if .File -}}
 
           {{- $publishDate := $page.PublishDate -}}
           {{- if $publishDate.IsZero -}}

@@ -227,7 +227,7 @@ refLinksErrorLevel = 'WARNING'
 [outputFormats]
   # For more see: https://validator.w3.org/feed/docs/atom.html#whatIsAtom
   [outputFormats.atom]
-    name = 'Atom'
+    name = 'atom'
     # The correct header Content-Type header for an Atom feed is
     # application/atom+xml. However, Chromium does not handle it
     # correctly (see https://code.google.com/p/chromium/issues/detail?id=104358).
@@ -245,7 +245,7 @@ refLinksErrorLevel = 'WARNING'
 
   # For more see: https://www.jsonfeed.org/
   [outputFormats.jsonfeed]
-    name = 'JsonFeed'
+    name = 'jsonfeed'
     mediaType = 'application/feed+json'
     baseName = 'feed'
     rel = 'alternate'
@@ -259,7 +259,7 @@ refLinksErrorLevel = 'WARNING'
     # return Content-Type: application/manifest+json).
     #
     # For more see: https://w3c.github.io/manifest/#media-type-registration=
-    name = 'Manifest'
+    name = 'manifest'
     mediaType = 'application/manifest+json'
     baseName = 'manifest'
     rel = 'manifest'
@@ -284,10 +284,10 @@ refLinksErrorLevel = 'WARNING'
     mediaType = 'application/rss+xml'
 
 [mediaTypes]
-  [mediaTypes."text/xml"]
-    suffixes = ["xml"]
-  [mediaTypes."application/feed+json"]
-    suffixes = ["json"]
+  [mediaTypes.'text/xml']
+    suffixes = ['xml']
+  [mediaTypes.'application/feed+json']
+    suffixes = ['json']
 
 # Sitemap config
 [sitemap]
