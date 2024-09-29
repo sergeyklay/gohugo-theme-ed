@@ -190,17 +190,17 @@ refLinksErrorLevel = 'WARNING'
     weight = 20
     params = {external = true}
 
-  [[menus.feed]]
+  [[menus.feeds]]
     identifier = 'rss'
     name = 'RSS 2.0'
-    pageRef = '/rss.xml'
+    url = '/rss.xml'
     weight = 1
-  [[menus.feed]]
+  [[menus.feeds]]
     identifier = 'atom'
     name = 'Atom'
     url = '/atom.xml'
     weight = 2
-  [[menus.feed]]
+  [[menus.feeds]]
     identifier = 'json'
     name = 'Json Feed'
     url = '/feed.json'
