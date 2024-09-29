@@ -33,7 +33,6 @@ for you, Kindle!
 
 
 - [Our sample site]({{< ref "/" >}}) is the first edition built with Ed.
-- {{< link src="https://serghei.blog/?utm_source=ed&utm_campaign=docs&utm_medium=smm" class="external" target="_blank" hreflang="ru" >}}Serghei Iakovlev's blog{{< /link >}}
 
 ## Current Features
 
@@ -56,7 +55,7 @@ for you, Kindle!
 ## Installing and using Ed
 
 To learn how to install and begin using Ed, please visit our
-[documentation page]({{< relref "/documentation?utm_source=ed&utm_campaign=docs&utm_medium=smm" >}} "Visit the documentation").
+[documentation page]({{< relref "/documentation" >}} "Visit the documentation").
 
 ---
 

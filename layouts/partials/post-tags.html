@@ -4,7 +4,7 @@
     <ul class="post-tags">
         {{ range $index, $name := sort $tags -}}
             <li>
-                <a href="{{ (printf "/tags/%s/" $name) | urlize }}">
+                <a href="/tags/{{ (printf "%s" $name) | urlize }}">
                     {{ $name | markdownify }}
                 </a>
             </li>
