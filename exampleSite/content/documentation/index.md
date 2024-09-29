@@ -22,54 +22,54 @@ Before starting, please be sure that you have {{< link src="https://gohugo.io/ge
 
 Please note, to install Ed, you must have {{< link src="https://golang.org/dl/" class="external" target="_blank" hreflang="en" rel="noopener noreferrer" >}}Go >= 1.12{{< /link >}} installed on your computer. You probably have Go already, but if you don't, the easiest way is probably to install is to follow {{< link src="https://go.dev/doc/install" class="external" target="_blank" hreflang="en" rel="noopener noreferrer" >}}Go installation instruction{{< /link >}}. To check if Go is running on your system enter the following line on your terminal (remember to ignore the `$`):
 
-~~~ bash
+```bash
 $ go version
-~~~
+```
 
 If you don't get an error, you're good to go. Using the `cd` command on your terminal, navigate to the folder where you keep your web projects. Once you're in the folder where project live, initialize the {{< link src="https://gohugo.io/hugo-modules" class="external" target="_blank" hreflang="en" rel="noopener noreferrer" >}}Hugo Modules{{< /link >}} system using the following line (replace `<your_user>` and `<your_project>` by real names):
 
 *Note: If you have already initialized Hugo Modules for your site, you can skip this step.*
 
-~~~ bash
+```bash
 $ hugo mod init github.com/<your_user>/<your_project>
-~~~
+```
 
 If you haven't run this command before, your terminal output should
 look similar to the following:
 
-~~~
+```
 go: creating new go.mod: module github.com/<your_user>/<your_project>
 go: to add module requirements and sums:
     go mod tidy
-~~~
+```
 
-Take a look inside the `{{< link src="https://github.com/sergeyklay/gohugo-theme-ed/tree/main/exampleSite" class="external" target="_blank" hreflang="en" rel="noopener noreferrer" >}}exampleSite{{< /link >}}` folder of the Ed theme. You'll find a folder called `{{< link src="https://github.com/sergeyklay/gohugo-theme-ed/blob/main/exampleSite/config" class="external" target="_blank" hreflang="en" rel="noopener noreferrer" >}}config{{< /link >}}`. Copy the `config` folder in the root directory of your Hugo site. After copying, review the contents of the `config` folder and adjust the settings according to your project's needs.
+Take a look inside the `{{< link src="https://github.com/sergeyklay/gohugo-theme-ed/tree/main/exampleSite" class="external" target="_blank" hreflang="en" rel="noopener noreferrer" >}}exampleSite{{< /link >}}` folder of the Ed theme. You'll find a file called `{{< link src="https://github.com/sergeyklay/gohugo-theme-ed/blob/main/exampleSite/hugo.toml" class="external" target="_blank" hreflang="en" rel="noopener noreferrer" >}}hugo.toml{{< /link >}}`. Copy this file in the root directory of your Hugo site. After copying, review the contents of this file and adjust the settings according to your project's needs.
 
-By default, when you copy the `config` folder to the root of your Hugo site, the file `config/_default/config.yaml` should contain the following lines:
+By default, when you copy configuration file to the root of your Hugo site, it should contain the following lines:
 
-``` yaml
-module:
+```toml
+[module]
   # ...
   # there might be additional settings here
   # that are not relevant at the moment
   # ...
-  imports:
-    - path: github.com/sergeyklay/gohugo-theme-ed
+  [[module.imports]]
+    path = 'github.com/sergeyklay/gohugo-theme-ed'
 ```
 
 If these lines are missing for some reason, make sure to add them:
 
-~~~ yaml
-module:
-  imports:
-    - path: github.com/sergeyklay/gohugo-theme-ed
-~~~
+```toml
+[module]
+  [[module.imports]]
+    path = 'github.com/sergeyklay/gohugo-theme-ed'
+```
 
 Finally, install Hugo Modules using the following command (remember you can copy and paste):
 
-~~~ bash
+```bash
 $ hugo mod get
-~~~
+```
 
 Your terminal output should look similar to the following:
 
@@ -91,9 +91,9 @@ If you create a new Hugo project, the `content` folder is blank by default. You 
 
 To see if Ed is working properly we will take advantage of Hugo's built in server. You can build the first version of your site and run the Hugo server at the same time by entering:
 
-~~~ bash
+```bash
 $ hugo server
-~~~
+```
 
 Copy the url from your terminal log and paste it into your browser of choice. This url usually looks something like this `http://localhost:1313`. At this point you should be looking at your very own working version of Ed:
 
@@ -109,7 +109,7 @@ Once you have gone through these tutorials, you can get started using Ed. Rememb
 
 You should make sure that all your texts have the YAML {{< link src="https://gohugo.io/content-management/front-matter/" class="external" target="_blank" hreflang="en" rel="noopener noreferrer" >}}Front Matter{{< /link >}} (the information at the top of the file). YAML stands for "YAML Ain't Markup Language" --- no disrespect to XML --- and it's the main way that Hugo handles named data. Here's an example of YAML Front Matter:
 
-~~~ yaml
+```yaml
 ---
 # Common-Defined params
 title: "Cahier d'un retour au pays natal"
@@ -132,7 +132,7 @@ semanticType: about # Semantic type of the work (used for Schema.org)
 featuredImage: screenshot-home.png # Featured image of the text
 annotations: false # Disable annotation via hypothesis on this page
 ---
-~~~
+```
 
 For more information about all available standard front matter variables, please read {{< link src="https://gohugo.io/content-management/front-matter/" class="external" target="_blank" hreflang="en" rel="noopener noreferrer" >}}Hugo Front Matter{{< /link >}}.
 
@@ -142,17 +142,17 @@ For more information about all available standard front matter variables, please
 
 Ed is designed for scholars and amateur editors who want to produce either a clean reading edition or a scholarly annotated edition of a text. The main language we use to write in the Hugo environment is called Markdown. To learn more about the Markdown family, see Dennis Tenen and Grant Wythoff's "{{< link src="http://programminghistorian.org/en/lessons/sustainable-authorship-in-plain-text-using-pandoc-and-markdown" class="external" target="_blank" hreflang="en" rel="noopener noreferrer" >}}Sustainable Authorship in Plain Text using Pandoc and Markdown{{< /link >}}".
 
-By default Hugo uses a special Markdown processor called Goldmark. The processor can be said to use it's own 'flavor' of Markdown called CommonMark, and sometimes the Markdown syntax will be different than other flavors of Markdown. CommonMark is a rationalized version of Markdown syntax with a spec whose goal is to remove the ambiguities and inconsistency surrounding the original Markdown specification. It offers a standardized specification that defines the common syntax of the language along with a suite of comprehensive tests to validate Markdown implementations against this specification. You can become familiar with the CommonMark syntax in the {{< link src="https://spec.commonmark.org/" class="external" target="_blank" hreflang="en" rel="noopener noreferrer" >}}CommonMark documentation{{< /link >}}. Another way to become familiar is to examine the sample text source files we provided.
+By default, Hugo uses a special Markdown processor called Goldmark. The processor can be said to use it's own 'flavor' of Markdown called CommonMark, and sometimes the Markdown syntax will be different than other flavors of Markdown. CommonMark is a rationalized version of Markdown syntax with a spec whose goal is to remove the ambiguities and inconsistency surrounding the original Markdown specification. It offers a standardized specification that defines the common syntax of the language along with a suite of comprehensive tests to validate Markdown implementations against this specification. You can become familiar with the CommonMark syntax in the {{< link src="https://spec.commonmark.org/" class="external" target="_blank" hreflang="en" rel="noopener noreferrer" >}}CommonMark documentation{{< /link >}}. Another way to become familiar is to examine the sample text source files we provided.
 
 ---
 
 ## Genres
 
-Ed offers four different layouts: poem, narrative, drama and simple post. To create content of a certain genre, create a file in the appropriate folder. For example, if you want to create a poem, create a file in the `content/poems` folder. Another way is to indicated genre in the YAML front matter on your texts. The templates that govern how these genres are displayed can be found in the Ed's `layouts` folder. Redefining these layouts in project wide level will allow you to tweak the stylesheets according to your different needs. Out of the box, Ed contains some special instructions for poetry in its stylesheets that allow you to deal with some of the peculiarities of poetry layouts.
+Ed offers four different layouts: poem, narrative, drama and simple post. To create content of a certain genre, create a file in the appropriate folder. For example, if you want to create a poem, create a file in the `content/poems` folder. Another way is to indicated genre in the front matter on your texts. The templates that govern how these genres are displayed can be found in the Ed's `layouts` folder. Redefining these layouts in project wide level will allow you to tweak the stylesheets according to your different needs. Out of the box, Ed contains some special instructions for poetry in its stylesheets that allow you to deal with some of the peculiarities of poetry layouts.
 
 To indicate lines in poetry we use the line syntax from Markdown:
 
-~~~ markdown
+```markdown
 - Hold fast to dreams
 - For if dreams die
 - Life is a broken-winged bird
@@ -161,11 +161,11 @@ To indicate lines in poetry we use the line syntax from Markdown:
 - For when dreams go
 - Life is a barren field
 - Frozen with snow.
-~~~
+```
 
 The `-` at the beginning of each line indicates that these are lines. Another way to achieve the same effect is to use the following syntax:
 
-~~~ markdown
+```markdown
 Hold fast to dreams\
 For if dreams die\
 Life is a broken-winged bird\
@@ -174,25 +174,25 @@ Hold fast to dreams\
 For when dreams go\
 Life is a barren field\
 Frozen with snow.
-~~~
+```
 
 To indent specific lines we take advantage of Hugo shortcuts that allows us to create empty indentation for a line. This approach still allows the line to be readable while editing.
 
-~~~ markdown
+```markdown
 - {{</* indent 3 */>}} But O heart! heart! heart!
 - {{</* indent 4 */>}} O the bleeding drops of red,
 - {{</* indent 5 */>}} Where on the deck my Captain lies,
 - {{</* indent 6 */>}} Fallen cold and dead.
-~~~
+```
 
 or:
 
-~~~ markdown
+```markdown
 {{</* indent 3 */>}} But O heart! heart! heart!\
 {{</* indent 4 */>}} O the bleeding drops of red,\
 {{</* indent 5 */>}} Where on the deck my Captain lies,\
 {{</* indent 6 */>}} Fallen cold and dead.
-~~~
+```
 
 The `{{</* indent 3 */>}}` is what we need to in order to indicate the indent value for that line. Values can range from 1-10. You can expand the range or adjust the values in the custom stylesheet file. Ed is customized by creating stylesheet files in `assets/css/extended/*.css` at project wide level.
 
@@ -206,30 +206,30 @@ The example from Raisin in the Sun shows us that we don't need much special mark
 
 Footnotes are the bread and butter of scholarship. Hugo makes footnotes a fairly simple affair:
 
-~~~ markdown
+```markdown
 - O Captain! my Captain! rise up and hear the bells;
 - Rise up—for you the flag is flung—for you the bugle[^1] trills,
 
 ...
 
 [^1]: The bugle is a small trumpet implicated in the military industrial complex.
-~~~
+```
 
 These footnotes can be placed anywhere, but they will always be generated at the bottom of the document. To have a multi-paragraph footnote you need to start the footnote text on the next line after the footnote anchor and indent it:
 
-~~~ markdown
+```markdown
 [^1]: Ugh pinterest fixie cronut pitchfork beard. Literally deep
       cold-pressed distillery pabst austin.
 
       Typewriter 90's roof party poutine, kickstarter raw
       denim pabst readymade biodiesel umami chicharrones XOXO.
-~~~
+```
 
 Please note, you need to indent all lines at the same level to make them stay inside the footnote.
 
 At the moment (May 2022) time the footnotes system provided by Hugo does have one limitation: It does not support non-numbered footnotes, and it only allows you to have one set of footnotes for a text. In some cases we have to separate the author's footnotes from our own, in others we want to represent the author's own footnote style. In these cases we have to use custom Ed's shortcode for footnotes. Here's the example from *Narrative of the Life*:
 
-~~~ markdown
+```markdown
 ... At this time, Anna,{{</* footnote "fn2" */>}} my intended wife, came on;
 
 ...
@@ -239,7 +239,7 @@ At the moment (May 2022) time the footnotes system provided by Hugo does have on
 {{</* citation "fn2" "She was free." */>}}
 ...
 {{</* /footnotesList */>}}
-~~~
+```
 
 ---
 
@@ -247,18 +247,18 @@ At the moment (May 2022) time the footnotes system provided by Hugo does have on
 
 *Narrative of the Life* also includes several blockquote elements. You can also find another example of blockquote use in the footnote of "O Captain! My Captain!" Simple blockquote are simple enough in Markdown:
 
-~~~
+```
 > This is to certify that I, the undersigned, have given the bearer, my servant, full liberty to go to Baltimore, and spend the Easter holidays.
 >
 > Written with mine own hand, &c., 1835.
 > WILLIAM HAMILTON,
-~~~
+```
 
 To use a line break in block elements add two spaces after the end of the line where you want the break. You can't see them after `&c., 1835.` but they are there.
 
 Things get a bit complicated when we want to use poetry inside the block or when the block is included in another block element, like a footnote. Here's the last two stanzas from "A Parody" in *Narrative of the Life*, which shows an example of a blockquote of poetry:
 
-~~~
+```
 ...
 > - Two others oped their iron jaws,
 > - And waved their children-stealing paws;
@@ -272,7 +272,7 @@ Things get a bit complicated when we want to use poetry inside the block or when
 > - And cram their mouths with sweetened cakes;
 > - And this goes down for union.
 {.poetry}
-~~~
+```
 
 The `{.poetry}` tag at the end tells the processor to think of the lines above it as poetry. The `{.poetry}` tag is an example of Goldmark class assignments for block-elements. Because this segment of poetry exists in the 'narrative' layout, and because it is part of a blockquote, we need to signal to the processor to process poetry this way, so that the right class is invoked in the stylesheet. The good news is this is the most complex Goldmark syntax layout you will encounter in Ed.
 
@@ -289,7 +289,7 @@ You will notice that the homepage in particular has a `.html` file ending instea
 
 You will find three kinds of Tables of Content in Ed. The first example is in the list of Latest Publications in the Homepage. This list is generated using the {{< link src="https://gohugo.io/templates/introduction/" class="external" target="_blank" hreflang="en" rel="noopener noreferrer" >}}templating language{{< /link >}}. This is one of the major components of Hugo, and I recommend you deepen your knowledge of it if you want to modify the logic that automates much of Ed. Here is the code that generates the Latest Publications list on the homepage:
 
-~~~ html
+```html
 <div class="toc">
   <h2>Latest Publications</h2>
   <ul class="texts">
@@ -300,7 +300,7 @@ You will find three kinds of Tables of Content in Ed. The first example is in th
       {{ end }}
   </ul>
 </div>
-~~~
+```
 
 To override this list, create file `mini-toc.html` inside `layouts/partials` folder.
 
@@ -310,17 +310,17 @@ As you may have noticed already, we are basically adapting the blogging features
 
 The second kind of table of content is exemplified in this documentation. If you open the source file for the documentation, you will notice at the top this snippet:
 
-~~~ markdown
+```markdown
 {{</* toc */>}}
-~~~
+```
 
 This is the Hugo way. The shortcode, `{{</* toc */>}}` tells the processor to create a table of contents based on headers in the document. You can use this syntax in any page on the site that uses headers.
 
-The third way is simple as the previous one, but very useful for long texts. If we enable the table of contents in the YAML front matter of a page:
+The third way is simple as the previous one, but very useful for long texts. If we enable the table of contents in the front matter of a page:
 
-~~~ yaml
+```yaml
 toc: true
-~~~
+```
 
 Ed will activate the optional table of content sidebar (`layouts/partials/sidebar-toc.html` in Ed) and move the table of contents to a special sidebar for that page. *Narrative of the Life* uses this method for its table of content.
 
@@ -332,16 +332,10 @@ The internal links pointing to the right sections in your document are generated
 
 To change the main color accents of the theme, such as the headers, links, and text logo, you can use the `colorScheme` configuration parameter, as shown below:
 
-~~~ yaml
-params:
-  colorScheme: magenta
-~~~
-
-The demo site uses a feature that splits configuration into separate files, so if your project follows the same structure, the `colorScheme` parameter should be located in the `params.yaml` file, simply at the root, like this:
-
-~~~ yaml
-colorScheme: blue
-~~~
+```toml
+[params]
+  colorScheme = 'magenta'
+```
 
 The currently supported colors are: red, orange, magenta, cyan, blue, and brown.
 
@@ -351,13 +345,13 @@ At the moment, the theme does not support arbitrary changes to fonts, custom col
 
 To do this, create a `layouts/partials` directory in your project, and inside it, add a file named `custom-head.html`. You can now define any custom styles within this file. For example:
 
-~~~ html
+```html
 <style>
     html {
         font-family: "PT Sans", Helvetica, Arial, sans-serif;
     }
 </style>
-~~~
+```
 
 This allows you to override or extend the theme’s default styles with your own customizations.
 
@@ -376,30 +370,31 @@ giscus operates by linking your website's comment section directly to GitHub Dis
 
 Integrating giscus not only activates the dynamic interaction capabilities of GitHub Discussions on your Hugo site but also simplifies the management of user comments and engagements.
 
-To enable giscus in your Hugo site, you must first add configuration settings in the site's YAML configuration file (`config/_default/params.yaml`). Below is a template for setting up giscus, which includes enabling the system and specifying necessary identifiers that link your site with the giscus service:
+To enable giscus in your Hugo site, you must first add configuration settings in the site's configuration file. Below is a template for setting up giscus, which includes enabling the system and specifying necessary identifiers that link your site with the giscus service:
 
 To enable giscus, you need to add the following to the site configuration file:
 
-~~~ yaml
-comments:
-  enable: false  # Set to true to enable comments globally
-  type: giscus
-
-  giscus:
-    # Required parameters:
-    # Replace with your repository
-    repo: 'your-github-username/repository-name'
-    # Repository ID from giscus setup
-    repoId: 'repository-ID'
-    # Discussion category
-    category: 'Announcements'
-    # Category ID from giscus setup
-    categoryId: 'category-ID'
+```toml
+[params]
+  [params.comments]
+    enable = false  # Set to true to enable comments globally
+    type = 'giscus'
+  
+    [params.comments.giscus]
+      # Required parameters:
+      # Replace with your repository
+      repo = 'your-github-username/repository-name'
+      # Repository ID from giscus setup
+      repoId = 'repository-ID'
+      # Discussion category
+      category = 'Announcements'
+      # Category ID from giscus setup
+      categoryId = 'category-ID'
 
     # Optional parameters:
     #
     # ...
-~~~
+```
 
 You can obtain the `repoId` and `categoryId` by configuring your repository on the {{< link src="https://giscus.app/" class="external" target="_blank" hreflang="en" rel="noopener noreferrer" >}}giscus setup page{{< /link >}}. More details can also be found there.
 
@@ -407,33 +402,35 @@ You can obtain the `repoId` and `categoryId` by configuring your repository on t
 
 In the Ed theme, comments are disabled by default for all content types to maintain simplicity and focus for users. This includes all posts (poems, narratives, dramas, and blog posts) and pages. This setting helps ensure that comments are only enabled where they are explicitly needed, allowing for more granular control over site interactions.
 
-~~~ yaml
-# Default configuration in params.yaml to disable comments globally
-comments:
-  enable: false
-  # ...
-~~~
+```toml
+# Default site configuration to disable comments globally
+[params]
+  [params.comments]
+    enable = false
+    # ...
+```
 
 If you wish to enable comments on specific posts to encourage community interaction, you can override the default setting in the front matter of each post:
 
-~~~ yaml
+```yaml
 # Example of enabling comments in the front matter of a post
 ---
 title: Exploring Narratives
 comments: true
 ---
-~~~
+```
 
 This allows you to selectively activate comments on content that benefits from user engagement, such as articles, stories, and discussions.
 
 For sites where community feedback is integral across all posts, comments can be enabled globally through the site's configuration file:
 
-~~~ yaml
-# Enable comments globally in params.yaml
-comments:
-  enable: true
-  # ...
-~~~
+```toml
+# Enable comments globally in site configuration
+[params]
+  [params.comments]
+    enable = true
+    # ...
+```
 
 This setting will activate comments for all posts but will not affect pages, as comments on pages are not supported. This approach is consistent with the theme’s design to keep static pages like "About" and "Contact" free from comments, ensuring these pages remain streamlined and professional.
 
@@ -441,19 +438,20 @@ This setting will activate comments for all posts but will not affect pages, as 
 
 By default, giscus will inherit the styling from your GitHub discussion forum. However, you can customize the appearance to better fit your site's design by specifying a `theme` parameter in the giscus configuration block:
 
-~~~ yaml
-comments:
-  # ...
+```toml
+[params]
+  [params.comments]
+    # ...
 
-  giscus:
+  [params.comments.giscus]
     # Required parameters:
     #
     # ...
 
     # Optional parameters:
     # Available themes: cobalt, dark, light, dark, purge, etc.
-    theme: dark_dimmed
-~~~
+    theme = 'dark_dimmed'
+```
 
 Refer to the {{< link src="https://github.com/giscus/giscus/blob/main/ADVANCED-USAGE.md#data-theme" class="external" target="_blank" hreflang="en" rel="noopener noreferrer" >}}giscus theme documentation{{< /link >}} for more details on available themes.
 
@@ -461,20 +459,20 @@ Refer to the {{< link src="https://github.com/giscus/giscus/blob/main/ADVANCED-U
 
 giscus supports multiple languages, and you can set the desired language for your comments section through the `lang` parameter:
 
+```toml
+[params]
+  [params.comments]
+    # ...
 
-~~~ yaml
-comments:
-  # ...
-
-  giscus:
+  [params.comments.giscus]
     # Required parameters:
     #
     # ...
 
     # Optional parameters:
     # Use language codes like 'en' for English, 'es' for Spanish, etc.
-    lang: fr
-~~~
+    lang = 'fr'
+```
 
 ---
 
@@ -490,28 +488,28 @@ Ed provides seamless integration options to harness the power of Google Analytic
 
 To enable Google Analytics, you first need to obtain your tracking ID from the Google Analytics dashboard. Once you have it, add the following to your configuration file:
 
-~~~ toml
+```toml
 [services]
   [services.googleAnalytics]
     ID = 'G-MEASUREMENT_ID'
-~~~
+```
 
 This snippet tells Hugo to include the Google Analytics tracking code in your site. However, merely providing the ID is not enough. You must also explicitly enable Google Analytics by modifying the privacy settings:
 
-~~~ toml
+```toml
 [privacy]
   [privacy.googleAnalytics]
     disable = false
-~~~
+```
 
 For a more privacy-conscious implementation, you can configure Ed to respect users' “Do Not Track” browser settings. This ensures that visitors who prefer not to be tracked are excluded from analytics data:
 
-~~~ toml
+```toml
 [privacy]
   [privacy.googleAnalytics]
     disable = false
     respectDoNotTrack = true
-~~~
+```
 
 When `respectDoNotTrack` is set to `true`, Ed will honor the user's preference, making your site more respectful of user privacy choices.
 
@@ -521,22 +519,22 @@ If you prefer to use Google Tag Manager instead of Google Analytics, Ed has buil
 
 To configure Google Tag Manager, add your container ID in the following format:
 
-~~~ toml
+```toml
 [params]
   [params.services]
     [params.services.googleTagManager]
       id = 'GTM-MEASUREMENT_ID'
-~~~
+```
 
 As with Google Analytics, simply adding the ID does not enable tracking by itself. You must adjust the corresponding privacy settings to activate it:
 
-~~~ toml
+```toml
 [params]
   [params.privacy]
     [params.privacy.googleTagManager]
       disable = false
       respectDoNotTrack = true
-~~~
+```
 
 Here, setting `disable` to `false` activates Google Tag Manager, while the `respectDoNotTrack` option enables the same privacy-conscious behavior as described for Google Analytics.
 
