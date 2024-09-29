@@ -71,7 +71,7 @@ jobs:
         run: |
           hugo --logLevel info --printUnusedTemplates --printPathWarnings --printMemoryUsage --printI18nWarnings --buildDrafts --buildExpired --buildFuture
         env:
-          HUGO_RESOURCEDIR: '../resources'
+          HUGO_RESOURCEDIR: "$env:GITHUB_WORKSPACE/resources"
           HUGO_ENV: development
 
       - name: Audit packages
