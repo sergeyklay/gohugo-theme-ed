@@ -69,7 +69,7 @@ jobs:
 
       - name: Build site
         run: |
-          hugo --verbose --source=exampleSite --buildDrafts --buildFuture
+          hugo --logLevel info --printUnusedTemplates --printPathWarnings --printMemoryUsage --printI18nWarnings --buildDrafts --buildExpired --buildFuture
         env:
           HUGO_RESOURCEDIR: '../resources'
           HUGO_ENV: development
