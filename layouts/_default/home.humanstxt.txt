@@ -1,12 +1,38 @@
-{{- $siteAuthor := partial "site-author.html" . -}}
-{{- with $siteAuthor.name }}
+{{- $authorName := "" }}
+{{- $authorEmail := "" }}
+{{- $authorGithub := "" }}
+{{- $authorTwitter := "" }}
+{{- $authorLocation := "" }}
+{{- with site.Params.author }}
+    {{- if reflect.IsMap . }}
+        {{- with .email }}
+            {{- $authorEmail = . }}
+        {{- end -}}
+        {{- with .name }}
+            {{- $authorName = . }}
+        {{- end }}
+        {{- with .github }}
+            {{- $authorGithub = . }}
+        {{- end }}
+        {{- with .twitter }}
+            {{- $authorTwitter = . }}
+        {{- end }}
+        {{- with .location }}
+            {{- $authorLocation = . }}
+        {{- end }}
+    {{- else }}
+        {{- $authorName  = . }}
+    {{- end }}
+{{- end }}
+
+{{- with $authorName }}
     /* TEAM */
 
     Author: {{ . }}
-{{- with $siteAuthor.email }}{{ printf "\n    Contact: %s" . }}{{ end }}
-{{- with $siteAuthor.github }}{{ printf "\n    GitHub: @%s" . }}{{ end }}
-{{- with $siteAuthor.twitter }}{{ printf "\n    Twitter: @%s" . }}{{ end }}
-{{- with $siteAuthor.location }}{{ printf "\n    From: %s" . }}{{ end }}
+{{- with $authorEmail }}{{ printf "\n    Contact: %s" . }}{{ end }}
+{{- with $authorGithub }}{{ printf "\n    GitHub: @%s" . }}{{ end }}
+{{- with $authorTwitter }}{{ printf "\n    Twitter: @%s" . }}{{ end }}
+{{- with $authorLocation }}{{ printf "\n    From: %s" . }}{{ end }}
 {{- end }}
 
     /* SITE */

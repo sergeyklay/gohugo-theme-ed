@@ -1,0 +1,13 @@
+{{- $author := "" -}}
+
+{{- with .Params.author -}}
+    {{- if (reflect.IsSlice .) -}}
+        {{- $author = delimit . ", " -}}
+    {{- else -}}
+        {{- $author = . -}}
+    {{- end -}}
+{{- else -}}
+    {{- $author = site.Params.author.name -}}
+{{- end -}}
+
+{{- return $author -}}
