@@ -229,9 +229,10 @@ by adding the following setting to your configuration:
   showAuthor = false
 ```
 
-Finally, the built-in RSS template, which used by the theme, as well as custom
-feeds templates, will include the author metadata in the feed, if present. If
-they are not set, Hugo will not  include the author metadata in the feed.
+Furthermore, the author is also used in the built-in RSS templates and the feed
+templates provided by the Ed theme. If the author is defined in the site
+configuration, it will automatically be included in these feeds, allowing
+subscribers to see the post’s attribution directly within their feed readers.
 
 #### Setting a Global Default Author
 
