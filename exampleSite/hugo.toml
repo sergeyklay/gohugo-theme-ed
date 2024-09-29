@@ -1,4 +1,340 @@
+# You may need to change this line for your real project.
+baseURL = 'Ed.'
+
+# A "copyright"-line to be added to RSS/Atom files and the footer.
+copyright = '© 2019-2024 Serghei Iakovlev'
+
+# Keep title short to prevent overflow.
+# There’s no official guidance on this, but 40 characters for
+# mobile and 60 for desktop is roughly the sweet spot.
+#
+# NB: Final title of shareable pages will be this plus the
+#     title of the page. E.g. "Posts | Ed."
+title = "Ed."
+
+enableRobotsTXT = true
+
+# When using ref or relref to resolve page links and a link cannot
+# resolve, it will be logged with this log level.
+refLinksErrorLevel = 'WARNING'
+
+[params]
+# Site description. Used in meta description
+description = 'Ed is a Hugo theme designed for textual editors based on minimal computing principles, and focused on legibility and flexibility.'
+
+# SEO keywords. Used in 'meta name="keywords"' tag.
+# May be overridden by .Keywords or .Tags in front matter.
+keywords = ['hugo', 'ed', 'hugo theme', 'minimal', 'responsive', 'clean']
+
+# Used in site header
+tagline = 'a Hugo theme for minimal editions'
+
+# Custom footer text on left sidebar. Use HTMl if needed.
+# "&copy;" and "{year}" will be replaced by © and the current year.
+footer = 'Built with <a href="https://github.com/sergeyklay/gohugo-theme-ed" target="_blank" rel="noopener noreferrer">Ed</a>. Distributed under an MIT license.'
+
+# Colour scheme. Options: red, orange, magenta, cyan, blue, brown
+colorScheme = ''
+
+# Sections to be displayed in:
+# - main page
+# - RSS feeds
+# - search index
+# - ...
+mainSections = ['posts', 'dramas', 'narratives', 'poems']
+
+# Posts date format, for example: 2006-01-02
+dateFormat = ':date_long'
+dateFormatToc = '2006.01.02'
+
+# Show "Read more" button in list if true
+readmore = true
+
+# RSS/Atom feed size
+feedSize = 25
+
+recentPostsSize = 5
+
+[params.contact]
+  # Forms Backend URL, used in contacts form
+  formAction = 'https://submit-form.com/example'
+
+  # Contact form email subject
+  emailSubject = 'Contact form submission'
+
+  # Where should the user be redirected after successful form submit?
+  thanksUrl = '/thanks'
+
+# Site icons, relative to ./static
+[params.assets]
+  # favicon.ico for legacy browsers
+  favicon = ''
+
+  # A single SVG icon with a light/dark version for modern browsers
+  svgicon = ''
+
+  # 180×180 PNG image for Apple devices
+  apple_touch_icon = ''
+
+  # Logo image, relative to ./assets
+  logo = '/img/open-graph-logo.png'
+  disable_fingerprinting = false
+
+[params.seo]
+  # Will be used in schema.org/Organization.
+  # The site.Title  will be used if empty.
+  publisher = 'Serghei Iakovlev'
+
+[params.author]
+  name = 'Serghei Iakovlev'
+  email = 'contact@serghei.pl'
+  github = 'sergeyklay'
+  twitter = 'egreps'
+  location = 'Wrocław, Poland'
+
+[params.social]
+  # Array of Facebook Page Admin IDs for Domain Insights
+  facebookAdminIds = []
+  # Facebook Page ID
+  facebookId = ''
+  # Twitter username for the website
+  twitter = 'egreps'
+
+# Configure search engine
+[params.search]
+  # Maximum length (in words) of each text blurb. You can change this
+  # value if you find that 100 is too short or too long for your taste.
+  maxSummaryLength = 100
+  # Lunr has full support for the indexing and searching of documents
+  # in English. If your documents are in another language, uncomment
+  # required languages below.
+  #
+  # For more see: https://lunrjs.com/guides/language_support.html
+  languages = ['en', 'es']
+
+[params.comments]
+  enable = false
+  type = 'giscus'
+
+  # Configure giscus comments.
+  #
+  # For more see: https://giscus.app/
+  [params.comments.giscus]
+    # Required parameters:
+    repo = 'sergeyklay/gohugo-theme-ed'
+    repoId = 'R_kgDOHEYacw'
+    category = 'General'
+    categoryId = 'DIC_kwDOHEYac84Cerse'
+
+    # Optional parameters:
+    theme = 'light'
+    mapping = 'pathname'
+    strict = 0
+    reactionsEnabled = 1
+    emitMetadata = 0
+    inputPosition = 'bottom'
+    lang = 'en'
+
+[params.privacy]
+  [params.privacy.googleTagManager]
+    disable = false
+    respectDoNotTrack = true
+
+[params.services]
+  [params.services.googleTagManager]
+    id = 'GTM-W8D5W642'
+
+[languages]
+  [languages.en]
+    languageCode = 'en'
+    languageDirection = 'ltr'
+    languageName = 'English'
+    weight = 1
+
+# For more see https://gohugo.io/content-management/menus/
+[menus]
+  [[menus.main]]        # sections in the website sidebar
+    identifier = 'home' # menu item id
+    name = 'Home'       # menu item display title
+    pageRef = '/'       # path to the page
+    weight = 1          # order of the menu item
+  [[menus.main]]
+    identifier = 'about'
+    name = 'About'
+    pageRef = '/about'
+    weight = 2
+  [[menus.main]]
+    identifier = 'credits'
+    name = 'Credits'
+    pageRef = '/credits'
+    weight = 3
+  [[menus.main]]
+    identifier = 'documentation'
+    name = 'Documentation'
+    pageRef = '/documentation'
+    weight = 4
+  [[menus.main]]
+    identifier = 'search'
+    name = 'Dearch'
+    pageRef = '/search'
+    weight = 5
+  [[menus.main]]
+    identifier = 'contact'
+    name = 'Contact'
+    pageRef = '/contact'
+    weight = 6
+  [[menus.main]]
+    identifier = 'github'
+    name = 'GitHub Project'
+    url = 'https://github.com/sergeyklay/gohugo-theme-ed/'
+    weight = 20
+    params = {external = true}
+
+  [[menus.feed]]
+    identifier = 'rss'
+    name = 'RSS 2.0'
+    pageRef = '/rss.xml'
+    weight = 1
+  [[menus.feed]]
+    identifier = 'atom'
+    name = 'Atom'
+    url = '/atom.xml'
+    weight = 2
+  [[menus.feed]]
+    identifier = 'json'
+    name = 'Json Feed'
+    url = '/feed.json'
+    weight = 3
+
+[pagination]
+  pagerSize = 10
+
+# We have just the default tags taxonomy, and remove the categories
+# taxonomy for site as not used.
+[taxonomies]
+  tag = 'tags'
+  category = 'categories'
+
+[outputs]
+  home = ['html', 'rss', 'manifest', 'atom', 'jsonfeed', 'json', 'humanstxt']
+  page= ['html']
+  rss = ['rss']
+  section = ['html', 'rss', 'atom', 'jsonfeed']
+  taxonomy = ['html', 'rss']
+  term = ['html', 'rss']
+
 [outputFormats]
+  # For more see: https://validator.w3.org/feed/docs/atom.html#whatIsAtom
+  [outputFormats.atom]
+    name = 'Atom'
+    # The correct header Content-Type header for an Atom feed is
+    # application/atom+xml. However, Chromium does not handle it
+    # correctly (see https://code.google.com/p/chromium/issues/detail?id=104358).
+    #
+    # The most compatible header is 'text/xml; charset=utf-8', which
+    # will cause the feed to be parsed correctly by most clients.
+    # Note that you should be encoding your feed in UTF-8.
+    mediaType = 'text/xml'
+    # generated file = <baseName>.<mediaType.'text/xml'.suffixes[0]> = atom.xml
+    baseName = 'atom'
+    rel = 'alternate'
+    isPlainText = false
+    isHTML = false
+    noUgly = true
+
+  # For more see: https://www.jsonfeed.org/
+  [outputFormats.jsonfeed]
+    name = 'JsonFeed'
+    mediaType = 'application/feed+json'
+    baseName = 'feed'
+    rel = 'alternate'
+    isPlainText = true
+    isHTML = false
+    noUgly = false
+
+  [outputFormats.manifest]
+    # The .webmanifest extension is specified in the Media type registration
+    # section of the specification (the response of the manifest file should
+    # return Content-Type: application/manifest+json).
+    #
+    # For more see: https://w3c.github.io/manifest/#media-type-registration=
+    name = 'Manifest'
+    mediaType = 'application/manifest+json'
+    baseName = 'manifest'
+    rel = 'manifest'
+    isPlainText = true
+    isHTML = false
+    noUgly = false
+    notAlternative = false
+
+  # For more see: https://gohugo.io/templates/output-formats/
+  [outputFormats.humanstxt]
+    name = 'Humans.txt'
+    mediaType = 'text/plain'
+    baseName = 'humans'
+    rel = 'author'
+    isPlainText = true
+    isHTML = false
+    noUgly = true
+    notAlternative = true
+
   [outputFormats.rss]
     baseName = 'rss'
     mediaType = 'application/rss+xml'
+
+[mediaTypes]
+  [mediaTypes."text/xml"]
+    suffixes = ["xml"]
+  [mediaTypes."application/feed+json"]
+    suffixes = ["json"]
+
+# Sitemap config
+[sitemap]
+  changefreq = 'monthly'
+  filename = 'sitemap.xml'
+  priority = 0.5
+
+# For more see https://gohugo.io/getting-started/configuration-markup/
+[markup]
+  defaultMarkdownHandler = 'goldmark'
+  [markup.highlight]
+    # false due to generated Syntax Highlighter CSS
+    noClasses = false
+  [markup.goldmark]
+    [markup.goldmark.parser]
+      [markup.goldmark.parser.attribute]
+        # Enable custom attribute support for blocks
+        block = true
+
+# If enableGitInfo is true, it will override any lastmod dates in our
+# front matter. We should at least allow ourselves to manually override
+# this value in the front matter.
+[frontmatter]
+  lastmod = ['lastmod', ':git', 'modified', 'date', 'publishdate', 'pubdate', 'published']
+
+[module]
+  [module.hugoVersion]
+    extended = true
+    min = '0.121.0'
+  [[module.imports]]
+    # Use full path to theme's repository. This is replaced in go.mod for
+    # exampleSite to point to the directory above.
+    path = 'github.com/sergeyklay/gohugo-theme-ed'
+
+[minify]
+  # Do not minify XML files to avoid CDATA escape issues
+  disableXML = true
+  [minify.tdewolff]
+    [minify.tdewolff.html]
+      keepQuotes = true
+
+[build]
+  # This is used to dump and array of the class attributes, id attributes,
+  # and tags of every HTML element within your published site.
+  # This datd can be used as a source when removing unused CSS from site.
+  # For more see: https://gohugo.io/hugo-pipes/postprocess/#css-purging-with-postcss
+  [build.buildStats]
+    disableClasses = false
+    disableIDs = false
+    disableTags = false
+    enable = true
