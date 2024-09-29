@@ -269,7 +269,7 @@ refLinksErrorLevel = 'WARNING'
 
   # For more see: https://gohugo.io/templates/output-formats/
   [outputFormats.humanstxt]
-    name = 'Humans.txt'
+    name = 'humanstxt'
     mediaType = 'text/plain'
     baseName = 'humans'
     rel = 'author'
