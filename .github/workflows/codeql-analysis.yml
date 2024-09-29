@@ -68,11 +68,7 @@ jobs:
         run: npm ci --ignore-scripts
 
       - name: Build site
-        run: |
-          hugo --logLevel info --printUnusedTemplates --printPathWarnings --printMemoryUsage --printI18nWarnings --buildDrafts --buildExpired --buildFuture
-        env:
-          HUGO_RESOURCEDIR: '../resources'
-          HUGO_ENV: development
+        run: npm run build
 
       - name: Audit packages
         run: npm audit --audit-level=high
