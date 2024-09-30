@@ -46,7 +46,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - `layouts/partials/site-author.html`
   These partials are no longer used in the theme.
   [See the documentation for details](https://gohugo-theme-ed.netlify.app/documentation/#configuring-author-selection).
-    
+- Removed custom sitemap template (`layouts/_default/sitemap.xml`), relying
+  entirely on Hugo's built-in rendering.    
+
 ## [v0.8.0](https://github.com/sergeyklay/gohugo-theme-ed/compare/v0.7.0...v0.8.0)
 
 ### Added
