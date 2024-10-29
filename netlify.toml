@@ -101,8 +101,7 @@
     form-action 'self' submit-form.com;
     upgrade-insecure-requests;
     base-uri 'self';
-    manifest-src 'self';
-    report-uri https://egrep.report-uri.com/r/d/csp/enforce"""
+    manifest-src 'self'"""
 
 [[headers]]
   for = '/feeds/*.xml'
