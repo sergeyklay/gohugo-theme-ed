@@ -30,6 +30,6 @@
     "@playwright/test": "^1.49.1",
     "@types/node": "^22.10.5",
     "eslint": "^9.18.0",
-    "jsdom": "^25.0.1"
+    "jsdom": "^26.0.0"
   }
 }
