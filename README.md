@@ -1,4 +1,9 @@
 <h1 align=center>Ed | <a href="https://gohugo-theme-ed.netlify.app/?utm_source=github.com&utm_campaign=docs&utm_medium=smm">Demo</a></h1>
+<p align="center">
+  <a href="https://api.gitsponsors.com/api/badge/link?p=1kNGsq6Ln1UFxmM+M26Wk2nGXqo1UooGRPVOwzTtSbb7fwE5DHpAoJpWW7QmZKdFtT+GIyAhRvxY3NBeuH2amLpZGsvptECmjAjbGhn9FZ64b7R2Wlrp0WMSR1TtF9oAwlm8aTSp6hh51AcIsLAvYg==">
+    <img src="https://api.gitsponsors.com/api/badge/img?id=474356339" height="20">
+  </a>
+</p>
 
 Ed is a [Hugo](http://gohugo.io) theme designed for textual editors based on
 [minimal computing](http://go-dh.github.io/mincomp/) principles, and focused
