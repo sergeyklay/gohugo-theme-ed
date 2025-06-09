@@ -423,7 +423,7 @@ To override this list, create file `mini-toc.html` inside `layouts/partials` fol
 
 As you can see, the templating tags `{{ }}` are embedded into the HTML. These tags often use programmatic logic, as is the case here. However, another use of these tags is pull data from your project. In the example above it pulls the `Title` from each allowed post type.
 
-As you may have noticed already, we are basically adapting the blogging features of Hugo to our own ends, what Cuban designer and theorist Ernesto Oroza would call "{{< link src="https://www.ernestooroza.com/" class="external" target="_blank" hreflang="en" rel="noopener noreferrer" >}}technological dissobedience{{< /link >}}".
+As you may have noticed already, we are basically adapting the blogging features of Hugo to our own ends, what Cuban designer and theorist Ernesto Oroza would call "{{< link src="https://www.ernestooroza.com/" class="external" target="_blank" hreflang="en" rel="noopener noreferrer" >}}technological disobedience{{< /link >}}".
 
 The second kind of table of content is exemplified in this documentation. If you open the source file for the documentation, you will notice at the top this snippet:
 
