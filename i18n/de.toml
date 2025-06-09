@@ -1,0 +1,74 @@
+[home]
+  other = 'Home'
+
+[more]
+  other = 'Lies mehr...'
+
+[published_on]
+  other = 'Veröffentlicht am'
+
+[updated_on]
+  other = 'Aktualisiert am'
+
+[latest_publications]
+  other = 'Neueste Publikationen'
+
+[your_name]
+  other = 'Ihr Name'
+
+[email_address]
+  other = 'E-Mail Adresse'
+
+[message]
+  other = 'Nachricht'
+
+[edited_by]
+  other = 'Bearbeitet von {{ . }}'
+
+[404_title]
+  other = 'Seite nicht gefunden'
+
+[404_description]
+  other = "Entschuldigung, wir haben die URL verschoben oder sie verweist auf eine Ressource, die nicht existiert."
+
+[404_back]
+  other = 'Gehen Sie zur Startseite zurück und starten dort eine neue Suche'
+
+[by]
+  other = 'von {{ . }}'
+
+[send]
+  other = 'Senden'
+
+[all_publications]
+  other = 'Alle Publikationen'
+
+[publications_tagged]
+  other = 'Publikationen mit Tags "{{ . }}"'
+
+[table_of_contents]
+  other = 'Inhalte'
+
+[search_help]
+  other = "Geben Sie einen Suchbegriff ein um die Website zu durchsuchen."
+
+[search_site]
+  other = 'Website durchsuchen'
+
+[search_no_results]
+  other = 'Keine Resultate gefunden.'
+
+[search_results]
+  other = 'Gefundene Resultate:'
+
+[tag_cloud]
+  other = 'Tag Cloud'
+
+[back_to_top]
+  other = 'Zurück zum Anfang'
+
+[back_to_top_label]
+  other = 'Zurück zum Seitenanfang'
+
+[annotate]
+  other = 'Anmerkung hinzufügen'
