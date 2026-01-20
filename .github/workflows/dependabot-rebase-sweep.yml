@@ -1,0 +1,181 @@
+name: Dependabot rebase sweep
+
+on:
+  schedule:
+    # Run every hour at minute 30
+    - cron: '30 * * * *'
+  # Allow manual trigger for testing
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+  actions: read
+
+jobs:
+  sweep:
+    name: Check Dependabot PRs for rebase
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout (for local action)
+        uses: actions/checkout@v6
+
+      - name: Find Dependabot PRs needing rebase
+        id: find-prs
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+          IFS=$'\n\t'
+
+          echo "Finding open Dependabot PRs..."
+
+          # Get all open PRs from Dependabot
+          # Note: Use --app flag for GitHub Apps, not --author
+          PRS=$(gh pr list \
+            --repo "$GH_REPO" \
+            --app dependabot \
+            --state open \
+            --json number,title,headRefName \
+            --jq '.[].number')
+
+          if [ -z "$PRS" ]; then
+            echo "No open Dependabot PRs found"
+            echo "pr_numbers=" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          echo "Found Dependabot PRs:"
+          echo "$PRS"
+          # Keep newline-separated for safe iteration with IFS=$'\n\t'
+          echo "pr_numbers<<EOF" >> "$GITHUB_OUTPUT"
+          echo "$PRS" >> "$GITHUB_OUTPUT"
+          echo "EOF" >> "$GITHUB_OUTPUT"
+
+      - name: Check CI status and rebase PRs
+        if: steps.find-prs.outputs.pr_numbers != ''
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          CICDBOT_TOKEN: ${{ secrets.CICDBOT_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+          PR_NUMBERS: ${{ steps.find-prs.outputs.pr_numbers }}
+        run: |
+          set -euo pipefail
+          IFS=$'\n\t'
+
+          # Track failures for summary
+          FAILED_PRS=""
+
+          for PR_NUMBER in $PR_NUMBERS; do
+            echo ""
+            echo "=========================================="
+            echo "Checking PR #$PR_NUMBER"
+            echo "=========================================="
+
+            if ! (
+              # Check if CI has passed for this PR
+              # Get the latest commit status/checks
+              if ! PR_DATA=$(gh pr view "$PR_NUMBER" --repo "$GH_REPO" --json statusCheckRollup,mergeable,mergeStateStatus); then
+                echo "::error::Failed to fetch PR #$PR_NUMBER data"
+                exit 1
+              fi
+
+              # Validate PR_DATA is valid JSON
+              if ! echo "$PR_DATA" | jq -e . >/dev/null 2>&1; then
+                echo "::error::Invalid JSON response for PR #$PR_NUMBER"
+                exit 1
+              fi
+
+              # Check overall CI status
+              CI_STATUS=$(echo "$PR_DATA" | jq -r '
+                .statusCheckRollup
+                | if . == null or . == [] then "PENDING"
+                  elif all(.conclusion == "SUCCESS" or .conclusion == "NEUTRAL" or .conclusion == "SKIPPED") then "SUCCESS"
+                  elif any(.conclusion == "FAILURE" or .conclusion == "CANCELLED" or .conclusion == "TIMED_OUT") then "FAILURE"
+                  else "PENDING"
+                  end
+              ')
+
+              echo "CI Status: $CI_STATUS"
+
+              if [ "$CI_STATUS" != "SUCCESS" ]; then
+                echo "⏭️  Skipping PR #$PR_NUMBER - CI has not passed (status: $CI_STATUS)"
+                exit 0
+              fi
+
+              # CI passed - check merge state
+              MERGEABLE=$(echo "$PR_DATA" | jq -r '.mergeable')
+              MERGE_STATE=$(echo "$PR_DATA" | jq -r '.mergeStateStatus')
+
+              # Validate extracted values
+              if [ -z "$MERGEABLE" ] || [ "$MERGEABLE" = "null" ]; then
+                echo "::warning::PR #$PR_NUMBER - mergeable state is null/empty, skipping"
+                exit 0
+              fi
+
+              echo "Mergeable: $MERGEABLE"
+              echo "Merge State: $MERGE_STATE"
+
+              # Determine action based on merge state
+              if [ "$MERGE_STATE" = "CLEAN" ] || [ "$MERGE_STATE" = "HAS_HOOKS" ]; then
+                echo "✅ PR #$PR_NUMBER is ready to merge (state: $MERGE_STATE)"
+                # Don't approve here - that's the event-driven workflow's job
+                exit 0
+              elif [ "$MERGEABLE" = "CONFLICTING" ]; then
+                # CONFLICTING is the most specific indicator - use it as reason
+                REBASE_REASON="CONFLICTING"
+              elif [ "$MERGE_STATE" = "BEHIND" ] || [ "$MERGE_STATE" = "DIRTY" ]; then
+                REBASE_REASON="$MERGE_STATE"
+              else
+                echo "⏸️  PR #$PR_NUMBER - Cannot proceed (state: $MERGE_STATE)"
+                exit 0
+              fi
+
+              # At this point, we need a rebase
+              echo "🔄 PR #$PR_NUMBER needs rebase (reason: $REBASE_REASON)"
+
+              # Check if we already requested a rebase recently (avoid spam)
+              if ! COMMENTS_DATA=$(gh pr view "$PR_NUMBER" --repo "$GH_REPO" --json comments); then
+                echo "::warning::Failed to fetch comments for PR #$PR_NUMBER, proceeding anyway"
+                RECENT_REBASE_COMMENT=""
+              else
+                RECENT_REBASE_COMMENT=$(echo "$COMMENTS_DATA" | jq -r \
+                  '.comments | map(select(.body | contains("@dependabot rebase"))) | last | .createdAt // empty')
+              fi
+
+              if [ -n "$RECENT_REBASE_COMMENT" ]; then
+                # Check if comment was within last 2 hours
+                if ! COMMENT_TIMESTAMP=$(date -d "$RECENT_REBASE_COMMENT" +%s 2>/dev/null); then
+                  echo "::warning::Failed to parse comment timestamp, proceeding with rebase request"
+                else
+                  CURRENT_TIMESTAMP=$(date +%s)
+                  COMMENT_AGE_SECONDS=$(( CURRENT_TIMESTAMP - COMMENT_TIMESTAMP ))
+                  if [ "$COMMENT_AGE_SECONDS" -lt 7200 ]; then
+                    echo "⏭️  Skipping - rebase already requested $(( COMMENT_AGE_SECONDS / 60 )) minutes ago"
+                    exit 0
+                  fi
+                fi
+              fi
+
+              # Request rebase using CICDBOT_TOKEN (has push access)
+              echo "Requesting rebase..."
+              if ! GH_TOKEN="$CICDBOT_TOKEN" gh pr comment "$PR_NUMBER" --repo "$GH_REPO" --body "@dependabot rebase"; then
+                echo "::error::Failed to post rebase comment on PR #$PR_NUMBER"
+                exit 1
+              fi
+              echo "::warning::PR #$PR_NUMBER - Requested @dependabot rebase (reason: $REBASE_REASON)"
+            ); then
+              echo "::error::Failed to process PR #$PR_NUMBER"
+              FAILED_PRS="$FAILED_PRS $PR_NUMBER"
+            fi
+          done
+
+          echo ""
+          echo "=========================================="
+          echo "Sweep complete"
+          if [ -n "$FAILED_PRS" ]; then
+            echo "::error::Failed to process PRs:$FAILED_PRS"
+          fi
+          echo "=========================================="

@@ -1,0 +1,90 @@
+name: Dependabot auto-merge
+
+on:
+  workflow_run:
+    workflows: [CI]
+    types:
+      - completed
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  dependabot:
+    name: Auto-approve and merge
+    runs-on: ubuntu-latest
+
+    # Only run if:
+    # 1. The CI workflow was triggered by a PR (not a direct push)
+    # 2. The triggering user is Dependabot
+    if: >
+      github.event.workflow_run.event == 'pull_request' &&
+      github.event.workflow_run.actor.login == 'dependabot[bot]'
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v6
+
+      - name: Get Pull Request info
+        id: pr
+        uses: actions/github-script@v8
+        with:
+          script: |
+            const { data: pullRequests } = await github.rest.pulls.list({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: 'open',
+              head: `${context.repo.owner}:${context.payload.workflow_run.head_branch}`
+            });
+
+            if (pullRequests.length === 0) {
+              core.setFailed('No open PR found for this workflow run');
+              return;
+            }
+
+            const pr = pullRequests[0];
+            core.setOutput('number', pr.number);
+            core.setOutput('url', pr.html_url);
+
+            console.log(`Found PR #${pr.number}`);
+
+      - name: Check CI conclusion
+        if: github.event.workflow_run.conclusion != 'success'
+        run: |
+          echo "::error::CI workflow did not succeed (conclusion: ${{ github.event.workflow_run.conclusion }})"
+          echo "Skipping approval and auto-merge."
+          exit 1
+
+      - name: Check PR and request rebase if needed
+        id: pr-check
+        uses: ./.github/actions/dependabot-rebase
+        with:
+          pr-number: ${{ steps.pr.outputs.number }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          rebase-token: ${{ secrets.CICDBOT_TOKEN }}
+
+      - name: Skip - merge state not ready
+        if: steps.pr-check.outputs.action == 'skip'
+        run: |
+          echo "::warning::Cannot proceed - merge state is ${{ steps.pr-check.outputs.reason }}. Waiting for state to resolve."
+
+      - name: Approve Pull Request
+        if: steps.pr-check.outputs.action == 'approve'
+        env:
+          GH_TOKEN: ${{ secrets.CICDBOT_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+          PR_NUMBER: ${{ steps.pr.outputs.number }}
+        run: |
+          echo "Approving PR #$PR_NUMBER"
+          gh pr review "$PR_NUMBER" --repo "$GH_REPO" --approve --body "🤖 Auto-approved by @cicdbot after CI passed"
+
+      - name: Enable auto-merge
+        if: steps.pr-check.outputs.action == 'approve'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+          PR_NUMBER: ${{ steps.pr.outputs.number }}
+        run: |
+          echo "Enabling auto-merge for PR #$PR_NUMBER"
+          gh pr merge "$PR_NUMBER" --repo "$GH_REPO" --auto --squash
