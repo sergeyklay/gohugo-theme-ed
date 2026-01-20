@@ -1,0 +1,97 @@
+name: Check Dependabot PR and Request Rebase
+description: Checks if a Dependabot PR needs a rebase and requests one if necessary
+
+inputs:
+  pr-number:
+    description: Pull request number to check
+    required: true
+  github-token:
+    description: Token for reading PR state (GITHUB_TOKEN is fine)
+    required: true
+  rebase-token:
+    description: Token for posting rebase comment (must be from user with push access)
+    required: true
+
+outputs:
+  action:
+    description: Action taken (approve, rebase, skip)
+    value: ${{ steps.merge-check.outputs.action }}
+  reason:
+    description: Reason for the action
+    value: ${{ steps.merge-check.outputs.reason }}
+  merge-state:
+    description: The merge state of the PR
+    value: ${{ steps.merge-check.outputs.merge_state }}
+
+runs:
+  using: composite
+  steps:
+    - name: Check merge state
+      id: merge-check
+      shell: bash
+      env:
+        GH_TOKEN: ${{ inputs.github-token }}
+        GH_REPO: ${{ github.repository }}
+        PR_NUMBER: ${{ inputs.pr-number }}
+      run: |
+        set -euo pipefail
+        IFS=$'\n\t'
+
+        # Get detailed PR info including mergeable state and review status
+        # mergeStateStatus values: BEHIND, BLOCKED, CLEAN, DIRTY, DRAFT, HAS_HOOKS, UNKNOWN, UNSTABLE
+        PR_DATA=$(gh pr view "$PR_NUMBER" --repo "$GH_REPO" --json mergeable,mergeStateStatus,reviewDecision,reviewRequests)
+        MERGEABLE=$(echo "$PR_DATA" | jq -r '.mergeable')
+        MERGE_STATE=$(echo "$PR_DATA" | jq -r '.mergeStateStatus')
+        REVIEW_DECISION=$(echo "$PR_DATA" | jq -r '.reviewDecision // "NONE"')
+        REVIEW_REQUESTS=$(echo "$PR_DATA" | jq -r '[.reviewRequests[]? | .login] | join(",")')
+
+        echo "PR #$PR_NUMBER - Mergeable: $MERGEABLE, Merge State: $MERGE_STATE, Review Decision: $REVIEW_DECISION"
+        echo "merge_state=$MERGE_STATE" >> "$GITHUB_OUTPUT"
+
+        # Determine action based on merge state:
+        # - CLEAN/HAS_HOOKS: Ready to approve and merge
+        # - BLOCKED + MERGEABLE + REVIEW_REQUIRED: Blocked only by reviews (approve to satisfy requirement)
+        # - BEHIND/DIRTY/CONFLICTING: Request rebase from Dependabot
+        # - BLOCKED (other reasons)/UNKNOWN/UNSTABLE: Skip (cannot proceed)
+        if [ "$MERGE_STATE" = "CLEAN" ] || [ "$MERGE_STATE" = "HAS_HOOKS" ]; then
+          echo "action=approve" >> "$GITHUB_OUTPUT"
+          echo "reason=ready" >> "$GITHUB_OUTPUT"
+        elif [ "$MERGE_STATE" = "BLOCKED" ] && [ "$MERGEABLE" = "MERGEABLE" ] && [ "$REVIEW_DECISION" = "REVIEW_REQUIRED" ]; then
+          # BLOCKED by reviews only (not conflicts) - cicdbot can approve to satisfy requirement
+          # Check if cicdbot is in the review requests (optional check, but good for logging)
+          if echo "$REVIEW_REQUESTS" | grep -q "cicdbot"; then
+            echo "action=approve" >> "$GITHUB_OUTPUT"
+            echo "reason=blocked_by_reviews" >> "$GITHUB_OUTPUT"
+          else
+            # BLOCKED but cicdbot not requested - might be other protection rules
+            echo "action=skip" >> "$GITHUB_OUTPUT"
+            echo "reason=BLOCKED_other" >> "$GITHUB_OUTPUT"
+          fi
+        elif [ "$MERGEABLE" = "CONFLICTING" ]; then
+          # Check CONFLICTING first - it's the most specific indicator of merge conflicts
+          echo "action=rebase" >> "$GITHUB_OUTPUT"
+          echo "reason=CONFLICTING" >> "$GITHUB_OUTPUT"
+        elif [ "$MERGE_STATE" = "BEHIND" ] || [ "$MERGE_STATE" = "DIRTY" ]; then
+          echo "action=rebase" >> "$GITHUB_OUTPUT"
+          echo "reason=$MERGE_STATE" >> "$GITHUB_OUTPUT"
+        else
+          echo "action=skip" >> "$GITHUB_OUTPUT"
+          echo "reason=$MERGE_STATE" >> "$GITHUB_OUTPUT"
+        fi
+
+    - name: Request rebase
+      if: steps.merge-check.outputs.action == 'rebase'
+      shell: bash
+      env:
+        # Must use token from user with push access
+        GH_TOKEN: ${{ inputs.rebase-token }}
+        GH_REPO: ${{ github.repository }}
+        PR_NUMBER: ${{ inputs.pr-number }}
+        REASON: ${{ steps.merge-check.outputs.reason }}
+      run: |
+        set -euo pipefail
+        IFS=$'\n\t'
+
+        echo "PR #$PR_NUMBER needs rebase (reason: $REASON). Requesting Dependabot to rebase..."
+        gh pr comment "$PR_NUMBER" --repo "$GH_REPO" --body "@dependabot rebase"
+        echo "::warning::PR #$PR_NUMBER - Requested @dependabot rebase (reason: $REASON)"
