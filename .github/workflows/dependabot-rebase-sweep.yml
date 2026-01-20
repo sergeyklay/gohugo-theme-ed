@@ -2,8 +2,8 @@ name: Dependabot rebase sweep
 
 on:
   schedule:
-    # Run every hour at minute 30
-    - cron: '30 * * * *'
+    # Run every 6 hours at minute 30
+    - cron: '30 */6 * * *'
   # Allow manual trigger for testing
   workflow_dispatch:
 
