@@ -28,7 +28,7 @@
   },
   "devDependencies": {
     "@playwright/test": "^1.53.1",
-    "@types/node": "^24.0.1",
+    "@types/node": "^25.0.9",
     "eslint": "^9.39.2",
     "jsdom": "^27.4.0"
   }
