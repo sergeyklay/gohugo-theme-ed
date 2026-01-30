@@ -46,9 +46,9 @@ jobs:
             const pr = pullRequests[0];
             if (pr.state !== 'open') {
               if (pr.merged_at) {
-                core.setFailed(`Pull request #${pr.number} has already been merged; skipping auto-merge workflow.`);}
+                core.setFailed(`Pull request #${pr.number} has already been merged; skipping auto-merge workflow.`);
               } else {
-                core.setFailed(`Pull request #${pr.number} is closed; skipping auto-merge
+                core.setFailed(`Pull request #${pr.number} is closed; skipping auto-merge workflow.`);
               }
 
               return;
