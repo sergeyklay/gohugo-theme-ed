@@ -28,7 +28,7 @@ $ go version
 
 If you don't get an error, you're good to go. Using the `cd` command on your terminal, navigate to the folder where you keep your web projects. Once you're in the folder where project live, initialize the {{< link src="https://gohugo.io/hugo-modules" class="external" target="_blank" hreflang="en" rel="noopener noreferrer" >}}Hugo Modules{{< /link >}} system using the following line (replace `<your_user>` and `<your_project>` by real names):
 
-*Note: If you have already initialized Hugo Modules for your site, you can skip this step.*
+_Note: If you have already initialized Hugo Modules for your site, you can skip this step._
 
 ```bash
 $ hugo mod init github.com/<your_user>/<your_project>
@@ -75,8 +75,8 @@ Your terminal output should look similar to the following:
 
 ```
 go: no module dependencies to download
-go: downloading github.com/sergeyklay/gohugo-theme-ed v0.8.0
-go: added github.com/sergeyklay/gohugo-theme-ed v0.8.0
+go: downloading github.com/sergeyklay/gohugo-theme-ed v0.8.1
+go: added github.com/sergeyklay/gohugo-theme-ed v0.8.1
 hugo: downloading modules …
 hugo: collected modules in 5342 ms
 ```
@@ -103,9 +103,9 @@ Copy the url from your terminal log and paste it into your browser of choice. Th
 
 ## Hugo
 
-Ed is a Hugo theme. That means you will need some familiarity with Hugo to take advantage of its full potential. While running a Hugo site is a bit more involved than Wordpress and other similar tools, the payoff in the long term is worth the effort to learn it. If you are new to Hugo, I recommend you take a look at {{< link src="https://strapi.io/blog/guide-to-using-hugo-site-generator" class="external" target="_blank" hreflang="en" rel="noopener noreferrer" >}}A Guide to Using Hugo{{< /link >}} at *Strapi*, {{< link src="https://gohugo.io/hosting-and-deployment/hosting-on-github/" class="external" target="_blank" hreflang="en" rel="noopener noreferrer" >}}Host on GitHub{{< /link >}} on *Hugo Documentation Site* and {{< link src="https://gohugo.io/documentation/" class="external" target="_blank" hreflang="en" rel="noopener noreferrer" >}}Hugo's own documentation{{< /link >}} to start getting a sense of how it works.
+Ed is a Hugo theme. That means you will need some familiarity with Hugo to take advantage of its full potential. While running a Hugo site is a bit more involved than Wordpress and other similar tools, the payoff in the long term is worth the effort to learn it. If you are new to Hugo, I recommend you take a look at {{< link src="https://strapi.io/blog/guide-to-using-hugo-site-generator" class="external" target="_blank" hreflang="en" rel="noopener noreferrer" >}}A Guide to Using Hugo{{< /link >}} at _Strapi_, {{< link src="https://gohugo.io/hosting-and-deployment/hosting-on-github/" class="external" target="_blank" hreflang="en" rel="noopener noreferrer" >}}Host on GitHub{{< /link >}} on _Hugo Documentation Site_ and {{< link src="https://gohugo.io/documentation/" class="external" target="_blank" hreflang="en" rel="noopener noreferrer" >}}Hugo's own documentation{{< /link >}} to start getting a sense of how it works.
 
-Once you have gone through these tutorials, you can get started using Ed. Remember to always and only edit content files for your site using {{< link src="https://en.wikipedia.org/wiki/Text_editor" class="external" target="_blank" hreflang="en" rel="noopener noreferrer" >}}a plain text editor{{< /link >}}, and *not* a word processor. I'm composing this file using a plain text editor called {{< link src="https://code.visualstudio.com/" class="external" target="_blank" hreflang="en" rel="noopener noreferrer" >}}Visual Studio Code{{< /link >}}.
+Once you have gone through these tutorials, you can get started using Ed. Remember to always and only edit content files for your site using {{< link src="https://en.wikipedia.org/wiki/Text_editor" class="external" target="_blank" hreflang="en" rel="noopener noreferrer" >}}a plain text editor{{< /link >}}, and _not_ a word processor. I'm composing this file using a plain text editor called {{< link src="https://code.visualstudio.com/" class="external" target="_blank" hreflang="en" rel="noopener noreferrer" >}}Visual Studio Code{{< /link >}}.
 
 You should make sure that all your texts have the YAML {{< link src="https://gohugo.io/content-management/front-matter/" class="external" target="_blank" hreflang="en" rel="noopener noreferrer" >}}Front Matter{{< /link >}} (the information at the top of the file). YAML stands for "YAML Ain't Markup Language" --- no disrespect to XML --- and it's the main way that Hugo handles named data. Here's an example of YAML Front Matter:
 
@@ -198,7 +198,7 @@ The `{{</* indent 3 */>}}` is what we need to in order to indicate the indent va
 
 The example from Raisin in the Sun shows us that we don't need much special markup for theater as long as we use CAPITAL LETTERS for speakers. Italics for directions are easy enough. Just use `*` around the words you want to italicize.
 
-*Narrative of the Life of Frederick Douglass* shows us an example of narrative that includes footnotes and quoted poetry. See the sections below for how to accomplish these different effects.
+_Narrative of the Life of Frederick Douglass_ shows us an example of narrative that includes footnotes and quoted poetry. See the sections below for how to accomplish these different effects.
 
 ---
 
@@ -218,7 +218,7 @@ the article. Additionally, the author’s name is included in the HTML metadata 
 each page, such as:
 
 ```html
-<meta name="author" content="John Doe">
+<meta name="author" content="John Doe" />
 ```
 
 If you prefer not to show the author on your posts, you can disable this feature
@@ -335,16 +335,17 @@ Footnotes are the bread and butter of scholarship. Hugo makes footnotes a fairly
 These footnotes can be placed anywhere, but they will always be generated at the bottom of the document. To have a multi-paragraph footnote you need to start the footnote text on the next line after the footnote anchor and indent it:
 
 ```markdown
-[^1]: Ugh pinterest fixie cronut pitchfork beard. Literally deep
-      cold-pressed distillery pabst austin.
+[^1]:
+    Ugh pinterest fixie cronut pitchfork beard. Literally deep
+    cold-pressed distillery pabst austin.
 
-      Typewriter 90's roof party poutine, kickstarter raw
-      denim pabst readymade biodiesel umami chicharrones XOXO.
+    Typewriter 90's roof party poutine, kickstarter raw
+    denim pabst readymade biodiesel umami chicharrones XOXO.
 ```
 
 Please note, you need to indent all lines at the same level to make them stay inside the footnote.
 
-At the moment (May 2022) time the footnotes system provided by Hugo does have one limitation: It does not support non-numbered footnotes, and it only allows you to have one set of footnotes for a text. In some cases we have to separate the author's footnotes from our own, in others we want to represent the author's own footnote style. In these cases we have to use custom Ed's shortcode for footnotes. Here's the example from *Narrative of the Life*:
+At the moment (May 2022) time the footnotes system provided by Hugo does have one limitation: It does not support non-numbered footnotes, and it only allows you to have one set of footnotes for a text. In some cases we have to separate the author's footnotes from our own, in others we want to represent the author's own footnote style. In these cases we have to use custom Ed's shortcode for footnotes. Here's the example from _Narrative of the Life_:
 
 ```markdown
 ... At this time, Anna,{{</* footnote "fn2" */>}} my intended wife, came on;
@@ -362,7 +363,7 @@ At the moment (May 2022) time the footnotes system provided by Hugo does have on
 
 ## Blockquote
 
-*Narrative of the Life* also includes several blockquote elements. You can also find another example of blockquote use in the footnote of "O Captain! My Captain!" Simple blockquote are simple enough in Markdown:
+_Narrative of the Life_ also includes several blockquote elements. You can also find another example of blockquote use in the footnote of "O Captain! My Captain!" Simple blockquote are simple enough in Markdown:
 
 ```
 > This is to certify that I, the undersigned, have given the bearer, my servant, full liberty to go to Baltimore, and spend the Easter holidays.
@@ -373,7 +374,7 @@ At the moment (May 2022) time the footnotes system provided by Hugo does have on
 
 To use a line break in block elements add two spaces after the end of the line where you want the break. You can't see them after `&c., 1835.` but they are there.
 
-Things get a bit complicated when we want to use poetry inside the block or when the block is included in another block element, like a footnote. Here's the last two stanzas from "A Parody" in *Narrative of the Life*, which shows an example of a blockquote of poetry:
+Things get a bit complicated when we want to use poetry inside the block or when the block is included in another block element, like a footnote. Here's the last two stanzas from "A Parody" in _Narrative of the Life_, which shows an example of a blockquote of poetry:
 
 ```
 ...
@@ -393,7 +394,6 @@ Things get a bit complicated when we want to use poetry inside the block or when
 
 The `{.poetry}` tag at the end tells the processor to think of the lines above it as poetry. The `{.poetry}` tag is an example of Goldmark class assignments for block-elements. Because this segment of poetry exists in the 'narrative' layout, and because it is part of a blockquote, we need to signal to the processor to process poetry this way, so that the right class is invoked in the stylesheet. The good news is this is the most complex Goldmark syntax layout you will encounter in Ed.
 
-
 ## Pages
 
 Your editions are treated as {{< link src="https://gohugo.io/content-management/sections/" class="external" target="_blank" hreflang="en" rel="noopener noreferrer" >}}sections{{< /link >}} or {{< link src="https://gohugo.io/content-management/page-bundles/" class="external" target="_blank" hreflang="en" rel="noopener noreferrer" >}}page bundles{{< /link >}} in Ed. Other web pages in your site exist outside the `content` folder. Default homepage, for example, is constructed from the `index.html` file found on the `layouts` folder of Ed theme.
@@ -410,11 +410,12 @@ You will find three kinds of Tables of Content in Ed. The first example is in th
 <div class="toc">
   <h2>Latest Publications</h2>
   <ul class="texts">
-      {{ range first 10 (where site.RegularPages.ByDate.Reverse "Type" "in" site.Params.mainSections) }}
-          <li class="text-title">
-              <a href="{{ .Permalink }}">{{ .Title }}</a>
-          </li>
-      {{ end }}
+    {{ range first 10 (where site.RegularPages.ByDate.Reverse "Type" "in"
+    site.Params.mainSections) }}
+    <li class="text-title">
+      <a href="{{ .Permalink }}">{{ .Title }}</a>
+    </li>
+    {{ end }}
   </ul>
 </div>
 ```
@@ -439,7 +440,7 @@ The third way is simple as the previous one, but very useful for long texts. If 
 toc: true
 ```
 
-Ed will activate the optional table of content sidebar (`layouts/partials/sidebar-toc.html` in Ed) and move the table of contents to a special sidebar for that page. *Narrative of the Life* uses this method for its table of content.
+Ed will activate the optional table of content sidebar (`layouts/partials/sidebar-toc.html` in Ed) and move the table of contents to a special sidebar for that page. _Narrative of the Life_ uses this method for its table of content.
 
 The internal links pointing to the right sections in your document are generated from the title names automatically. If you can figure out how Ed accomplishes this trick, you have graduated from the Ed school of minimal editions.
 
@@ -464,9 +465,9 @@ To do this, create a `layouts/partials` directory in your project, and inside it
 
 ```html
 <style>
-    html {
-        font-family: "PT Sans", Helvetica, Arial, sans-serif;
-    }
+  html {
+    font-family: "PT Sans", Helvetica, Arial, sans-serif;
+  }
 </style>
 ```
 
@@ -479,6 +480,7 @@ Ed theme now supports adding a comments system to your site, enhancing interacti
 {{< link src="https://giscus.app/" class="external" target="_blank" hreflang="en" rel="noopener noreferrer" >}}giscus{{< /link >}} is a comments system powered by {{< link src="https://docs.github.com/en/discussions/" class="external" target="_blank" hreflang="en" rel="noopener noreferrer" >}}GitHub Discussions{{< /link >}}. It leverages GitHub's infrastructure to provide a free, open source platform for comments.
 
 giscus operates by linking your website's comment section directly to GitHub Discussions. Here’s an overview of the process:
+
 - When a page with giscus integration loads, it uses the {{< link src="https://docs.github.com/en/graphql/guides/using-the-graphql-api-for-discussions#search" class="external" target="_blank" hreflang="en" rel="noopener noreferrer" >}}GitHub Discussions search API{{< /link >}} to locate a discussion that matches the page. The association is determined based on a chosen mapping strategy such as URL, pathname, or the page's `<title>`.
 - If no existing discussion matches the page, giscus is configured to automatically create a new discussion when a visitor posts the first comment or reaction. This ensures that each page can have its own dedicated discussion thread, even if one was not previously set up manually.
 - To post a comment, visitors must authorize the giscus application via the GitHub OAuth flow, which grants the app permission to {{< link src="https://docs.github.com/en/apps/creating-github-apps/authenticating-with-a-github-app/authenticating-with-a-github-app-on-behalf-of-a-user" class="external" target="_blank" hreflang="en" rel="noopener noreferrer" >}}post comments on their behalf{{< /link >}}. This authorization is a straightforward process, typically requiring just a few clicks to connect a GitHub account.
@@ -496,7 +498,7 @@ To enable giscus, you need to add the following to the site configuration file:
   [params.comments]
     enable = false  # Set to true to enable comments globally
     type = 'giscus'
-  
+
     [params.comments.giscus]
       # Required parameters:
       # Replace with your repository
@@ -678,7 +680,6 @@ When you decide, set up the configurations accordingly and let Ed handle the res
 ## Getting help
 
 That should do it. If you have suggestions on how to improve Ed, make sure to leave us a line on {{< link src="https://github.com/sergeyklay/gohugo-theme-ed/issues" class="external" target="_blank" hreflang="en" rel="noopener noreferrer" >}}our issues page{{< /link >}}, or send us a pull request. If you run into an issue that isn't answered by this documentation or the `{{< link src="https://github.com/sergeyklay/gohugo-theme-ed/tree/main/exampleSite" class="external" target="_blank" hreflang="en" rel="noopener noreferrer" >}}exampleSite{{< /link >}}`, then visit the {{< link src="https://discourse.gohugo.io/" class="external" target="_blank" hreflang="en" rel="noopener noreferrer" >}}Hugo forum{{< /link >}}. The folks there are helpful and friendly. **Before** asking your question, be sure to read the {{< link src="https://discourse.gohugo.io/t/requesting-help/9132" class="external" target="_blank" hreflang="en" rel="noopener noreferrer" >}}requesting help guidelines{{< /link >}}. Feel free to tag me in your question, my forum username is {{< link src="https://discourse.gohugo.io/u/egrep/summary" class="external" target="_blank" hreflang="en" rel="noopener noreferrer" >}}@egrep{{< /link >}}.
-
 
 Happy editing!
 
