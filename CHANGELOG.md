@@ -5,7 +5,9 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased](https://github.com/sergeyklay/gohugo-theme-ed/compare/v0.8.0...HEAD)
+## [Unreleased](https://github.com/sergeyklay/gohugo-theme-ed/compare/v0.8.1...HEAD)
+
+## [v0.8.1](https://github.com/sergeyklay/gohugo-theme-ed/compare/v0.8.0...v0.8.1)
 
 ### Added
 
@@ -17,6 +19,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added `layouts/partials/head/author.html` and `showAuthor` configuration parameter
   to allow users to display the author's name on the site's pages.
   [See the documentation for details](https://gohugo-theme-ed.netlify.app/documentation/#configuring-author-selection).
+- Added German translation.
 
 ### Changed
 
@@ -25,11 +28,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   This change simplifies the theme's configuration and aligns with Hugo's best
   practices.
 - Use new `css.Sass` for new Hugo versions instead of `resource.ToCss` to ensure
-  compatibility with future  versions of Hugo.
+  compatibility with future versions of Hugo.
 - The default location of Google Analytics configuration was changed to
   `config.services.googleAnalytics` and `privacy.googleAnalytics` to align with
   Hugo's standard configuration.
   [See the documentation for details](https://gohugo-theme-ed.netlify.app/documentation/#integrating-analytics-with-ed).
+
+### Fixed
+
+- Fixed section content from `_index.md` files not rendering on list pages due
+  to incorrect context reference in `list.html` template
+  ([#246](https://github.com/sergeyklay/gohugo-theme-ed/issues/246)).
+- Fixed compatibility with Hugo v0.147.8.
 
 ### Removed
 
@@ -47,7 +57,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   These partials are no longer used in the theme.
   [See the documentation for details](https://gohugo-theme-ed.netlify.app/documentation/#configuring-author-selection).
 - Removed custom sitemap template (`layouts/_default/sitemap.xml`), relying
-  entirely on Hugo's built-in rendering.    
+  entirely on Hugo's built-in rendering.
+- Removed CSP error reporting to report-uri.com.
 
 ## [v0.8.0](https://github.com/sergeyklay/gohugo-theme-ed/compare/v0.7.0...v0.8.0)
 
