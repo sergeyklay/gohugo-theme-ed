@@ -184,7 +184,6 @@ function createSearchResultBlurb(query, pageContent) {
     (m) => m.index
   );
 
-  let parsedSentence = '';
   let searchResultText = '';
   let lastEndOfSentence = 0;
   for (const hitLocation of searchQueryHits) {
@@ -194,8 +193,7 @@ function createSearchResultBlurb(query, pageContent) {
           const startOfSentence = i > 0 ? sentenceBoundaries[i - 1] + 1 : 0;
           const endOfSentence = sentenceBoundaries[i];
           lastEndOfSentence = endOfSentence;
-          parsedSentence = pageContent.slice(startOfSentence, endOfSentence).trim();
-          searchResultText += `${parsedSentence} ... `;
+          searchResultText += `${pageContent.slice(startOfSentence, endOfSentence).trim()} ... `;
           break;
         }
       }
