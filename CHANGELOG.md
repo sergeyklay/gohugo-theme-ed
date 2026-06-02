@@ -5,12 +5,21 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased](https://github.com/sergeyklay/gohugo-theme-ed/compare/v0.8.1...HEAD)
+## [Unreleased](https://github.com/sergeyklay/gohugo-theme-ed/compare/v0.9.0...HEAD)
+
+## [v0.9.0](https://github.com/sergeyklay/gohugo-theme-ed/compare/v0.8.1...v0.9.0)
 
 ### Changed
 
 - Raised the minimum required Hugo version from 0.121.0 to 0.147.8
   ([#391](https://github.com/sergeyklay/gohugo-theme-ed/pull/391)).
+
+### Fixed
+
+- Building a site without a `search` page no longer fails with
+  `REF_NOT_FOUND: Ref "search"`. The schema.org `SearchAction` is now
+  emitted only when a search page exists
+  ([#244](https://github.com/sergeyklay/gohugo-theme-ed/issues/244)).
 
 ## [v0.8.1](https://github.com/sergeyklay/gohugo-theme-ed/compare/v0.8.0...v0.8.1)
 
