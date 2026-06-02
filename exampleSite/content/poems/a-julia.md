@@ -5,7 +5,7 @@ draft: false
 author: Julia de Burgos
 editor: Alex Gil
 source: Ciudad Seva
-lang: es
+contentLang: es
 ---
 
 - Ya las gentes murmuran que yo soy tu enemiga
