@@ -14,10 +14,6 @@ title = "Ed."
 
 enableRobotsTXT = true
 
-# When using ref or relref to resolve page links and a link cannot
-# resolve, it will be logged with this log level.
-refLinksErrorLevel = 'WARNING'
-
 [params]
   # Site description. Used in meta description
   description = 'Ed is a Hugo theme designed for textual editors based on minimal computing principles, and focused on legibility and flexibility.'
