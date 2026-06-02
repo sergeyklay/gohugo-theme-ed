@@ -4,14 +4,16 @@
         "@type": "WebSite",
         "name": {{ partial "title.html" . }},
         "url": {{ site.BaseURL }},
-        "keywords": {{ partial "keywords.html" . }},
+        "keywords": {{ partial "keywords.html" . }}
+        {{- with site.GetPage "search" }},
         "potentialAction": {
             "@type": "SearchAction",
             "target": {
                 "@type": "EntryPoint",
-                "urlTemplate": {{ printf "%s?q={search_term_string}" (ref . "search") }}
+                "urlTemplate": {{ printf "%s?q={search_term_string}" .Permalink }}
             },
             "query-input": "required name=search_term_string"
         }
+        {{- end }}
     }
 </script>
