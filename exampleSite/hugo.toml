@@ -316,7 +316,7 @@ refLinksErrorLevel = 'WARNING'
 [module]
   [module.hugoVersion]
     extended = true
-    min = '0.121.0'
+    min = '0.147.8'
   [[module.imports]]
     # Use full path to theme's repository. This is replaced in go.mod for
     # exampleSite to point to the directory above.
