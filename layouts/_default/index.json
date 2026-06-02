@@ -34,7 +34,7 @@
             "objectID" $page.File.UniqueID
             "title" $page.Title
             "href" $page.Permalink
-            "lang" ($page.Params.lang | default $page.Lang)
+            "lang" ($page.Params.contentLang | default $page.Lang)
             "tags" ($page.Params.tags | default slice)
             "kind" $page.Kind
             "type" $page.Type
