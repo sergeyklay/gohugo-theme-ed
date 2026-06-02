@@ -1,7 +1,7 @@
 module:
   hugoVersion:
     extended: true
-    min: 0.147.8'
+    min: "0.147.8"
 
   imports:
     - path: github.com/olivernn/lunr.js
