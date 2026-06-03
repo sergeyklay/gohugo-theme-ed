@@ -3,25 +3,45 @@
 version: 2
 
 updates:
-
   # Maintain dependencies for npm
   - package-ecosystem: npm
-    directory: '/'
+    directory: /
     schedule:
-      interval: daily
+      interval: weekly
+      day: tuesday
     target-branch: main
     assignees: [cicdbot]
-    open-pull-requests-limit: 20
+    open-pull-requests-limit: 10
+    labels:
+      - dependencies
+      - javascript
     commit-message:
-      prefix: 'chore(deps): '
-      prefix-development: 'chore(deps-dev): '
+      prefix: "chore"
+      include: "scope"
+    groups:
+      npm-minor-patch:
+        update-types:
+          - minor
+          - patch
+        patterns:
+          - "*"
 
   # Maintain dependencies for GitHub Actions
   - package-ecosystem: github-actions
-    directory: '/'
+    directory: /
     schedule:
-      interval: daily
+      interval: weekly
+      day: tuesday
     target-branch: main
     assignees: [cicdbot]
+    open-pull-requests-limit: 10
+    labels:
+      - dependencies
+      - github_actions
     commit-message:
-      prefix: 'ci: '
+      prefix: "ci"
+      include: "scope"
+    groups:
+      actions:
+        patterns:
+          - "*"
