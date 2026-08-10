@@ -28,10 +28,10 @@
   },
   "devDependencies": {
     "@eslint/js": "^10.0.0",
-    "@playwright/test": "^1.61.1",
-    "@types/node": "^26.1.1",
-    "eslint": "^10.7.0",
-    "globals": "^17.7.0",
+    "@playwright/test": "^1.62.1",
+    "@types/node": "^26.2.0",
+    "eslint": "^10.8.0",
+    "globals": "^17.9.0",
     "jsdom": "^29.1.1"
   }
 }
