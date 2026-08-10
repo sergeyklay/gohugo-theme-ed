@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased](https://github.com/sergeyklay/gohugo-theme-ed/compare/v0.9.0...HEAD)
 
+### Changed
+
+- Raised the minimum required Node.js version for development from 20 to
+  24.15.0. Node.js 20 reached end of life on 2026-04-30 and can no longer
+  run the theme's dev dependencies. This affects contributors only; building
+  a site with the theme still requires Hugo alone.
+
 ## [v0.9.0](https://github.com/sergeyklay/gohugo-theme-ed/compare/v0.8.1...v0.9.0)
 
 ### Changed

@@ -11,6 +11,9 @@
 [build.environment]
   HUGO_VERSION = '0.147.8'
   HUGO_ENABLEGITINFO = 'true'
+  # Must satisfy the "engines.node" constraint in package.json, otherwise
+  # the dev dependencies installed here will not run.
+  NODE_VERSION = '24'
 
 # Production context: all deploys from the Production branch
 # set in your site’s Branches settings in the UI will inherit
