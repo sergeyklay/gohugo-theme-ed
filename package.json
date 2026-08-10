@@ -30,7 +30,7 @@
     "@eslint/js": "^10.0.0",
     "@playwright/test": "^1.62.1",
     "@types/node": "^24.13.3",
-    "eslint": "^10.8.0",
+    "eslint": "^10.8.1",
     "globals": "^17.9.0",
     "jsdom": "^30.0.1"
   },
