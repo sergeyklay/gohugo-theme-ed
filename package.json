@@ -31,7 +31,7 @@
     "@playwright/test": "^1.62.1",
     "@types/node": "^24.13.3",
     "eslint": "^10.8.1",
-    "globals": "^17.9.0",
+    "globals": "^17.11.0",
     "jsdom": "^30.0.1"
   },
   "engines": {
